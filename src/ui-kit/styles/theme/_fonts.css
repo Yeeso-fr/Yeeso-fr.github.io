@@ -1,0 +1,79 @@
+/* OpenDyslexic — SIL Open Font License 1.1 — https://opendyslexic.org */
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/opendyslexic/OpenDyslexic-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/opendyslexic/OpenDyslexic-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/opendyslexic/OpenDyslexic-Italic.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../assets/fonts/opendyslexic/OpenDyslexic-BoldItalic.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Luciole — Creative Commons Attribution 4.0 — © Laurent Bourcellier & Jonathan Perez — https://luciole-vision.com */
+@font-face {
+  font-family: "Luciole";
+  src: url("../assets/fonts/luciole/Luciole-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Luciole";
+  src: url("../assets/fonts/luciole/Luciole-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Luciole";
+  src: url("../assets/fonts/luciole/Luciole-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Luciole";
+  src: url("../assets/fonts/luciole/Luciole-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+[data-font="opendyslexic"] {
+  --font-primary: "OpenDyslexic", sans-serif;
+  --font-secondary: "OpenDyslexic", sans-serif;
+}
+
+[data-font="luciole"] {
+  --font-primary: "Luciole", sans-serif;
+  --font-secondary: "Luciole", sans-serif;
+}

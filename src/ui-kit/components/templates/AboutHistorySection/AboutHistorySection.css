@@ -1,0 +1,119 @@
+.about-history-section {
+  background: var(--color-lightpurple);
+  color: var(--color-dark);
+
+  .section-eyebrow--on-accent {
+    color: var(--color-dark);
+  }
+}
+
+.about-history-section__title {
+  font-size: var(--fs-h2);
+  max-width: 45ch;
+  margin: 0 0 2.5rem;
+  color: var(--color-dark);
+}
+
+.about-history-section__content {
+  display: grid;
+  gap: 2rem;
+}
+
+.about-history-section__timeline {
+  display: grid;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-timeline-item {
+  background: var(--color-light);
+  border-radius: var(--br-normal);
+  padding: 1.5rem 1.75rem;
+  color: var(--color-dark);
+}
+
+.about-timeline-item__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  /* The mockup's step labels use a vivid orange (#FA6E1E) outside the brand
+     palette that also fails AAA as small bold text on white. This card's
+     background is fixed white regardless of theme, so the text needs the
+     fixed --color-primary (navy) rather than the theme-reactive
+     --color-primary-strong, which resolves to a light tint in dark mode
+     meant for text on the app's dark background. */
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.about-timeline-item__number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--color-lightgreen);
+  color: var(--color-dark);
+  font-size: 0.85rem;
+}
+
+.about-timeline-item__title {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.about-timeline-item__description {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.about-history-section__profile {
+  display: grid;
+  gap: 1.5rem;
+  align-content: start;
+}
+
+.about-history-section__photo {
+  margin: 0;
+  border-radius: var(--br-normal);
+  overflow: hidden;
+  line-height: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.about-history-section__bio {
+  background: var(--color-light);
+  border-radius: var(--br-normal);
+  padding: 1.5rem 1.75rem;
+  color: var(--color-dark);
+
+  h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+  }
+
+  p {
+    margin: 0 0 1.25rem;
+    line-height: 1.6;
+    color: var(--color-dark-muted);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about-history-section__content {
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+  }
+}

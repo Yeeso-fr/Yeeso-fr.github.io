@@ -1,0 +1,102 @@
+.mission-section__title {
+  font-size: var(--fs-h2);
+  max-width: 55ch;
+  margin: 0 0 2.5rem;
+}
+
+.mission-section__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.mission-card {
+  border-radius: var(--br-normal);
+  padding: 1.75rem;
+  color: var(--color-dark);
+}
+
+.mission-card--purple {
+  background: var(--color-lightpurple);
+}
+
+.mission-card--green {
+  background: var(--color-lightgreen);
+}
+
+.mission-card--orange {
+  /* --color-lightorange (#e77169) is too saturated to carry AAA-compliant
+     text, so this card uses a pastel tint instead of the full accent. */
+  background: var(--yeeso-coral-tint);
+
+  .mission-card__icon {
+    color: var(--color-lightorange);
+  }
+}
+
+.mission-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.mission-card__title {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.mission-card__description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.mission-section__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin: 0;
+}
+
+.mission-section__stat {
+  dt {
+    font-size: var(--fs-h3);
+    font-weight: 800;
+    color: var(--color-primary-strong);
+  }
+
+  dd {
+    margin: 0.25rem 0 0;
+    color: var(--font-color-muted);
+    font-size: 0.9rem;
+  }
+}
+
+.mission-section__labels {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+
+  p {
+    margin: 0;
+    color: var(--font-color-muted);
+    font-size: 0.9rem;
+    max-width: 32ch;
+  }
+}
+
+.mission-section__labels-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+
+  img {
+    height: 32px;
+    width: auto;
+  }
+}
