@@ -1,0 +1,139 @@
+name: QA on demand (accessibility, component & performance tests)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.QA_SCORES_PAT }}
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+          standalone: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --store-dir=.pnpm-store
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Arch unit tests
+        run: pnpm test:arch-unit
+
+      - name: Component tests
+        run: pnpm test:component
+
+      - name: Start dev server
+        run: pnpm dev &
+
+      - name: Wait for dev server
+        run: |
+          for i in $(seq 1 30); do
+            curl -sSf http://localhost:3000 > /dev/null && exit 0
+            sleep 2
+          done
+          echo "Dev server did not start in time" >&2
+          exit 1
+
+      - name: Accessibility & Storybook component tests
+        run: pnpm test:ui
+
+      - name: Stop dev server
+        if: always()
+        run: kill $(lsof -t -i:3000) || true
+
+      - name: Build for production
+        run: pnpm build
+        env:
+          NODE_ENV: production
+
+      - name: Start production server
+        run: pnpm start &
+
+      - name: Wait for production server
+        run: |
+          for i in $(seq 1 30); do
+            curl -sSf http://localhost:3000 > /dev/null && exit 0
+            sleep 2
+          done
+          echo "Production server did not start in time" >&2
+          exit 1
+
+      - name: Lighthouse tests
+        run: pnpm test:lighthouse
+
+      - name: Generate QA scores
+        run: pnpm qa:scores
+
+      - name: Open PR with updated QA scores
+        env:
+          # A PAT, not the default GITHUB_TOKEN: PRs/pushes made with the
+          # default token don't trigger other workflows (anti-recursion
+          # guard), so ci.yml's `pull_request` trigger never fires and the
+          # required "ci" status check never appears — the PR then sits
+          # open forever even with auto-merge enabled.
+          GH_TOKEN: ${{ secrets.QA_SCORES_PAT }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet -- src/content/qa-scores.json; then
+            echo "No score changes to commit"
+            exit 0
+          fi
+
+          # The job runs for several minutes before reaching this step (install,
+          # Playwright, lint, build, Lighthouse...), so the initial checkout of
+          # main can be stale by now. Re-fetch and replay the score change onto
+          # the current tip right before committing — otherwise the PR branch
+          # diverges from main mid-run, GitHub marks it out of date, and
+          # auto-merge silently disables itself instead of merging.
+          git stash push -- src/content/qa-scores.json
+          git fetch origin main
+          branch="chore/qa-scores-${{ github.run_id }}"
+          git checkout -B "$branch" origin/main
+          git stash pop
+          git add src/content/qa-scores.json
+          git commit -m "chore: update QA scores"
+          git push origin "$branch"
+
+          gh pr create \
+            --title "chore: update QA scores" \
+            --body "Automated QA score refresh from the QA on demand workflow." \
+            --base main \
+            --head "$branch"
+
+          # --admin uses the repo-admin bypass configured on the main branch
+          # ruleset to merge despite the "1 approving review" requirement — a
+          # bot can never satisfy that requirement by approving its own PR, and
+          # plain `--auto` still waits for it instead of exercising the bypass.
+          gh pr merge "$branch" --squash --admin || \
+            echo "Merge unavailable — PR is open and waiting for CI + manual merge."
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

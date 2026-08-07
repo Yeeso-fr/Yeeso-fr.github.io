@@ -1,0 +1,102 @@
+.article-page {
+  .article-page__header {
+    margin: auto;
+    background-color: var(--background-primary);
+    padding: clamp(3rem, 5vw, 6rem) 0;
+
+    .article-page__header-wrapper {
+      max-width: var(--article-max-width);
+      margin: auto;
+      padding-inline: 2rem;
+      opacity: 0;
+      animation: slide-up 0.8s ease-out forwards;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+        opacity: 1;
+      }
+    }
+  }
+
+  .article-page__cover {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    margin-top: 2rem;
+  }
+
+  .article-page__title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: 0 0 1rem;
+  }
+
+  .article-page__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: slide-up 0.8s ease-out 0.15s forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      opacity: 1;
+    }
+  }
+
+  .article-page__meta-separator {
+    display: none;
+    color: var(--font-color-muted);
+  }
+
+  @media screen and (min-width: 576px) {
+    .article-page__meta {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .article-page__meta-separator {
+      display: inline;
+    }
+  }
+
+  .article-page__categories {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: slide-up 0.8s ease-out 0.3s forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      opacity: 1;
+    }
+  }
+
+  .article-page__original {
+    margin-top: 1.5rem;
+    opacity: 0;
+    animation: slide-up 0.8s ease-out 0.45s forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      opacity: 1;
+    }
+  }
+
+  .article-page__footer {
+    margin: auto;
+    padding: 2rem;
+    background-color: var(--background-primary);
+
+    .author-card {
+      max-width: calc(var(--article-max-width) + 6rem);
+      background-color: var(--background-primary);
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .article-page__footer {
+      padding: 2rem 0;
+    }
+  }
+}

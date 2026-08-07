@@ -1,0 +1,57 @@
+/* ---------- Titles ---------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+  font-family: var(--font-secondary), sans-serif;
+  overflow-wrap: break-word;
+
+  span,
+  small {
+    font-family: var(--font-secondary), sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .anchor {
+    opacity: 0;
+    margin-left: 0.5rem;
+    color: var(--font-color-muted);
+    transition: opacity 0.2s;
+  }
+
+  &:hover .anchor {
+    opacity: 1;
+  }
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  animation: slide-up 0.8s ease-out forwards;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+h4,
+h5,
+h6 {
+  font-size: var(--fs-h4);
+}

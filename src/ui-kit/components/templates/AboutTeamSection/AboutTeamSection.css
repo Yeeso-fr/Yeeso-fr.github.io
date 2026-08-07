@@ -1,0 +1,85 @@
+.about-team-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.about-team-section__lead {
+  color: var(--font-color-muted);
+  max-width: 65ch;
+  margin: 0 0 2.5rem;
+}
+
+.about-team-section__subtitle {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1.25rem;
+}
+
+.about-team-section__bureau {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.about-team-card {
+  border-radius: var(--br-normal);
+  padding: 1.5rem;
+  /* Fixed white, not the theme-reactive page background, so the card reads
+     as a distinct flat block in both themes without needing a border. */
+  background: var(--color-light);
+  color: var(--color-dark);
+}
+
+.about-team-card__role {
+  display: block;
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.about-team-card__name {
+  font-weight: 800;
+  margin: 0 0 0.25rem;
+}
+
+.about-team-card__job {
+  margin: 0;
+  color: var(--color-dark-muted);
+  font-size: 0.9rem;
+}
+
+.about-team-section__lists {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.about-team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+
+  dt {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary-strong);
+  }
+
+  dd {
+    margin: 0.2rem 0 0;
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about-team-section__lists {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

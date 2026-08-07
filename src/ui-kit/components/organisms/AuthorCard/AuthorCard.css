@@ -1,0 +1,112 @@
+.author-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 2rem;
+  color: var(--font-color);
+  width: 100%;
+  max-width: var(--article-max-width);
+  margin: 3rem auto;
+}
+
+.author-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .author-card__avatar {
+    align-self: center;
+
+    .avatar-image {
+      width: 120px;
+      height: 120px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .author-card__header {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .author-card__avatar {
+      align-self: auto;
+    }
+  }
+}
+
+.author-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.author-card__name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.author-card__name {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 1.75rem);
+}
+
+.author-card__pronouns {
+  font-size: 0.875rem;
+}
+
+.author-card__socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.author-card__bio {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-top: 0.3rem;
+}
+
+.author-card__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.author-card--mini {
+  padding: 1rem;
+  margin: 0;
+  max-width: none;
+
+  .author-card__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--br-normal);
+  }
+
+  .author-card__avatar {
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .author-card__link:hover .author-card__avatar {
+    transform: translateY(-4px);
+  }
+
+  .author-card__name {
+    font-weight: 700;
+    font-size: clamp(1.1rem, 3vw, 1.25rem);
+    text-align: center;
+    color: var(--font-color);
+    font-family: var(--font-secondary), sans-serif;
+  }
+}

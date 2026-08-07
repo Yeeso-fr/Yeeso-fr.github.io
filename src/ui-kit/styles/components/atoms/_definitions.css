@@ -1,0 +1,16 @@
+/* ---------- Definitions ---------- */
+
+dl {
+  margin: 1.5rem 0;
+}
+
+dt {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+dd {
+  margin-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--font-color-muted);
+}

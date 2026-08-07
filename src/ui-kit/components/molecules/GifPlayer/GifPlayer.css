@@ -1,0 +1,43 @@
+.gif-player {
+  position: relative;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.gif-player__toggle {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 2px solid var(--color-light);
+  border-radius: var(--br-circle);
+  /* Fixed dark control surface (not theme-reversed): keeps a light icon and,
+     on hover, the primary blue both contrast-safe over any GIF and in either
+     theme — `--color-primary` fails contrast on the white reversed background
+     dark mode would otherwise give this button. */
+  background: var(--color-dark);
+  color: var(--color-light);
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    color var(--transition-duration--general) ease,
+    border-color var(--transition-duration--general) ease;
+}
+
+.gif-player__toggle:hover:not(:disabled),
+.gif-player__toggle:focus-visible {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.gif-player__toggle:focus-visible {
+  outline: 2px solid var(--color-primary-strong);
+  outline-offset: 2px;
+}

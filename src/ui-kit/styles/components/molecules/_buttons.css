@@ -1,0 +1,67 @@
+/* ---------- Buttons ---------- */
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-primary), sans-serif;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--br-rounded);
+  color: var(--font-color);
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:not(:disabled):hover {
+    color: var(--color-primary-strong);
+    border-color: var(--color-primary-strong);
+  }
+}
+
+/* Reversed */
+
+.button--reversed {
+  color: var(--font-reverse);
+  border-color: var(--border-color-reverse);
+
+  &:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+}
+
+/* Icon */
+
+.button--icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: var(--br-circle);
+  border: 1px solid var(--border-color);
+  color: var(--font-color);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  svg {
+    width: 1.2rem;
+  }
+
+  &:hover {
+    color: var(--color-primary-strong);
+    border-color: var(--color-primary-strong);
+  }
+}

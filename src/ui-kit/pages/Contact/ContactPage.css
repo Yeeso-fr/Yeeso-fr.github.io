@@ -1,0 +1,75 @@
+.contact-page__lead {
+  max-width: 55ch;
+  color: var(--font-color-muted);
+  font-size: 1.1rem;
+  margin: 0 0 2.5rem;
+}
+
+.contact-page__grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.contact-page__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.5rem;
+  border-radius: var(--br-normal);
+  text-decoration: none;
+
+  p {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}
+
+a.contact-card {
+  color: var(--color-dark);
+}
+
+a.contact-card:visited,
+a.contact-card:hover {
+  color: var(--color-dark);
+}
+
+.contact-card--green {
+  background: var(--color-lightgreen);
+  color: var(--color-dark);
+}
+
+.contact-card--purple {
+  background: var(--color-lightpurple);
+  color: var(--color-dark);
+}
+
+.contact-card--orange {
+  /* --color-lightorange (#e77169) is too saturated to carry AAA-compliant
+     text, so this card uses a pastel tint instead of the full accent. */
+  background: var(--yeeso-coral-tint);
+  color: var(--color-dark);
+
+  svg {
+    color: var(--color-lightorange);
+  }
+}
+
+.contact-card__label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media screen and (min-width: 992px) {
+  .contact-page__grid {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}

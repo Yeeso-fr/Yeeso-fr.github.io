@@ -1,0 +1,5 @@
+.conferences-page__lead {
+  color: var(--font-color-muted);
+  max-width: 70ch;
+  margin: 0;
+}

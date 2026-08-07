@@ -1,0 +1,25 @@
+/* ---------- Blockquotes ---------- */
+
+blockquote {
+  border-left: 1px solid var(--border-color);
+  padding-left: 1rem;
+  margin-left: 0;
+
+  blockquote {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+  }
+
+  p {
+    font-family: var(--font-secondary), serif;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  p:last-child {
+    font-family: var(--font-primary), sans-serif;
+    font-style: normal;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,61 @@
+.ticker {
+  overflow: hidden;
+  background-color: var(--color-primary);
+  padding: 1rem 0;
+}
+
+.ticker__track {
+  display: flex;
+  width: max-content;
+  /* 25s per lap × LAP_REPEATS (5) in Ticker.tsx, so the on-screen scroll
+     speed stays constant regardless of how many times the item list is
+     repeated to keep a lap wider than the viewport. */
+  animation: ticker-scroll 125s linear infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+.ticker__item {
+  display: flex;
+  align-items: center;
+  color: var(--color-light);
+  font-family: var(--font-secondary), sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  padding-right: 1.5rem;
+
+  &::after {
+    content: "★";
+    margin-left: 1.5rem;
+    color: var(--yeeso-coral);
+  }
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Theme overrides */
+[data-theme="dark"] {
+  /* Inverted on purpose: a light band reads as a deliberate accent against
+     the surrounding dark sections, instead of the navy ticker blending
+     into the dark background. */
+  .ticker {
+    background-color: var(--color-light-muted);
+  }
+
+  .ticker__item {
+    color: var(--color-dark);
+  }
+}

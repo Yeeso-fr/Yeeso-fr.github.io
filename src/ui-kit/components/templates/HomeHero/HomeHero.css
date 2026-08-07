@@ -1,0 +1,164 @@
+.home-hero-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-hero {
+  position: relative;
+  display: flex;
+  /* Mobile stacks main+photo in normal flow (no forced full-height
+     stretch) — the 0 bottom padding is what keeps the photo flush
+     against the ticker here. See the >=992px override below for the
+     full-viewport layout, where the hero is stretched and needs an
+     explicit bottom anchor instead. */
+  align-items: center;
+  padding: 2rem 1rem 0;
+
+  .home-hero__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+
+    .home-hero__main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: clamp(1rem, 5vw, 2rem);
+      justify-content: center;
+      /* Grid items default to a content-based min-width (auto), which lets
+         this column's min-content (driven by the CTA buttons/title) blow
+         past its 1fr share and squeeze the photo column down to a sliver
+         on tablet widths. min-width: 0 lets it actually respect 1fr. */
+      min-width: 0;
+
+      &::selection {
+        background: transparent;
+        color: var(--color-primary);
+        text-shadow: none;
+      }
+
+      .home-hero__title {
+        /* Sized against the full-width mobile column. Once the 2-column
+           layout kicks in at 992px (below), the title only has ~half the
+           viewport to work with, so it switches to a gentler clamp there
+           — otherwise "avec les femmes" (kept on one line on purpose)
+           overflows behind the photo in the 992-1400px range. */
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        line-height: 1.1;
+        margin: 0;
+
+        .home-hero__title-highlight {
+          text-decoration: underline;
+          text-decoration-color: var(--yeeso-coral);
+          text-decoration-thickness: 0.08em;
+          text-underline-offset: 0.1em;
+        }
+      }
+
+      .home-hero__lead {
+        color: var(--font-color-muted);
+        font-size: 1.1rem;
+        max-width: 42ch;
+        margin: 0;
+      }
+
+      .home-hero__cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+
+    .home-hero__aside {
+      display: flex;
+      justify-content: center;
+      min-width: 0;
+
+      .home-hero__photo {
+        position: relative;
+        width: 100%;
+        max-width: 420px;
+        margin: 0;
+        animation: slide-up 0.8s ease-out forwards;
+
+        @media (prefers-reduced-motion: reduce) {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .home-hero__image {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: var(--br-normal);
+      }
+
+      .home-hero__caption {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        background: var(--color-primary);
+        color: var(--color-light);
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 0.5rem 1rem;
+        border-radius: var(--br-rounded);
+      }
+    }
+  }
+}
+
+.home-hero-block__spacer {
+  flex-shrink: 0;
+  height: clamp(3rem, 8vw, 6rem);
+}
+
+@media screen and (min-width: 992px) {
+  .home-hero-block {
+    /* Full viewport minus the sticky nav's own height, so the hero +
+       ticker + spacer together fill exactly one screen instead of
+       overflowing it by the nav's height. Only applied once the
+       side-by-side layout below makes a full-height hero read as
+       intentional — on mobile/tablet it would just strand the content
+       far from the ticker on tall, narrow screens. */
+    min-height: calc(100dvh - 4.5rem);
+  }
+
+  .home-hero {
+    flex: 1;
+    /* Bottom-aligned (not centered) so the photo sits flush against the
+       ticker below, with no gap — the text column re-centers itself
+       within the row via the grid's align-items below. */
+    align-items: flex-end;
+    padding: 2rem 5rem 0;
+
+    .home-hero__wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      align-items: center;
+
+      .home-hero__main .home-hero__title {
+        /* Halved vw coefficient to roughly match this column's ~half
+           of the viewport, tuned so "avec les femmes" (nbsp-joined,
+           never wraps) stays within the column instead of overflowing
+           behind the photo — verified across 992-1400px. */
+        font-size: clamp(2.25rem, 4.5vw, 4.5rem);
+      }
+
+      .home-hero__aside {
+        /* The text column is sometimes taller than the photo, which
+           would leave the row taller than the photo and center it away
+           from the bottom edge. Anchoring this column to the row's end
+           keeps the photo flush against the ticker regardless. */
+        align-self: end;
+      }
+    }
+  }
+}

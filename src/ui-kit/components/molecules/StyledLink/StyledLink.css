@@ -1,0 +1,105 @@
+.styled-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  text-underline-offset: 0.25rem;
+}
+
+.styled-link:visited {
+  color: var(--font-color);
+}
+
+.styled-link:hover {
+  color: var(--color-primary-strong);
+}
+
+/* ---------- Variant ---------- */
+
+.styled-link--reversed {
+  color: var(--font-reverse);
+}
+
+.styled-link--reversed:visited {
+  color: var(--font-reverse);
+}
+
+.styled-link--reversed:hover {
+  color: var(--color-primary);
+}
+
+/* ---------- Bordered ---------- */
+
+.styled-link--bordered {
+  border: 1px solid var(--border-color);
+  border-radius: var(--br-rounded);
+  padding: 0.4rem 0.75rem;
+  text-decoration: none;
+}
+
+.styled-link--bordered.styled-link--reversed {
+  border-color: var(--border-color-reverse);
+}
+
+.styled-link--bordered:hover {
+  border-color: var(--color-primary-strong);
+}
+
+/* ---------- Filled ---------- */
+
+.styled-link--filled {
+  background: var(--color-primary);
+  color: var(--color-light);
+  border-radius: var(--br-rounded);
+  padding: 0.65rem 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.styled-link--filled:visited {
+  color: var(--color-light);
+}
+
+.styled-link--filled:hover {
+  color: var(--color-light);
+  opacity: 0.85;
+}
+
+.styled-link--filled-green {
+  background: var(--color-lightgreen);
+  color: var(--color-dark);
+}
+
+.styled-link--filled-green:visited,
+.styled-link--filled-green:hover {
+  color: var(--color-dark);
+}
+
+/* ------------ Icon ------------ */
+
+.styled-link.styled-link--icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: var(--br-circle);
+  border: 1px solid var(--border-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--font-color);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-primary-strong);
+    border-color: var(--color-primary-strong);
+  }
+
+  svg {
+    width: 1.2rem;
+  }
+}
