@@ -1,0 +1,32 @@
+.authors-list-page {
+  min-height: calc(50vh);
+  padding: 3rem 1rem 6rem;
+}
+
+.authors-list {
+  max-width: calc(var(--container-max-width) - 200px);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: auto;
+}
+
+.authors-list__item {
+  display: flex;
+  justify-content: center;
+}
+
+.authors-list__item .author-card__avatar {
+  opacity: 0;
+  animation: slide-up 0.6s ease-out calc(0.1s + var(--card-index, 0) * 60ms)
+    forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .authors-list__item .author-card__avatar {
+    animation: none;
+    opacity: 1;
+  }
+}

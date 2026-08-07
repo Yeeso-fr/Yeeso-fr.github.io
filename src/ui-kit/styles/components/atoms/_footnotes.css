@@ -1,0 +1,42 @@
+/* ---------- Footnotes ---------- */
+
+.footnotes {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: var(--font-color-muted);
+
+  ol {
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.footnote-ref {
+  font-size: 0.8em;
+  vertical-align: super;
+  text-decoration: none;
+  padding: 0 0.2em;
+
+  &::before {
+    content: "[";
+  }
+
+  &::after {
+    content: "]";
+  }
+}
+
+.footnote-backref {
+  text-decoration: none;
+  margin-left: 0.3rem;
+  font-family: var(--font-primary), sans-serif;
+}

@@ -1,0 +1,16 @@
+.avatar-link {
+  display: inline-flex;
+  border-radius: var(--br-circle);
+  overflow: hidden;
+  transition: opacity 0.2s ease;
+  margin: 1rem;
+
+  .avatar-image {
+    border-radius: var(--br-circle);
+    object-fit: cover;
+  }
+
+  &.avatar-border {
+    border: 1px solid var(--avatar-border-color);
+  }
+}
