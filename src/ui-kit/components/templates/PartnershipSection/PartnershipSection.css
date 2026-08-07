@@ -1,0 +1,64 @@
+.partnership-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.partnership-section__lead {
+  color: var(--font-color-muted);
+  max-width: 65ch;
+  margin: 0 0 2rem;
+
+  svg {
+    color: var(--color-lightgreen);
+  }
+}
+
+.partnership-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.partnership-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+  }
+
+  thead th {
+    /* Fixed navy + white, not theme-reactive: this header row keeps a
+       constant background regardless of theme. */
+    background: var(--color-primary);
+    color: var(--color-light);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  thead th:not(:first-child),
+  tbody td {
+    text-align: center;
+  }
+
+  tbody th {
+    font-weight: 600;
+  }
+
+  tbody tr:nth-child(even) {
+    /* Fixed cream + dark text, not the theme-reactive --font-color: this
+       stripe's background is always cream regardless of theme, so the
+       text needs a fixed pairing too (--color-light-muted is a raw,
+       non-reactive token despite the name). */
+    background: var(--yeeso-cream);
+    color: var(--color-dark);
+  }
+
+  tbody svg {
+    color: var(--color-lightgreen);
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,36 @@
+.about-hero {
+  background: var(--color-light-muted);
+  /* --color-light-muted is a fixed cream, not theme-reactive, so text here
+     must be fixed too — the theme-reactive --font-color/--font-color-muted
+     would turn white-on-cream (invisible) in dark mode. */
+  color: var(--color-dark);
+  padding: clamp(3rem, 10vw, 6rem) clamp(1rem, 5vw, 5rem);
+}
+
+.about-hero .badge {
+  margin-bottom: 1.5rem;
+}
+
+.about-hero__title {
+  font-size: var(--fs-h1);
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+  max-width: 20ch;
+
+  .about-hero__title-highlight {
+    /* --color-lightorange (#e77169) fails AAA contrast as solid text on the
+       cream background, so the accent is carried by an underline instead of
+       a text-color fill — same treatment as HomeHero's title highlight. */
+    text-decoration: underline;
+    text-decoration-color: var(--yeeso-coral);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.1em;
+  }
+}
+
+.about-hero__lead {
+  color: var(--color-dark-muted);
+  font-size: 1.1rem;
+  max-width: 60ch;
+  margin: 0;
+}

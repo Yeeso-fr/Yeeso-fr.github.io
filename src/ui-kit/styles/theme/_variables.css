@@ -1,0 +1,75 @@
+:root {
+  color-scheme: light dark;
+
+  /* COLORS — original Yeeso brand palette */
+  --yeeso-primary: #212f7a;
+  --yeeso-primary-light: #dde0eb;
+  --yeeso-primary-tint: #a6accd;
+  --yeeso-accent: #eeaaff;
+  --yeeso-green: #5fd1a4;
+  --yeeso-coral: #e77169;
+  /* Pastel tint of --yeeso-coral (~35% coral / 65% white) for flat-fill
+     cards: --yeeso-coral itself is too saturated to carry AAA-compliant
+     text, but this tint passes ~8:1 with fixed dark text. */
+  --yeeso-coral-tint: #f7cdcb;
+  --yeeso-cream: #f9f7ee;
+  /* "Noir velour" from the brand charte (complementary color, Sobriété /
+     Modernité) — distinct from --blackPearl below, which is the dark
+     theme's own background, chosen specifically for its AAA contrast
+     against the rest of the palette rather than for brand-swatch fidelity. */
+  --yeeso-noir-velours: #2b2b2b;
+  --blackPearl: #081930;
+  --oxford-blue: #3d495a;
+  --shark: #202428;
+  --white: #fff;
+
+  /* MAIN THEME COLORS */
+  --color-dark: var(--blackPearl);
+  --color-dark-muted: var(--oxford-blue);
+  --color-light: var(--white);
+  --color-light-muted: var(--yeeso-cream);
+  --color-blue: var(--yeeso-primary);
+  --color-lightblue: var(--yeeso-primary-light);
+  --color-lightgreen: var(--yeeso-green);
+  --color-lightorange: var(--yeeso-coral);
+  --color-lightpurple: var(--yeeso-accent);
+  --color-lightred: var(--yeeso-coral);
+  --color-primary: var(--color-blue);
+  --color-secondary: var(--yeeso-accent);
+
+  /* FONTS */
+  --font-primary: "Arimo", Helvetica, Arial, sans-serif;
+  --font-secondary:
+    var(--font-space-grotesk), "Arimo", Helvetica, Arial, sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  /* TYPOGRAPHY */
+  --fs-h1: clamp(2.5rem, 9vw, 4.5rem);
+  --fs-h2: clamp(2rem, 7vw, 3rem);
+  --fs-h3: clamp(1.5rem, 5vw, 2.25rem);
+  --fs-h4: clamp(1.25rem, 4vw, 1.75rem);
+
+  /* SPACING */
+  --spacing-s: clamp(1rem, 2vw, 1.5rem);
+  --spacing-m: clamp(1.5rem, 4vw, 2.5rem);
+  --spacing-l: clamp(2rem, 6vw, 4rem);
+  --spacing-xl: clamp(3rem, 10vw, 6rem);
+
+  /* BORDER RADIUS */
+  --br-normal: 0.625rem;
+  --br-rounded: 50px;
+  --br-circle: 50%;
+
+  /* TRANSITIONS */
+  --transition-duration--general: 0.1s;
+
+  /* BREAKPOINTS */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-xxl: 1400px;
+
+  --article-max-width: var(--breakpoint-md);
+  --container-max-width: 1400px;
+}

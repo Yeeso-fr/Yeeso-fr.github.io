@@ -1,0 +1,159 @@
+/* ---------- Containers ---------- */
+
+.sb-show-main,
+.sbdocs.sbdocs-wrapper,
+.docs-story {
+  background-color: var(--background-primary);
+}
+
+.sbdocs-content {
+  padding: 1rem 0 2rem;
+  max-width: 100%;
+}
+
+#storybook-docs {
+  /* ---------- Titles ---------- */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-secondary), serif;
+    color: var(--font-color);
+    border-bottom: none;
+  }
+
+  h2 {
+    font-family: var(--font-primary), serif;
+  }
+
+  /* --------- Description text ---------
+     Markdown descriptions render as unclassed elements under
+     `.sbdocs-content`. Story canvases and the args table are wrapped in
+     `.sb-unstyled`, so excluding that keeps us from restyling rendered
+     component content. */
+
+  .sbdocs-content p:not(.sb-unstyled *),
+  .sbdocs-content li:not(.sb-unstyled *) {
+    color: var(--font-color);
+  }
+
+  /* --------- Markdown tables (descriptions) ---------
+     Drop Storybook's zebra striping (light row backgrounds) and use the
+     theme's text/border colors so tables stay legible in dark mode. */
+
+  .sbdocs-content table:not(.docblock-argstable):not(.sb-unstyled *) tr,
+  .sbdocs-content
+    table:not(.docblock-argstable):not(.sb-unstyled *)
+    tr:nth-of-type(2n) {
+    background-color: transparent;
+  }
+
+  .sbdocs-content table:not(.docblock-argstable):not(.sb-unstyled *) th,
+  .sbdocs-content table:not(.docblock-argstable):not(.sb-unstyled *) td {
+    color: var(--font-color);
+    border-color: var(--border-color);
+  }
+
+  /* --------- Links --------- */
+
+  a:hover {
+    color: var(--color-primary);
+  }
+
+  /* --------- Buttons --------- */
+
+  button:not(.docs-story button):not(.sbdocs-preview button):not(
+    .sbdocs-content button[aria-label="Reset controls"]
+  ) {
+    color: var(--font-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 0.75rem;
+    text-decoration: none;
+    transition:
+      color 0.2s ease,
+      border-color 0.2s ease;
+    border: 1px solid transparent;
+    border-radius: var(--br-rounded);
+    cursor: pointer;
+
+    &:visited {
+      color: var(--font-color);
+    }
+
+    &:hover {
+      color: var(--color-primary);
+      background-color: transparent;
+      border: 1px solid transparent;
+    }
+  }
+
+  /* ---------- Previews ---------- */
+
+  .sbdocs-preview {
+    box-shadow: none;
+    border-radius: 0;
+
+    .docs-story {
+      border-radius: 0;
+    }
+
+    /* Code */
+
+    > div:nth-child(3) {
+      border-top: 1px solid var(--border-color);
+    }
+  }
+
+  /* ---------- ArgsTable ---------- */
+
+  .docblock-argstable thead {
+    border: 0.5px solid rgba(38, 74, 115, 0.15);
+  }
+
+  .docblock-argstable tbody tr td:first-of-type {
+    span {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+  }
+
+  [data-theme="dark"] & {
+    .docblock-argstable thead {
+      border: 0.5px solid var(--border-color);
+    }
+
+    .docblock-argstable thead,
+    .docblock-argstable thead * {
+      background-color: var(--background-reverse);
+      color: var(--font-reverse);
+    }
+
+    .docblock-argstable tbody tr:last-of-type td {
+      border-bottom: 0.5px solid var(--border-color);
+    }
+
+    .docblock-argstable tbody,
+    .docblock-argstable tbody td {
+      background-color: var(--background-contrast);
+      color: var(--font-color);
+      border-top: 0.5px solid var(--border-color);
+
+      * {
+        background-color: var(--background-contrast);
+        color: var(--font-color);
+      }
+    }
+
+    .docblock-argstable tbody tr td:first-of-type {
+      border-left: 0.5px solid var(--border-color);
+    }
+
+    .docblock-argstable tbody tr td:last-of-type {
+      border-right: 0.5px solid var(--border-color);
+    }
+  }
+}

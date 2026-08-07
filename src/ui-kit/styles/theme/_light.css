@@ -1,0 +1,26 @@
+[data-theme="light"] {
+  color-scheme: light;
+
+  /* FONTS */
+  --font-color: var(--color-dark);
+  --font-color-muted: var(--color-dark-muted);
+  --font-reverse: var(--color-light);
+  --font-reverse-muted: var(--color-light-muted);
+
+  /* --color-primary (#212f7a) already passes contrast (~12:1) as
+     text/icon/border color on this theme's light backgrounds, so keep it
+     as-is here (see _dark.css for why the dark theme needs a lightened
+     stand-in instead). */
+  --color-primary-strong: var(--color-primary);
+
+  /* BORDER COLORS */
+  --border-color: var(--color-dark);
+  --border-color-reverse: var(--color-light);
+  --avatar-border-color: var(--color-dark);
+
+  /* BACKGROUND COLORS */
+  --background-primary: var(--color-light-muted);
+  --background-secondary: var(--color-light-muted);
+  --background-reverse: var(--color-dark);
+  --background-contrast: var(--color-light);
+}

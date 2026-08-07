@@ -1,0 +1,26 @@
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* FONTS */
+  --font-color: var(--color-light);
+  --font-color-muted: var(--color-light-muted);
+  --font-reverse: var(--color-dark);
+  --font-reverse-muted: var(--color-dark-muted);
+
+  /* BORDER COLORS */
+  --border-color: var(--color-light);
+  --border-color-reverse: var(--color-dark);
+  --avatar-border-color: var(--color-light-muted);
+
+  /* --color-primary (#212f7a) is a dark navy — against this theme's dark
+     backgrounds (~1.47:1) it fails contrast as text/icon/border color. Use a
+     lightened stand-in for those uses; backgrounds can keep --color-primary
+     as-is (see _light.css for why the light theme doesn't need this). */
+  --color-primary-strong: var(--yeeso-primary-tint);
+
+  /* BACKGROUND COLORS */
+  --background-primary: var(--color-dark);
+  --background-secondary: var(--color-dark);
+  --background-reverse: var(--color-light);
+  --background-contrast: var(--shark);
+}
