@@ -5,7 +5,7 @@ import {
   faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { MEETUP_URL } from "@/config/social-links";
+import { CONTACT_EMAIL, MEETUP_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./NetworkFormatsSection.css";
 
@@ -71,6 +71,13 @@ export const NetworkFormatsSection = () => {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="network-formats-section__cta">
+          <p>Tu es étudiante en tech ?</p>
+          <StyledLink href={`mailto:${CONTACT_EMAIL}`} filled="green">
+            Rejoindre le mentorat
+          </StyledLink>
         </div>
 
         <div className="network-formats-section__cta">

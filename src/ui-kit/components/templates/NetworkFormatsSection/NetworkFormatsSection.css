@@ -28,6 +28,11 @@
     margin: 0;
     font-weight: 600;
   }
+
+  & + & {
+    padding-top: 1rem;
+    border-top: none;
+  }
 }
 
 .network-format-card {

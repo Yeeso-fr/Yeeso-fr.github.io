@@ -20,7 +20,7 @@ table {
 
 th,
 td {
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
   border: 1px solid var(--border-color);
   text-align: left;
 
@@ -37,13 +37,28 @@ td {
   }
 }
 
-th {
-  font-weight: 500;
-  font-size: 0.95rem;
+thead th {
+  /* Fixed navy + white, not theme-reactive: a consistent branded header
+     regardless of theme. */
+  background: var(--color-primary);
+  color: var(--color-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 td {
   font-size: 0.9rem;
+}
+
+tbody th {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--background-secondary);
+  color: var(--font-color);
 }
 
 tr {

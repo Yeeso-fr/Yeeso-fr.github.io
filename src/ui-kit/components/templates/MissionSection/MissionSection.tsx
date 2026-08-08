@@ -1,5 +1,7 @@
 import { faHeart, faStar, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FEMMES_NUMERIQUE_URL, RONALPIA_URL } from "@/config/social-links";
+import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./MissionSection.css";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
@@ -35,6 +37,21 @@ const STATS = [
     label: "Éducation et Entreprise, de la maternelle au travail",
   },
   { value: "1 réseau", label: "IT Women Network, mentorat et entraide" },
+] as const;
+
+const AUDIENCE_CTAS = [
+  {
+    text: "Vous êtes un établissement scolaire ?",
+    href: "/education",
+    label: "Découvrir le programme Éducation",
+    modifier: "mission-audience-cta--green",
+  },
+  {
+    text: "Vous êtes une entreprise ?",
+    href: "/entreprises",
+    label: "Découvrir notre offre Entreprise",
+    modifier: "mission-audience-cta--purple",
+  },
 ] as const;
 
 export const MissionSection = () => {
@@ -73,24 +90,42 @@ export const MissionSection = () => {
           ))}
         </dl>
 
+        <div className="mission-section__audience-ctas">
+          {AUDIENCE_CTAS.map((cta) => (
+            <div
+              className={`mission-audience-cta ${cta.modifier}`}
+              key={cta.href}
+            >
+              <p>{cta.text}</p>
+              <StyledLink href={cta.href} bordered={true}>
+                {cta.label}
+              </StyledLink>
+            </div>
+          ))}
+        </div>
+
         <div className="mission-section__labels">
           <p>
             Labellisée « association à impact » par Ronalpia. Incubée par
             Femmes@Numérique.
           </p>
           <div className="mission-section__labels-logos">
-            <img
-              src={`${basePath}/img/logos/logo-ronalpia.webp`}
-              alt="Ronalpia"
-              width={600}
-              height={350}
-            />
-            <img
-              src={`${basePath}/img/logos/logo-femmes-numerique.webp`}
-              alt="Femmes@Numérique"
-              width={236}
-              height={56}
-            />
+            <StyledLink href={RONALPIA_URL}>
+              <img
+                src={`${basePath}/img/logos/logo-ronalpia.webp`}
+                alt="Ronalpia"
+                width={600}
+                height={350}
+              />
+            </StyledLink>
+            <StyledLink href={FEMMES_NUMERIQUE_URL}>
+              <img
+                src={`${basePath}/img/logos/logo-femmes-numerique.webp`}
+                alt="Femmes@Numérique"
+                width={236}
+                height={56}
+              />
+            </StyledLink>
           </div>
         </div>
       </div>

@@ -47,7 +47,7 @@ export const HomeHero = () => {
           <div className="home-hero__aside">
             <figure className="home-hero__photo">
               <img
-                src={`${basePath}/img/photos/houleymatou-hero.webp`}
+                src={`${basePath}/img/photos/team/houleymatou.webp`}
                 alt="Houleymatou Baldé, fondatrice de Yeeso"
                 width={840}
                 height={1120}
