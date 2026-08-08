@@ -40,7 +40,7 @@ export const HomePage = ({ articles, authors }: HomePageProps) => {
           <section className="last-articles">
             <div className="container">
               <span className="section-eyebrow">Le blog</span>
-              <h2 className="section_title">Ce que le réseau écrit</h2>
+              <h2 className="section_title">Informer & Inspirer</h2>
               <LastArticlesList articles={articles} authors={authors} />
               <footer>
                 <StyledLink href={"/articles"} bordered={true}>

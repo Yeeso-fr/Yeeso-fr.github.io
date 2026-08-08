@@ -66,10 +66,10 @@ export const AboutHistorySection = () => {
           <div className="about-history-section__profile">
             <figure className="about-history-section__photo">
               <img
-                src={`${basePath}/authors/houleymatou-balde.webp`}
+                src={`${basePath}/img/photos/team/houleymatou.webp`}
                 alt="Houleymatou Baldé, fondatrice de Yeeso"
-                width={600}
-                height={600}
+                width={840}
+                height={1120}
               />
             </figure>
             <div className="about-history-section__bio">

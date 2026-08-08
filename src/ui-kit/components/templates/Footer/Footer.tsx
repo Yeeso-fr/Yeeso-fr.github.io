@@ -49,7 +49,7 @@ export const Footer = ({ qaScores }: FooterProps) => {
 
         <div className={"footer__section"}>
           <h2 className={"footer__title"}>Réseaux Sociaux</h2>
-          <div className={"footer__links"}>
+          <div className={"footer__links footer__links--social"}>
             <StyledLink
               href={LINKEDIN_URL}
               iconOnly={true}
