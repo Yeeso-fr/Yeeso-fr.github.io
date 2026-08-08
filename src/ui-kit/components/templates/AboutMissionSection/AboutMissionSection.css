@@ -41,6 +41,11 @@
   background: var(--color-lightgreen);
 }
 
+.about-value-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .about-value-card--coral {
   /* --color-lightorange (#e77169) is too saturated to carry AAA-compliant
      text, so this card uses a pastel tint instead of the full accent. */
@@ -49,11 +54,6 @@
   .about-value-card__icon {
     color: var(--color-lightorange);
   }
-}
-
-.about-value-card__icon {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .about-value-card__title {
