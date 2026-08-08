@@ -18,6 +18,7 @@ type ContentPage = {
 
 const CONTENT_TYPES: { folder: string; route: string }[] = [
   { folder: "articles", route: "articles" },
+  { folder: "authors", route: "authors" },
 ];
 
 const runGit = (args: string): string[] => {
@@ -81,7 +82,7 @@ test.describe("Accessibility of your new or updated content", () => {
       test.skip(
         true,
         `Compared your working tree and branch against ${baseRef} but found no changed file under ` +
-          "src/content/articles. Write or edit your content, then re-run `pnpm test:a11y:content`.",
+          "src/content/articles or src/content/authors. Write or edit your content, then re-run `pnpm test:a11y:content`.",
       );
     });
   }
