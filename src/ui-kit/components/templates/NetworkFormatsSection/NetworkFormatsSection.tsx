@@ -14,7 +14,7 @@ const FORMATS = [
     icon: faUserGroup,
     title: "Mentorat",
     description:
-      "Étudiantes, personnes en reconversion, professionnelles : un mentor ou une marraine vous accompagne à chaque étape de votre parcours dans la tech.",
+      "Étudiant·es, personnes en reconversion, professionnel·les : un mentor ou une marraine vous accompagne à chaque étape de votre parcours dans la tech.",
     modifier: "network-format-card--green",
   },
   {
@@ -28,14 +28,14 @@ const FORMATS = [
     icon: faComments,
     title: "Groupes de parole en non-mixité choisie",
     description:
-      "Un espace pour libérer la parole entre femmes, partager ses expériences et trouver du soutien face aux difficultés du milieu.",
+      "Un espace en non-mixité choisie — femmes, personnes trans et non-binaires — pour libérer la parole, partager ses expériences et trouver du soutien face aux difficultés du milieu.",
     modifier: "network-format-card--coral",
   },
   {
     icon: faMicrophoneLines,
     title: "IT Women Talks",
     description:
-      "Conférences, tables rondes et témoignages : nos événements mettent en lumière l'expertise et les parcours de femmes de la tech.",
+      "Conférences, tables rondes et témoignages : nos événements mettent en lumière l'expertise des femmes et minorités de genre dans la tech.",
     modifier: "network-format-card--noir",
   },
 ] as const;

@@ -10,6 +10,25 @@
   }
 }
 
+.network-section__container {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.network-section__photo {
+  margin: 0;
+  border-radius: var(--br-normal);
+  overflow: hidden;
+  line-height: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
 .network-section__title {
   font-size: var(--fs-h2);
   color: var(--color-light);
@@ -42,5 +61,12 @@
   svg {
     flex-shrink: 0;
     color: var(--color-lightgreen);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .network-section__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
   }
 }

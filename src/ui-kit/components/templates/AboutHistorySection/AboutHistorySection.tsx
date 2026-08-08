@@ -23,7 +23,7 @@ const TIMELINE = [
     step: "La création",
     title: "Yeeso, « avenir » en peul",
     description:
-      "L'association loi 1901 naît pour transformer une histoire personnelle en action collective : rendre le monde de l'IT plus juste et plus équitable entre les femmes et les hommes, dès la scolarisation.",
+      "L'association loi 1901 naît pour transformer une histoire personnelle en action collective : rendre le monde de l'IT plus juste et plus équitable, quel que soit le genre, dès la scolarisation.",
   },
   {
     step: "Aujourd'hui",

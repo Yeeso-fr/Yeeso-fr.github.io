@@ -1,3 +1,22 @@
+.conference-benefits-section__container {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.conference-benefits-section__photo {
+  margin: 0;
+  border-radius: var(--br-normal);
+  overflow: hidden;
+  line-height: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
 .conference-benefits-section__title {
   font-size: var(--fs-h2);
   margin: 0 0 0.75rem;
@@ -27,5 +46,12 @@
   svg {
     flex-shrink: 0;
     color: var(--color-lightgreen);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .conference-benefits-section__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
   }
 }
