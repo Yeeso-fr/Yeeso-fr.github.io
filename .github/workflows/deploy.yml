@@ -1,9 +1,10 @@
-name: Deploy Yeeso to GitHub Pages
+name: Deploy Yeeso preprod to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - site-refresh
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -66,7 +67,8 @@ jobs:
         env:
           NODE_ENV: production
           PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
-          PUBLIC_SITE_URL: "https://yeeso.fr/"
+          PUBLIC_SITE_URL: "https://yeeso-fr.github.io/"
+          DISALLOW_ROBOTS: "true"
 
       - name: Build Storybook
         run: |
@@ -86,6 +88,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy Yeeso to GitHub Pages
+      - name: Deploy Yeeso preprod to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
