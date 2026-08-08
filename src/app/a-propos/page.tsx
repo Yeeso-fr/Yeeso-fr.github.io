@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/config/seo";
 import { AboutPage } from "@/ui-kit/pages/About/AboutPage";
 import { getQaScores } from "@/usecases/qa-scores";
 
-export const metadata: Metadata = {
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
+export const metadata: Metadata = buildPageMetadata({
   title: "À Propos",
-  alternates: {
-    canonical: "/a-propos",
-  },
-};
+  description:
+    "Découvrez la mission, l'histoire et l'équipe de Yeeso, association loi 1901 qui œuvre pour un monde de l'IT plus juste, quel que soit le genre.",
+  path: "/a-propos",
+  basePath,
+});
 
 export default function Page() {
   const qaScores = getQaScores();
