@@ -7,7 +7,7 @@ import { getAllArticles } from "@/usecases/articles";
 import { getAllAuthors } from "@/usecases/authors";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
-const siteUrl = process.env.PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.PUBLIC_SITE_URL ?? "http://localhost:3000/";
 
 const resolveAuthorDescription = (author: Author) => {
   const de = /^[aeiouhàâéèêëîïôùû]/i.test(author.name) ? "d'" : "de ";

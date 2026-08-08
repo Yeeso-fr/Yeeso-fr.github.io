@@ -5,7 +5,7 @@ import { getAllAuthors } from "@/usecases/authors";
 
 export const dynamic = "force-static";
 
-const siteUrl = process.env.PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.PUBLIC_SITE_URL ?? "http://localhost:3000/";
 
 const escapeXml = (value: string) =>
   value
