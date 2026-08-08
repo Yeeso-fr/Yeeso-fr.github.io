@@ -4,10 +4,12 @@ import type { Article } from "@/entities/articles/articles";
 import type { Author } from "@/entities/authors/authors";
 import { LastArticlesList } from "@/ui-kit/articles/LastArticlesList/LastArticlesList";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
+import { BookSection } from "@/ui-kit/components/templates/BookSection/BookSection";
 import { ContextSection } from "@/ui-kit/components/templates/ContextSection/ContextSection";
 import { HistorySection } from "@/ui-kit/components/templates/HistorySection/HistorySection";
 import { HomeHero } from "@/ui-kit/components/templates/HomeHero/HomeHero";
 import { ImpactSection } from "@/ui-kit/components/templates/ImpactSection/ImpactSection";
+import { MembershipCallout } from "@/ui-kit/components/templates/MembershipCallout/MembershipCallout";
 import { MissionSection } from "@/ui-kit/components/templates/MissionSection/MissionSection";
 import { NetworkSection } from "@/ui-kit/components/templates/NetworkSection/NetworkSection";
 import { ProgramsSection } from "@/ui-kit/components/templates/ProgramsSection/ProgramsSection";
@@ -24,10 +26,16 @@ export const HomePage = ({ articles, authors }: HomePageProps) => {
       <main id="maincontent" tabIndex={-1} className="main">
         <ContextSection />
         <MissionSection />
+        <BookSection />
         <ImpactSection />
         <HistorySection />
         <ProgramsSection />
         <NetworkSection />
+        <section>
+          <div className="container">
+            <MembershipCallout />
+          </div>
+        </section>
         {articles.length > 0 && (
           <section className="last-articles">
             <div className="container">

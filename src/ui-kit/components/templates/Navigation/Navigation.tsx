@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { MEMBERSHIP_URL } from "@/config/social-links";
 import { Logo } from "@/ui-kit/components/atoms/Images/Logo";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import { ToggleFont } from "@/ui-kit/components/molecules/ToggleFont/ToggleFont";
@@ -37,6 +38,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
           aria-label="Voir la page d'accueil"
           className="navigation__logo-link"
           onClick={() => setIsMenuOpen(false)}
+          prefetch={false}
         >
           <Logo />
         </StyledLink>
@@ -57,7 +59,11 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
         >
           <ul>
             <li>
-              <StyledLink href="/#mission" onClick={() => setIsMenuOpen(false)}>
+              <StyledLink
+                href="/#mission"
+                onClick={() => setIsMenuOpen(false)}
+                prefetch={false}
+              >
                 Notre mission
               </StyledLink>
             </li>
@@ -66,6 +72,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
                 href="/programmes"
                 aria-current={currentPage("/programmes")}
                 onClick={() => setIsMenuOpen(false)}
+                prefetch={false}
               >
                 Nos actions
               </StyledLink>
@@ -76,6 +83,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
                 aria-label="À propos de Yeeso"
                 aria-current={currentPage("/a-propos")}
                 onClick={() => setIsMenuOpen(false)}
+                prefetch={false}
               >
                 À propos
               </StyledLink>
@@ -87,6 +95,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
                   aria-label="Voir le blog"
                   aria-current={currentPage("/articles")}
                   onClick={() => setIsMenuOpen(false)}
+                  prefetch={false}
                 >
                   Blog
                 </StyledLink>
@@ -97,13 +106,14 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
                 href="/contact"
                 aria-current={currentPage("/contact")}
                 onClick={() => setIsMenuOpen(false)}
+                prefetch={false}
               >
                 Contact
               </StyledLink>
             </li>
             <li>
               <StyledLink
-                href="/contact"
+                href={MEMBERSHIP_URL}
                 filled="green"
                 onClick={() => setIsMenuOpen(false)}
               >

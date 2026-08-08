@@ -1,3 +1,4 @@
+import { MembershipSection } from "@/ui-kit/components/templates/MembershipSection/MembershipSection";
 import { NetworkFormatsSection } from "@/ui-kit/components/templates/NetworkFormatsSection/NetworkFormatsSection";
 import { NetworkSection } from "@/ui-kit/components/templates/NetworkSection/NetworkSection";
 import { PageHeader } from "@/ui-kit/components/templates/PageHeader/PageHeader";
@@ -9,6 +10,7 @@ export const NetworkPage = () => {
       <main id="maincontent" tabIndex={-1} className="main">
         <NetworkSection />
         <NetworkFormatsSection />
+        <MembershipSection />
       </main>
     </>
   );

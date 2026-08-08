@@ -114,17 +114,17 @@
   margin: 0.5rem 0 1.5rem;
 }
 
-.story-type-specimen--primary {
+p.story-type-specimen--primary {
   font-family: "Arimo", Helvetica, Arial, sans-serif;
   font-size: 2rem;
 }
 
-.story-type-specimen--secondary {
-  font-family: "Space Grotesk", "Arimo", Helvetica, Arial, sans-serif;
+p.story-type-specimen--secondary {
+  font-family: "Kobbi 1.1", "Arimo", Helvetica, Arial, sans-serif;
   font-size: 2rem;
   font-weight: 700;
 }
 
-.story-type-specimen--mono {
+p.story-type-specimen--mono {
   font-family: "Fira Code", monospace;
 }

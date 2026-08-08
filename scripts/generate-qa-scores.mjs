@@ -12,7 +12,6 @@ const PAGE_PATHS = [
   "/",
   "/a-propos",
   "/mentions-legales",
-  "/recherche",
   "/articles",
   "/authors",
   "/programmes",
@@ -77,9 +76,6 @@ async function collectAxeScore() {
   };
 }
 
-// Slugs with `skipCategories: ["seo"]` in tests/lighthouse.spec.ts — keep in sync.
-const SEO_EXCLUDED_SLUGS = ["recherche"];
-
 function collectLighthouseScore() {
   if (!existsSync(LIGHTHOUSE_DIR)) {
     throw new Error(
@@ -103,7 +99,6 @@ function collectLighthouseScore() {
     bestPractices: 0,
     seo: 0,
   };
-  let seoCount = 0;
 
   for (const file of files) {
     const report = JSON.parse(
@@ -112,17 +107,7 @@ function collectLighthouseScore() {
     totals.performance += report.categories.performance.score;
     totals.accessibility += report.categories.accessibility.score;
     totals.bestPractices += report.categories["best-practices"].score;
-
-    // The search page is intentionally `noindex` (see the `skipCategories`
-    // exclusion in tests/lighthouse.spec.ts), which fails Lighthouse's
-    // `is-crawlable` SEO audit by design. Its `seo` category score is still
-    // written to the report (so qa:scores doesn't crash on a missing
-    // category) but must stay out of the site-wide seo average, or the
-    // intentional noindex penalty distorts every other page's real score.
-    if (!SEO_EXCLUDED_SLUGS.some((slug) => file.startsWith(`${slug}-`))) {
-      totals.seo += report.categories.seo.score;
-      seoCount += 1;
-    }
+    totals.seo += report.categories.seo.score;
   }
 
   const count = files.length;
@@ -131,7 +116,7 @@ function collectLighthouseScore() {
     performance: round(totals.performance / count),
     accessibility: round(totals.accessibility / count),
     bestPractices: round(totals.bestPractices / count),
-    seo: round(totals.seo / seoCount),
+    seo: round(totals.seo / count),
   };
 }
 

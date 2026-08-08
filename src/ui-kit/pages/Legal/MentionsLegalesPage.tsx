@@ -123,11 +123,9 @@ export const MentionsLegalesPage = () => {
               </StyledLink>
             </p>
             <p>
-              <strong>Police Space Grotesk :</strong> Florian Karsten, sous
-              licence SIL Open Font License 1.1 —{" "}
-              <StyledLink href="https://fonts.google.com/specimen/Space+Grotesk">
-                fonts.google.com/specimen/Space+Grotesk
-              </StyledLink>
+              <strong>Police Kobbi 1.1 :</strong> © Jérémy Schneider (VJ Type),
+              2021, licence d'usage acquise par Yeeso —{" "}
+              <StyledLink href="https://vj-type.com">vj-type.com</StyledLink>
             </p>
             <p>
               <strong>Police Fira Code :</strong> Nikita Prokopov, basée sur

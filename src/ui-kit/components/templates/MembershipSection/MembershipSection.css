@@ -1,0 +1,26 @@
+.membership-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 1.5rem;
+}
+
+.membership-section__lead {
+  font-weight: 800;
+  max-width: 65ch;
+  margin: 0 0 1.25rem;
+}
+
+.membership-section__body {
+  color: var(--font-color-muted);
+  max-width: 65ch;
+  line-height: 1.7;
+  margin: 0 0 1.25rem;
+}
+
+.membership-section__highlight {
+  font-weight: 700;
+  max-width: 65ch;
+  line-height: 1.6;
+  border-left: 3px solid var(--color-lightgreen);
+  padding-left: 1.25rem;
+  margin: 0 0 2rem;
+}

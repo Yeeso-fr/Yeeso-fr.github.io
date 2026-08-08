@@ -34,22 +34,18 @@ const mobileThresholds = {
   seo: 90,
 };
 
-const pages = [
+const pages: {
+  name: string;
+  slug: string;
+  path: string;
+  skipCategories?: string[];
+}[] = [
   { name: "homepage", slug: "home", path: "/" },
   { name: "about page", slug: "a-propos", path: "/a-propos" },
   {
     name: "legal mentions page",
     slug: "mentions-legales",
     path: "/mentions-legales",
-  },
-  // The search page is intentionally `noindex` (it's a results view, not
-  // indexable content), which makes Lighthouse's `is-crawlable` SEO audit
-  // fail by design. Skip the `seo` category for this page only.
-  {
-    name: "search page",
-    slug: "recherche",
-    path: "/recherche",
-    skipCategories: ["seo"],
   },
   { name: "articles list page", slug: "articles", path: "/articles" },
   { name: "authors list page", slug: "authors", path: "/authors" },

@@ -77,16 +77,14 @@ Tous les tokens vivent dans `src/ui-kit/styles/theme/_variables.css` (palette br
 ## Typographies
 
 <p className="story-type-specimen story-type-specimen--primary">Arimo — Aa Bb Cc</p>
-<p className="story-type-specimen story-type-specimen--secondary">Space Grotesk — Aa Bb Cc</p>
+<p className="story-type-specimen story-type-specimen--secondary">Kobbi 1.1 — Aa Bb Cc</p>
 <p className="story-type-specimen story-type-specimen--mono">Fira Code — Aa Bb Cc 123</p>
 
-La charte officielle ne définit que deux polices : **Kobbi 1.1**, réservée au wordmark du logo (déjà figée dans les fichiers raster, aucun webfont requis), et **Helvetica**, pour tout le texte courant — la charte ne prévoit pas de police d'accroche/titre distincte, seulement des graisses (Bold, Régulier, Light) d'Helvetica.
+La charte officielle ne définit que deux polices : **Kobbi 1.1**, à l'origine réservée au wordmark du logo, et **Helvetica**, pour tout le texte courant — la charte ne prévoit pas de police d'accroche/titre distincte, seulement des graisses (Bold, Régulier, Light) d'Helvetica. La licence Kobbi 1.1 a été obtenue (© Jérémy Schneider / VJ Type, via l'agence Out Of Frame) : Yeeso a choisi d'étendre son usage aux titres et éléments d'accent du site, au-delà du seul logo.
 
-Les licences Kobbi 1.1 et Helvetica n'ont pas encore été fournies à ce jour. En attendant, le site utilise des substituts Google Fonts, chargés via `next/font/google` :
-
-- **Primaire — Arimo** (Google Fonts, licence Apache 2.0) : remplace Helvetica/Arial, dont elle est métrique-compatible — Helvetica n'est pas une police libre et n'est pas disponible en webfont. Correspond à l'usage « texte courant » de la charte.
-- **Secondaire — Space Grotesk, graisse Bold (700)** (Google Fonts, licence SIL Open Font License 1.1) : police géométrique utilisée pour les titres et éléments d'accent. **Ne fait pas partie de la charte officielle** (qui ne prévoit qu'Helvetica) — choix intérimaire à revoir une fois les licences Kobbi/Helvetica obtenues, pour éventuellement s'aligner strictement sur la charte (tout en Helvetica/Arimo, distinction par la graisse).
-- **Monospace — Fira Code** : inchangée, utilisée pour le code (`CodeBlock`).
+- **Primaire — Arimo** (Google Fonts, licence Apache 2.0) : remplace Helvetica/Arial, dont elle est métrique-compatible — Helvetica n'est pas une police libre et n'est pas disponible en webfont. Correspond à l'usage « texte courant » de la charte. Sa licence n'a pas encore été fournie à ce jour ; Arimo reste le substitut en attendant.
+- **Secondaire — Kobe 1.1** (licence d'usage acquise) : police de titres et d'accent, auto-hébergée dans `src/ui-kit/styles/assets/fonts/kobe11/` (4 graisses : Regular, Bold, Black, Oblique — voir `_fonts.css`).
+- **Monospace — Fira Code** : utilisée pour le code (`CodeBlock`).
 - **Polices accessibles — Luciole et OpenDyslexic** : activables via le sélecteur de police (`ToggleFont`), auto-hébergées dans `src/ui-kit/styles/assets/fonts/`. Comic Sans / Comic Relief a été retiré des options.
 
 ## Traitement des photos
@@ -95,10 +93,3 @@ D'après la charte :
 
 - **Portraits (bénévoles, équipe)** : détourées, contour blanc, sur fond coloré de la palette de marque — c'est le traitement utilisé pour la photo de Houleymatou Baldé dans le hero de la page d'accueil.
 - **Photos en situation (événements)** : à privilégier en noir et blanc si la qualité de la photo source n'est pas très bonne ; en couleur sinon.
-
-## À compléter
-
-- Version SVG du logo (déclinaisons petite taille / favicon)
-- Licences Kobbi 1.1 et Helvetica (voir section Typographies) — une fois obtenues, réévaluer la police secondaire actuelle (Space Grotesk)
-- Crédit du design du site (page [Mentions légales](/mentions-legales), section 6) — le logo et la charte graphique sont déjà crédités (Out Of Frame)
-- Trouver un usage fonctionnel pour `--yeeso-noir-velours` (voir section Couleurs)

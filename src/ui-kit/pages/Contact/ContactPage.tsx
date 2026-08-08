@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CONTACT_EMAIL, LINKEDIN_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import { ContactForm } from "@/ui-kit/components/organisms/ContactForm/ContactForm";
+import { MembershipCallout } from "@/ui-kit/components/templates/MembershipCallout/MembershipCallout";
 import { PageHeader } from "@/ui-kit/components/templates/PageHeader/PageHeader";
 import "./ContactPage.css";
 
@@ -60,6 +61,8 @@ export const ContactPage = () => {
                 </div>
               </div>
             </div>
+
+            <MembershipCallout />
           </div>
         </section>
       </main>

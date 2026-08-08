@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import type { Metadata } from "next";
-import { Arimo, Fira_Code, Space_Grotesk } from "next/font/google";
+import { Arimo, Fira_Code } from "next/font/google";
 import "@/ui-kit/styles/theme.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import type React from "react";
@@ -21,12 +21,6 @@ const primaryFont = Arimo({
 const monospaceFont = Fira_Code({
   subsets: ["latin"],
   variable: "--font-mono",
-});
-
-const secondaryFont = Space_Grotesk({
-  weight: "700",
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
 });
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
@@ -112,11 +106,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={clsx(
-        primaryFont.className,
-        monospaceFont.variable,
-        secondaryFont.variable,
-      )}
+      className={clsx(primaryFont.className, monospaceFont.variable)}
       suppressHydrationWarning
     >
       <head>

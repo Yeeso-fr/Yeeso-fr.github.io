@@ -7,7 +7,6 @@ const staticPages = [
   { name: "homepage", path: "/" },
   { name: "about page", path: "/a-propos" },
   { name: "legal mentions page", path: "/mentions-legales" },
-  { name: "search page", path: "/recherche" },
   { name: "programs page", path: "/programmes" },
   { name: "network page", path: "/reseau" },
   { name: "company page", path: "/entreprises" },

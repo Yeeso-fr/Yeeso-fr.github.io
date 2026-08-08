@@ -31,9 +31,9 @@ export const HomeHero = () => {
               </span>
             </h1>
             <p className="home-hero__lead">
-              Rendre le monde de l'IT plus juste, en apprenant à toutes et à
-              tous à croire en soi et en les autres, dès la scolarisation et
-              dans la vie des organisations.
+              Rendre le monde de l'IT plus juste, quel que soit le genre, en
+              apprenant à toutes et à tous à croire en soi et en les autres, dès
+              la scolarisation et dans la vie des organisations.
             </p>
             <div className="home-hero__cta">
               <StyledLink href="/programmes" filled={true}>
