@@ -39,23 +39,6 @@
     color: var(--font-color);
   }
 
-  /* --------- Markdown tables (descriptions) ---------
-     Drop Storybook's zebra striping (light row backgrounds) and use the
-     theme's text/border colors so tables stay legible in dark mode. */
-
-  .sbdocs-content table:not(.docblock-argstable):not(.sb-unstyled *) tr,
-  .sbdocs-content
-    table:not(.docblock-argstable):not(.sb-unstyled *)
-    tr:nth-of-type(2n) {
-    background-color: transparent;
-  }
-
-  .sbdocs-content table:not(.docblock-argstable):not(.sb-unstyled *) th,
-  .sbdocs-content table:not(.docblock-argstable):not(.sb-unstyled *) td {
-    color: var(--font-color);
-    border-color: var(--border-color);
-  }
-
   /* --------- Links --------- */
 
   a:hover {
@@ -155,5 +138,22 @@
     .docblock-argstable tbody tr td:last-of-type {
       border-right: 0.5px solid var(--border-color);
     }
+  }
+
+  /* --------- Markdown tables (descriptions) ---------
+     Drop Storybook's zebra striping (light row backgrounds) and use the
+     theme's text/border colors so tables stay legible in dark mode. */
+
+  .sbdocs-content table:not(.docblock-argstable):not(.sb-unstyled *) tr,
+  .sbdocs-content
+    table:not(.docblock-argstable):not(.sb-unstyled *)
+    tr:nth-of-type(2n) {
+    background-color: transparent;
+  }
+
+  .sbdocs-content table:not(.docblock-argstable):not(.sb-unstyled *) th,
+  .sbdocs-content table:not(.docblock-argstable):not(.sb-unstyled *) td {
+    color: var(--font-color);
+    border-color: var(--border-color);
   }
 }
