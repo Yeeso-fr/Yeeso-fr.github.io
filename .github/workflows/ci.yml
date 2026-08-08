@@ -45,6 +45,36 @@ jobs:
       - name: Component tests
         run: pnpm test:component
 
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Start dev server
+        run: pnpm dev &
+
+      - name: Wait for dev server
+        run: |
+          for i in $(seq 1 30); do
+            curl -sSf http://localhost:3000 > /dev/null && exit 0
+            sleep 2
+          done
+          echo "Dev server did not start in time" >&2
+          exit 1
+
+      - name: Accessibility & Storybook component tests
+        run: pnpm test:ui
+
+      - name: Stop dev server
+        if: always()
+        run: kill $(lsof -t -i:3000) || true
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
       - name: Build with Next.js
         run: pnpm build
         env:

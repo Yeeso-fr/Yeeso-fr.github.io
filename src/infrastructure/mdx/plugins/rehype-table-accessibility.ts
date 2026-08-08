@@ -63,13 +63,18 @@ export const rehypeTableAccessibility = () => {
     });
 
     for (const { index, node, parent } of tablesToWrap) {
-      // biome-ignore lint/suspicious/noExplicitAny: hast Root and Element both have children
-      (parent as any).children[index] = {
+      const wrapper: Element = {
         type: "element",
         tagName: "div",
         properties: { className: ["table-wrapper"], tabIndex: 0 },
         children: [node],
       };
+
+      if (parent.type === "root") {
+        parent.children[index] = wrapper;
+      } else {
+        parent.children[index] = wrapper;
+      }
     }
   };
 };

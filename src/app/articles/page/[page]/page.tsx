@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { buildPageMetadata } from "@/config/seo";
 import { ArticlesListPage } from "@/ui-kit/pages/Articles/ArticlesListPage";
 import {
   getPaginatedArticles,
   getTotalArticlePages,
 } from "@/usecases/articles";
 import { getAllAuthors } from "@/usecases/authors";
+
+const basePath = process.env.PAGES_BASE_PATH ?? "";
 
 type PageProps = {
   params: Promise<{
@@ -55,11 +58,11 @@ export async function generateMetadata({
   const { page } = await params;
   const currentPage = Number(page);
 
-  return {
+  return buildPageMetadata({
     title: currentPage === 1 ? "Articles" : `Articles – page ${currentPage}`,
-    alternates: {
-      canonical:
-        currentPage === 1 ? "/articles" : `/articles/page/${currentPage}`,
-    },
-  };
+    description:
+      "Le blog de Yeeso : articles rédigés par la communauté autour de l'IT, de la diversité et de l'inclusion dans la tech.",
+    path: currentPage === 1 ? "/articles" : `/articles/page/${currentPage}`,
+    basePath,
+  });
 }
