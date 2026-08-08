@@ -100,11 +100,20 @@
     justify-content: center;
   }
 
+  .footer__links--social {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
   .styled-link--icon {
     svg {
       width: 1.5rem;
       height: 1.5rem;
     }
+  }
+
+  .footer__links--social .styled-link--icon {
+    flex-shrink: 0;
   }
 
   .footer__legal-link {
