@@ -108,9 +108,6 @@ export const MentionsLegalesPage = () => {
           <section className="legal-page__section">
             <h2>6. Crédits</h2>
             <p>
-              <strong>Design :</strong> TODO
-            </p>
-            <p>
               <strong>Logo &amp; charte graphique :</strong> Violaine Dilas —
               Out Of Frame (stratégie de marque &amp; conduite du changement),
               novembre 2023.
