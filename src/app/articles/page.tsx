@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/config/seo";
 import { ArticlesListPage } from "@/ui-kit/pages/Articles/ArticlesListPage";
 import { getPaginatedArticles } from "@/usecases/articles";
 import { getAllAuthors } from "@/usecases/authors";
+
+const basePath = process.env.PAGES_BASE_PATH ?? "";
 
 export default function Page() {
   const { articles, totalPages } = getPaginatedArticles(1);
@@ -18,7 +21,13 @@ export default function Page() {
 }
 
 export const metadata: Metadata = {
-  title: "Articles",
+  ...buildPageMetadata({
+    title: "Articles",
+    description:
+      "Le blog de Yeeso : articles rédigés par la communauté autour de l'IT, de la diversité et de l'inclusion dans la tech.",
+    path: "/articles",
+    basePath,
+  }),
   alternates: {
     canonical: "/articles",
     types: {
