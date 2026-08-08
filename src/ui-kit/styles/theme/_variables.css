@@ -39,8 +39,7 @@
 
   /* FONTS */
   --font-primary: "Arimo", Helvetica, Arial, sans-serif;
-  --font-secondary:
-    var(--font-space-grotesk), "Arimo", Helvetica, Arial, sans-serif;
+  --font-secondary: "Kobbi 1.1", "Arimo", Helvetica, Arial, sans-serif;
   --font-mono: "Fira Code", monospace;
 
   /* TYPOGRAPHY */

@@ -1,6 +1,9 @@
 import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { PARTNERSHIP_EMAIL } from "@/config/social-links";
+import {
+  A_COMPETENCE_EGALE_URL,
+  PARTNERSHIP_EMAIL,
+} from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./TrainingSection.css";
 
@@ -19,11 +22,18 @@ const TRAININGS = [
   },
   {
     title: "Recrutement inclusif",
-    details: "En partenariat avec l'association « À Compétence Égale »",
+    details: (
+      <>
+        En partenariat avec l'association{" "}
+        <StyledLink href={A_COMPETENCE_EGALE_URL}>
+          « À Compétence Égale »
+        </StyledLink>
+      </>
+    ),
     trainer: "",
     modifier: "training-card--coral",
   },
-] as const;
+];
 
 export const TrainingSection = () => {
   return (

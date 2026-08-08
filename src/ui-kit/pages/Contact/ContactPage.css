@@ -8,6 +8,7 @@
 .contact-page__grid {
   display: grid;
   gap: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .contact-page__info {
