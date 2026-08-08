@@ -127,7 +127,11 @@
        side-by-side layout below makes a full-height hero read as
        intentional — on mobile/tablet it would just strand the content
        far from the ticker on tall, narrow screens. */
-    min-height: calc(100dvh - 4.5rem);
+    /* min() rather than separate min-height/max-height rules: per spec, a
+       conflicting min-height always wins over max-height, so on tall
+       desktop viewports a plain max-height cap would get silently
+       ignored and the hero would keep growing with 100dvh. */
+    min-height: min(calc(100dvh - 4.5rem), 820px);
   }
 
   .home-hero {

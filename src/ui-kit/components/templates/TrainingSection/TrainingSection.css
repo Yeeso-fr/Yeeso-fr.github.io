@@ -49,6 +49,18 @@
   margin: 0 0 0.5rem;
   font-size: 0.95rem;
   line-height: 1.5;
+
+  .styled-link {
+    /* Fixed, not the theme-reactive --font-color: this card's background
+       is always one of the flat accent colors regardless of theme. */
+    color: var(--color-dark);
+    text-decoration: underline;
+  }
+
+  .styled-link:visited,
+  .styled-link:hover {
+    color: var(--color-dark);
+  }
 }
 
 .training-card__trainer {
