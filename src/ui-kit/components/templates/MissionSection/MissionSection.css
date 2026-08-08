@@ -25,6 +25,11 @@
   background: var(--color-lightgreen);
 }
 
+.mission-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .mission-card--orange {
   /* --color-lightorange (#e77169) is too saturated to carry AAA-compliant
      text, so this card uses a pastel tint instead of the full accent. */
@@ -33,11 +38,6 @@
   .mission-card__icon {
     color: var(--color-lightorange);
   }
-}
-
-.mission-card__icon {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .mission-card__title {

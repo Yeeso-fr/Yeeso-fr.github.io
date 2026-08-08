@@ -91,6 +91,11 @@
   background: var(--color-lightpurple);
 }
 
+.impact-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
 .impact-card--coral {
   /* --color-lightred (#e77169) is too saturated to carry AAA-compliant
      text, so this card uses a pastel tint instead of the full accent. */
@@ -99,11 +104,6 @@
   .impact-card__icon {
     color: var(--color-lightred);
   }
-}
-
-.impact-card__icon {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .impact-card__title {
