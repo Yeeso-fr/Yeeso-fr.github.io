@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-08-08T16:08:08.966Z",
+  "generatedAt": "2026-08-08T17:17:33.476Z",
   "lighthouse": {
     "performance": 94,
     "accessibility": 100,
     "bestPractices": 100,
-    "seo": 92
+    "seo": 100
   },
   "axe": {
     "score": 100,
@@ -19,7 +19,7 @@
   "ecoindex": {
     "score": 80,
     "grade": "B",
-    "water": 2.12,
+    "water": 2.11,
     "ghg": 1.41
   }
 }

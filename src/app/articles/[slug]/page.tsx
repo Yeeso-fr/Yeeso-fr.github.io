@@ -8,11 +8,15 @@ import {
 } from "@/config/seo";
 import type { Article } from "@/entities/articles/articles";
 import { ArticleDetailPage } from "@/ui-kit/pages/Articles/ArticleDetailPage";
-import { getAllArticles, getReadingTime } from "@/usecases/articles";
+import {
+  getAllArticles,
+  getExcerpt,
+  getReadingTime,
+} from "@/usecases/articles";
 import { getAllAuthors, resolveAuthorCredit } from "@/usecases/authors";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
-const siteUrl = process.env.PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.PUBLIC_SITE_URL ?? "http://localhost:3000/";
 
 const resolveArticleImage = (article: Article) =>
   article.coverImage
@@ -43,20 +47,24 @@ export async function generateMetadata({
   if (!article) return {};
 
   const image = resolveArticleImage(article);
+  const description = getExcerpt(article.content);
 
   return {
     title: article.title,
+    description,
     alternates: {
       canonical: `/articles/${article.slug}`,
     },
     openGraph: {
       title: article.title,
+      description,
       type: "article",
       images: [image],
     },
     twitter: {
       card: "summary_large_image",
       title: article.title,
+      description,
       images: [image.url],
     },
   };
@@ -85,6 +93,7 @@ export default async function Page({
     "@context": "https://schema.org",
     "@type": "Article",
     headline: article.title,
+    description: getExcerpt(article.content),
     author: { "@type": "Person", name: author?.name ?? article.author },
     datePublished: article.publishedAt,
     image: toAbsoluteUrl(resolveArticleImage(article).url, siteUrl),

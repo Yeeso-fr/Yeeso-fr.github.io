@@ -32,14 +32,30 @@ export function getTotalArticlePages() {
   return Math.ceil(readArticles().length / ARTICLES_PER_PAGE);
 }
 
-export function getReadingTime(content: string): number {
-  const plainText = content
+function stripMarkdown(content: string): string {
+  return content
     .replace(/```[\s\S]*?```/g, " ")
     .replace(/<[^>]+>/g, " ")
     .replace(/!\[[^\]]*]\([^)]*\)/g, " ")
     .replace(/\[([^\]]*)]\([^)]*\)/g, "$1")
-    .replace(/[#>*_`~-]/g, " ");
+    .replace(/[#>*_`~-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
-  const wordCount = plainText.split(/\s+/).filter(Boolean).length;
+export function getReadingTime(content: string): number {
+  const wordCount = stripMarkdown(content).split(" ").filter(Boolean).length;
   return Math.max(1, Math.round(wordCount / WORDS_PER_MINUTE));
+}
+
+const EXCERPT_LENGTH = 155;
+
+/** Plain-text excerpt for meta descriptions, truncated on a word boundary. */
+export function getExcerpt(
+  content: string,
+  maxLength = EXCERPT_LENGTH,
+): string {
+  const plainText = stripMarkdown(content);
+  if (plainText.length <= maxLength) return plainText;
+  return `${plainText.slice(0, maxLength).replace(/\s+\S*$/, "")}…`;
 }
