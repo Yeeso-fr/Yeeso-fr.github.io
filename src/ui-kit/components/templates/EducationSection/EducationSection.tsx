@@ -39,7 +39,7 @@ const STAGES = [
   {
     step: "Femmes Tech",
     description:
-      "Ateliers d'entraide autour du quotidien en entreprise, de la prise de parole et du leadership, sororité et mentorat continu, et campagne de rôles modèles sur nos réseaux.",
+      "Ateliers d'entraide autour du quotidien en entreprise, de la prise de parole et du leadership, sororité, adelphité et mentorat continu, et campagne de rôles modèles sur nos réseaux.",
   },
 ] as const;
 

@@ -16,7 +16,7 @@ const PILLARS = [
     icon: faHeart,
     title: "Croire en les autres",
     description:
-      "Collaborer entre femmes et hommes et expérimenter concrètement les bénéfices de la mixité.",
+      "Collaborer au-delà du genre et expérimenter concrètement les bénéfices de la mixité.",
     modifier: "mission-card--green",
   },
   {
@@ -44,7 +44,7 @@ export const MissionSection = () => {
         <span className="section-eyebrow">Notre mission</span>
         <h2 className="mission-section__title">
           Accélérer la féminisation des équipes informatiques. Yeeso (re)donne
-          confiance aux femmes.
+          confiance à celles et ceux que la tech invisibilise.
         </h2>
 
         <div className="mission-section__cards">

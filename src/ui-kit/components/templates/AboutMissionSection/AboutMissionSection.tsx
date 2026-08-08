@@ -25,7 +25,7 @@ const VALUES = [
     icon: faBullseye,
     title: "La mixité, pas la substitution",
     description:
-      "Femmes et hommes construisent ensemble. La mixité profite aux équipes entières, pas à une moitié contre l'autre.",
+      "On construit ensemble, au-delà du genre. La mixité profite à toutes les équipes, pas à une partie contre l'autre.",
     modifier: "about-value-card--coral",
   },
 ] as const;
@@ -44,9 +44,10 @@ export const AboutMissionSection = () => {
           <div className="about-mission-section__text">
             <p>
               Notre mission tient en une phrase : accélérer la féminisation des
-              équipes informatiques. Pour y parvenir, Yeeso (re)donne confiance
-              aux femmes et travaille avec les hommes, parce qu'une équipe mixte
-              ne se décrète pas — elle se construit à deux.
+              équipes informatiques et rendre la tech plus juste pour les femmes
+              et minorités de genre. Pour y parvenir, Yeeso (re)donne confiance
+              et travaille avec tous·tes, parce qu'une équipe mixte ne se
+              décrète pas — elle se construit ensemble.
             </p>
             <p>
               Concrètement, cela veut dire déconstruire les préjugés par
@@ -58,8 +59,8 @@ export const AboutMissionSection = () => {
             <p>
               Nous mesurons notre impact non pas au nombre d'interventions, mais
               à ce qui reste après : des vocations qui se déclenchent, des
-              équipes qui changent leurs rituels, des femmes qui restent et
-              progressent dans la tech.
+              équipes qui changent leurs rituels, des talents qui restent et
+              progressent dans la tech, quel que soit leur genre.
             </p>
           </div>
         </div>

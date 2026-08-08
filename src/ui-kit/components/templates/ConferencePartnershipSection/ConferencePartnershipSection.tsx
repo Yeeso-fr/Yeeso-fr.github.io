@@ -28,7 +28,7 @@ const EXTRAS = [
   "Accompagnement renforcé",
   "Présence de référent·es sur place",
   "Aide au sourcing de conférencières",
-  "Mentorat de speakers (non-mixité choisie)",
+  "Mentorat de speakers en non-mixité choisie (femmes, personnes trans et non-binaires)",
   "Prises de parole et tables rondes",
   "Création de contenu",
 ] as const;
