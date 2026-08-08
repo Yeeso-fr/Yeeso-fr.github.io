@@ -18,6 +18,13 @@ const staticPages = [
 const entityListPages = [
   { name: "articles list page", path: "/articles" },
   { name: "authors list page", path: "/authors" },
+  { name: "articles pagination page", path: "/articles/page/1" },
+  { name: "articles category page", path: "/articles/category/yeeso" },
+];
+
+const entityDetailPages = [
+  { name: "article detail page", path: "/articles/bienvenue-sur-yeeso" },
+  { name: "author detail page", path: "/authors/houleymatou-balde" },
 ];
 
 for (const theme of ["light", "dark"] as const satisfies Theme[]) {
@@ -34,6 +41,16 @@ for (const theme of ["light", "dark"] as const satisfies Theme[]) {
 
     test.describe("Entity list pages", () => {
       for (const { name, path } of entityListPages) {
+        test(`${name} should not have any automatically detectable accessibility violations`, async ({
+          page,
+        }) => {
+          await expectNoA11yViolations(page, theme, baseUrl, path);
+        });
+      }
+    });
+
+    test.describe("Entity detail pages", () => {
+      for (const { name, path } of entityDetailPages) {
         test(`${name} should not have any automatically detectable accessibility violations`, async ({
           page,
         }) => {
