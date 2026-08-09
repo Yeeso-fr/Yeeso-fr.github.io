@@ -14,7 +14,7 @@ const BUREAU = [
     name: "Ibrahima Bah",
     role: "Trésorier",
     job: "Consultant IT Senior",
-    linkedin: "https://www.linkedin.com/in/ibrahima-bah-077749200/",
+    linkedin: "https://www.linkedin.com/in/ibrahima-amadou-bah/",
   },
   {
     name: "David Dérigent",
@@ -40,7 +40,7 @@ const SQUAD_LEADERS = [
   {
     domain: "Média et PR",
     name: "Ibrahima",
-    linkedin: "https://www.linkedin.com/in/ibrahima-bah-077749200/",
+    linkedin: "https://www.linkedin.com/in/ibrahima-amadou-bah/",
   },
   {
     domain: "Stratégie",

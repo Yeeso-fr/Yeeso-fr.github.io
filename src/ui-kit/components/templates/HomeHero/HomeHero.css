@@ -77,12 +77,42 @@
       display: flex;
       justify-content: center;
       min-width: 0;
+      width: 100%;
+      /* Safety net, not the primary sizing mechanism: the side photos are
+         sized to never need it (see --side below), but this keeps an
+         unusually square/wide future photo from breaking page layout
+         (horizontal scroll) instead of just being visually snug. No
+         bottom padding — the photos need to sit flush against the
+         ticker below, not floating just above it. */
+      overflow: hidden;
+      padding-top: 0.5rem;
+
+      .home-hero__photo-group {
+        display: flex;
+        /* Stretch (not flex-end) so the side photos match the main
+           photo's rendered height instead of just sharing its bottom
+           edge — the main photo's own aspect-ratio drives the row's
+           height, and the side photos (no aspect-ratio of their own)
+           fill it. */
+        align-items: stretch;
+        justify-content: center;
+        width: 100%;
+      }
 
       .home-hero__photo {
         position: relative;
-        width: 100%;
-        max-width: 420px;
         margin: 0;
+        flex-shrink: 0;
+        overflow: hidden;
+        border-radius: var(--br-normal);
+      }
+
+      .home-hero__photo--main {
+        /* Mobile-appropriate size — the >=992px override below sizes it
+           up once the side-by-side grid layout gives it a whole column
+           to itself instead of competing with the stacked text above. */
+        width: clamp(130px, 40vw, 190px);
+        aspect-ratio: 3 / 4;
         animation: slide-up 0.8s ease-out forwards;
 
         @media (prefers-reduced-motion: reduce) {
@@ -92,23 +122,62 @@
         }
       }
 
+      .home-hero__photo--side {
+        /* Width follows the photo's own aspect ratio at the shared
+           (stretched) height instead of a fixed box, so nothing gets
+           cropped — capped well under the main photo's own width so an
+           unusually square source photo still reads as a supporting
+           accent rather than competing with it. */
+        width: fit-content;
+        max-width: clamp(100px, 30vw, 175px);
+        animation: fade-in 0.6s ease-out;
+
+        @media (prefers-reduced-motion: reduce) {
+          animation: none;
+        }
+      }
+
+      .home-hero__photo--left {
+        /* Above the main photo, overlapping its left edge. */
+        margin-right: clamp(-2.25rem, -7vw, -1rem);
+      }
+
+      .home-hero__photo--right {
+        /* Behind the main photo, tucked under its right edge. */
+        margin-left: clamp(-2.25rem, -7vw, -1rem);
+      }
+
       .home-hero__image {
         display: block;
+        position: relative;
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
         border-radius: var(--br-normal);
       }
 
-      .home-hero__caption {
-        position: absolute;
-        right: 1rem;
-        bottom: 1rem;
-        background: var(--color-primary);
-        color: var(--color-light);
-        font-size: 0.85rem;
-        font-weight: 700;
-        padding: 0.5rem 1rem;
-        border-radius: var(--br-rounded);
+      /* Left overlaps in front of main, right tucks in behind it. */
+      .home-hero__photo--main .home-hero__image {
+        z-index: 2;
+      }
+
+      .home-hero__photo--left .home-hero__image {
+        z-index: 3;
+      }
+
+      .home-hero__photo--right .home-hero__image {
+        z-index: 1;
+      }
+
+      .home-hero__photo--side .home-hero__image {
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        /* The width cap can leave the (aspect-ratio-preserved) image
+           shorter than the fully-stretched box — anchor it to the
+           bottom, flush with the main photo's own bottom edge, instead
+           of floating centered with empty space above and below. */
+        object-position: bottom;
       }
     }
   }
@@ -140,11 +209,14 @@
        ticker below, with no gap — the text column re-centers itself
        within the row via the grid's align-items below. */
     align-items: flex-end;
-    padding: 2rem 5rem 0;
+    padding: 2rem 3rem 0;
 
     .home-hero__wrapper {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      /* Favors the photo column so the (now bigger) three-photo group
+         has room to breathe — the text column's own content (title/lead
+         max-width) doesn't need a full even half. */
+      grid-template-columns: 0.8fr 1.2fr;
       grid-template-rows: 1fr;
       align-items: center;
 
@@ -162,6 +234,22 @@
            from the bottom edge. Anchoring this column to the row's end
            keeps the photo flush against the ticker regardless. */
         align-self: end;
+
+        .home-hero__photo--main {
+          width: clamp(210px, 26vw, 340px);
+        }
+
+        .home-hero__photo--side {
+          max-width: clamp(190px, 27vw, 340px);
+        }
+
+        .home-hero__photo--left {
+          margin-right: clamp(-11rem, -13vw, -5rem);
+        }
+
+        .home-hero__photo--right {
+          margin-left: clamp(-11rem, -13vw, -5rem);
+        }
       }
     }
   }
