@@ -1,15 +1,3 @@
-.network-section {
-  background: var(--color-primary);
-  color: var(--color-light);
-
-  .section-eyebrow--on-dark {
-    /* --color-lightgreen (#5fd1a4) is only ~6.35:1 on this navy background,
-       short of the 7:1 AAA minimum — a fixed light foreground stays safe
-       regardless of theme. */
-    color: var(--color-light);
-  }
-}
-
 .network-section__container {
   display: grid;
   gap: 2.5rem;
@@ -31,13 +19,13 @@
 
 .network-section__title {
   font-size: var(--fs-h2);
-  color: var(--color-light);
   margin: 0 0 0.75rem;
 }
 
 .network-section__lead {
+  color: var(--font-color-muted);
+  font-weight: 800;
   margin: 0 0 2rem;
-  opacity: 0.85;
 }
 
 .network-section__list {
@@ -54,13 +42,11 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  border: 1px solid var(--color-light);
-  border-radius: var(--br-normal);
-  padding: 1rem 1.25rem;
+  font-weight: 600;
 
   svg {
     flex-shrink: 0;
-    color: var(--color-lightgreen);
+    color: var(--color-primary-strong);
   }
 }
 
