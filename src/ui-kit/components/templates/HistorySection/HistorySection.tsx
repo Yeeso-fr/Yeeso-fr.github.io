@@ -20,10 +20,10 @@ export const HistorySection = () => {
           <blockquote className="history-section__quote">
             <p>
               Née dans un petit village du nord de la Guinée, confrontée très
-              tôt aux inégalités, je n'ai jamais douté de moi. En découvrant un
-              personnage de fiction qui résolvait des enquêtes derrière son
-              ordinateur, je me suis dit : si elle peut le faire, je peux le
-              faire.
+              tôt aux inégalités, je n'ai jamais douté de moi. Au travers de la
+              série 24h Chrono, je découvre le personnage de Chloé qui résout
+              les enquêtes derrière son ordinateur : si elle peut le faire, je
+              peux le faire !
             </p>
             <footer>Houleymatou Baldé</footer>
           </blockquote>
