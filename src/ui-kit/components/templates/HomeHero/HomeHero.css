@@ -130,6 +130,14 @@
            accent rather than competing with it. */
         width: fit-content;
         max-width: clamp(100px, 30vw, 175px);
+        /* Mirrors .home-hero__photo--main's width clamp × its 4/3
+           aspect-ratio. Without this, a narrow/tall photo (e.g. a 2:3
+           portrait) can want to be taller than main at this max-width,
+           which — since the figure has no height of its own — inflates
+           the flex row's auto cross-size for every item, growing
+           .home-hero__aside and shifting the vertically-centered text
+           column next to it. max-height caps that before it happens. */
+        max-height: clamp(173px, 53.34vw, 254px);
         animation: fade-in 0.6s ease-out;
 
         @media (prefers-reduced-motion: reduce) {
@@ -241,6 +249,9 @@
 
         .home-hero__photo--side {
           max-width: clamp(190px, 27vw, 340px);
+          /* Mirrors --main's width clamp × its 4/3 aspect-ratio — see the
+             base (mobile) rule for why this matters. */
+          max-height: clamp(280px, 34.67vw, 454px);
         }
 
         .home-hero__photo--left {

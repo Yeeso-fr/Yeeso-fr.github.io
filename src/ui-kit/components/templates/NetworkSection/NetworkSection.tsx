@@ -1,4 +1,4 @@
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./NetworkSection.css";
 
@@ -17,9 +17,7 @@ export const NetworkSection = () => {
     <section className="network-section" id="reseau">
       <div className="container network-section__container">
         <div className="network-section__content">
-          <span className="section-eyebrow section-eyebrow--on-dark">
-            Un réseau de confiance
-          </span>
+          <span className="section-eyebrow">Un réseau de confiance</span>
           <h2 className="network-section__title">IT Women Network</h2>
           <p className="network-section__lead">
             Réseau d'entraide et de confiance, pour progresser ensemble dans
@@ -29,7 +27,7 @@ export const NetworkSection = () => {
           <ul className="network-section__list">
             {NETWORK_POINTS.map((point) => (
               <li className="network-section__item" key={point}>
-                <FontAwesomeIcon icon={faAngleRight} aria-hidden />
+                <FontAwesomeIcon icon={faCheck} aria-hidden />
                 {point}
               </li>
             ))}

@@ -1,78 +1,110 @@
-.about-history-section {
-  background: var(--color-lightpurple);
-  color: var(--color-dark);
-
-  .section-eyebrow--on-accent {
-    color: var(--color-dark);
-  }
-}
-
 .about-history-section__title {
   font-size: var(--fs-h2);
   max-width: 45ch;
   margin: 0 0 2.5rem;
-  color: var(--color-dark);
 }
 
 .about-history-section__content {
   display: grid;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
+/* ---------- Chapters, connected by a spine like a story being told ---------- */
+
 .about-history-section__timeline {
-  display: grid;
-  gap: 1.5rem;
+  position: relative;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+.about-history-section__timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.3rem;
+  bottom: 0.3rem;
+  left: 1.15rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--border-color) 4%,
+    var(--border-color) 96%,
+    transparent
+  );
+  opacity: 0.3;
+}
+
 .about-timeline-item {
-  background: var(--color-light);
-  border-radius: var(--br-normal);
-  padding: 1.5rem 1.75rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.3rem 1fr;
+  column-gap: 1.25rem;
+  padding-bottom: 2.5rem;
+}
+
+.about-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.about-timeline-item__number {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--color-dark);
+  /* Matches the page background (not a fixed color) so the ring blends
+     into whichever theme is active instead of leaving a mismatched halo
+     — same trick as the education/conference timelines. */
+  box-shadow: 0 0 0 4px var(--background-primary);
+}
+
+.about-timeline-item--green .about-timeline-item__number {
+  background: var(--color-lightgreen);
+}
+
+.about-timeline-item--purple .about-timeline-item__number {
+  background: var(--color-lightpurple);
+}
+
+.about-timeline-item--blue .about-timeline-item__number {
+  background: var(--color-lightblue);
+}
+
+.about-timeline-item--coral .about-timeline-item__number {
+  background: var(--yeeso-coral-tint);
 }
 
 .about-timeline-item__eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  /* The mockup's step labels use a vivid orange (#FA6E1E) outside the brand
-     palette that also fails AAA as small bold text on white. This card's
-     background is fixed white regardless of theme, so the text needs the
-     fixed --color-primary (navy) rather than the theme-reactive
-     --color-primary-strong, which resolves to a light tint in dark mode
-     meant for text on the app's dark background. */
-  color: var(--color-primary);
+  display: block;
+  color: var(--color-primary-strong);
   font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 0.75rem;
-}
-
-.about-timeline-item__number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 50%;
-  background: var(--color-lightgreen);
-  color: var(--color-dark);
-  font-size: 0.85rem;
+  margin-bottom: 0.4rem;
 }
 
 .about-timeline-item__title {
-  font-size: 1.15rem;
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 1.25rem;
   margin: 0 0 0.5rem;
 }
 
 .about-timeline-item__description {
   margin: 0;
+  color: var(--font-color-muted);
   line-height: 1.6;
 }
+
+/* ---------- Profile card ---------- */
 
 .about-history-section__profile {
   display: grid;
@@ -94,6 +126,8 @@
 }
 
 .about-history-section__bio {
+  /* Fixed white, not the theme-reactive page background, so the card reads
+     as a distinct flat block in both themes without needing a border. */
   background: var(--color-light);
   border-radius: var(--br-normal);
   padding: 1.5rem 1.75rem;
