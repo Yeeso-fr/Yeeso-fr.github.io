@@ -49,6 +49,12 @@
   }
 }
 
+.conference-benefits-section__note {
+  color: var(--font-color-muted);
+  line-height: 1.6;
+  margin: 1.5rem 0 0;
+}
+
 @media screen and (min-width: 768px) {
   .conference-benefits-section__container {
     grid-template-columns: repeat(2, 1fr);

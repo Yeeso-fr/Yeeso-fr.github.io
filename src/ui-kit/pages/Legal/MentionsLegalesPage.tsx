@@ -1,9 +1,15 @@
 import { CONTACT_EMAIL } from "@/config/social-links";
+import type { QaScores } from "@/entities/qa-scores/qa-scores";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
+import { QaScoresDetails } from "@/ui-kit/components/organisms/QaScores/QaScoresDetails";
 import { PageHeader } from "@/ui-kit/components/templates/PageHeader/PageHeader";
 import "./MentionsLegalesPage.css";
 
-export const MentionsLegalesPage = () => {
+type MentionsLegalesPageProps = {
+  qaScores: QaScores | null;
+};
+
+export const MentionsLegalesPage = ({ qaScores }: MentionsLegalesPageProps) => {
   return (
     <>
       <PageHeader title="Mentions Légales" />
@@ -147,6 +153,8 @@ export const MentionsLegalesPage = () => {
               </StyledLink>
             </p>
           </section>
+
+          <QaScoresDetails qaScores={qaScores} />
         </div>
       </main>
     </>

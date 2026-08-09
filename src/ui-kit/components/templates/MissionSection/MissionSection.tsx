@@ -1,6 +1,10 @@
 import { faHeart, faStar, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FEMMES_NUMERIQUE_URL, RONALPIA_URL } from "@/config/social-links";
+import {
+  DIVERSITES_ET_ENTREPRISES_URL,
+  FEMMES_NUMERIQUE_URL,
+  RONALPIA_URL,
+} from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./MissionSection.css";
 
@@ -107,20 +111,24 @@ export const MissionSection = () => {
         <div className="mission-section__labels">
           <p>
             Labellisée « association à impact » par Ronalpia. Incubée par
-            Femmes@Numérique.
+            Femmes@Numérique. Lauréate du{" "}
+            <StyledLink href={DIVERSITES_ET_ENTREPRISES_URL}>
+              Trophée de la Transmission et de l'Intergénération 2026
+            </StyledLink>{" "}
+            décerné par Diversités et Entreprises.
           </p>
           <div className="mission-section__labels-logos">
             <StyledLink href={RONALPIA_URL}>
               <img
-                src={`${basePath}/img/logos/logo-ronalpia.webp`}
+                src={`${basePath}/img/logos/associations/ronalpia.webp`}
                 alt="Ronalpia"
-                width={600}
-                height={350}
+                width={3528}
+                height={1668}
               />
             </StyledLink>
             <StyledLink href={FEMMES_NUMERIQUE_URL}>
               <img
-                src={`${basePath}/img/logos/logo-femmes-numerique.webp`}
+                src={`${basePath}/img/logos/associations/femmes-at-numerique.webp`}
                 alt="Femmes@Numérique"
                 width={236}
                 height={56}

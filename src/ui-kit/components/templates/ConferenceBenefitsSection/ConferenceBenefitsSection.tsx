@@ -1,5 +1,7 @@
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CONTACT_EMAIL } from "@/config/social-links";
+import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./ConferenceBenefitsSection.css";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
@@ -32,6 +34,17 @@ export const ConferenceBenefitsSection = () => {
               </li>
             ))}
           </ul>
+
+          <p className="conference-benefits-section__note">
+            Organisez un événement plus inclusif avec Yeeso : mixité, inclusion,
+            prévention, sécurité. Nous accompagnons les équipes organisatrices
+            de conférences, meetups et événements tech, avant, pendant et après
+            l'événement. Une question, un projet ? Écrivez-nous à{" "}
+            <StyledLink href={`mailto:${CONTACT_EMAIL}`}>
+              {CONTACT_EMAIL}
+            </StyledLink>
+            .
+          </p>
         </div>
 
         <figure className="conference-benefits-section__photo">

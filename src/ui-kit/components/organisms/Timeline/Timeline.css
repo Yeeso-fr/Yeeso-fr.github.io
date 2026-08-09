@@ -1,0 +1,192 @@
+/* ---------- Desktop: horizontal, wrapping rows connected in a serpentine path ---------- */
+
+.timeline-desktop {
+  display: none;
+  position: relative;
+}
+
+.timeline-desktop__connectors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+
+  line {
+    stroke: var(--font-color-muted);
+    stroke-width: 2px;
+  }
+}
+
+.timeline-row {
+  display: grid;
+  column-gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.timeline-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Reverses the visual (not DOM) order so row N+1 starts directly under
+   where row N ended, letting the connector overlay draw one continuous
+   path instead of disconnected lines per row. */
+.timeline-row[data-reverse="true"] {
+  direction: rtl;
+}
+
+.timeline-item {
+  direction: ltr;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.timeline-item__node,
+.timeline-mobile-item__node {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  color: var(--color-dark);
+  font-weight: 800;
+  box-shadow: 0 0 0 4px var(--background-primary);
+}
+
+.timeline-item__phase,
+.timeline-mobile-item__phase {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-primary-strong);
+  margin: 0.6rem 0 0.4rem;
+}
+
+.timeline-item__card {
+  background: var(--color-light);
+  color: var(--color-dark);
+  border-radius: var(--br-normal);
+  padding: 1rem 1.1rem;
+  width: 100%;
+}
+
+.timeline-item__title,
+.timeline-mobile-item__title {
+  font-size: 1rem;
+  margin: 0 0 0.35rem;
+}
+
+/* Centering reads fine for a short title or a couple lines of prose, but
+   list items of varying length ragged-center awkwardly — keep those
+   left-aligned regardless of the item's own centered text-align. */
+.timeline-item__card ul,
+.timeline-item__card ol {
+  text-align: left;
+}
+
+/* Caller-provided `content` styles itself, but most callers just need a
+   muted description paragraph — this shared utility covers that case
+   consistently on both the desktop card and the mobile (flat-style) list. */
+.timeline-item__description {
+  margin: 0;
+  color: var(--color-dark-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.timeline-mobile .timeline-item__description {
+  color: var(--font-color-muted);
+}
+
+/* ---------- Mobile / tablet: vertical, connecting line, label on the right ---------- */
+
+.timeline-mobile {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline-mobile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1.3rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--font-color-muted) 4%,
+    var(--font-color-muted) 96%,
+    transparent
+  );
+}
+
+.timeline-mobile-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.6rem 1fr;
+  column-gap: 1.25rem;
+  padding-bottom: 2.5rem;
+}
+
+.timeline-mobile-item:last-child {
+  padding-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .timeline--compact .timeline-desktop {
+    display: block;
+  }
+
+  .timeline--compact .timeline-mobile {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .timeline--wide .timeline-desktop {
+    display: block;
+  }
+
+  .timeline--wide .timeline-mobile {
+    display: none;
+  }
+}
+
+/* ---------- Shared tone modifiers (declared last so they win ties against
+   the base .timeline-item__card white background) ---------- */
+
+.timeline-item__node--green,
+.timeline-mobile-item__node--green,
+.timeline-item__card--green {
+  background: var(--color-lightgreen);
+}
+
+.timeline-item__node--purple,
+.timeline-mobile-item__node--purple,
+.timeline-item__card--purple {
+  background: var(--color-lightpurple);
+}
+
+.timeline-item__node--blue,
+.timeline-mobile-item__node--blue,
+.timeline-item__card--blue {
+  background: var(--color-lightblue);
+}
+
+.timeline-item__node--coral,
+.timeline-mobile-item__node--coral,
+.timeline-item__card--coral {
+  background: var(--yeeso-coral-tint);
+}
