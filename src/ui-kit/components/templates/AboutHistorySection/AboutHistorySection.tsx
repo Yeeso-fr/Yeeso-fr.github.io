@@ -12,24 +12,28 @@ const TIMELINE = [
     title: "Un parcours qui devient une mission",
     description:
       "Née dans un petit village du nord de la Guinée, Houleymatou Baldé se construit face à l'excision, au patriarcat, aux inégalités sociales, au racisme et au sexisme — sans jamais douter d'elle-même. Un rôle modèle croisé à l'écran oriente sa vocation vers l'informatique.",
+    tone: "green",
   },
   {
     step: "La conviction",
     title: "Le déclic « si elle peut le faire, je peux le faire »",
     description:
       "Baccalauréat scientifique, puis études d'informatique, puis une carrière d'ingénieure études et développement logiciel. Le constat s'impose : ce qui a manqué, ce n'était pas la capacité, c'était la représentation.",
+    tone: "purple",
   },
   {
     step: "La création",
     title: "Yeeso, « avenir » en peul",
     description:
       "L'association loi 1901 naît pour transformer une histoire personnelle en action collective : rendre le monde de l'IT plus juste et plus équitable, quel que soit le genre, dès la scolarisation.",
+    tone: "blue",
   },
   {
     step: "Aujourd'hui",
     title: "Deux programmes et un réseau",
     description:
       "Le programme Éducation intervient de la maternelle au monde du travail. Le programme Entreprise accompagne les organisations. L'IT Women Network prolonge l'action par le mentorat et l'entraide.",
+    tone: "coral",
   },
 ] as const;
 
@@ -37,9 +41,7 @@ export const AboutHistorySection = () => {
   return (
     <section className="about-history-section" id="histoire">
       <div className="container">
-        <span className="section-eyebrow section-eyebrow--on-accent">
-          Notre histoire
-        </span>
+        <span className="section-eyebrow">Notre histoire</span>
         <h2 className="about-history-section__title">
           <span lang="ff">« yeeso »</span> signifie avenir en peul, langue
           parlée dans une vingtaine de pays africains.
@@ -48,17 +50,20 @@ export const AboutHistorySection = () => {
         <div className="about-history-section__content">
           <ol className="about-history-section__timeline">
             {TIMELINE.map((item, index) => (
-              <li className="about-timeline-item" key={item.step}>
-                <span className="about-timeline-item__eyebrow">
-                  <span className="about-timeline-item__number">
-                    {index + 1}
+              <li
+                className={`about-timeline-item about-timeline-item--${item.tone}`}
+                key={item.step}
+              >
+                <span className="about-timeline-item__number">{index + 1}</span>
+                <div className="about-timeline-item__content">
+                  <span className="about-timeline-item__eyebrow">
+                    {item.step}
                   </span>
-                  {item.step}
-                </span>
-                <h3 className="about-timeline-item__title">{item.title}</h3>
-                <p className="about-timeline-item__description">
-                  {item.description}
-                </p>
+                  <h3 className="about-timeline-item__title">{item.title}</h3>
+                  <p className="about-timeline-item__description">
+                    {item.description}
+                  </p>
+                </div>
               </li>
             ))}
           </ol>

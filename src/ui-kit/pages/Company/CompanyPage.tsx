@@ -7,12 +7,12 @@ import { TrainingSection } from "@/ui-kit/components/templates/TrainingSection/T
 export const CompanyPage = () => {
   return (
     <>
-      <PageHeader title="Entreprises" logoAccent="noir" />
+      <PageHeader title="Entreprises" />
       <main id="maincontent" tabIndex={-1} className="main">
         <PartnershipSection />
         <PartnersSection />
-        <ConsultingSection />
         <TrainingSection />
+        <ConsultingSection />
       </main>
     </>
   );
