@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/config/seo";
 import { AboutPage } from "@/ui-kit/pages/About/AboutPage";
-import { getQaScores } from "@/usecases/qa-scores";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
 
@@ -14,7 +13,5 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 export default function Page() {
-  const qaScores = getQaScores();
-
-  return <AboutPage qaScores={qaScores} />;
+  return <AboutPage />;
 }

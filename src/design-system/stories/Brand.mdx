@@ -23,11 +23,11 @@ Un logo tout en rondeur, symbole de réassurance et de bienveillance. Le rond é
 
 Lorsque le nom est écrit dans le texte courant, **yeeso** s'écrit en minuscule et en gras.
 
-Le logo est un fichier raster (`public/img/logos/`), fond transparent, recadré au plus près du wordmark (ratio ~3.44:1). Il s'affiche via le composant `Logo` (`src/ui-kit/components/atoms/Images/Logo.tsx`), jamais retouché ou recoloré à la volée. Une version SVG vectorielle n'est pas encore disponible — à demander si le logo doit être décliné en petite taille (favicon, avatar).
+Le logo est un fichier raster (`public/img/logos/yeeso/`), fond transparent, recadré au plus près du wordmark (ratio ~3.44:1). Il s'affiche via le composant `Logo` (`src/ui-kit/components/atoms/Images/Logo.tsx`), jamais retouché ou recoloré à la volée. Une version SVG vectorielle n'est pas encore disponible — à demander si le logo doit être décliné en petite taille (favicon, avatar).
 
 Le composant `Logo` embarque deux variantes et bascule automatiquement selon `[data-theme]`, sans JS : `logo-principal-bleu.webp` (marine, thème clair) et `logo-principal-blanc.webp` (blanc, thème sombre — généré par recoloration du tracé, alpha préservé). C'est ce qui rend le logo de la navigation lisible en mode sombre.
 
-Quatre variantes secondaires monochromes sont disponibles dans `public/img/logos/` pour un usage décoratif (filigrane) sur les fonds colorés des bandeaux de page (`PageHeader`) : `logo-secondaire-noir.webp`, `logo-secondaire-orange.webp`, `logo-secondaire-rose.webp`, `logo-secondaire-vert.webp`.
+Quatre variantes secondaires monochromes sont disponibles dans `public/img/logos/yeeso/` pour un usage décoratif (filigrane) sur les fonds colorés des bandeaux de page (`PageHeader`) : `logo-secondaire-noir.webp`, `logo-secondaire-orange.webp`, `logo-secondaire-rose.webp`, `logo-secondaire-vert.webp`.
 
 **Taille minimale** : la largeur du logo ne doit pas être inférieure à 2/10 de la largeur du support (ex. 40 mm pour un A4). En dessous de 40 mm, la baseline devient illisible. Dans tous les cas, jamais en dessous de 20 mm en print, ni 150 px à l'écran.
 

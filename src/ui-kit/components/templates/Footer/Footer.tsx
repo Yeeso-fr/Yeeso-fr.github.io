@@ -112,8 +112,8 @@ export const Footer = ({ qaScores }: FooterProps) => {
             <div className={"footer__links"}>
               <Badge>
                 <StyledLink
-                  href="/a-propos#qualite"
-                  ariaLabel={`Lighthouse ${lighthouseAverage} : voir le détail du score sur la page À propos`}
+                  href="/mentions-legales#qualite"
+                  ariaLabel={`Lighthouse ${lighthouseAverage} : voir le détail du score sur la page Mentions légales`}
                   prefetch={false}
                 >
                   Lighthouse {lighthouseAverage}
@@ -121,8 +121,8 @@ export const Footer = ({ qaScores }: FooterProps) => {
               </Badge>
               <Badge>
                 <StyledLink
-                  href="/a-propos#qualite"
-                  ariaLabel={`Axe ${qaScores.axe.score}% : voir le détail du score d'accessibilité sur la page À propos`}
+                  href="/mentions-legales#qualite"
+                  ariaLabel={`Axe ${qaScores.axe.score}% : voir le détail du score d'accessibilité sur la page Mentions légales`}
                   prefetch={false}
                 >
                   Axe {qaScores.axe.score}%
@@ -130,8 +130,8 @@ export const Footer = ({ qaScores }: FooterProps) => {
               </Badge>
               <Badge>
                 <StyledLink
-                  href="/a-propos#qualite"
-                  ariaLabel={`EcoIndex ${qaScores.ecoindex.grade} : voir le détail du score sur la page À propos`}
+                  href="/mentions-legales#qualite"
+                  ariaLabel={`EcoIndex ${qaScores.ecoindex.grade} : voir le détail du score sur la page Mentions légales`}
                   prefetch={false}
                 >
                   EcoIndex {qaScores.ecoindex.grade}

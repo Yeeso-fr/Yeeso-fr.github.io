@@ -15,11 +15,11 @@ export const QaScoresDetails = ({ qaScores }: QaScoresDetailsProps) => {
 
   return (
     <section
-      className="qa-scores-details container"
+      className="qa-scores-details"
       id="qualite"
       aria-labelledby="qualite-title"
     >
-      <h2 id="qualite-title">Qualité &amp; Accessibilité</h2>
+      <h2 id="qualite-title">7. Qualité &amp; Accessibilité</h2>
       <p>
         Nous auditons automatiquement chaque page du site avec{" "}
         <strong>Lighthouse</strong>, <strong>Axe-core</strong> et{" "}

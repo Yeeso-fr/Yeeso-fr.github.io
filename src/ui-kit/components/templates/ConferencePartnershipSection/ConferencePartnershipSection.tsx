@@ -1,6 +1,12 @@
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  Timeline,
+  type TimelineTone,
+} from "@/ui-kit/components/organisms/Timeline/Timeline";
 import "./ConferencePartnershipSection.css";
 
-const PHASES = [
+const PHASES: { title: string; items: string[]; tone: TimelineTone }[] = [
   {
     title: "Avant l'événement",
     items: [
@@ -9,19 +15,19 @@ const PHASES = [
       "Mise en relation avec notre réseau d'intervenant·es",
       "Relais de communication auprès de notre communauté",
     ],
-    modifier: "conference-phase-card--green",
+    tone: "green",
   },
   {
     title: "Le jour J",
     items: ["Check-list sécurité", "Prestations possibles sur devis"],
-    modifier: "conference-phase-card--purple",
+    tone: "purple",
   },
   {
     title: "Après l'événement",
     items: ["Récapitulatif sur les KPI", "Partage des contenus créés"],
-    modifier: "conference-phase-card--coral",
+    tone: "coral",
   },
-] as const;
+];
 
 const EXTRAS = [
   "Relecture de code de conduite",
@@ -42,21 +48,22 @@ export const ConferencePartnershipSection = () => {
           Le partenariat Yeeso inclut
         </h2>
 
-        <div className="conference-partnership-section__cards">
-          {PHASES.map((phase) => (
-            <div
-              className={`conference-phase-card ${phase.modifier}`}
-              key={phase.title}
-            >
-              <h3 className="conference-phase-card__title">{phase.title}</h3>
-              <ul className="conference-phase-card__list">
+        <Timeline
+          steps={PHASES.map((phase) => ({
+            title: phase.title,
+            tone: phase.tone,
+            content: (
+              <ul key={phase.title} className="conference-phase-card__list">
                 {phase.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </div>
-          ))}
-        </div>
+            ),
+          }))}
+          columns={PHASES.length}
+          cardStyle="tinted"
+          breakpoint="compact"
+        />
 
         <h3 className="conference-partnership-section__extras-title">
           Accompagnements complémentaires
@@ -66,7 +73,10 @@ export const ConferencePartnershipSection = () => {
         </p>
         <ul className="conference-partnership-section__extras-list">
           {EXTRAS.map((extra) => (
-            <li key={extra}>{extra}</li>
+            <li key={extra}>
+              <FontAwesomeIcon icon={faPlus} aria-hidden />
+              {extra}
+            </li>
           ))}
         </ul>
       </div>

@@ -1,11 +1,34 @@
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import {
+  faLinkedin,
+  faTiktok,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 import { faBook, faChalkboardUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CONTACT_EMAIL } from "@/config/social-links";
+import {
+  CONTACT_EMAIL,
+  LINKEDIN_URL,
+  TIKTOK_URL,
+  YOUTUBE_URL,
+} from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./EducationToolsSection.css";
 
-const TOOLS = [
+type ToolLink = {
+  href: string;
+  label: string;
+  icon?: IconDefinition;
+  iconOnly?: boolean;
+};
+
+const TOOLS: {
+  icon: IconDefinition;
+  title: string;
+  description: string;
+  modifier: string;
+  links?: ToolLink[];
+}[] = [
   {
     icon: faChalkboardUser,
     title: "Interventions éducatives",
@@ -19,6 +42,7 @@ const TOOLS = [
     description:
       "Le livre Yeeso et des témoignages de femmes de la tech, pour déconstruire les stéréotypes et anticiper les évolutions technologiques.",
     modifier: "education-tool-card--purple",
+    links: [{ href: "/#livre", label: "Découvrir le livre" }],
   },
   {
     icon: faYoutube,
@@ -26,8 +50,28 @@ const TOOLS = [
     description:
       "Notre chaîne YouTube et nos campagnes de rôles modèles sur LinkedIn et TikTok diffusent des contenus inspirants pour comprendre et agir en faveur d'une tech plus inclusive.",
     modifier: "education-tool-card--coral",
+    links: [
+      {
+        href: YOUTUBE_URL,
+        label: "Voir la chaîne YouTube de Yeeso",
+        icon: faYoutube,
+        iconOnly: true,
+      },
+      {
+        href: TIKTOK_URL,
+        label: "Voir la page TikTok de Yeeso",
+        icon: faTiktok,
+        iconOnly: true,
+      },
+      {
+        href: LINKEDIN_URL,
+        label: "Voir la page LinkedIn de Yeeso",
+        icon: faLinkedin,
+        iconOnly: true,
+      },
+    ],
   },
-] as const;
+];
 
 export const EducationToolsSection = () => {
   return (
@@ -53,6 +97,24 @@ export const EducationToolsSection = () => {
               <p className="education-tool-card__description">
                 {tool.description}
               </p>
+              {tool.links && (
+                <div className="education-tool-card__links">
+                  {tool.links.map((link) => (
+                    <StyledLink
+                      key={link.href}
+                      href={link.href}
+                      iconOnly={link.iconOnly}
+                      ariaLabel={link.iconOnly ? link.label : undefined}
+                    >
+                      {link.icon ? (
+                        <FontAwesomeIcon icon={link.icon} aria-hidden />
+                      ) : (
+                        link.label
+                      )}
+                    </StyledLink>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>

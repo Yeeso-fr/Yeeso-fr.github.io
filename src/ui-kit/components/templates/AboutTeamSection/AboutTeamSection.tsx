@@ -1,44 +1,120 @@
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./AboutTeamSection.css";
 
 const BUREAU = [
-  { name: "Sandrine Waleckx", role: "Présidente", job: "Soignante" },
+  {
+    name: "Sandrine Waleckx",
+    role: "Présidente",
+    job: "Soignante",
+    linkedin: "https://www.linkedin.com/in/sandrine-waleckx-a1a631215/",
+  },
   {
     name: "Ibrahima Bah",
     role: "Trésorier",
     job: "Consultant IT Senior",
+    linkedin: "https://www.linkedin.com/in/ibrahima-bah-077749200/",
   },
   {
     name: "David Dérigent",
     role: "Vice-Président",
     job: "Architecte Solutions",
+    linkedin: "https://www.linkedin.com/in/david-d%C3%A9rigent-3220981/",
   },
   {
     name: "Pauline Bicheler Diallo",
     role: "Secrétaire Générale",
     job: "Responsable Diversité et Inclusion",
+    linkedin: "https://www.linkedin.com/in/paulinebicheler/",
   },
 ] as const;
 
 const SQUAD_LEADERS = [
-  { domain: "Communication", name: "Virginie" },
-  { domain: "Média et PR", name: "Ibrahima" },
-  { domain: "Stratégie", name: "Jeanne" },
-  { domain: "Sensibilisation", name: "Jessica" },
-  { domain: "Animation", name: "Angélique" },
-  { domain: "Mentorat", name: "Marie-Laure" },
-  { domain: "Partenariats", name: "Pauline" },
-  { domain: "DAF, SI, Admin", name: "David" },
+  {
+    domain: "Communication",
+    name: "Virginie",
+    linkedin:
+      "https://www.linkedin.com/in/virginie-voyenet-%F0%9F%92%8E-59b7811/",
+  },
+  {
+    domain: "Média et PR",
+    name: "Ibrahima",
+    linkedin: "https://www.linkedin.com/in/ibrahima-bah-077749200/",
+  },
+  {
+    domain: "Stratégie",
+    name: "Jeanne",
+    linkedin: "https://www.linkedin.com/in/jeanne-teillac/",
+  },
+  {
+    domain: "Sensibilisation",
+    name: "Jessica",
+    linkedin: "https://www.linkedin.com/in/jprot/",
+  },
+  {
+    domain: "Animation",
+    name: "Angélique",
+    linkedin: "https://www.linkedin.com/in/angelique-henry/",
+  },
+  {
+    domain: "Mentorat",
+    name: "Marie-Laure",
+    linkedin: "https://www.linkedin.com/in/marie-laure-mabongo-8463b891/",
+  },
+  {
+    domain: "Partenariats",
+    name: "Pauline",
+    linkedin: "https://www.linkedin.com/in/paulinebicheler/",
+  },
+  {
+    domain: "DAF, SI, Admin",
+    name: "David",
+    linkedin: "https://www.linkedin.com/in/david-d%C3%A9rigent-3220981/",
+  },
 ] as const;
 
 const ANTENNA_LEADERS = [
-  { city: "Lyon", name: "Albane" },
-  { city: "Paris", name: "Emmanuelle" },
-  { city: "Lille", name: "Jacqueline" },
-  { city: "Nantes", name: "Angi" },
-  { city: "Rennes", name: "Manon" },
-  { city: "Poitiers", name: "Felana" },
-  { city: "Toulouse", name: "Marie" },
-  { city: "Strasbourg", name: "Marion" },
+  {
+    city: "Lyon",
+    name: "Albane",
+    linkedin: "https://www.linkedin.com/in/albane-fagot-veyron/",
+  },
+  {
+    city: "Paris",
+    name: "Emmanuelle",
+    linkedin: "https://www.linkedin.com/in/emmanuelle-aboaf/",
+  },
+  {
+    city: "Lille",
+    name: "Jacqueline",
+    linkedin: "https://www.linkedin.com/in/jacqueline-rwanyindo/",
+  },
+  {
+    city: "Nantes",
+    name: "Angi",
+    linkedin: "https://www.linkedin.com/in/angi-guyard/",
+  },
+  {
+    city: "Rennes",
+    name: "Manon",
+    linkedin: "https://www.linkedin.com/in/manon-carbonnel/",
+  },
+  {
+    city: "Poitiers",
+    name: "Felana",
+    linkedin: "https://www.linkedin.com/in/felana-letrange/",
+  },
+  {
+    city: "Toulouse",
+    name: "Marie",
+    linkedin: "https://www.linkedin.com/in/malandel/",
+  },
+  {
+    city: "Strasbourg",
+    name: "Marion",
+    linkedin: "https://www.linkedin.com/in/marionlabbe/",
+  },
 ] as const;
 
 export const AboutTeamSection = () => {
@@ -65,6 +141,14 @@ export const AboutTeamSection = () => {
               <span className="about-team-card__role">{member.role}</span>
               <p className="about-team-card__name">{member.name}</p>
               <p className="about-team-card__job">{member.job}</p>
+              <StyledLink
+                href={member.linkedin}
+                iconOnly
+                ariaLabel={`Voir le profil LinkedIn de ${member.name}`}
+                className="about-team-card__linkedin"
+              >
+                <FontAwesomeIcon icon={faLinkedin} aria-hidden />
+              </StyledLink>
             </div>
           ))}
         </div>
@@ -78,7 +162,14 @@ export const AboutTeamSection = () => {
               {SQUAD_LEADERS.map((leader) => (
                 <div key={leader.domain}>
                   <dt>{leader.domain}</dt>
-                  <dd>{leader.name}</dd>
+                  <dd>
+                    <StyledLink
+                      href={leader.linkedin}
+                      ariaLabel={`Voir le profil LinkedIn de ${leader.name}`}
+                    >
+                      {leader.name}
+                    </StyledLink>
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -92,7 +183,14 @@ export const AboutTeamSection = () => {
               {ANTENNA_LEADERS.map((leader) => (
                 <div key={leader.city}>
                   <dt>{leader.city}</dt>
-                  <dd>{leader.name}</dd>
+                  <dd>
+                    <StyledLink
+                      href={leader.linkedin}
+                      ariaLabel={`Voir le profil LinkedIn de ${leader.name}`}
+                    >
+                      {leader.name}
+                    </StyledLink>
+                  </dd>
                 </div>
               ))}
             </dl>

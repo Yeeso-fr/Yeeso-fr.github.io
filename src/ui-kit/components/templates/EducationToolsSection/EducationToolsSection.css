@@ -46,6 +46,24 @@
   line-height: 1.5;
 }
 
+.education-tool-card__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+
+  .styled-link,
+  .styled-link:visited,
+  .styled-link:hover {
+    color: inherit;
+  }
+
+  .styled-link--icon {
+    border-color: currentColor;
+  }
+}
+
 .education-tools-section__cta {
   display: flex;
   flex-wrap: wrap;
