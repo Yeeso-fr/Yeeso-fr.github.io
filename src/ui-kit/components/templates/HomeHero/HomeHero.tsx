@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Badge } from "@/ui-kit/components/molecules/Badge/Badge";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import { Ticker } from "@/ui-kit/components/molecules/Ticker/Ticker";
@@ -15,7 +18,105 @@ const TICKER_ITEMS = [
   "Élargir le champ des possibles",
 ];
 
+const LEADERS = [
+  {
+    name: "Albane",
+    role: "Leader d'antenne — Lyon",
+    photo: "albane.webp",
+    width: 920,
+    height: 900,
+  },
+  {
+    name: "Angélique",
+    role: "Leader de squad — Animation",
+    photo: "angelique.webp",
+    width: 1200,
+    height: 1200,
+  },
+  {
+    name: "Angi",
+    role: "Leader d'antenne — Nantes",
+    photo: "angi.webp",
+    width: 1200,
+    height: 1200,
+  },
+  {
+    name: "Emmanuelle",
+    role: "Leader d'antenne — Paris",
+    photo: "emmanuelle.webp",
+    width: 1024,
+    height: 1024,
+  },
+  {
+    name: "Jacqueline",
+    role: "Leader d'antenne — Lille",
+    photo: "jacqueline.webp",
+    width: 800,
+    height: 800,
+  },
+  {
+    name: "Jeanne",
+    role: "Leader de squad — Stratégie",
+    photo: "jeanne.webp",
+    width: 974,
+    height: 900,
+  },
+  {
+    name: "Marie-Laure",
+    role: "Leader de squad — Mentorat",
+    photo: "marie-laure.webp",
+    width: 800,
+    height: 1200,
+  },
+  {
+    name: "Marie",
+    role: "Leader d'antenne — Toulouse",
+    photo: "marie.webp",
+    width: 1200,
+    height: 1200,
+  },
+  {
+    name: "Pauline Bicheler Diallo",
+    role: "Secrétaire Générale",
+    photo: "pauline.webp",
+    width: 800,
+    height: 799,
+  },
+  {
+    name: "David Dérigent",
+    role: "Vice-Président",
+    photo: "david.webp",
+    width: 857,
+    height: 1039,
+  },
+] as const;
+
+const ROTATE_INTERVAL_MS = 10_000;
+
+function pickTwoDistinctIndexes(length: number): [number, number] {
+  const first = Math.floor(Math.random() * length);
+  let second = Math.floor(Math.random() * (length - 1));
+  if (second >= first) second += 1;
+  return [first, second];
+}
+
 export const HomeHero = () => {
+  // Fixed on the server/first paint so hydration matches, then randomized
+  // client-side once mounted (see effect below) — avoids a hydration
+  // mismatch from Math.random() differing between server and client.
+  const [[leftIndex, rightIndex], setPair] = useState<[number, number]>([0, 1]);
+
+  useEffect(() => {
+    setPair(pickTwoDistinctIndexes(LEADERS.length));
+    const id = setInterval(() => {
+      setPair(pickTwoDistinctIndexes(LEADERS.length));
+    }, ROTATE_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, []);
+
+  const left = LEADERS[leftIndex];
+  const right = LEADERS[rightIndex];
+
   return (
     <div className="home-hero-block">
       <section className="home-hero" aria-labelledby="yeeso-title">
@@ -45,18 +146,43 @@ export const HomeHero = () => {
             </div>
           </div>
           <div className="home-hero__aside">
-            <figure className="home-hero__photo">
-              <img
-                src={`${basePath}/img/photos/team/houleymatou.webp`}
-                alt="Houleymatou Baldé, fondatrice de Yeeso"
-                width={840}
-                height={1120}
-                className="home-hero__image"
-              />
-              <figcaption className="home-hero__caption">
-                Houleymatou Baldé — fondatrice
-              </figcaption>
-            </figure>
+            <div className="home-hero__photo-group">
+              <figure
+                className="home-hero__photo home-hero__photo--side home-hero__photo--left"
+                key={`left-${left.photo}`}
+              >
+                <img
+                  src={`${basePath}/img/photos/team/${left.photo}`}
+                  alt={`${left.name}, ${left.role}`}
+                  width={left.width}
+                  height={left.height}
+                  className="home-hero__image"
+                />
+              </figure>
+
+              <figure className="home-hero__photo home-hero__photo--main">
+                <img
+                  src={`${basePath}/img/photos/team/houleymatou-hero.webp`}
+                  alt="Houleymatou Baldé, fondatrice de Yeeso"
+                  width={840}
+                  height={1120}
+                  className="home-hero__image"
+                />
+              </figure>
+
+              <figure
+                className="home-hero__photo home-hero__photo--side home-hero__photo--right"
+                key={`right-${right.photo}`}
+              >
+                <img
+                  src={`${basePath}/img/photos/team/${right.photo}`}
+                  alt={`${right.name}, ${right.role}`}
+                  width={right.width}
+                  height={right.height}
+                  className="home-hero__image"
+                />
+              </figure>
+            </div>
           </div>
         </div>
       </section>
