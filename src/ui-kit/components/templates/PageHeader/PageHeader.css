@@ -9,7 +9,9 @@
 .page-header__logo-accent {
   position: absolute;
   right: clamp(1rem, 5vw, 4rem);
-  bottom: clamp(-1.5rem, -3vw, 0.5rem);
+  /* Non-negative so the wordmark's descender (the "y") never gets clipped
+     by the header's overflow:hidden. */
+  bottom: clamp(0.25rem, 1vw, 1rem);
   width: clamp(120px, 18vw, 220px);
   height: auto;
   opacity: 0.9;
