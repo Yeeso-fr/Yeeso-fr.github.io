@@ -15,3 +15,6 @@ export const RONALPIA_URL = "https://www.ronalpia.fr/";
 export const FEMMES_NUMERIQUE_URL = "https://www.femmes-numerique.fr/";
 export const MEMBERSHIP_URL =
   "https://www.helloasso.com/associations/yeeso/adhesions/particulier-engagee";
+export const CMQ_IED_URL = "https://www.linkedin.com/company/cmq-ied/";
+export const DIVERSITES_ET_ENTREPRISES_URL =
+  "https://www.diversitesetentreprises.fr/";
