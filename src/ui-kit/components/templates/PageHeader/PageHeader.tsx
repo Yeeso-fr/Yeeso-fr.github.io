@@ -19,7 +19,7 @@ export const PageHeader = ({ title, logoAccent }: PageHeaderProps) => {
       </div>
       {logoAccent && (
         <img
-          src={`${basePath}/img/logos/logo-secondaire-${logoAccent}.webp`}
+          src={`${basePath}/img/logos/yeeso/logo-secondaire-${logoAccent}.webp`}
           alt=""
           width={1200}
           height={349}

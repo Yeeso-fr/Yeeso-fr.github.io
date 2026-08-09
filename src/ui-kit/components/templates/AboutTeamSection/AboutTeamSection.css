@@ -53,6 +53,13 @@
   font-size: 0.9rem;
 }
 
+.about-team-card__linkedin {
+  margin-top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.9rem;
+}
+
 .about-team-section__lists {
   display: grid;
   gap: 2.5rem;

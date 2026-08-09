@@ -6,14 +6,14 @@ export const Logo = () => {
   return (
     <>
       <img
-        src={`${basePath}/img/logos/logo-principal-bleu.webp`}
+        src={`${basePath}/img/logos/yeeso/logo-principal-bleu.webp`}
         alt="Yeeso"
         width={1200}
         height={349}
         className="logo logo--light"
       />
       <img
-        src={`${basePath}/img/logos/logo-principal-blanc.webp`}
+        src={`${basePath}/img/logos/yeeso/logo-principal-blanc.webp`}
         alt="Yeeso"
         width={1200}
         height={349}

@@ -115,6 +115,24 @@ export const PartnershipSection = () => {
         <StyledLink href={`mailto:${PARTNERSHIP_EMAIL}`} filled="green">
           Devenir partenaire
         </StyledLink>
+
+        <p className="partnership-section__note">
+          Envie d'accélérer la mixité dans votre entreprise ? Yeeso vous
+          accompagne de trois façons : devenez partenaire, faites appel à notre
+          expertise conseil, ou formez vos équipes. Pour toute question,
+          écrivez-nous à{" "}
+          <StyledLink href={`mailto:${PARTNERSHIP_EMAIL}`}>
+            {PARTNERSHIP_EMAIL}
+          </StyledLink>
+          .
+        </p>
+        <StyledLink
+          href="/docs/plaquette-offre-entreprises.pdf"
+          bordered={true}
+          download
+        >
+          Télécharger notre offre de services (PDF)
+        </StyledLink>
       </div>
     </section>
   );

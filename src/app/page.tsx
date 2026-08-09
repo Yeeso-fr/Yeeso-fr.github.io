@@ -31,7 +31,7 @@ export default function Home() {
     name: "Yeeso",
     url: siteUrl,
     logo: toAbsoluteUrl(
-      `${basePath}/img/logos/logo-principal-bleu.webp`,
+      `${basePath}/img/logos/yeeso/logo-principal-bleu.webp`,
       siteUrl,
     ),
     description:

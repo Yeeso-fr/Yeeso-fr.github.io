@@ -32,3 +32,10 @@
     font-size: 1.1rem;
   }
 }
+
+.partnership-section__note {
+  color: var(--font-color-muted);
+  max-width: 70ch;
+  line-height: 1.6;
+  margin: 2rem 0 1.5rem;
+}
