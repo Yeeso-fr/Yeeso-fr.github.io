@@ -4,7 +4,7 @@ import { ProgramsSection } from "@/ui-kit/components/templates/ProgramsSection/P
 export const ProgramsPage = () => {
   return (
     <>
-      <PageHeader title="Programmes" logoAccent="orange" />
+      <PageHeader title="Programmes" />
       <main id="maincontent" tabIndex={-1} className="main">
         <ProgramsSection />
       </main>

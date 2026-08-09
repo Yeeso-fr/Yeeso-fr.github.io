@@ -11,7 +11,7 @@ import "./ContactPage.css";
 export const ContactPage = () => {
   return (
     <>
-      <PageHeader title="Contact" logoAccent="rose" />
+      <PageHeader title="Contact" />
       <main id="maincontent" tabIndex={-1} className="main">
         <section className="contact-page">
           <div className="container">
