@@ -17,7 +17,8 @@ export const ContactPage = () => {
           <div className="container">
             <p className="contact-page__lead">
               Écoles, entreprises, bénévoles, journalistes : écrivez-nous. Nous
-              répondons sous quelques jours ouvrés.
+              répondons sous quelques jours ouvrés. Vous pouvez aussi consulter
+              notre <StyledLink href="/faq">foire aux questions</StyledLink>.
             </p>
 
             <div className="contact-page__grid">
