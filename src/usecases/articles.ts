@@ -1,7 +1,7 @@
 import { compareDesc } from "date-fns";
 import { readArticles } from "@/infrastructure/articles/articles.repository";
 
-const ARTICLES_PER_PAGE = 4;
+const ARTICLES_PER_PAGE = 6;
 const WORDS_PER_MINUTE = 200;
 
 export function getAllArticles() {
