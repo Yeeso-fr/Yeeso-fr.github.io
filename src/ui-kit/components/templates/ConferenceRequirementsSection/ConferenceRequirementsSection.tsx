@@ -1,6 +1,6 @@
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CONTACT_EMAIL } from "@/config/social-links";
+import { PARTNERSHIP_EMAIL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./ConferenceRequirementsSection.css";
 
@@ -67,7 +67,7 @@ export const ConferenceRequirementsSection = () => {
           >
             Télécharger la plaquette (PDF)
           </StyledLink>
-          <StyledLink href={`mailto:${CONTACT_EMAIL}`} filled="green">
+          <StyledLink href={`mailto:${PARTNERSHIP_EMAIL}`} filled="green">
             Discutons-en
           </StyledLink>
         </div>
