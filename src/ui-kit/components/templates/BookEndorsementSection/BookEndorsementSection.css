@@ -1,0 +1,152 @@
+.book-endorsement-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.book-endorsement-section__lead {
+  color: var(--font-color-muted);
+  max-width: 60ch;
+  margin: 0 0 2.5rem;
+}
+
+.book-endorsement-card {
+  display: grid;
+  gap: 0;
+  align-items: end;
+  background: var(--color-primary);
+  color: var(--color-light);
+  border-radius: var(--br-normal);
+  /* No padding: the photo column must reach the card's bottom edge, so the
+     inner spacing lives on __content instead. overflow clips the photo to
+     the card's rounded corners. */
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.book-endorsement-card__content {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.book-endorsement-card__quote {
+  margin: 0;
+
+  p {
+    font-size: 1.35rem;
+    font-style: italic;
+    line-height: 1.55;
+    margin: 0 0 1rem;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Selector deliberately deep enough (0,2,1) to outrank
+   `.styled-link.styled-link--icon` (0,2,0) — a flat class here would lose the
+   specificity tie and the overrides below would silently do nothing. */
+.book-endorsement-card__quote footer .book-endorsement-card__linkedin {
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 0.85rem;
+  /* Fixed white, not the theme-reactive --font-color/--border-color the icon
+     variant defaults to: this card's background is always navy regardless of
+     theme, so the default would go dark-on-navy in light mode. */
+  color: var(--color-light);
+  border-color: rgb(255 255 255 / 45%);
+
+  &:visited {
+    color: var(--color-light);
+  }
+
+  &:hover {
+    color: var(--color-lightpurple);
+    border-color: var(--color-lightpurple);
+  }
+}
+
+.book-endorsement-card__credentials-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  /* Fixed white rather than an accent tint: --color-lightpurple only reaches
+     ~6.8:1 against this navy, under the AAA 7:1 bar this codebase holds small
+     text to. The accent carries the bullets instead, where contrast is
+     decorative rather than textual. */
+  color: var(--color-light);
+  margin: 0 0 0.85rem;
+}
+
+.book-endorsement-card__credentials ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.book-endorsement-card__credentials li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  /* Translucent white lifts each item off the flat navy so the list reads as
+     a set of distinct credentials rather than a run of body copy. Stays a
+     white-on-navy blend, so text contrast remains above AAA. */
+  background: rgb(255 255 255 / 10%);
+  border: 1px solid rgb(255 255 255 / 24%);
+  border-radius: var(--br-rounded);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--color-light);
+}
+
+.book-endorsement-card__credentials li::before {
+  content: "";
+  flex: none;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: var(--br-circle);
+  background: var(--color-lightpurple);
+}
+
+.book-endorsement-card__photo {
+  margin: 0;
+  align-self: end;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+.book-endorsement-section__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 640px) {
+  .book-endorsement-card {
+    grid-template-columns: 1fr 260px;
+    column-gap: 2rem;
+  }
+
+  .book-endorsement-card__content {
+    padding: 2.5rem;
+  }
+}
