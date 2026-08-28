@@ -75,28 +75,25 @@ const LEADERS = [
     width: 1200,
     height: 1200,
   },
-  {
-    name: "Pauline Bicheler Diallo",
-    role: "Secrétaire Générale",
-    photo: "pauline.webp",
-    width: 800,
-    height: 799,
-  },
-  {
-    name: "David Dérigent",
-    role: "Vice-Président",
-    photo: "david.webp",
-    width: 857,
-    height: 1039,
-  },
 ] as const;
 
 const ROTATE_INTERVAL_MS = 10_000;
 
-function pickTwoDistinctIndexes(length: number): [number, number] {
-  const first = Math.floor(Math.random() * length);
-  let second = Math.floor(Math.random() * (length - 1));
-  if (second >= first) second += 1;
+/**
+ * Excludes the currently-shown pair so every rotation swaps both photos —
+ * otherwise a plain random draw can re-pick one of the current two by
+ * chance, making it look like only one side changed.
+ */
+function pickTwoDistinctIndexes(
+  length: number,
+  exclude: readonly number[] = [],
+): [number, number] {
+  const pool = Array.from({ length }, (_, i) => i).filter(
+    (i) => !exclude.includes(i),
+  );
+  const firstPoolIndex = Math.floor(Math.random() * pool.length);
+  const [first] = pool.splice(firstPoolIndex, 1);
+  const second = pool[Math.floor(Math.random() * pool.length)];
   return [first, second];
 }
 
@@ -107,9 +104,9 @@ export const HomeHero = () => {
   const [[leftIndex, rightIndex], setPair] = useState<[number, number]>([0, 1]);
 
   useEffect(() => {
-    setPair(pickTwoDistinctIndexes(LEADERS.length));
+    setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current));
     const id = setInterval(() => {
-      setPair(pickTwoDistinctIndexes(LEADERS.length));
+      setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current));
     }, ROTATE_INTERVAL_MS);
     return () => clearInterval(id);
   }, []);
