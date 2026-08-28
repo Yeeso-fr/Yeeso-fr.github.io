@@ -39,3 +39,9 @@
   line-height: 1.6;
   margin: 2rem 0 1.5rem;
 }
+
+.partnership-section__downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

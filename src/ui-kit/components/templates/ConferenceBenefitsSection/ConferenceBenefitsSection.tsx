@@ -1,6 +1,6 @@
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CONTACT_EMAIL } from "@/config/social-links";
+import { PARTNERSHIP_EMAIL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./ConferenceBenefitsSection.css";
 
@@ -40,8 +40,8 @@ export const ConferenceBenefitsSection = () => {
             prévention, sécurité. Nous accompagnons les équipes organisatrices
             de conférences, meetups et événements tech, avant, pendant et après
             l'événement. Une question, un projet ? Écrivez-nous à{" "}
-            <StyledLink href={`mailto:${CONTACT_EMAIL}`}>
-              {CONTACT_EMAIL}
+            <StyledLink href={`mailto:${PARTNERSHIP_EMAIL}`}>
+              {PARTNERSHIP_EMAIL}
             </StyledLink>
             .
           </p>
