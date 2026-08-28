@@ -53,7 +53,11 @@
   font-size: 0.9rem;
 }
 
-.about-team-card__linkedin {
+/* `.styled-link.styled-link--icon` sets width/height at 0,2,0, so a flat
+   class here loses the specificity tie and the sizing is silently dropped.
+   The `a` element bumps this to 0,2,1, which wins outright rather than
+   depending on stylesheet order. */
+.about-team-card a.about-team-card__linkedin {
   margin-top: 1rem;
   width: 2rem;
   height: 2rem;
