@@ -11,13 +11,13 @@ const TRAININGS = [
   {
     title: "Le futur de la tech est inclusif",
     details: "Cadrage 3h · Design 3h · Animation 1h · Reporting & feedback 3h",
-    trainer: "Formatrice : la Directrice Générale de Yeeso",
+    trainer: "Formatrice : Houleymatou Baldé",
     modifier: "training-card--green",
   },
   {
     title: "Leadership inclusif",
     details: "Cadrage 5h · Design 5h · Animation 3h · Reporting & feedback 3h",
-    trainer: "Formatrice : la Directrice Générale de Yeeso",
+    trainer: "Formatrice : Houleymatou Baldé",
     modifier: "training-card--purple",
   },
   {
@@ -32,6 +32,13 @@ const TRAININGS = [
     ),
     trainer: "",
     modifier: "training-card--coral",
+  },
+  {
+    title: "Sensibilisation au sexisme",
+    details:
+      "La Fresque du Sexisme (atelier collaboratif) ou une sensibilisation personnalisée, pour mettre toute l'équipe au même niveau de connaissances sur le sujet et poser une base commune.",
+    trainer: <>Formatrice : Manon Carbonnel</>,
+    modifier: "training-card--noir",
   },
 ];
 

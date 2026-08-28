@@ -126,13 +126,22 @@ export const PartnershipSection = () => {
           </StyledLink>
           .
         </p>
-        <StyledLink
-          href="/docs/plaquette-offre-entreprises.pdf"
-          bordered={true}
-          download
-        >
-          Télécharger notre offre de services (PDF)
-        </StyledLink>
+        <div className="partnership-section__downloads">
+          <StyledLink
+            href="/docs/plaquette-offre-entreprises.pdf"
+            bordered={true}
+            download
+          >
+            Télécharger notre offre de services (PDF)
+          </StyledLink>
+          <StyledLink
+            href="/docs/plaquette-conferences-houleymatou-balde.pdf"
+            bordered={true}
+            download
+          >
+            Téléchargez notre offre de conférences & création d'événements (PDF)
+          </StyledLink>
+        </div>
       </div>
     </section>
   );

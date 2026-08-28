@@ -40,6 +40,11 @@
   background: var(--yeeso-coral-tint);
 }
 
+.training-card--noir {
+  background: var(--yeeso-noir-velours);
+  color: var(--color-light);
+}
+
 .training-card__title {
   font-size: 1.15rem;
   margin: 0 0 0.75rem;
@@ -67,6 +72,21 @@
   margin: 0;
   font-size: 0.85rem;
   font-weight: 700;
+}
+
+/* Placed after the lower-specificity `.styled-link` rules above so the
+   cascade reads in ascending specificity order (biome's
+   noDescendingSpecificity); the two sets target different elements, so this
+   is ordering hygiene rather than a behavior change. */
+.training-card--noir .training-card__trainer .styled-link {
+  /* Fixed white, not the theme-reactive --font-color: this card's
+     background is always dark regardless of theme. */
+  color: var(--color-light);
+}
+
+.training-card--noir .training-card__trainer .styled-link:visited,
+.training-card--noir .training-card__trainer .styled-link:hover {
+  color: var(--color-light);
 }
 
 .training-section__note {
