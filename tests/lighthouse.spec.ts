@@ -52,6 +52,7 @@ const pages: {
   { name: "programs page", slug: "programmes", path: "/programmes" },
   { name: "network page", slug: "reseau", path: "/reseau" },
   { name: "contact page", slug: "contact", path: "/contact" },
+  { name: "faq page", slug: "faq", path: "/faq" },
 ];
 
 type DeviceType = "mobile" | "desktop" | "ecoindex";

@@ -13,6 +13,7 @@ const staticPages = [
   { name: "education page", path: "/education" },
   { name: "conferences page", path: "/conferences" },
   { name: "contact page", path: "/contact" },
+  { name: "faq page", path: "/faq" },
 ];
 
 const entityListPages = [

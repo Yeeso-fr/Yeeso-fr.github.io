@@ -135,6 +135,9 @@ export const MissionSection = () => {
               />
             </StyledLink>
           </div>
+          <StyledLink href="/faq" bordered={true}>
+            Voir la FAQ
+          </StyledLink>
         </div>
       </div>
     </section>
