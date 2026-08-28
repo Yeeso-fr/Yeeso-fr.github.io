@@ -89,17 +89,17 @@ describe("getPaginatedArticles", () => {
     expect(page1[0].slug).toBe("article-9");
   });
 
-  it("slices articles into pages of 4", () => {
+  it("slices articles into pages of 6", () => {
     const { articles: page1, totalPages } = getPaginatedArticles(1);
-    expect(page1).toHaveLength(4);
-    expect(totalPages).toBe(3);
+    expect(page1).toHaveLength(6);
+    expect(totalPages).toBe(2);
   });
 
   it("clamps page numbers above the last page to the last page", () => {
     const { currentPage, articles: lastPageArticles } =
       getPaginatedArticles(99);
-    expect(currentPage).toBe(3);
-    expect(lastPageArticles).toHaveLength(2);
+    expect(currentPage).toBe(2);
+    expect(lastPageArticles).toHaveLength(4);
   });
 
   it("clamps page numbers below 1 to page 1", () => {
