@@ -37,6 +37,13 @@
   }
 }
 
+.impact-stat-card__note {
+  margin: 0.5rem 0 0;
+  color: var(--color-dark-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
 .impact-stat-card__icon-chip {
   display: inline-flex;
   align-items: center;

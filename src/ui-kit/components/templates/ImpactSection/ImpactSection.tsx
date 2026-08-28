@@ -29,6 +29,7 @@ const HEADLINE_STATS = [
     icon: faBook,
     value: "1",
     label: "livre publié",
+    note: "Un 2ᵉ livre est en préparation, à paraître en 2027",
     href: BOOK_URL,
     modifier: "impact-stat-card--coral",
   },
@@ -97,6 +98,9 @@ export const ImpactSection = () => {
                 )}
               </dt>
               <dd>{stat.label}</dd>
+              {"note" in stat && (
+                <p className="impact-stat-card__note">{stat.note}</p>
+              )}
             </div>
           ))}
         </dl>
