@@ -62,6 +62,13 @@ const LEADERS = [
     height: 900,
   },
   {
+    name: "Manon",
+    role: "Leader d'antenne — Rennes",
+    photo: "manon.webp",
+    width: 800,
+    height: 1280,
+  },
+  {
     name: "Marie-Laure",
     role: "Leader de squad — Mentorat",
     photo: "marie-laure.webp",
