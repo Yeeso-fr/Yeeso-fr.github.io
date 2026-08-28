@@ -126,6 +126,19 @@
   }
 }
 
+/* StyledLink defaults to inline-flex, which makes a link an unbreakable
+   atomic box: a long link inside a sentence can't wrap mid-phrase and jumps
+   whole to the next line. Inside running text it has to flow as plain inline
+   content instead. Selector is 0,2,1 so it outranks `.styled-link` (0,1,0)
+   regardless of stylesheet order. */
+.mission-section__labels p .styled-link {
+  display: inline;
+}
+
+.mission-section__labels .mission-section__labels-faq {
+  margin-left: auto;
+}
+
 .mission-section__labels-logos {
   display: flex;
   flex-wrap: wrap;
