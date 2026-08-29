@@ -12,22 +12,74 @@ const SUBJECTS = [
   "Autre",
 ];
 
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+
+type SubmitStatus = "idle" | "submitting" | "success" | "error";
+
 export const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState(SUBJECTS[0]);
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const body = `Nom : ${name}\nE-mail : ${email}\n\n${message}`;
-    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
+    setStatus("submitting");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `[Contact Yeeso] ${subject}`,
+          from_name: name,
+          email,
+          message,
+        }),
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setSubject(SUBJECTS[0]);
+        setMessage("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
+
+  if (status === "success") {
+    return (
+      <div className="contact-form framed-four-corners" role="status">
+        <h2 className="contact-form__title">Message envoyé</h2>
+        <p className="contact-form__status contact-form__status--success">
+          Merci, votre message a bien été transmis à l'équipe Yeeso. Nous
+          revenons vers vous rapidement.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <form className="contact-form framed-four-corners" onSubmit={handleSubmit}>
       <h2 className="contact-form__title">Nous écrire</h2>
+
+      {status === "error" && (
+        <p
+          className="contact-form__status contact-form__status--error"
+          role="alert"
+        >
+          L'envoi a échoué. Réessayez, ou écrivez-nous directement à{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        </p>
+      )}
 
       <div className="contact-form__field">
         <label htmlFor="contact-name">Nom et prénom</label>
@@ -84,8 +136,12 @@ export const ContactForm = () => {
         />
       </div>
 
-      <button type="submit" className="contact-form__submit">
-        Envoyer le message
+      <button
+        type="submit"
+        className="contact-form__submit"
+        disabled={status === "submitting"}
+      >
+        {status === "submitting" ? "Envoi en cours…" : "Envoyer le message"}
       </button>
     </form>
   );
