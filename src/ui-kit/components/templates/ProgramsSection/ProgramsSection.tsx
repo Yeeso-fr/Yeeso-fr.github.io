@@ -46,9 +46,10 @@ export const ProgramsSection = () => {
         <span className="section-eyebrow">Programmes</span>
         <h2 className="programs-section__title">Nos actions</h2>
         <p className="programs-section__lead">
-          Quatre programmes pour former les femmes et les hommes dès le plus
-          jeune âge, intervenir dans les organisations existantes, fédérer un
-          réseau d'entraide, et rendre les événements tech plus inclusifs.
+          Yeeso agit autour de trois piliers : sensibiliser, soutenir et rendre
+          visible. Quatre programmes pour former les femmes et les hommes dès le
+          plus jeune âge, intervenir dans les organisations existantes, fédérer
+          un réseau d'entraide, et rendre les événements tech plus inclusifs.
         </p>
 
         <div className="programs-section__cards">
