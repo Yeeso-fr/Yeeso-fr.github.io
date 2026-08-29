@@ -20,11 +20,17 @@ const entityListPages = [
   { name: "articles list page", path: "/articles" },
   { name: "authors list page", path: "/authors" },
   { name: "articles pagination page", path: "/articles/page/1" },
-  { name: "articles category page", path: "/articles/category/yeeso" },
+  {
+    name: "articles category page",
+    path: `/articles/category/${encodeURIComponent("nos rôles modèles")}`,
+  },
 ];
 
 const entityDetailPages = [
-  { name: "article detail page", path: "/articles/bienvenue-sur-yeeso" },
+  {
+    name: "article detail page",
+    path: "/articles/albane-fagot-veyron-agile-experte-en-engagement-coach-professionnel",
+  },
   { name: "author detail page", path: "/authors/houleymatou-balde" },
 ];
 
