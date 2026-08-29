@@ -87,6 +87,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the production build.
 |---|---|
 | `PUBLIC_SITE_URL` | Canonical site URL used for metadata (e.g. `og:url`) |
 | `PAGES_BASE_PATH` | GitHub Pages sub-path — only set in CI, leave unset locally |
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | [Web3Forms](https://web3forms.com/) access key powering the contact form (static site, no backend). Get one for free by submitting `contact@yeeso.org` at web3forms.com — inlined into the client bundle at build time, so it's expected to be public. |
 
 ## Design system
 

@@ -69,6 +69,7 @@ jobs:
           PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
           PUBLIC_SITE_URL: "https://yeeso-fr.github.io/"
           DISALLOW_ROBOTS: "true"
+          NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
 
       - name: Build Storybook
         run: |
