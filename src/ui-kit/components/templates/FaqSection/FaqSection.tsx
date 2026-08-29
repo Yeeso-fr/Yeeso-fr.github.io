@@ -2,7 +2,6 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   BOOK_HELLOASSO_URL,
-  BOOK_URL,
   CONTACT_EMAIL,
   HELLOASSO_URL,
   INSTAGRAM_URL,
@@ -13,6 +12,7 @@ import {
   TIKTOK_URL,
   YOUTUBE_URL,
 } from "@/config/social-links";
+import { BookPurchaseLinks } from "@/ui-kit/components/molecules/BookPurchaseLinks/BookPurchaseLinks";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./FaqSection.css";
 
@@ -246,12 +246,7 @@ export const FaqSection = () => {
                 inclusive.
               </p>
               <div className="faq-item__actions">
-                <StyledLink href={BOOK_HELLOASSO_URL} filled="green">
-                  Commander sur HelloAsso
-                </StyledLink>
-                <StyledLink href={BOOK_URL} bordered>
-                  Acheter sur Amazon
-                </StyledLink>
+                <BookPurchaseLinks />
               </div>
             </div>
           </details>

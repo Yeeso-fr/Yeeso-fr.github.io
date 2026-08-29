@@ -101,7 +101,7 @@ export const ArticleDetailPage = ({
           </div>
         </header>
         <ArticleContent content={article.content} />
-        {author && author.slug !== "yeeso" && (
+        {author && !author.isOrganization && (
           <div className="article-page__footer">
             <AuthorCardContent author={author} headingLevel="h2" />
           </div>

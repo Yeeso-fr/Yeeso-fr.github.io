@@ -79,27 +79,38 @@
 
 /* ------------ Icon ------------ */
 
+/* Consuming components override sizing/color for a specific context (e.g. a
+   dark card background) via the --styled-link-icon-* custom properties below,
+   rather than fighting this rule's specificity — custom property inheritance
+   applies regardless of the overriding selector's specificity. */
 .styled-link.styled-link--icon {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: var(--styled-link-icon-size, 2.5rem);
+  height: var(--styled-link-icon-size, 2.5rem);
   padding: 0;
   border-radius: var(--br-circle);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--styled-link-icon-border-color, var(--border-color));
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: var(--font-color);
+  color: var(--styled-link-icon-color, var(--font-color));
   transition:
     border-color 0.2s ease,
     color 0.2s ease;
   text-decoration: none;
 
+  &:visited {
+    color: var(--styled-link-icon-color, var(--font-color));
+  }
+
   &:hover {
-    color: var(--color-primary-strong);
-    border-color: var(--color-primary-strong);
+    color: var(--styled-link-icon-hover-color, var(--color-primary-strong));
+    border-color: var(
+      --styled-link-icon-hover-color,
+      var(--color-primary-strong)
+    );
   }
 
   svg {
-    width: 1.2rem;
+    width: var(--styled-link-icon-svg-size, 1.2rem);
   }
 }

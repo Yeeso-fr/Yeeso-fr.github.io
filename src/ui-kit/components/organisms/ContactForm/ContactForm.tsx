@@ -25,6 +25,15 @@ export const ContactForm = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (!WEB3FORMS_ACCESS_KEY) {
+      console.error(
+        "NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY is not set — contact form cannot submit.",
+      );
+      setStatus("error");
+      return;
+    }
+
     setStatus("submitting");
 
     try {
@@ -50,7 +59,8 @@ export const ContactForm = () => {
       } else {
         setStatus("error");
       }
-    } catch {
+    } catch (error) {
+      console.error("Contact form submission failed", error);
       setStatus("error");
     }
   };
