@@ -95,12 +95,21 @@ function pickTwoDistinctIndexes(
   length: number,
   exclude: readonly number[] = [],
 ): [number, number] {
+  if (length < 2) {
+    throw new Error("pickTwoDistinctIndexes requires at least 2 items");
+  }
+
   const pool = Array.from({ length }, (_, i) => i).filter(
     (i) => !exclude.includes(i),
   );
-  const firstPoolIndex = Math.floor(Math.random() * pool.length);
-  const [first] = pool.splice(firstPoolIndex, 1);
-  const second = pool[Math.floor(Math.random() * pool.length)];
+  // If excluding the current pair leaves fewer than 2 candidates, fall back
+  // to the full set so we can still pick two distinct indexes.
+  const candidates =
+    pool.length >= 2 ? pool : Array.from({ length }, (_, i) => i);
+
+  const firstPoolIndex = Math.floor(Math.random() * candidates.length);
+  const [first] = candidates.splice(firstPoolIndex, 1);
+  const second = candidates[Math.floor(Math.random() * candidates.length)];
   return [first, second];
 }
 

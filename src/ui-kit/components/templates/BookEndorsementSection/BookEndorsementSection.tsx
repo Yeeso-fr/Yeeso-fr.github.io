@@ -1,7 +1,7 @@
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { BOOK_HELLOASSO_URL, BOOK_URL } from "@/config/social-links";
 import { Badge } from "@/ui-kit/components/molecules/Badge/Badge";
+import { BookPurchaseLinks } from "@/ui-kit/components/molecules/BookPurchaseLinks/BookPurchaseLinks";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./BookEndorsementSection.css";
 
@@ -75,12 +75,7 @@ export const BookEndorsementSection = () => {
         </div>
 
         <div className="book-endorsement-section__cta">
-          <StyledLink href={BOOK_HELLOASSO_URL} filled="green">
-            Commander sur HelloAsso
-          </StyledLink>
-          <StyledLink href={BOOK_URL} bordered={true}>
-            Acheter sur Amazon
-          </StyledLink>
+          <BookPurchaseLinks />
         </div>
       </div>
     </section>
