@@ -4,6 +4,7 @@ export const AuthorSchema = z.object({
   name: z.string(),
   slug: z.string(),
   avatar: z.union([z.url(), z.string().startsWith("/")]),
+  isOrganization: z.boolean().optional(),
   pronouns: z.string().optional(),
   website: z.url().optional(),
   bluesky: z.url().optional(),
