@@ -49,28 +49,17 @@
   }
 }
 
-/* Selector deliberately deep enough (0,2,1) to outrank
-   `.styled-link.styled-link--icon` (0,2,0) — a flat class here would lose the
-   specificity tie and the overrides below would silently do nothing. */
-.book-endorsement-card__quote footer .book-endorsement-card__linkedin {
+.book-endorsement-card__linkedin {
   flex: none;
-  width: 2.25rem;
-  height: 2.25rem;
   font-size: 0.85rem;
   /* Fixed white, not the theme-reactive --font-color/--border-color the icon
      variant defaults to: this card's background is always navy regardless of
-     theme, so the default would go dark-on-navy in light mode. */
-  color: var(--color-light);
-  border-color: rgb(255 255 255 / 45%);
-
-  &:visited {
-    color: var(--color-light);
-  }
-
-  &:hover {
-    color: var(--color-lightpurple);
-    border-color: var(--color-lightpurple);
-  }
+     theme, so the default would go dark-on-navy in light mode. Set via the
+     --styled-link-icon-* custom properties StyledLink exposes for this. */
+  --styled-link-icon-size: 2.25rem;
+  --styled-link-icon-color: var(--color-light);
+  --styled-link-icon-border-color: rgb(255 255 255 / 45%);
+  --styled-link-icon-hover-color: var(--color-lightpurple);
 }
 
 .book-endorsement-card__credentials-title {
