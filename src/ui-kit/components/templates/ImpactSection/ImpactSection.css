@@ -23,14 +23,15 @@
      as a distinct flat block in both themes without needing a border. */
   background: var(--color-light);
 
-  dt {
+  .impact-stat-card__value {
+    display: block;
     font-size: var(--fs-h2);
     font-weight: 800;
     color: var(--color-primary);
     margin: 0 0 0.35rem;
   }
 
-  dd {
+  .impact-stat-card__label {
     margin: 0;
     color: var(--color-dark-muted);
     font-size: 0.9rem;

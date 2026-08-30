@@ -6,6 +6,7 @@ import { ArticleContent } from "@/ui-kit/articles/ArticleContent/ArticleContent"
 import { AuthorCardContent } from "@/ui-kit/articles/AuthorCard/AuthorCardContent";
 import { AuthorCreditLink } from "@/ui-kit/components/atoms/AuthorCreditLink/AuthorCreditLink";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
+import { slugifyCategory } from "@/usecases/articles";
 import type { AuthorCredit } from "@/usecases/authors";
 import "./ArticleDetailPage.css";
 
@@ -66,7 +67,7 @@ export const ArticleDetailPage = ({
                 {article.categories.map((category) => (
                   <StyledLink
                     key={category}
-                    href={`/articles/category/${category.toLowerCase()}`}
+                    href={`/articles/category/${slugifyCategory(category)}`}
                     className="article-card__category"
                     bordered
                     prefetch={false}
