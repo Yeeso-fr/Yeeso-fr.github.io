@@ -22,7 +22,7 @@ const entityListPages = [
   { name: "articles pagination page", path: "/articles/page/1" },
   {
     name: "articles category page",
-    path: `/articles/category/${encodeURIComponent("nos rôles modèles")}`,
+    path: "/articles/category/nos-roles-modeles",
   },
 ];
 
