@@ -8,6 +8,16 @@ export function getAllArticles() {
   return readArticles();
 }
 
+/** ASCII-safe URL slug for a category (e.g. "Nos rôles modèles" -> "nos-roles-modeles"). */
+export function slugifyCategory(category: string): string {
+  return category
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export function getLastArticles(limit: number) {
   return [...readArticles()]
     .sort((a, b) =>

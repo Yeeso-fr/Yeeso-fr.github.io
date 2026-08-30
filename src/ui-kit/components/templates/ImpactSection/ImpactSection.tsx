@@ -76,7 +76,7 @@ export const ImpactSection = () => {
           veulent s'engager pour l'équité dans le numérique.
         </p>
 
-        <dl className="impact-section__headline">
+        <div className="impact-section__headline">
           {HEADLINE_STATS.map((stat) => (
             <div
               className={`impact-stat-card ${stat.modifier}`}
@@ -85,7 +85,7 @@ export const ImpactSection = () => {
               <span className="impact-stat-card__icon-chip" aria-hidden="true">
                 <FontAwesomeIcon icon={stat.icon} />
               </span>
-              <dt>
+              <span className="impact-stat-card__value">
                 {"href" in stat ? (
                   <StyledLink
                     href={stat.href}
@@ -96,14 +96,14 @@ export const ImpactSection = () => {
                 ) : (
                   stat.value
                 )}
-              </dt>
-              <dd>{stat.label}</dd>
+              </span>
+              <p className="impact-stat-card__label">{stat.label}</p>
               {"note" in stat && (
                 <p className="impact-stat-card__note">{stat.note}</p>
               )}
             </div>
           ))}
-        </dl>
+        </div>
 
         <div className="impact-section__cards">
           {PILLARS.map((pillar) => (
