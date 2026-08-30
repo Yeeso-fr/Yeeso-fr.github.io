@@ -1,6 +1,7 @@
 import { format, parseISO } from "date-fns";
 import { fr } from "date-fns/locale";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
+import { slugifyCategory } from "@/usecases/articles";
 import "./ArticleCard.css";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
@@ -90,7 +91,7 @@ export function ArticleCard({
             {categories.map((category) => (
               <li key={category}>
                 <StyledLink
-                  href={`/articles/category/${category.toLowerCase()}`}
+                  href={`/articles/category/${slugifyCategory(category)}`}
                   bordered
                   className="article-card__category"
                   ariaLabel={`Voir tous les articles de la catégorie ${category}`}
