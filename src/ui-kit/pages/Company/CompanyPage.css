@@ -1,0 +1,11 @@
+.company-page__categories {
+  padding: 1.5rem 1.25rem 0;
+}
+
+.company-page__categories .anchor-tags {
+  margin-bottom: 0;
+}
+
+.company-page__categories .anchor-tags__list {
+  justify-content: center;
+}
