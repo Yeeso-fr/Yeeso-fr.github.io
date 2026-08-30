@@ -1,0 +1,21 @@
+.company-conferences-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.company-conferences-section__lead {
+  color: var(--font-color-muted);
+  max-width: 65ch;
+  margin: 0 0 2rem;
+
+  svg {
+    color: var(--color-lightgreen);
+  }
+}
+
+.company-conferences-section__downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}

@@ -1,0 +1,91 @@
+.offer-block {
+  display: block;
+  border-radius: var(--br-normal);
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 5vw, 3rem);
+  color: var(--color-dark);
+}
+
+.offer-block--green {
+  background: var(--color-lightgreen);
+}
+
+.offer-block--purple {
+  background: var(--color-lightpurple);
+}
+
+.offer-block--coral {
+  /* --color-lightorange (#e77169) is too saturated to carry AAA-compliant
+     text, so this variant uses a pastel tint instead of the full accent. */
+  background: var(--yeeso-coral-tint);
+}
+
+.offer-block--noir {
+  background: var(--yeeso-noir-velours);
+  color: var(--color-light);
+}
+
+.offer-block__kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.offer-block__title {
+  font-size: 1.35rem;
+  margin: 0 0 0.85rem;
+}
+
+.offer-block__description {
+  margin: 0 0 1rem;
+  max-width: 65ch;
+  line-height: 1.6;
+}
+
+.offer-block__bullets-intro {
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+.offer-block__bullets {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  max-width: 65ch;
+  line-height: 1.6;
+}
+
+.offer-block__meta {
+  margin: 0 0 0.5rem;
+  max-width: 65ch;
+  line-height: 1.5;
+}
+
+.offer-block__trainer {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.offer-block__cta {
+  margin-top: 0.5rem;
+}
+
+/* Fixed dark text, not the theme-reactive --font-color: these variants'
+   backgrounds are always one of the flat accent tints regardless of theme,
+   so a themed link color would go low-contrast in dark mode. */
+.offer-block__description .styled-link,
+.offer-block__bullets .styled-link,
+.offer-block__meta .styled-link {
+  color: var(--color-dark);
+  text-decoration: underline;
+}
+
+.offer-block__description .styled-link:visited,
+.offer-block__description .styled-link:hover,
+.offer-block__bullets .styled-link:visited,
+.offer-block__bullets .styled-link:hover,
+.offer-block__meta .styled-link:visited,
+.offer-block__meta .styled-link:hover {
+  color: var(--color-dark);
+}

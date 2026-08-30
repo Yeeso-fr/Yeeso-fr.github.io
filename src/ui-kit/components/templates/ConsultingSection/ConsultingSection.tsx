@@ -1,81 +1,67 @@
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PARTNERSHIP_EMAIL } from "@/config/social-links";
-import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
+import { OfferBlock } from "@/ui-kit/components/molecules/OfferBlock/OfferBlock";
+import { Tabs } from "@/ui-kit/components/molecules/Tabs/Tabs";
 import "./ConsultingSection.css";
-
-const OFFERS = [
-  {
-    title: "Accélérer la mixité dans vos équipes tech",
-    duration: "3 j cadrage & diagnostic · 3 j design · 4 j déploiement",
-    sponsor: "CTO",
-    stakeholders:
-      "Talent Acquisition, Talent Development, HRBP CTO, Managers CTO",
-    modifier: "consulting-card--green",
-  },
-  {
-    title: "Accélérer la mixité à tous les étages",
-    duration: "5 j cadrage & diagnostic · 5 j design · 4 j déploiement",
-    sponsor: "DRH",
-    stakeholders: "Top Managers, Talent Acquisition, Talent Development, HRBP",
-    modifier: "consulting-card--purple",
-  },
-  {
-    title: "Attirer les talents tech… et les faire rester !",
-    duration: "6 j cadrage & diagnostic · 5 j design · 5 j déploiement",
-    sponsor: "DRH",
-    stakeholders: "CTO, Talent Acquisition, Talent Development, HRBP CTO",
-    modifier: "consulting-card--coral",
-  },
-] as const;
 
 export const ConsultingSection = () => {
   return (
     <section className="consulting-section" id="conseil">
       <div className="container">
-        <span className="section-eyebrow">Conseil</span>
-        <h2 className="consulting-section__title">Booster de mixité</h2>
+        <span className="section-eyebrow">Conseil & accompagnement</span>
+        <h2 className="consulting-section__title">Transformer les pratiques</h2>
         <p className="consulting-section__lead">
-          <FontAwesomeIcon icon={faChartLine} aria-hidden /> Un accompagnement
-          sur-mesure, mené par un·e consultant·e Yeeso senior, pour faire
-          progresser la mixité dans votre organisation.
+          <FontAwesomeIcon icon={faChartLine} aria-hidden /> Passez de
+          l'engagement aux actions concrètes, accompagné·e par Yeeso.
         </p>
 
-        <div className="consulting-section__cards">
-          {OFFERS.map((offer) => (
-            <div
-              className={`consulting-card ${offer.modifier}`}
-              key={offer.title}
-            >
-              <h3 className="consulting-card__title">{offer.title}</h3>
-              <dl className="consulting-card__details">
-                <div>
-                  <dt>Durée</dt>
-                  <dd>{offer.duration}</dd>
-                </div>
-                <div>
-                  <dt>Sponsor projet</dt>
-                  <dd>{offer.sponsor}</dd>
-                </div>
-                <div>
-                  <dt>Parties prenantes clés</dt>
-                  <dd>{offer.stakeholders}</dd>
-                </div>
-                <div>
-                  <dt>Consultant·e Yeeso</dt>
-                  <dd>Senior</dd>
-                </div>
-              </dl>
-            </div>
-          ))}
-        </div>
+        <Tabs
+          ariaLabel="Offres de conseil et d'accompagnement"
+          items={[
+            {
+              id: "demarche-mixite",
+              label: "Démarche de mixité",
+              content: (
+                <OfferBlock
+                  modifier="offer-block--coral"
+                  kicker="Accompagnement à la démarche de mixité"
+                  title="Passez de l'engagement aux actions concrètes."
+                  description="Yeeso accompagne votre entreprise pour identifier ses enjeux de mixité et construire, avec vos collaborateurs, des solutions adaptées à vos réalités."
+                  bulletsIntro="Vous bénéficiez de :"
+                  bullets={[
+                    "des solutions co-construites avec vos équipes",
+                    "un plan d'action concret et priorisé",
+                    "un suivi à 6 mois pour mesurer les avancées",
+                  ]}
+                  idealFor="les entreprises souhaitant structurer ou accélérer leur démarche de mixité et passer concrètement à l'action."
+                  valorisation="possibilité de mettre en lumière les actions réellement engagées sur les canaux de Yeeso à l'issue du suivi à 6 mois."
+                  ctaLabel="Demander un devis ou plus d'infos"
+                  ctaHref={`mailto:${PARTNERSHIP_EMAIL}`}
+                />
+              ),
+            },
+            {
+              id: "sensibilisation-sexisme",
+              label: "Sensibilisation sexisme",
+              content: (
+                <OfferBlock
+                  modifier="offer-block--noir"
+                  kicker="Accompagnement • Sensibilisation sexisme"
+                  title="Mettre toute l'équipe au même niveau de connaissances."
+                  description="La Fresque du Sexisme (atelier collaboratif) ou une sensibilisation personnalisée, pour mettre toute l'équipe au même niveau de connaissances sur le sujet et poser une base commune."
+                  trainer="Formatrice : Manon Carbonnel"
+                  ctaLabel="Demander un devis ou plus d'infos"
+                  ctaHref={`mailto:${PARTNERSHIP_EMAIL}`}
+                />
+              ),
+            },
+          ]}
+        />
 
         <p className="consulting-section__note">
-          Tarifs (TJM) communiqués sur devis, selon votre contexte.
+          Tarifs communiqués sur devis, selon votre contexte.
         </p>
-        <StyledLink href={`mailto:${PARTNERSHIP_EMAIL}`} bordered={true}>
-          Demander un devis
-        </StyledLink>
       </div>
     </section>
   );
