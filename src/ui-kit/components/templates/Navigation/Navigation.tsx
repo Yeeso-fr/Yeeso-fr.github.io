@@ -123,9 +123,9 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
               </StyledLink>
             </li>
           </ul>
-          <ToggleFont />
-          <ToggleAnimation />
           <ToggleTheme />
+          <ToggleAnimation />
+          <ToggleFont />
         </nav>
       </div>
     </header>
