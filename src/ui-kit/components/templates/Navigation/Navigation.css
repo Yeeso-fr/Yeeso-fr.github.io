@@ -70,7 +70,7 @@
   }
 
   .navigation__mobile-toggles {
-    display: flex;
+    display: contents;
     align-items: center;
     gap: 0.25rem;
   }
