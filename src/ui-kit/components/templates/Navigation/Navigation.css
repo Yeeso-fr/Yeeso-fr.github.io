@@ -39,6 +39,11 @@
   .navigation__logo-link {
     display: inline-flex;
     text-decoration: none;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary-strong);
+      outline-offset: 2px;
+    }
   }
 
   .logo {
@@ -89,6 +94,11 @@
 
     &:hover {
       transform: scale(1.1);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary-strong);
+      outline-offset: 2px;
     }
   }
 
