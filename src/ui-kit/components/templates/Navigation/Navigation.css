@@ -64,6 +64,12 @@
     }
   }
 
+  .navigation__mobile-toggles {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
   .burger-button {
     display: flex;
     flex-direction: column;

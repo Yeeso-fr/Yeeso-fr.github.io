@@ -42,6 +42,10 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
         >
           <Logo />
         </StyledLink>
+        <div className="navigation__mobile-toggles">
+          <ToggleFont />
+          <ToggleAnimation />
+        </div>
         <button
           type="button"
           className="burger-button"
@@ -124,8 +128,6 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
             </li>
           </ul>
           <ToggleTheme />
-          <ToggleFont />
-          <ToggleAnimation />
         </nav>
       </div>
     </header>
