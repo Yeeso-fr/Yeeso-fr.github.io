@@ -22,6 +22,7 @@ const HEADLINE_STATS = [
     icon: faLinkedin,
     value: "+14 000",
     label: "abonné·es sur LinkedIn (Yeeso et fondatrice)",
+    srOnlyLabel: "abonnés sur LinkedIn, consulter la page LinkedIn",
     href: LINKEDIN_URL,
     modifier: "impact-stat-card--green",
   },
@@ -29,6 +30,7 @@ const HEADLINE_STATS = [
     icon: faBook,
     value: "1",
     label: "livre publié",
+    srOnlyLabel: "livre publié à acheter sur Amazon",
     note: "Un 2ᵉ livre est en préparation, à paraître en 2027",
     href: BOOK_URL,
     modifier: "impact-stat-card--coral",
@@ -92,6 +94,9 @@ export const ImpactSection = () => {
                     className="impact-headline-stat__link"
                   >
                     {stat.value}
+                    {"srOnlyLabel" in stat && (
+                      <span className="sr-only">&nbsp;{stat.srOnlyLabel}</span>
+                    )}
                   </StyledLink>
                 ) : (
                   stat.value
