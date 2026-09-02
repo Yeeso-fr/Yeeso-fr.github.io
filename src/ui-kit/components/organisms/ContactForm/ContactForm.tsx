@@ -188,9 +188,7 @@ export const ContactForm = () => {
         <label htmlFor="contact-email">
           E-mail <span aria-hidden="true">*</span>
         </label>
-        <p id="contact-email-hint" className="contact-form__hint">
-          Format attendu : vous@exemple.fr
-        </p>
+
         <input
           id="contact-email"
           ref={emailRef}
@@ -198,7 +196,6 @@ export const ContactForm = () => {
           type="email"
           required
           autoComplete="email"
-          placeholder="vous@exemple.fr"
           value={email}
           aria-invalid={errors.email ? "true" : undefined}
           aria-describedby={
@@ -213,6 +210,9 @@ export const ContactForm = () => {
             }
           }}
         />
+        <p id="contact-email-hint" className="contact-form__hint">
+          Format attendu : vous@exemple.fr
+        </p>
         {errors.email && (
           <p
             id="contact-email-error"
@@ -244,17 +244,19 @@ export const ContactForm = () => {
         <label htmlFor="contact-message">
           Message <span aria-hidden="true">*</span>
         </label>
+
         <textarea
           id="contact-message"
           ref={messageRef}
           name="message"
           required
           rows={5}
-          placeholder="Décrivez votre demande en quelques lignes."
           value={message}
           aria-invalid={errors.message ? "true" : undefined}
           aria-describedby={
-            errors.message ? "contact-message-error" : undefined
+            errors.message
+              ? "contact-message-hint contact-message-error"
+              : "contact-message-hint"
           }
           onChange={(event) => {
             setMessage(event.target.value);
@@ -263,6 +265,9 @@ export const ContactForm = () => {
             }
           }}
         />
+        <p id="contact-message-hint" className="contact-form__hint">
+          Décrivez votre demande en quelques lignes.
+        </p>
         {errors.message && (
           <p
             id="contact-message-error"
