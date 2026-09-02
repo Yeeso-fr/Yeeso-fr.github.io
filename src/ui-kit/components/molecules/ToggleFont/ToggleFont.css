@@ -41,7 +41,7 @@
 @media screen and (min-width: 992px) {
   .font-toggle {
     position: fixed;
-    right: 1.5rem;
+    right: calc(1.5rem + 2.5rem + 0.75rem);
     bottom: 1.5rem;
     z-index: 1001;
   }
