@@ -94,6 +94,12 @@
     &::placeholder {
       color: var(--font-color-muted);
     }
+
+    /* Supplementary indicator only — the error text below the field is
+       what actually conveys the invalid state, not this border alone. */
+    &[aria-invalid="true"] {
+      border-color: var(--color-lightred);
+    }
   }
 
   textarea {
@@ -116,4 +122,19 @@
 
 [data-theme="dark"] .contact-form__field select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");
+}
+
+.contact-form__hint {
+  margin: 0;
+  color: var(--font-color-muted);
+  font-size: 0.85rem;
+}
+
+.contact-form__error {
+  margin: 0;
+  background: var(--color-lightred);
+  border-radius: var(--br-normal);
+  padding: 0.4rem 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
 }

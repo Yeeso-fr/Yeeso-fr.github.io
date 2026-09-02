@@ -13,8 +13,35 @@ const SUBJECTS = [
 ];
 
 const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type SubmitStatus = "idle" | "submitting" | "success" | "error";
+type FieldErrors = Partial<Record<"name" | "email" | "message", string>>;
+
+const validate = (values: {
+  name: string;
+  email: string;
+  message: string;
+}): FieldErrors => {
+  const errors: FieldErrors = {};
+
+  if (!values.name.trim()) {
+    errors.name = "Indiquez votre nom et prénom.";
+  }
+
+  if (!values.email.trim()) {
+    errors.email = "Indiquez votre adresse e-mail.";
+  } else if (!EMAIL_PATTERN.test(values.email.trim())) {
+    errors.email =
+      "Ajoutez un « @ » et un domaine, par exemple vous@exemple.fr.";
+  }
+
+  if (!values.message.trim()) {
+    errors.message = "Décrivez votre demande avant d'envoyer le message.";
+  }
+
+  return errors;
+};
 
 export const ContactForm = () => {
   const [name, setName] = useState("");
@@ -22,7 +49,11 @@ export const ContactForm = () => {
   const [subject, setSubject] = useState(SUBJECTS[0]);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [errors, setErrors] = useState<FieldErrors>({});
   const successTitleRef = useRef<HTMLHeadingElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (status === "success") {
@@ -32,6 +63,19 @@ export const ContactForm = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const validationErrors = validate({ name, email, message });
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      const firstInvalidRef = validationErrors.name
+        ? nameRef
+        : validationErrors.email
+          ? emailRef
+          : messageRef;
+      firstInvalidRef.current?.focus();
+      return;
+    }
+    setErrors({});
 
     if (!WEB3FORMS_ACCESS_KEY) {
       console.error(
@@ -87,7 +131,11 @@ export const ContactForm = () => {
   }
 
   return (
-    <form className="contact-form framed-four-corners" onSubmit={handleSubmit}>
+    <form
+      className="contact-form framed-four-corners"
+      onSubmit={handleSubmit}
+      noValidate
+    >
       <h2 className="contact-form__title">Nous écrire</h2>
       <p className="contact-form__required-note">
         Les champs marqués d'un <span aria-hidden="true">*</span> sont
@@ -110,29 +158,70 @@ export const ContactForm = () => {
         </label>
         <input
           id="contact-name"
+          ref={nameRef}
           name="name"
           type="text"
           required
           autoComplete="name"
           value={name}
-          onChange={(event) => setName(event.target.value)}
+          aria-invalid={errors.name ? "true" : undefined}
+          aria-describedby={errors.name ? "contact-name-error" : undefined}
+          onChange={(event) => {
+            setName(event.target.value);
+            if (errors.name) {
+              setErrors((prev) => ({ ...prev, name: undefined }));
+            }
+          }}
         />
+        {errors.name && (
+          <p
+            id="contact-name-error"
+            className="contact-form__error"
+            role="alert"
+          >
+            {errors.name}
+          </p>
+        )}
       </div>
 
       <div className="contact-form__field">
         <label htmlFor="contact-email">
           E-mail <span aria-hidden="true">*</span>
         </label>
+        <p id="contact-email-hint" className="contact-form__hint">
+          Format attendu : vous@exemple.fr
+        </p>
         <input
           id="contact-email"
+          ref={emailRef}
           name="email"
           type="email"
           required
           autoComplete="email"
           placeholder="vous@exemple.fr"
           value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          aria-invalid={errors.email ? "true" : undefined}
+          aria-describedby={
+            errors.email
+              ? "contact-email-hint contact-email-error"
+              : "contact-email-hint"
+          }
+          onChange={(event) => {
+            setEmail(event.target.value);
+            if (errors.email) {
+              setErrors((prev) => ({ ...prev, email: undefined }));
+            }
+          }}
         />
+        {errors.email && (
+          <p
+            id="contact-email-error"
+            className="contact-form__error"
+            role="alert"
+          >
+            {errors.email}
+          </p>
+        )}
       </div>
 
       <div className="contact-form__field">
@@ -157,13 +246,32 @@ export const ContactForm = () => {
         </label>
         <textarea
           id="contact-message"
+          ref={messageRef}
           name="message"
           required
           rows={5}
           placeholder="Décrivez votre demande en quelques lignes."
           value={message}
-          onChange={(event) => setMessage(event.target.value)}
+          aria-invalid={errors.message ? "true" : undefined}
+          aria-describedby={
+            errors.message ? "contact-message-error" : undefined
+          }
+          onChange={(event) => {
+            setMessage(event.target.value);
+            if (errors.message) {
+              setErrors((prev) => ({ ...prev, message: undefined }));
+            }
+          }}
         />
+        {errors.message && (
+          <p
+            id="contact-message-error"
+            className="contact-form__error"
+            role="alert"
+          >
+            {errors.message}
+          </p>
+        )}
       </div>
 
       <button
