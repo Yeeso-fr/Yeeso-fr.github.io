@@ -29,7 +29,7 @@ export const ToggleTheme = () => {
       className={`theme-toggle icon-toggle-button theme-toggle--${theme}`}
       onClick={handleToggle}
     >
-      <span className="sr-only">
+      <span className="sr-only" aria-live="polite">
         Activer le thème {theme === "dark" ? "sombre" : "clair"}
       </span>
       <svg
