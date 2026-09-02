@@ -157,6 +157,8 @@
    inherited light-theme text color (--color-dark) passes AA (~5.8:1) on it,
    but the dark theme's inherited --font-color (--color-light) drops to
    ~3:1 and fails. Force the light theme's dark foreground back on. */
-[data-theme="dark"] .contact-form__error {
+[data-theme="dark"] .contact-form__error,
+[data-theme="dark"] .contact-form__status--error,
+[data-theme="dark"] .contact-form__status--success {
   color: var(--font-reverse);
 }
