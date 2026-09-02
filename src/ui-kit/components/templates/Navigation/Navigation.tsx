@@ -46,89 +46,90 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
           <ToggleFont />
           <ToggleAnimation />
         </div>
-        <button
-          type="button"
-          className="burger-button"
-          onClick={toggleMenu}
-          aria-label="Ouvrir le menu"
-          aria-expanded={isMenuOpen}
-        >
-          <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
-          <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
-          <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
-        </button>
-        <nav
-          aria-label="Navigation principale"
-          className={`nav ${isMenuOpen ? "open" : ""}`}
-        >
-          <ul>
-            <li>
-              <StyledLink
-                href="/programmes"
-                aria-current={currentPage("/programmes")}
-                onClick={() => setIsMenuOpen(false)}
-                prefetch={false}
-              >
-                Nos actions
-              </StyledLink>
-            </li>
-            <li>
-              <StyledLink
-                href="/entreprises"
-                aria-current={currentPage("/entreprises")}
-                onClick={() => setIsMenuOpen(false)}
-                prefetch={false}
-              >
-                Nos prestations
-              </StyledLink>
-            </li>
-            <li>
-              <StyledLink
-                href="/a-propos"
-                aria-label="À propos de Yeeso"
-                aria-current={currentPage("/a-propos")}
-                onClick={() => setIsMenuOpen(false)}
-                prefetch={false}
-              >
-                À propos
-              </StyledLink>
-            </li>
-            {hasArticles && (
+        <div className="navigation__end">
+          <button
+            type="button"
+            className="burger-button"
+            onClick={toggleMenu}
+            aria-label="Ouvrir le menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
+            <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
+            <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
+          </button>
+          <nav
+            aria-label="Navigation principale"
+            className={`nav ${isMenuOpen ? "open" : ""}`}
+          >
+            <ul>
               <li>
                 <StyledLink
-                  href="/articles"
-                  aria-label="Voir le blog"
-                  aria-current={currentPage("/articles")}
+                  href="/programmes"
+                  aria-current={currentPage("/programmes")}
                   onClick={() => setIsMenuOpen(false)}
                   prefetch={false}
                 >
-                  Blog
+                  Nos actions
+                </StyledLink>
+                          </li>
+                          <li>
+                              <StyledLink
+                                  href="/entreprises"
+                                  aria-current={currentPage("/entreprises")}
+                                  onClick={() => setIsMenuOpen(false)}
+                                  prefetch={false}
+                              >
+                                  Nos prestations
+                              </StyledLink>
+                          </li>
+              <li>
+                <StyledLink
+                  href="/a-propos"
+                  aria-label="À propos de Yeeso"
+                  aria-current={currentPage("/a-propos")}
+                  onClick={() => setIsMenuOpen(false)}
+                  prefetch={false}
+                >
+                  À propos
                 </StyledLink>
               </li>
-            )}
-            <li>
-              <StyledLink
-                href="/contact"
-                aria-current={currentPage("/contact")}
-                onClick={() => setIsMenuOpen(false)}
-                prefetch={false}
-              >
-                Contact
-              </StyledLink>
-            </li>
-            <li>
-              <StyledLink
-                href="/reseau#adhesion"
-                filled="green"
-                onClick={() => setIsMenuOpen(false)}
-                prefetch={false}
-              >
-                Nous rejoindre
-              </StyledLink>
-            </li>
-          </ul>
+              {hasArticles && (
+                <li>
+                  <StyledLink
+                    href="/articles"
+                    aria-label="Voir le blog"
+                    aria-current={currentPage("/articles")}
+                    onClick={() => setIsMenuOpen(false)}
+                    prefetch={false}
+                  >
+                    Blog
+                  </StyledLink>
+                </li>
+              )}
+              <li>
+                <StyledLink
+                  href="/contact"
+                  aria-current={currentPage("/contact")}
+                  onClick={() => setIsMenuOpen(false)}
+                  prefetch={false}
+                >
+                  Contact
+                </StyledLink>
+              </li>
+              <li>
+                <StyledLink
+                  href="/reseau#adhesion"
+                  filled="green"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Nous rejoindre
+                </StyledLink>
+              </li>
+            </ul>
+          </nav>
           <ToggleTheme />
-        </nav>
+        </div>
       </div>
     </header>
   );
