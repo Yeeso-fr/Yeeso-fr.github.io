@@ -70,6 +70,12 @@
     gap: 0.25rem;
   }
 
+  .navigation__end {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .burger-button {
     display: flex;
     flex-direction: column;
