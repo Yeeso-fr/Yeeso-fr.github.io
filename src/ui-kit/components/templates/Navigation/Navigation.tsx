@@ -40,6 +40,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
       nav.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
     );
     const focusables = [burger, ...navLinks];
+    navLinks[0]?.focus();
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
