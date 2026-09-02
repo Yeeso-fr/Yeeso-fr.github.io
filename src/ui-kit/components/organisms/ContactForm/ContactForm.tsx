@@ -1,7 +1,7 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CONTACT_EMAIL } from "@/config/social-links";
 import "./ContactForm.css";
 
@@ -22,6 +22,13 @@ export const ContactForm = () => {
   const [subject, setSubject] = useState(SUBJECTS[0]);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<SubmitStatus>("idle");
+  const successTitleRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (status === "success") {
+      successTitleRef.current?.focus();
+    }
+  }, [status]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -68,7 +75,9 @@ export const ContactForm = () => {
   if (status === "success") {
     return (
       <div className="contact-form framed-four-corners" role="status">
-        <h2 className="contact-form__title">Message envoyé</h2>
+        <h2 className="contact-form__title" ref={successTitleRef} tabIndex={-1}>
+          Message envoyé
+        </h2>
         <p className="contact-form__status contact-form__status--success">
           Merci, votre message a bien été transmis à l'équipe Yeeso. Nous
           revenons vers vous rapidement.
@@ -80,6 +89,10 @@ export const ContactForm = () => {
   return (
     <form className="contact-form framed-four-corners" onSubmit={handleSubmit}>
       <h2 className="contact-form__title">Nous écrire</h2>
+      <p className="contact-form__required-note">
+        Les champs marqués d'un <span aria-hidden="true">*</span> sont
+        obligatoires.
+      </p>
 
       {status === "error" && (
         <p
@@ -92,24 +105,30 @@ export const ContactForm = () => {
       )}
 
       <div className="contact-form__field">
-        <label htmlFor="contact-name">Nom et prénom</label>
+        <label htmlFor="contact-name">
+          Nom et prénom <span aria-hidden="true">*</span>
+        </label>
         <input
           id="contact-name"
           name="name"
           type="text"
           required
+          autoComplete="name"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
       </div>
 
       <div className="contact-form__field">
-        <label htmlFor="contact-email">E-mail</label>
+        <label htmlFor="contact-email">
+          E-mail <span aria-hidden="true">*</span>
+        </label>
         <input
           id="contact-email"
           name="email"
           type="email"
           required
+          autoComplete="email"
           placeholder="vous@exemple.fr"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
@@ -133,7 +152,9 @@ export const ContactForm = () => {
       </div>
 
       <div className="contact-form__field">
-        <label htmlFor="contact-message">Message</label>
+        <label htmlFor="contact-message">
+          Message <span aria-hidden="true">*</span>
+        </label>
         <textarea
           id="contact-message"
           name="message"
