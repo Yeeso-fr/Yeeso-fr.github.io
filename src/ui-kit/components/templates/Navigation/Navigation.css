@@ -158,6 +158,20 @@
     }
   }
 
+  /* Mobile only: .container is a 3-item flex row (logo, navigation__end,
+     navigation__mobile-toggles) in DOM order — space-between pushes the
+     LAST item to the far right, which by default is mobile-toggles, not
+     navigation__end. Reorder visually so navigation__end lands there. */
+  @media screen and (max-width: 991px) {
+    .navigation__mobile-toggles {
+      order: 1;
+    }
+
+    .navigation__end {
+      order: 2;
+    }
+  }
+
   @media screen and (min-width: 992px) {
     .container {
       padding: 0 2rem;
