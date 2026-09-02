@@ -136,156 +136,161 @@ export const ContactForm = () => {
       onSubmit={handleSubmit}
       noValidate
     >
-      <h2 className="contact-form__title">Nous écrire</h2>
-      <p className="contact-form__required-note">
-        Les champs marqués d'un <span aria-hidden="true">*</span> sont
-        obligatoires.
-      </p>
+      <fieldset className="contact-form__fieldset">
+        <legend>
+          <h2 className="contact-form__title">Nous écrire</h2>
+        </legend>
 
-      {status === "error" && (
-        <p
-          className="contact-form__status contact-form__status--error"
-          role="alert"
+        <p className="contact-form__required-note">
+          Les champs marqués d'un <span aria-hidden="true">*</span> sont
+          obligatoires.
+        </p>
+
+        {status === "error" && (
+          <p
+            className="contact-form__status contact-form__status--error"
+            role="alert"
+          >
+            L'envoi a échoué. Réessayez, ou écrivez-nous directement à{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          </p>
+        )}
+
+        <div className="contact-form__field">
+          <label htmlFor="contact-name">
+            Nom et prénom <span aria-hidden="true">*</span>
+          </label>
+          <input
+            id="contact-name"
+            ref={nameRef}
+            name="name"
+            type="text"
+            required
+            autoComplete="name"
+            value={name}
+            aria-invalid={errors.name ? "true" : undefined}
+            aria-describedby={errors.name ? "contact-name-error" : undefined}
+            onChange={(event) => {
+              setName(event.target.value);
+              if (errors.name) {
+                setErrors((prev) => ({ ...prev, name: undefined }));
+              }
+            }}
+          />
+          {errors.name && (
+            <p
+              id="contact-name-error"
+              className="contact-form__error"
+              role="alert"
+            >
+              {errors.name}
+            </p>
+          )}
+        </div>
+
+        <div className="contact-form__field">
+          <label htmlFor="contact-email">
+            E-mail <span aria-hidden="true">*</span>
+          </label>
+
+          <input
+            id="contact-email"
+            ref={emailRef}
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            value={email}
+            aria-invalid={errors.email ? "true" : undefined}
+            aria-describedby={
+              errors.email
+                ? "contact-email-hint contact-email-error"
+                : "contact-email-hint"
+            }
+            onChange={(event) => {
+              setEmail(event.target.value);
+              if (errors.email) {
+                setErrors((prev) => ({ ...prev, email: undefined }));
+              }
+            }}
+          />
+          <p id="contact-email-hint" className="contact-form__hint">
+            Format attendu : vous@exemple.fr
+          </p>
+          {errors.email && (
+            <p
+              id="contact-email-error"
+              className="contact-form__error"
+              role="alert"
+            >
+              {errors.email}
+            </p>
+          )}
+        </div>
+
+        <div className="contact-form__field">
+          <label htmlFor="contact-subject">Sujet</label>
+          <select
+            id="contact-subject"
+            name="subject"
+            value={subject}
+            onChange={(event) => setSubject(event.target.value)}
+          >
+            {SUBJECTS.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="contact-form__field">
+          <label htmlFor="contact-message">
+            Message <span aria-hidden="true">*</span>
+          </label>
+
+          <textarea
+            id="contact-message"
+            ref={messageRef}
+            name="message"
+            required
+            rows={5}
+            value={message}
+            aria-invalid={errors.message ? "true" : undefined}
+            aria-describedby={
+              errors.message
+                ? "contact-message-hint contact-message-error"
+                : "contact-message-hint"
+            }
+            onChange={(event) => {
+              setMessage(event.target.value);
+              if (errors.message) {
+                setErrors((prev) => ({ ...prev, message: undefined }));
+              }
+            }}
+          />
+          <p id="contact-message-hint" className="contact-form__hint">
+            Décrivez votre demande en quelques lignes.
+          </p>
+          {errors.message && (
+            <p
+              id="contact-message-error"
+              className="contact-form__error"
+              role="alert"
+            >
+              {errors.message}
+            </p>
+          )}
+        </div>
+
+        <button
+          type="submit"
+          className="contact-form__submit"
+          disabled={status === "submitting"}
         >
-          L'envoi a échoué. Réessayez, ou écrivez-nous directement à{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
-        </p>
-      )}
-
-      <div className="contact-form__field">
-        <label htmlFor="contact-name">
-          Nom et prénom <span aria-hidden="true">*</span>
-        </label>
-        <input
-          id="contact-name"
-          ref={nameRef}
-          name="name"
-          type="text"
-          required
-          autoComplete="name"
-          value={name}
-          aria-invalid={errors.name ? "true" : undefined}
-          aria-describedby={errors.name ? "contact-name-error" : undefined}
-          onChange={(event) => {
-            setName(event.target.value);
-            if (errors.name) {
-              setErrors((prev) => ({ ...prev, name: undefined }));
-            }
-          }}
-        />
-        {errors.name && (
-          <p
-            id="contact-name-error"
-            className="contact-form__error"
-            role="alert"
-          >
-            {errors.name}
-          </p>
-        )}
-      </div>
-
-      <div className="contact-form__field">
-        <label htmlFor="contact-email">
-          E-mail <span aria-hidden="true">*</span>
-        </label>
-
-        <input
-          id="contact-email"
-          ref={emailRef}
-          name="email"
-          type="email"
-          required
-          autoComplete="email"
-          value={email}
-          aria-invalid={errors.email ? "true" : undefined}
-          aria-describedby={
-            errors.email
-              ? "contact-email-hint contact-email-error"
-              : "contact-email-hint"
-          }
-          onChange={(event) => {
-            setEmail(event.target.value);
-            if (errors.email) {
-              setErrors((prev) => ({ ...prev, email: undefined }));
-            }
-          }}
-        />
-        <p id="contact-email-hint" className="contact-form__hint">
-          Format attendu : vous@exemple.fr
-        </p>
-        {errors.email && (
-          <p
-            id="contact-email-error"
-            className="contact-form__error"
-            role="alert"
-          >
-            {errors.email}
-          </p>
-        )}
-      </div>
-
-      <div className="contact-form__field">
-        <label htmlFor="contact-subject">Sujet</label>
-        <select
-          id="contact-subject"
-          name="subject"
-          value={subject}
-          onChange={(event) => setSubject(event.target.value)}
-        >
-          {SUBJECTS.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div className="contact-form__field">
-        <label htmlFor="contact-message">
-          Message <span aria-hidden="true">*</span>
-        </label>
-
-        <textarea
-          id="contact-message"
-          ref={messageRef}
-          name="message"
-          required
-          rows={5}
-          value={message}
-          aria-invalid={errors.message ? "true" : undefined}
-          aria-describedby={
-            errors.message
-              ? "contact-message-hint contact-message-error"
-              : "contact-message-hint"
-          }
-          onChange={(event) => {
-            setMessage(event.target.value);
-            if (errors.message) {
-              setErrors((prev) => ({ ...prev, message: undefined }));
-            }
-          }}
-        />
-        <p id="contact-message-hint" className="contact-form__hint">
-          Décrivez votre demande en quelques lignes.
-        </p>
-        {errors.message && (
-          <p
-            id="contact-message-error"
-            className="contact-form__error"
-            role="alert"
-          >
-            {errors.message}
-          </p>
-        )}
-      </div>
-
-      <button
-        type="submit"
-        className="contact-form__submit"
-        disabled={status === "submitting"}
-      >
-        {status === "submitting" ? "Envoi en cours…" : "Envoyer le message"}
-      </button>
+          {status === "submitting" ? "Envoi en cours…" : "Envoyer le message"}
+        </button>
+      </fieldset>
     </form>
   );
 };
