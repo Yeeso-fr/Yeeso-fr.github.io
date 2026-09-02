@@ -5,8 +5,8 @@
 @media screen and (min-width: 992px) {
   .animation-toggle {
     position: fixed;
-    right: 1.5rem;
-    bottom: calc(1.5rem + 2.5rem + 0.75rem);
+    right: calc(1.5rem + 2.5rem + 0.75rem);
+    bottom: 1.5rem;
     z-index: 1001;
     background: var(--background-primary);
     border: 1px solid color-mix(in srgb, var(--font-color) 20%, transparent);
