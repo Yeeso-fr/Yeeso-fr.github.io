@@ -12,7 +12,12 @@
   color: var(--font-color);
 }
 
+[data-theme="dark"] .styled-link:visited {
+  text-decoration-color: var(--font-color);
+}
+
 /*.styled-link:hover,*/
+.styled-link:visited:focus-visible,
 .styled-link:focus-visible {
   text-decoration: underline;
   text-decoration-color: var(--color-secondary);
