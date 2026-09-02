@@ -13,11 +13,6 @@ export const ToggleAnimation = () => {
     const stored = localStorage.getItem("animations");
     if (stored === "paused") {
       setIsPlaying(false);
-    } else if (stored !== "playing") {
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-      setIsPlaying(!prefersReducedMotion);
     }
     setMounted(true);
   }, []);
