@@ -97,6 +97,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
             onClick={toggleMenu}
             aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={isMenuOpen}
+            aria-controls="primary-navigation"
           >
             <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
             <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
@@ -104,6 +105,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
           </button>
           <nav
             ref={navRef}
+            id="primary-navigation"
             aria-label="Navigation principale"
             className={`nav ${isMenuOpen ? "open" : ""}`}
           >
