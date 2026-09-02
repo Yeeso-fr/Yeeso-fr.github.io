@@ -13,13 +13,60 @@ interface NavigationProps {
   hasArticles: boolean;
 }
 
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export const Navigation = ({ hasArticles }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const navRef = useRef<HTMLElement>(null);
+  const burgerRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const nav = navRef.current;
+    const burger = burgerRef.current;
+    if (!nav || !burger) return;
+
+    // The burger button toggles into the close control, so it stays part of
+    // the trapped loop (first) alongside the menu links (last = last link) —
+    // otherwise Tab/Shift+Tab can never reach it back once inside the menu.
+    const navLinks = Array.from(
+      nav.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
+    );
+    const focusables = [burger, ...navLinks];
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setIsMenuOpen(false);
+        burger.focus();
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (!first || !last) return;
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isMenuOpen]);
 
   const currentPage = (prefix: string, exact = false): "page" | undefined => {
     if (!pathname) return undefined;
@@ -42,16 +89,13 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
         >
           <Logo />
         </StyledLink>
-        <div className="navigation__mobile-toggles">
-          <ToggleFont />
-          <ToggleAnimation />
-        </div>
         <div className="navigation__end">
           <button
+            ref={burgerRef}
             type="button"
             className="burger-button"
             onClick={toggleMenu}
-            aria-label="Ouvrir le menu"
+            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={isMenuOpen}
           >
             <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
@@ -59,6 +103,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
             <span className={`burger-line ${isMenuOpen ? "open" : ""}`}></span>
           </button>
           <nav
+            ref={navRef}
             aria-label="Navigation principale"
             className={`nav ${isMenuOpen ? "open" : ""}`}
           >
@@ -129,6 +174,10 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
             </ul>
           </nav>
           <ToggleTheme />
+        </div>
+        <div className="navigation__mobile-toggles">
+          <ToggleFont />
+          <ToggleAnimation />
         </div>
       </div>
     </header>
