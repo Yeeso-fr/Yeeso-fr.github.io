@@ -6,12 +6,18 @@
   /* Background is fixed white regardless of theme, so the title/labels need
      a fixed dark foreground — the inputs below set their own theme-reactive
      colors and are unaffected. */
-  background: var(--color-light);
-  color: var(--color-dark);
+  background: var(--background-primary);
+  color: var(--font-color);
 }
 
 .contact-form__title {
   margin: 0;
+}
+
+.contact-form__required-note {
+  margin: 0;
+  color: var(--font-color-muted);
+  font-size: 0.9rem;
 }
 
 .contact-form__submit {
@@ -83,6 +89,10 @@
     &:focus-visible {
       outline: 2px solid var(--color-primary-strong);
       outline-offset: 1px;
+    }
+
+    &::placeholder {
+      color: var(--font-color-muted);
     }
   }
 
