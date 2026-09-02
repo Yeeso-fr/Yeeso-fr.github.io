@@ -5,6 +5,7 @@ import { useState } from "react";
 import { MEMBERSHIP_URL } from "@/config/social-links";
 import { Logo } from "@/ui-kit/components/atoms/Images/Logo";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
+import { ToggleAnimation } from "@/ui-kit/components/molecules/ToggleAnimation/ToggleAnimation";
 import { ToggleFont } from "@/ui-kit/components/molecules/ToggleFont/ToggleFont";
 import { ToggleTheme } from "@/ui-kit/components/molecules/ToggleTheme/ToggleTheme";
 import "./Navigation.css";
@@ -122,6 +123,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
             </li>
           </ul>
           <ToggleFont />
+          <ToggleAnimation />
           <ToggleTheme />
         </nav>
       </div>
