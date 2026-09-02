@@ -124,8 +124,8 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
             </li>
           </ul>
           <ToggleTheme />
-          <ToggleAnimation />
           <ToggleFont />
+          <ToggleAnimation />
         </nav>
       </div>
     </header>
