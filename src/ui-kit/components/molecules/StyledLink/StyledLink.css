@@ -12,8 +12,13 @@
   color: var(--font-color);
 }
 
-.styled-link:hover {
-  color: var(--color-primary-strong);
+/*.styled-link:hover,*/
+.styled-link:focus-visible {
+  text-decoration: underline;
+  text-decoration-color: var(--color-secondary);
+  text-decoration-thickness: 0.25rem;
+  text-underline-offset: 0.5rem;
+  outline: 0;
 }
 
 /* ---------- Variant ---------- */
