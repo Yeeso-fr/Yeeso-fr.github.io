@@ -22,7 +22,10 @@ export const AboutPage = () => {
       <main id="maincontent" tabIndex={-1} className="main">
         <section className="about-page__categories">
           <div className="container">
-            <AnchorTags items={SECTIONS} ariaLabel="Sections de la page À propos" />
+            <AnchorTags
+              items={SECTIONS}
+              ariaLabel="Sections de la page À propos"
+            />
           </div>
         </section>
         <AboutMissionSection />
