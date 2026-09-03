@@ -1,6 +1,10 @@
 .home-hero-block {
   display: flex;
   flex-direction: column;
+  /* .main centers its flex children by default (align-items: center) —
+     without this, the block shrinks to its content width instead of
+     spanning the viewport like every other main child. */
+  width: 100%;
 }
 
 .home-hero {

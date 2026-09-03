@@ -56,6 +56,16 @@ const fontInitScript = `
 })();
 `;
 
+const animationsInitScript = `
+(function () {
+  try {
+    if (localStorage.getItem("animations") === "paused") {
+      document.documentElement.setAttribute("data-animations", "paused");
+    }
+  } catch (e) {}
+})();
+`;
+
 export const metadata: Metadata = {
   title: {
     default: "Yeeso",
@@ -121,6 +131,10 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {/* biome-ignore lint/security/noDangerouslySetInnerHtml: static script constant, no user input involved */}
         <script dangerouslySetInnerHTML={{ __html: fontInitScript }} />
+        {/* Applied before hydration so paused entrance animations (e.g.
+        the hero photo group) never get a chance to play on load. */}
+        {/* biome-ignore lint/security/noDangerouslySetInnerHtml: static script constant, no user input involved */}
+        <script dangerouslySetInnerHTML={{ __html: animationsInitScript }} />
         <link rel="stylesheet" href={`${basePath}/print.css`} media="print" />
       </head>
       <body>
