@@ -67,6 +67,7 @@ export function ArticleCard({
               prefetch={false}
             >
               Par {author}
+              <span className="sr-only">, accéder à tous ses articles</span>
             </StyledLink>
           ) : (
             <small className="article-card__author">Par {author}</small>
