@@ -1,11 +1,7 @@
 import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  A_COMPETENCE_EGALE_URL,
-  PARTNERSHIP_EMAIL,
-} from "@/config/social-links";
+import { PARTNERSHIP_EMAIL } from "@/config/social-links";
 import { OfferBlock } from "@/ui-kit/components/molecules/OfferBlock/OfferBlock";
-import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import { Tabs } from "@/ui-kit/components/molecules/Tabs/Tabs";
 import "./TrainingSection.css";
 
@@ -61,43 +57,6 @@ export const TrainingSection = () => {
                   ]}
                   idealFor="managers et responsables d'équipe souhaitant faire progresser la mixité et l'équité dans leurs pratiques."
                   valorisation="possibilité de valoriser la formation à son issue sur les canaux de Yeeso."
-                  trainer="Formatrice : Houleymatou Baldé"
-                  ctaLabel="Demander un devis ou plus d'infos"
-                  ctaHref={`mailto:${PARTNERSHIP_EMAIL}`}
-                />
-              ),
-            },
-            {
-              id: "recrutement-inclusif",
-              label: "Recrutement inclusif",
-              content: (
-                <OfferBlock
-                  modifier="offer-block--purple"
-                  kicker="Formation"
-                  title="Recrutement inclusif"
-                  description={
-                    <>
-                      En partenariat avec l'association{" "}
-                      <StyledLink href={A_COMPETENCE_EGALE_URL}>
-                        « À Compétence Égale »
-                      </StyledLink>
-                      .
-                    </>
-                  }
-                  ctaLabel="Demander un devis ou plus d'infos"
-                  ctaHref={`mailto:${PARTNERSHIP_EMAIL}`}
-                />
-              ),
-            },
-            {
-              id: "futur-tech-inclusif",
-              label: "Le futur de la tech est inclusif",
-              content: (
-                <OfferBlock
-                  modifier="offer-block--coral"
-                  kicker="Formation"
-                  title="Le futur de la tech est inclusif"
-                  description="Cadrage 3h · Design 3h · Animation 1h · Reporting & feedback 3h"
                   trainer="Formatrice : Houleymatou Baldé"
                   ctaLabel="Demander un devis ou plus d'infos"
                   ctaHref={`mailto:${PARTNERSHIP_EMAIL}`}
