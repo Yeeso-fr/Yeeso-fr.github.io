@@ -47,7 +47,7 @@ export const AboutMissionSection = () => {
               équipes informatiques et rendre la tech plus juste pour les femmes
               et minorités de genre. Pour y parvenir, Yeeso (re)donne confiance
               et travaille avec tous·tes, parce qu'une équipe mixte ne se
-              décrète pas — elle se construit ensemble.
+              décrète pas : elle se construit ensemble.
             </p>
             <p>
               Concrètement, cela veut dire déconstruire les préjugés par

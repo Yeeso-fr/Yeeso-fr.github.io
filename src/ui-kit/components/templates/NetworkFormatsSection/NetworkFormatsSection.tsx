@@ -28,7 +28,7 @@ const FORMATS = [
     icon: faComments,
     title: "Groupes de parole en non-mixité choisie",
     description:
-      "Un espace en non-mixité choisie — femmes, personnes trans et non-binaires — pour libérer la parole, partager ses expériences et trouver du soutien face aux difficultés du milieu.",
+      "Un espace en non-mixité choisie (femmes, personnes trans et non-binaires) pour libérer la parole, partager ses expériences et trouver du soutien face aux difficultés du milieu.",
     modifier: "network-format-card--coral",
   },
   {
