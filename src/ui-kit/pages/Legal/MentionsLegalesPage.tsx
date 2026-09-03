@@ -26,7 +26,7 @@ export const MentionsLegalesPage = ({ qaScores }: MentionsLegalesPageProps) => {
             </p>
             <p>
               <strong>Propriétaire du site :</strong> Association Yeeso (Loi
-              1901, association à impact et d'intérêt général) — Contact :{" "}
+              1901, association à impact et d'intérêt général). Contact :{" "}
               <StyledLink href={`mailto:${CONTACT_EMAIL}`}>
                 {CONTACT_EMAIL}
               </StyledLink>
@@ -66,8 +66,8 @@ export const MentionsLegalesPage = ({ qaScores }: MentionsLegalesPageProps) => {
               graphiques du site internet : logos, graphismes, architecture,
               icônes et sons. Les contenus rédactionnels (articles, images et
               vidéos qui les accompagnent) restent la propriété de leurs
-              auteur·ices respectif·ves, qui en conservent la paternité — voir
-              la section 4.
+              auteur·ices respectif·ves, qui en conservent la paternité (voir la
+              section 4).
             </p>
             <p>
               Toute reproduction, représentation, modification, publication,
@@ -121,40 +121,40 @@ export const MentionsLegalesPage = ({ qaScores }: MentionsLegalesPageProps) => {
               .
             </p>
             <p>
-              <strong>Logo &amp; charte graphique :</strong> Violaine Dilas —
-              Out Of Frame (stratégie de marque &amp; conduite du changement),
+              <strong>Logo &amp; charte graphique :</strong> Violaine Dilas, Out
+              Of Frame (stratégie de marque &amp; conduite du changement),
               novembre 2023.
             </p>
             <p>
               <strong>Police Arimo :</strong> Google, sous licence Apache
-              License 2.0, métrique-compatible avec Helvetica/Arial —{" "}
+              License 2.0, métrique-compatible avec Helvetica/Arial,{" "}
               <StyledLink href="https://fonts.google.com/specimen/Arimo">
                 fonts.google.com/specimen/Arimo
               </StyledLink>
             </p>
             <p>
               <strong>Police Kobbi 1.1 :</strong> © Jérémy Schneider (VJ Type),
-              2021, licence d'usage acquise par Yeeso —{" "}
+              2021, licence d'usage acquise par Yeeso,{" "}
               <StyledLink href="https://vj-type.com">vj-type.com</StyledLink>
             </p>
             <p>
               <strong>Police Fira Code :</strong> Nikita Prokopov, basée sur
               Fira Mono (Mozilla, Erik Spiekermann & Carrois Type Design), sous
-              licence SIL Open Font License 1.1 —{" "}
+              licence SIL Open Font License 1.1,{" "}
               <StyledLink href="https://fonts.google.com/specimen/Fira+Code">
                 fonts.google.com/specimen/Fira+Code
               </StyledLink>
             </p>
             <p>
               <strong>Police OpenDyslexic :</strong> Abbie Gonzalez, sous
-              licence SIL Open Font License 1.1 —{" "}
+              licence SIL Open Font License 1.1,{" "}
               <StyledLink href="https://opendyslexic.org">
                 opendyslexic.org
               </StyledLink>
             </p>
             <p>
               <strong>Police Luciole :</strong> Laurent Bourcellier & Jonathan
-              Perez, sous licence Creative Commons Attribution 4.0 —{" "}
+              Perez, sous licence Creative Commons Attribution 4.0,{" "}
               <StyledLink href="https://luciole-vision.com">
                 luciole-vision.com
               </StyledLink>
