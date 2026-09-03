@@ -93,8 +93,15 @@
 
 ## Mode sombre (dark mode)
 
-- [ ] Le mode doit être celui du système si choisi, sinon le mode sombre doit être **actif par défaut**, avec la possibilité pour l'utilisateur de
-      repasser en mode clair (actuellement à vérifier quel est le comportement par défaut).
+- [x] Le mode doit être celui du système si choisi, sinon le mode sombre doit être **actif par défaut**, avec la possibilité pour l'utilisateur de
+      repasser en mode clair (actuellement à vérifier quel est le comportement par défaut). — déjà
+      le comportement en place (confirmé avec vous) ; rendu explicite et plus robuste : si le
+      stockage local est bloqué ou que le navigateur ne sait pas du tout rapporter de préférence
+      système, le site retombe sur le sombre plutôt que de ne poser aucun thème. Note technique :
+      en pratique, un navigateur moderne répond toujours "clair" ou "sombre" à
+      `prefers-color-scheme`, même si la personne n'a jamais touché ce réglage sur son appareil —
+      il n'existe pas de moyen fiable de distinguer "clair choisi" de "clair par défaut", donc le
+      repli sombre ne se déclenche que dans de rares cas (très vieux navigateur, stockage bloqué).
 
 ## Adhésion / Call-to-action "Nous rejoindre"
 
