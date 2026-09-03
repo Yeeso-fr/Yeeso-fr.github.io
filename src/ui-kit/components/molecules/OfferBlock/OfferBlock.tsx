@@ -32,6 +32,11 @@ export const OfferBlock = ({
   ctaHref,
   modifier,
 }: OfferBlockProps) => {
+  // The green CTA reads fine on every card color except the block's own
+  // green variant, where a light-green button on a light-green background
+  // has no visible contour — switch to the navy fill there instead.
+  const ctaFilled = modifier === "offer-block--green" ? true : "green";
+
   return (
     <article className={clsx("offer-block", modifier)}>
       <p className="offer-block__kicker">{kicker}</p>
@@ -68,7 +73,11 @@ export const OfferBlock = ({
 
       {extra}
 
-      <StyledLink href={ctaHref} filled="green" className="offer-block__cta">
+      <StyledLink
+        href={ctaHref}
+        filled={ctaFilled}
+        className="offer-block__cta"
+      >
         {ctaLabel}
       </StyledLink>
     </article>
