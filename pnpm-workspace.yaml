@@ -1,6 +1,11 @@
 packages:
   - .
 
+allowBuilds:
+  esbuild: true
+  lefthook: true
+  sharp: true
+
 onlyBuiltDependencies:
   - core-js-pure
   - esbuild

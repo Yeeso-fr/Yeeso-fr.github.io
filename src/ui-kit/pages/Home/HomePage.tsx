@@ -1,5 +1,6 @@
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NetworkSection } from "src/ui-kit/components/templates/NetworkSection/NetworkSection";
 import type { Article } from "@/entities/articles/articles";
 import type { Author } from "@/entities/authors/authors";
 import { LastArticlesList } from "@/ui-kit/articles/LastArticlesList/LastArticlesList";
@@ -11,7 +12,6 @@ import { HomeHero } from "@/ui-kit/components/templates/HomeHero/HomeHero";
 import { ImpactSection } from "@/ui-kit/components/templates/ImpactSection/ImpactSection";
 import { MembershipCallout } from "@/ui-kit/components/templates/MembershipCallout/MembershipCallout";
 import { MissionSection } from "@/ui-kit/components/templates/MissionSection/MissionSection";
-import { NetworkSection } from "src/ui-kit/components/templates/NetworkSection/NetworkSection";
 
 interface HomePageProps {
   articles: Article[];
