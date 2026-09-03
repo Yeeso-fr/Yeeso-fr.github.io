@@ -17,7 +17,7 @@ const CATEGORIES = [
 export const CompanyPage = () => {
   return (
     <>
-      <PageHeader title="Entreprises" />
+      <PageHeader title="Nos prestations pour les entreprises" />
       <main id="maincontent" tabIndex={-1} className="main">
         <section className="company-page__categories">
           <div className="container">
@@ -28,10 +28,10 @@ export const CompanyPage = () => {
           </div>
         </section>
         <PartnershipSection />
-        <PartnersSection />
         <CompanyConferencesSection />
         <TrainingSection />
         <ConsultingSection />
+        <PartnersSection />
       </main>
     </>
   );

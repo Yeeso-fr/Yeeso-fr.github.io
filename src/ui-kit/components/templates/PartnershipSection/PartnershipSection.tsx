@@ -6,6 +6,10 @@ import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink"
 import { Tabs } from "@/ui-kit/components/molecules/Tabs/Tabs";
 import "./PartnershipSection.css";
 
+// La nouvelle plaquette est en cours de finalisation : on masque le
+// téléchargement plutôt que de le supprimer, en attendant le PDF à jour.
+const SHOW_OFFER_DOWNLOAD = false;
+
 export const PartnershipSection = () => {
   return (
     <section className="partnership-section" id="partenariat">
@@ -96,15 +100,17 @@ export const PartnershipSection = () => {
           </StyledLink>
           .
         </p>
-        <div className="partnership-section__downloads">
-          <StyledLink
-            href="/docs/plaquette-offre-entreprises.pdf"
-            bordered={true}
-            download
-          >
-            Télécharger notre offre de services (PDF)
-          </StyledLink>
-        </div>
+        {SHOW_OFFER_DOWNLOAD && (
+          <div className="partnership-section__downloads">
+            <StyledLink
+              href="/docs/plaquette-offre-entreprises.pdf"
+              bordered={true}
+              download
+            >
+              Télécharger notre offre de services (PDF)
+            </StyledLink>
+          </div>
+        )}
       </div>
     </section>
   );
