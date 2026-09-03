@@ -13,6 +13,11 @@
 
   .article-card__cover {
     width: 100%;
+    /* Source covers are all 1200x1200, but pin the box to that ratio
+       regardless — without it, the browser doesn't know the height until
+       the image finishes loading, which was the single largest cause of
+       layout shift on the articles pages (CLS ~0.29, mostly from this). */
+    aspect-ratio: 1 / 1;
     object-fit: cover;
   }
 
