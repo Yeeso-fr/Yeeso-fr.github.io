@@ -153,7 +153,7 @@ export const FaqSection = () => {
               <p>
                 Selon vos envies, vos moyens et votre désir d'engagement, le
                 choix est diversifié : adhérer, faire un don, soutenir la
-                diffusion de notre livre, ou devenir bénévole — vous êtes la/le
+                diffusion de notre livre, ou devenir bénévole : vous êtes la/le
                 bienvenu·e, quelle que soit votre envie d'aider.
               </p>
               <div className="faq-item__actions">

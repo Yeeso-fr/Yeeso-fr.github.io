@@ -55,7 +55,7 @@ export const QaScoresDetails = ({ qaScores }: QaScoresDetailsProps) => {
           <li className="qa-scores-details__item">
             <h4>Accessibilité (WCAG 2.2 / RGAA 4)</h4>
             <p>
-              {qaScores.axe.score}% — {qaScores.axe.rulesPassed}/
+              {qaScores.axe.score}%, {qaScores.axe.rulesPassed}/
               {qaScores.axe.rulesTotal} règles validées
             </p>
           </li>
@@ -68,7 +68,7 @@ export const QaScoresDetails = ({ qaScores }: QaScoresDetailsProps) => {
           <li className="qa-scores-details__item">
             <h4>Impact environnemental</h4>
             <p>
-              {qaScores.ecoindex.score}/100 — Note {qaScores.ecoindex.grade}
+              {qaScores.ecoindex.score}/100, Note {qaScores.ecoindex.grade}
             </p>
           </li>
           <li className="qa-scores-details__item">

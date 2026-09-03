@@ -11,7 +11,7 @@ const TIMELINE = [
     step: "Le point de départ",
     title: "Un parcours qui devient une mission",
     description:
-      "Née dans un petit village du nord de la Guinée, Houleymatou Baldé se construit face à l'excision, au patriarcat, aux inégalités sociales, au racisme et au sexisme — sans jamais douter d'elle-même. Un rôle modèle croisé à l'écran (Chloé, dans la série 24 h Chrono) oriente sa vocation vers l'informatique.",
+      "Née dans un petit village du nord de la Guinée, Houleymatou Baldé se construit face à l'excision, au patriarcat, aux inégalités sociales, au racisme et au sexisme, sans jamais douter d'elle-même. Un rôle modèle croisé à l'écran (Chloé, dans la série 24 h Chrono) oriente sa vocation vers l'informatique.",
     tone: "green",
   },
   {
