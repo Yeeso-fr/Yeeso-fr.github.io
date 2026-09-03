@@ -35,7 +35,7 @@ export async function generateMetadata({
   if (!found) return {};
 
   return buildPageMetadata({
-    title: `Articles — ${found.displayCategory}`,
+    title: `Articles : ${found.displayCategory}`,
     description: `Retrouvez tous les articles Yeeso publiés dans la catégorie ${found.displayCategory}.`,
     path: `/articles/category/${categorySlug}`,
     basePath,
