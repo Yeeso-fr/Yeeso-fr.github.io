@@ -16,8 +16,8 @@ export const AboutHero = () => {
         </h1>
         <p className="about-hero__lead">
           Yeeso est une association loi 1901. Nous agissons là où les inégalités
-          se fabriquent — à l'école, dans les représentations, dans les équipes
-          — pour accélérer la féminisation des métiers de l'informatique.
+          se fabriquent, à l'école, dans les représentations, dans les équipes,
+          pour accélérer la féminisation des métiers de l'informatique.
         </p>
       </div>
     </section>

@@ -90,7 +90,7 @@ export const AboutTeamSection = () => {
         </p>
 
         <h3 className="about-team-section__subtitle">
-          Le Bureau — paritaire, des profils complémentaires
+          Le Bureau : paritaire, des profils complémentaires
         </h3>
         <div className="about-team-section__bureau">
           {BUREAU.map((member) => (
