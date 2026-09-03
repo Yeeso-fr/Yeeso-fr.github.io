@@ -46,7 +46,7 @@ export const ContactPage = () => {
                 >
                   <FontAwesomeIcon icon={faLinkedin} aria-hidden />
                   <span className="contact-card__label">LinkedIn</span>
-                  <strong>Houleymatou Baldé</strong>
+                  <strong>Yeeso</strong>
                 </StyledLink>
 
                 <div className="contact-card">

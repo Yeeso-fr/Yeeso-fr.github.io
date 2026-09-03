@@ -98,7 +98,6 @@ export const ContactForm = () => {
           name="name"
           type="text"
           required
-          placeholder="Amina Diallo"
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
