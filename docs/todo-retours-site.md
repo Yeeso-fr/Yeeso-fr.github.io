@@ -68,10 +68,8 @@
   - "Nos antennes" : liste des villes avec le nom de la leader + lien LinkedIn.
 - [x] Ajouter une carte de France avec les antennes (photo/carte OpenStreetMap ou équivalent),
       positionnée après le bloc "Nos leaders/équipes", avant la section finale (mot de fin
-      David + Houleymatou). — implémentée comme une carte "hexagone" stylisée en SVG (pas un fond
-      de carte réel type OpenStreetMap), avec un point par antenne positionné à partir des vraies
-      coordonnées des villes ; le contour est illustratif, pas une côte précise. Dites-moi si vous
-      préférez un vrai fond de carte (ça demanderait d'intégrer une lib cartographique).
+      David + Houleymatou). — utilise l'illustration `carte-antennes.png` fournie (contour réel,
+      pins et étiquettes par ville), affichée à côté de la liste ville/leader/LinkedIn existante.
 - [x] ~~Au survol de la photo de la fondatrice, le texte ne doit pas disparaître complètement~~ —
       obsolète : sur la page actuelle, la bio de la fondatrice est un texte toujours visible à côté
       de la photo, il n'y a plus d'effet de survol qui le masque.
