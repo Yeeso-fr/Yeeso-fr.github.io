@@ -6,9 +6,9 @@
 
 ## Navigation / menu
 
-- [ ] Retirer "Notre mission" du menu (ça reste une ancre sur la page d'accueil, pas une entrée de
+- [x] Retirer "Notre mission" du menu (ça reste une ancre sur la page d'accueil, pas une entrée de
       menu séparée).
-- [ ] Ajouter "Nos prestations" dans le menu, après "Nos actions", le lien doit rediriger vers les prestations pour entreprises
+- [x] Ajouter "Nos prestations" dans le menu, après "Nos actions", le lien doit rediriger vers les prestations pour entreprises
 
 ## Page Actions
 

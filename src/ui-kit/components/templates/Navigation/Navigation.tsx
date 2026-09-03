@@ -60,21 +60,22 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
           <ul>
             <li>
               <StyledLink
-                href="/#mission"
-                onClick={() => setIsMenuOpen(false)}
-                prefetch={false}
-              >
-                Notre mission
-              </StyledLink>
-            </li>
-            <li>
-              <StyledLink
                 href="/programmes"
                 aria-current={currentPage("/programmes")}
                 onClick={() => setIsMenuOpen(false)}
                 prefetch={false}
               >
                 Nos actions
+              </StyledLink>
+            </li>
+            <li>
+              <StyledLink
+                href="/entreprises"
+                aria-current={currentPage("/entreprises")}
+                onClick={() => setIsMenuOpen(false)}
+                prefetch={false}
+              >
+                Nos prestations
               </StyledLink>
             </li>
             <li>
