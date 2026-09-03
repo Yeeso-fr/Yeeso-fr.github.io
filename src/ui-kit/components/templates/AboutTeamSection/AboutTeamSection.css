@@ -62,11 +62,6 @@
   --styled-link-icon-size: 2rem;
 }
 
-.about-team-section__lists {
-  display: grid;
-  gap: 2.5rem;
-}
-
 .about-team-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -84,11 +79,5 @@
   dd {
     margin: 0.2rem 0 0;
     font-weight: 700;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .about-team-section__lists {
-    grid-template-columns: repeat(2, 1fr);
   }
 }

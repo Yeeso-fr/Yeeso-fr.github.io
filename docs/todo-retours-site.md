@@ -57,19 +57,24 @@
 
 ## Page À propos
 
-- [ ] Ajouter des ancres de sommaire en haut de page (comme sur "Nos prestations") pointant vers "Nos
-      leaders / Notre équipe" et "Nos antennes", etc.
-- [ ] Sur l'histoire de Houleymatou, à côté de la mention "rôle modèle", ajouter un exemple entre parenthèses pour
+- [x] Ajouter des ancres de sommaire en haut de page (comme sur "Nos prestations") pointant vers "Nos
+      leaders / Notre équipe" et "Nos antennes", etc. (Notre mission / Notre histoire / Notre équipe
+      / Nos antennes).
+- [x] Sur l'histoire de Houleymatou, à côté de la mention "rôle modèle", ajouter un exemple entre parenthèses pour
   que ce soit plus concret, ex. "(Chloé, dans la série 24h chrono)" — vérifier que ça ne
   provoque pas de retour à la ligne disgracieux.
-- [ ] Créer une section "Une équipe engagée partout en France" séparée en deux blocs :
+- [x] Créer une section "Une équipe engagée partout en France" séparée en deux blocs :
   - Bureau + Squads (comme actuellement).
   - "Nos antennes" : liste des villes avec le nom de la leader + lien LinkedIn.
-- [ ] Ajouter une carte de France avec les antennes (photo/carte OpenStreetMap ou équivalent),
+- [x] Ajouter une carte de France avec les antennes (photo/carte OpenStreetMap ou équivalent),
       positionnée après le bloc "Nos leaders/équipes", avant la section finale (mot de fin
-      David + Houleymatou).
-- [ ] Au survol de la photo de la fondatrice, le texte ne doit pas disparaître complètement —
-      garder un affichage propre du texte au hover.
+      David + Houleymatou). — implémentée comme une carte "hexagone" stylisée en SVG (pas un fond
+      de carte réel type OpenStreetMap), avec un point par antenne positionné à partir des vraies
+      coordonnées des villes ; le contour est illustratif, pas une côte précise. Dites-moi si vous
+      préférez un vrai fond de carte (ça demanderait d'intégrer une lib cartographique).
+- [x] ~~Au survol de la photo de la fondatrice, le texte ne doit pas disparaître complètement~~ —
+      obsolète : sur la page actuelle, la bio de la fondatrice est un texte toujours visible à côté
+      de la photo, il n'y a plus d'effet de survol qui le masque.
 
 ## Page Réseau
 
