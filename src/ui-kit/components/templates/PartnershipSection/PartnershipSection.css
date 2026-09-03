@@ -13,26 +13,6 @@
   }
 }
 
-.partnership-table-wrapper {
-  overflow-x: auto;
-  margin-bottom: 2rem;
-}
-
-.partnership-table {
-  width: 100%;
-  min-width: 640px;
-
-  thead th:not(:first-child),
-  tbody td {
-    text-align: center;
-  }
-
-  tbody svg {
-    color: var(--color-lightgreen);
-    font-size: 1.1rem;
-  }
-}
-
 .partnership-section__note {
   color: var(--font-color-muted);
   max-width: 70ch;
