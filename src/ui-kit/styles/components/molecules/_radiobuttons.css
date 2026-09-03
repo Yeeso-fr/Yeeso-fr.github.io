@@ -49,3 +49,29 @@ input[type="radio"] {
     }
   }
 }
+
+.font-toggle__option:has(:hover),
+.font-toggle__option:has(:focus-visible) {
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 0.15em;
+}
+
+[data-theme="dark"] .font-toggle__option:has(:hover),
+[data-theme="dark"] .font-toggle__option:has(:focus-visible) {
+  text-decoration-color: var(--color-secondary);
+}
+
+[data-theme="dark"] input[type="radio"] {
+  &:hover {
+    border-color: var(--color-secondary);
+  }
+
+  &:checked {
+    border-color: var(--color-secondary);
+    &:before {
+      box-shadow: inset 1rem 1rem var(--color-secondary);
+    }
+  }
+}
