@@ -1,0 +1,69 @@
+.about-antennas-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.about-antennas-section__lead {
+  color: var(--font-color-muted);
+  max-width: 65ch;
+  margin: 0 0 2.5rem;
+}
+
+.about-antennas-section__content {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.about-antennas-section__map {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.about-antennas-section__outline {
+  fill: var(--color-lightpurple);
+  stroke: var(--color-primary-strong);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.about-antennas-section__dot {
+  fill: var(--yeeso-coral);
+  stroke: var(--color-light);
+  stroke-width: 1.5;
+}
+
+.about-antennas-section__dot-label {
+  font-family: var(--font-secondary), sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  fill: var(--color-dark);
+}
+
+.about-antennas-section__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.25rem;
+  margin: 0;
+
+  dt {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary-strong);
+  }
+
+  dd {
+    margin: 0.2rem 0 0;
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .about-antennas-section__content {
+    grid-template-columns: minmax(260px, 360px) 1fr;
+  }
+}
