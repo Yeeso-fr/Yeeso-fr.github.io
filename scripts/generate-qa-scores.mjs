@@ -16,7 +16,11 @@ const PAGE_PATHS = [
   "/authors",
   "/programmes",
   "/reseau",
+  "/entreprises",
+  "/education",
+  "/conferences",
   "/contact",
+  "/faq",
 ];
 
 const THEMES = ["light", "dark"];
