@@ -43,13 +43,17 @@
 
 ## Page d'accueil (Home)
 
-- [ ] Retirer le bloc "réseau de confiance" de la page d'accueil : il est dupliqué avec la page
+- [x] Retirer le bloc "réseau de confiance" de la page d'accueil : il est dupliqué avec la page
       Réseau — ne le garder que sur la page Réseau.
-- [ ] Vérifier la couleur du texte des chiffres clés (24%, "2 programmes", "labellisé…") : un des
+- [x] Vérifier la couleur du texte des chiffres clés (24%, "2 programmes", "labellisé…") : un des
       textes était trop clair/gris et peu lisible par rapport aux autres blocs de la page — harmoniser.
 - [ ] Idée facultative "pour se faire plaisir" : au survol de la photo de la fondatrice sur le
-      hero, afficher un petit clin d'œil texte "yes" (easter egg) — priorité basse, à ne faire que
-      si ça reste discret et pas trop long à faire.
+      hero, afficher un petit clin d'œil texte "yes" (easter egg) — **tenté puis abandonné** : les
+      trois photos du hero se chevauchent avec un empilement (z-index) déjà fragile/particulier
+      (chaque photo a sa propre animation d'entrée, ce qui casse l'ordre d'empilement voulu et fait
+      que la photo de droite peut recouvrir le badge selon la paire tirée au hasard). Corriger cette
+      base avant d'ajouter le easter egg — dites-moi si vous voulez que je m'attaque à ce chantier
+      plus large.
 
 ## Page À propos
 

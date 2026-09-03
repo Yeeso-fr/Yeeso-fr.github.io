@@ -67,7 +67,7 @@
 
   dd {
     margin: 0.25rem 0 0;
-    color: var(--font-color-muted);
+    color: var(--font-color);
     font-size: 0.9rem;
   }
 }
@@ -120,7 +120,7 @@
 
   p {
     margin: 0;
-    color: var(--font-color-muted);
+    color: var(--font-color);
     font-size: 0.9rem;
     max-width: 55ch;
   }
