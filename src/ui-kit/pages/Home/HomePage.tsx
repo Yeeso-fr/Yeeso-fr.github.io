@@ -11,7 +11,6 @@ import { HomeHero } from "@/ui-kit/components/templates/HomeHero/HomeHero";
 import { ImpactSection } from "@/ui-kit/components/templates/ImpactSection/ImpactSection";
 import { MembershipCallout } from "@/ui-kit/components/templates/MembershipCallout/MembershipCallout";
 import { MissionSection } from "@/ui-kit/components/templates/MissionSection/MissionSection";
-import { NetworkSection } from "@/ui-kit/components/templates/NetworkSection/NetworkSection";
 
 interface HomePageProps {
   articles: Article[];
@@ -28,7 +27,6 @@ export const HomePage = ({ articles, authors }: HomePageProps) => {
         <BookSection />
         <ImpactSection />
         <HistorySection />
-        <NetworkSection />
         <section>
           <div className="container">
             <MembershipCallout />
