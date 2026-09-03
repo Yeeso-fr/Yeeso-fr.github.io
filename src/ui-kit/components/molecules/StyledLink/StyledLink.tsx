@@ -52,9 +52,13 @@ export const StyledLink = ({
       {iconOnly && ariaLabel && <span className="sr-only">{ariaLabel}</span>}
       {children}
       {target === "_blank" && (
-        <span className="sr-only">(ouvre un nouvel onglet)</span>
+        <span className="sr-only">&nbsp;(ouvre un nouvel onglet)</span>
       )}
-      {icon && <span className="styled-link--icon">{icon}</span>}
+      {icon && (
+        <span className="styled-link--icon" aria-hidden="true">
+          {icon}
+        </span>
+      )}
     </Link>
   );
 };

@@ -29,8 +29,8 @@ export const ToggleTheme = () => {
       className={`theme-toggle icon-toggle-button theme-toggle--${theme}`}
       onClick={handleToggle}
     >
-      <span className="sr-only">
-        Activer le thème {theme === "dark" ? "sombre" : "clair"}
+      <span className="sr-only" aria-live="polite">
+        Activer le thème {theme === "dark" ? "clair" : "sombre"}
       </span>
       <svg
         className="theme-toggle__sun"
