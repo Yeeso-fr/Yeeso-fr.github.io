@@ -74,49 +74,6 @@ const SQUAD_LEADERS = [
   },
 ] as const;
 
-const ANTENNA_LEADERS = [
-  {
-    city: "Lyon",
-    name: "Albane",
-    linkedin: "https://www.linkedin.com/in/albane-fagot-veyron/",
-  },
-  {
-    city: "Paris",
-    name: "Emmanuelle",
-    linkedin: "https://www.linkedin.com/in/emmanuelle-aboaf/",
-  },
-  {
-    city: "Lille",
-    name: "Jacqueline",
-    linkedin: "https://www.linkedin.com/in/jacqueline-rwanyindo/",
-  },
-  {
-    city: "Nantes",
-    name: "Angi",
-    linkedin: "https://www.linkedin.com/in/angi-guyard/",
-  },
-  {
-    city: "Rennes",
-    name: "Manon",
-    linkedin: "https://www.linkedin.com/in/manon-carbonnel/",
-  },
-  {
-    city: "Poitiers",
-    name: "Felana",
-    linkedin: "https://www.linkedin.com/in/felana-letrange/",
-  },
-  {
-    city: "Toulouse",
-    name: "Marie",
-    linkedin: "https://www.linkedin.com/in/malandel/",
-  },
-  {
-    city: "Strasbourg",
-    name: "Marion",
-    linkedin: "https://www.linkedin.com/in/marionlabbe/",
-  },
-] as const;
-
 export const AboutTeamSection = () => {
   return (
     <section className="about-team-section" id="equipe">
@@ -153,49 +110,22 @@ export const AboutTeamSection = () => {
           ))}
         </div>
 
-        <div className="about-team-section__lists">
-          <div>
-            <h3 className="about-team-section__subtitle">
-              8 Leaders de Squads
-            </h3>
-            <dl className="about-team-list">
-              {SQUAD_LEADERS.map((leader) => (
-                <div key={leader.domain}>
-                  <dt>{leader.domain}</dt>
-                  <dd>
-                    <StyledLink
-                      href={leader.linkedin}
-                      ariaLabel={`Voir le profil LinkedIn de ${leader.name}`}
-                    >
-                      {leader.name}
-                    </StyledLink>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <div>
-            <h3 className="about-team-section__subtitle">
-              8 Leaders d'antennes
-            </h3>
-            <dl className="about-team-list">
-              {ANTENNA_LEADERS.map((leader) => (
-                <div key={leader.city}>
-                  <dt>{leader.city}</dt>
-                  <dd>
-                    <StyledLink
-                      href={leader.linkedin}
-                      ariaLabel={`Voir le profil LinkedIn de ${leader.name}`}
-                    >
-                      {leader.name}
-                    </StyledLink>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
+        <h3 className="about-team-section__subtitle">8 Leaders de Squads</h3>
+        <dl className="about-team-list">
+          {SQUAD_LEADERS.map((leader) => (
+            <div key={leader.domain}>
+              <dt>{leader.domain}</dt>
+              <dd>
+                <StyledLink
+                  href={leader.linkedin}
+                  ariaLabel={`Voir le profil LinkedIn de ${leader.name}`}
+                >
+                  {leader.name}
+                </StyledLink>
+              </dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
