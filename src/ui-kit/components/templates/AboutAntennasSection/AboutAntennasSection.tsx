@@ -63,8 +63,7 @@ const ANTENNA_LEADERS = [
 // Stylized "hexagone" outline, not a precise coastline — dot positions are
 // placed from each city's real coordinates so the relative spread reads
 // true, but the outline itself is illustrative.
-const FRANCE_OUTLINE =
-  "M150,5 L280,55 L255,195 L120,205 L15,145 L8,45 Z";
+const FRANCE_OUTLINE = "M150,5 L280,55 L255,195 L120,205 L15,145 L8,45 Z";
 
 export const AboutAntennasSection = () => {
   return (
@@ -86,7 +85,10 @@ export const AboutAntennasSection = () => {
             role="img"
             aria-hidden="true"
           >
-            <path d={FRANCE_OUTLINE} className="about-antennas-section__outline" />
+            <path
+              d={FRANCE_OUTLINE}
+              className="about-antennas-section__outline"
+            />
             {ANTENNA_LEADERS.map((leader) => (
               <g key={leader.city}>
                 <circle
