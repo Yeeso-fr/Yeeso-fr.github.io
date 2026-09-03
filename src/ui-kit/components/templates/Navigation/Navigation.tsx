@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/ui-kit/components/atoms/Images/Logo";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import { ToggleAnimation } from "@/ui-kit/components/molecules/ToggleAnimation/ToggleAnimation";
@@ -120,17 +120,17 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
                 >
                   Nos actions
                 </StyledLink>
-                          </li>
-                          <li>
-                              <StyledLink
-                                  href="/entreprises"
-                                  aria-current={currentPage("/entreprises")}
-                                  onClick={() => setIsMenuOpen(false)}
-                                  prefetch={false}
-                              >
-                                  Nos prestations
-                              </StyledLink>
-                          </li>
+              </li>
+              <li>
+                <StyledLink
+                  href="/entreprises"
+                  aria-current={currentPage("/entreprises")}
+                  onClick={() => setIsMenuOpen(false)}
+                  prefetch={false}
+                >
+                  Nos prestations
+                </StyledLink>
+              </li>
               <li>
                 <StyledLink
                   href="/a-propos"
