@@ -122,8 +122,9 @@
 
 ## FAQ
 
-- [ ] Rendre la FAQ plus visible/trouvable : actuellement le lien "Consulter notre FAQ" sur la home est jugé
-      peu lisible — envisager un petit bouton coloré (vert)
+- [x] Rendre la FAQ plus visible/trouvable : actuellement le lien "Consulter notre FAQ" sur la home est jugé
+      peu lisible — envisager un petit bouton coloré (vert). — le lien "Voir la FAQ" (page
+      d'accueil, section mission) passe de bordé à plein vert.
 
 ## Footer
 
