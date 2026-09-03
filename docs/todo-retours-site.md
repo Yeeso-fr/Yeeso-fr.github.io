@@ -19,20 +19,27 @@
 
 ## Page Entreprises / Prestations
 
-- [ ] Renommer la page/l'entrée de menu "Entreprise" → "Nos prestations pour les
-  entreprises".
-- [ ] Le bouton "Devenir partenaire" / bordé est invisible (vert sur vert) → changer la couleur du
-      bouton pour qu'il soit visible.
-- [ ] Le bouton "Télécharger notre offre" (PDF) ne doit rien faire pour l'instant car la nouvelle
+- [x] Renommer la page/l'entrée de menu "Entreprise" → "Nos prestations pour les
+  entreprises". (titre de page + `<title>` ; l'entrée de menu reste "Nos prestations", plus courte).
+- [x] ~~Le bouton "Devenir partenaire" / bordé est invisible (vert sur vert)~~ — obsolète : la page a
+      été refaite entre-temps avec des boutons pleins bien contrastés, ce bouton n'existe plus sous
+      cette forme.
+- [x] Le bouton "Télécharger notre offre" (PDF) ne doit rien faire pour l'instant car la nouvelle
       plaquette est en cours de finalisation par Louison → **masquer le bouton sans le supprimer**,
       il sera réactivé quand le nouveau PDF sera prêt.
-- [ ] Déplacer le bloc "Nos partenaires" (logos qui défilent) tout en bas de cette page, après les
+- [x] Déplacer le bloc "Nos partenaires" (logos qui défilent) tout en bas de cette page, après les
       sections Partenariat/Conférence/Formation/Conseil.
 - [ ] Sur cette page, les logos des vrais partenaires devraient défiler en carrousel comme le fait
       le bandeau de mots-clés en face (même effet des deux côtés de la section), sinon utiliser le
-      même mot "partenaire financier" pour les deux colonnes.
+      même mot "partenaire financier" pour les deux colonnes. — **non fait** : avec la nouvelle page,
+      les logos tiennent déjà dans une grille compacte et lisible ; un défilement automatique
+      ajouterait du mouvement sans bénéfice clair (et complique l'accessibilité). À rediscuter si la
+      liste de partenaires grossit beaucoup.
 - [ ] Distinguer les logos : entreprises d'abord, puis associations/partenaires — ne pas mélanger
-      l'ordre à chaque mise à jour.
+      l'ordre à chaque mise à jour. — non touché, le classement actuel ("Partenaires financiers" /
+      "Partenaires écosystèmes") mélange déjà entreprises et fondations/écoles dans le premier
+      groupe ; dites-moi si vous voulez un tri strict entreprises-puis-associations à l'intérieur de
+      chaque groupe.
 
 ## Page d'accueil (Home)
 
