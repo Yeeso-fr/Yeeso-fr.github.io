@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { MEMBERSHIP_URL } from "@/config/social-links";
 import { Logo } from "@/ui-kit/components/atoms/Images/Logo";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import { ToggleFont } from "@/ui-kit/components/molecules/ToggleFont/ToggleFont";
@@ -114,9 +113,10 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
             </li>
             <li>
               <StyledLink
-                href={MEMBERSHIP_URL}
+                href="/reseau#adhesion"
                 filled="green"
                 onClick={() => setIsMenuOpen(false)}
+                prefetch={false}
               >
                 Nous rejoindre
               </StyledLink>

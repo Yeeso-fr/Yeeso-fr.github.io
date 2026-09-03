@@ -1,4 +1,3 @@
-import { MEMBERSHIP_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./MembershipCallout.css";
 
@@ -10,7 +9,7 @@ export const MembershipCallout = () => {
         deux minutes, ça ne vous engage à rien, et c'est un vrai coup de pouce
         pour la légitimité et le développement de Yeeso.
       </p>
-      <StyledLink href={MEMBERSHIP_URL} filled="green">
+      <StyledLink href="/reseau#adhesion" filled="green">
         Adhérer à Yeeso
       </StyledLink>
     </div>
