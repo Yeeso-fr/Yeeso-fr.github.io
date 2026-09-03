@@ -78,13 +78,18 @@
 
 ## Page Réseau
 
-- [ ] Ajouter un bloc "Ils nous hébergent déjà" listant les entreprises qui ont accueilli des
-      Meetups Yeeso (logos, idéalement en défilement plutôt qu'en liste statique pour ne pas
-      allonger la page) — positionné avant la section adhésion.
+- [ ] **Bloqué, besoin d'info** : Ajouter un bloc "Ils nous hébergent déjà" listant les entreprises
+      qui ont accueilli des Meetups Yeeso (logos, idéalement en défilement plutôt qu'en liste
+      statique pour ne pas allonger la page) — positionné avant la section adhésion. Je n'ai pas de
+      liste fiable de "qui a hébergé quel meetup" dans le repo (ce n'est pas forcément le même
+      ensemble que "Nos partenaires" sur la page Entreprises) — donnez-moi la liste des entreprises
+      (+ logos si différents de ceux déjà sur /entreprises) et je fais le bloc.
 - [ ] Bien distinguer ce bloc "hébergeurs de Meetup" du bloc "Ils nous soutiennent" (vrais
-      partenaires), qui reste sur la page Entreprises/Prestations tout en bas.
-- [ ] Vérifier qu'il n'y a plus de duplication du texte "réseau de confiance" avec la page
-      d'accueil (cf. point ci-dessus dans la section Accueil).
+      partenaires), qui reste sur la page Entreprises/Prestations tout en bas. — dépend du point
+      précédent.
+- [x] Vérifier qu'il n'y a plus de duplication du texte "réseau de confiance" avec la page
+      d'accueil (cf. point ci-dessus dans la section Accueil). — fait dans le commit "Home: drop
+      duplicated network section...".
 
 ## Mode sombre (dark mode)
 
