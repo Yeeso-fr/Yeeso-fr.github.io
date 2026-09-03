@@ -28,15 +28,20 @@ const siteUrl = process.env.PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 const themeInitScript = `
 (function () {
+  var theme = "dark";
   try {
-    var theme = localStorage.getItem("theme");
-    if (theme !== "light" && theme !== "dark") {
-      theme = window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+    var stored = localStorage.getItem("theme");
+    if (stored === "light" || stored === "dark") {
+      theme = stored;
+    } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+      // No stored choice: honor an explicit system preference either way,
+      // but default to dark when the browser can't report one at all.
+      theme = "light";
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      theme = "dark";
     }
-    document.documentElement.setAttribute("data-theme", theme);
   } catch (e) {}
+  document.documentElement.setAttribute("data-theme", theme);
 })();
 `;
 
