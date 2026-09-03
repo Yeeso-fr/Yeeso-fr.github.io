@@ -41,6 +41,13 @@ export const ToggleFont = () => {
 
   useEffect(() => {
     if (!isOpen) return;
+    containerRef.current
+      ?.querySelector<HTMLInputElement>(`#reading-font-${font}`)
+      ?.focus();
+  }, [isOpen, font]);
+
+  useEffect(() => {
+    if (!isOpen) return;
 
     const handlePointerDown = (event: PointerEvent) => {
       if (!containerRef.current?.contains(event.target as Node)) {
