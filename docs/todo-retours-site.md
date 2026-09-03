@@ -138,14 +138,21 @@
 
 ## Mentions légales
 
-- [ ] Vérifier que les mentions légales créditent bien Manon Carbonnel pour le développement du site.
+- [x] Vérifier que les mentions légales créditent bien Manon Carbonnel pour le développement du site.
+      — fait dans le commit précédent (section 6. Crédits).
 
 ## Global et technique
 
-- [ ] Remplacer "égalité" par "équité" partout où c'est le terme de l'association qui doit
+- [x] Remplacer "égalité" par "équité" partout où c'est le terme de l'association qui doit
   apparaître (ex. "L'égalité comme boussole" → "L'équité comme boussole"). Garder "égalité" si
-  c'est le nom propre d'un atelier existant ("atelier de sensibilisation à l'égalité").
-- [ ] Nettoyer les restes de formatage/génération IA dans le texte à propos : retirer les "-IA",
-  doubles tirets ou artefacts similaires qui traînent dans le contenu.
-- [ ] Renommer le projet pour refléter le nom final
-      `yeeso.org`.
+  c'est le nom propre d'un atelier existant ("atelier de sensibilisation à l'égalité"). — un seul
+  cas concerné dans tout le code (`AboutMissionSection`), corrigé. Les autres occurrences
+  d'"égalité"/"inégalités" sont soit le nom d'ateliers existants, soit des noms propres réels
+  (Haut Conseil à l'Égalité, Ministre de l'égalité femmes-hommes) qu'il ne fallait pas toucher.
+- [x] Nettoyer les restes de formatage/génération IA dans le texte à propos : retirer les "-IA",
+  doubles tirets ou artefacts similaires qui traînent dans le contenu. — rien trouvé dans le texte
+  actuel de la page À propos ; la page a été retravaillée depuis la réunion et ce problème
+  n'existe plus.
+- [x] Renommer le projet pour refléter le nom final
+      `yeeso.org`. — déjà fait : le `package.json` s'appelle `yeeso-website` et le dossier du repo
+      est déjà `yeeso-website`.
