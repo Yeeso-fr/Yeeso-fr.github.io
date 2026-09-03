@@ -18,10 +18,10 @@ export const BookSection = () => {
             className="book-section__cover"
           />
           <div className="book-section__content">
-            <p className="book-section__title">
+            <h2 className="book-section__title">
               <FontAwesomeIcon icon={faBook} aria-hidden />
               Notre livre « Yeeso »
-            </p>
+            </h2>
             <p>
               52 portraits de femmes qui travaillent aujourd'hui dans la tech,
               pour montrer leur présence et offrir des rôles modèles plus

@@ -12,8 +12,14 @@
   color: var(--font-color);
 }
 
-.styled-link:hover {
-  color: var(--color-primary-strong);
+[data-theme="dark"] .styled-link:visited {
+  text-decoration-color: var(--font-color);
+}
+
+/*.styled-link:hover,*/
+[data-theme="dark"] .styled-link:visited:focus-visible,
+[data-theme="dark"] .styled-link:focus-visible {
+  outline-color: var(--color-secondary);
 }
 
 /* ---------- Variant ---------- */
