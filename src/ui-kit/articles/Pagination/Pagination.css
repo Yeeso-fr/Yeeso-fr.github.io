@@ -54,3 +54,7 @@
     color: var(--font-color-muted);
   }
 }
+
+[data-theme="dark"] .pagination [aria-current="page"] {
+  background: var(--font-color);
+}

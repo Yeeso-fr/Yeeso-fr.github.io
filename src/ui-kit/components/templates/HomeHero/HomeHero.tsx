@@ -122,6 +122,14 @@ export const HomeHero = () => {
   useEffect(() => {
     setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current));
     const id = setInterval(() => {
+      // Skip the rotation while the user has paused animations (SC 2.2.2) —
+      // checked live on every tick so a mid-session toggle takes effect
+      // immediately, without needing to restart the timer.
+      if (
+        document.documentElement.getAttribute("data-animations") === "paused"
+      ) {
+        return;
+      }
       setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current));
     }, ROTATE_INTERVAL_MS);
     return () => clearInterval(id);

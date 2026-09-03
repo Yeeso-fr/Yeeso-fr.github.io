@@ -1,5 +1,6 @@
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NetworkSection } from "src/ui-kit/components/templates/NetworkSection/NetworkSection";
 import type { Article } from "@/entities/articles/articles";
 import type { Author } from "@/entities/authors/authors";
 import { LastArticlesList } from "@/ui-kit/articles/LastArticlesList/LastArticlesList";
@@ -19,35 +20,34 @@ interface HomePageProps {
 
 export const HomePage = ({ articles, authors }: HomePageProps) => {
   return (
-    <>
+    <main id="maincontent" tabIndex={-1} className="main">
       <HomeHero />
-      <main id="maincontent" tabIndex={-1} className="main">
-        <ContextSection />
-        <MissionSection />
-        <BookSection />
-        <ImpactSection />
-        <HistorySection />
-        <section>
+      <ContextSection />
+      <MissionSection />
+      <BookSection />
+      <ImpactSection />
+      <HistorySection />
+      <NetworkSection />
+      <section>
+        <div className="container">
+          <MembershipCallout />
+        </div>
+      </section>
+      {articles.length > 0 && (
+        <section className="last-articles">
           <div className="container">
-            <MembershipCallout />
+            <span className="section-eyebrow">Le blog</span>
+            <h2 className="section_title">Informer & Inspirer</h2>
+            <LastArticlesList articles={articles} authors={authors} />
+            <footer>
+              <StyledLink href={"/articles"} bordered={true}>
+                Tous les articles
+                <FontAwesomeIcon icon={faArrowRightLong} />
+              </StyledLink>
+            </footer>
           </div>
         </section>
-        {articles.length > 0 && (
-          <section className="last-articles">
-            <div className="container">
-              <span className="section-eyebrow">Le blog</span>
-              <h2 className="section_title">Informer & Inspirer</h2>
-              <LastArticlesList articles={articles} authors={authors} />
-              <footer>
-                <StyledLink href={"/articles"} bordered={true}>
-                  Tous les articles
-                  <FontAwesomeIcon icon={faArrowRightLong} />
-                </StyledLink>
-              </footer>
-            </div>
-          </section>
-        )}
-      </main>
-    </>
+      )}
+    </main>
   );
 };
