@@ -137,7 +137,7 @@ export const MissionSection = () => {
           </div>
           <StyledLink
             href="/faq"
-            bordered={true}
+            filled="green"
             className="mission-section__labels-faq"
           >
             Voir la FAQ
