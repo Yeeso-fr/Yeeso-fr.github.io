@@ -128,10 +128,13 @@
 
 ## Footer
 
-- [ ] Vérifier la présence d'un crédit "site créé par Manon Carbonnel" (ou équivalent) dans le
-      footer.
-- [ ] Vérifier que le résumé d'impact environnemental (éco-index) dans le footer renvoie bien vers
-      le détail dans les mentions légales.
+- [x] Vérifier la présence d'un crédit "site créé par Manon Carbonnel" (ou équivalent) dans le
+      footer. — pas de crédit dans le footer (sur demande explicite de Manon de ne pas l'y mettre) ;
+      ajouté uniquement dans les mentions légales (section 6. Crédits), aux côtés du crédit
+      logo/charte graphique.
+- [x] Vérifier que le résumé d'impact environnemental (éco-index) dans le footer renvoie bien vers
+      le détail dans les mentions légales. — déjà correct (`EcoIndex` pointe vers
+      `/mentions-legales#qualite`).
 
 ## Mentions légales
 
