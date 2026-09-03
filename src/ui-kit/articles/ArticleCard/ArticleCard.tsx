@@ -44,6 +44,8 @@ export function ArticleCard({
               : coverImage.src
           }
           alt={coverImage.alt}
+          width={1200}
+          height={1200}
           loading="lazy"
         />
       )}
