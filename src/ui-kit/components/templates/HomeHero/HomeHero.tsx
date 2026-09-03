@@ -153,7 +153,7 @@ export const HomeHero = () => {
               <StyledLink href="/programmes" filled={true}>
                 Découvrir nos programmes
               </StyledLink>
-              <StyledLink href="/contact" bordered={true}>
+              <StyledLink href="/entreprises" bordered={true}>
                 Devenir partenaire
               </StyledLink>
             </div>
