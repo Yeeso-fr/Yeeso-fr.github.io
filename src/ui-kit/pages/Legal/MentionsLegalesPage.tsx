@@ -114,6 +114,13 @@ export const MentionsLegalesPage = ({ qaScores }: MentionsLegalesPageProps) => {
           <section className="legal-page__section">
             <h2>6. Crédits</h2>
             <p>
+              <strong>Conception &amp; développement du site :</strong>{" "}
+              <StyledLink href="https://www.linkedin.com/in/manon-carbonnel/">
+                Manon Carbonnel
+              </StyledLink>
+              .
+            </p>
+            <p>
               <strong>Logo &amp; charte graphique :</strong> Violaine Dilas —
               Out Of Frame (stratégie de marque &amp; conduite du changement),
               novembre 2023.
