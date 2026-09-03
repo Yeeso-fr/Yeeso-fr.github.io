@@ -17,13 +17,6 @@ const PROGRAMS = [
     link: { href: "/education", label: "Découvrir nos actions" },
   },
   {
-    icon: faBuilding,
-    title: "Entreprise",
-    description:
-      "Accompagnement des entreprises dans leurs démarches de mixité des équipes informatiques.",
-    link: { href: "/entreprises", label: "Découvrir notre offre" },
-  },
-  {
     icon: faUsers,
     title: "Réseau",
     description:
@@ -32,10 +25,17 @@ const PROGRAMS = [
   },
   {
     icon: faCalendarCheck,
-    title: "Conférences",
+    title: "Événement Tech",
     description:
-      "Accompagnement des équipes organisatrices de conférences, meetups et événements tech vers plus de mixité et d'inclusion.",
+      "Accompagnement des équipes organisatrices d'événements tech et de meetups vers plus de mixité et d'inclusion.",
     link: { href: "/conferences", label: "Devenir partenaire" },
+  },
+  {
+    icon: faBuilding,
+    title: "Entreprise",
+    description:
+      "Accompagnement des entreprises dans leurs démarches de mixité des équipes informatiques.",
+    link: { href: "/entreprises", label: "Découvrir notre offre" },
   },
 ] as const;
 

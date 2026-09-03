@@ -12,9 +12,9 @@
 
 ## Page Actions
 
-- [ ] Réordonner le sous menu : Éducation, Réseau, Événement Tech, Entreprises (dans cet ordre).
-- [ ] Renommer "Conférence" en "Événement Tech" dans le menu / sous-menu Réseau.
-- [ ] Dans le sous-menu Réseau, ajuster le libellé : "accompagnement des équipes organisatrices de
+- [x] Réordonner le sous menu : Éducation, Réseau, Événement Tech, Entreprises (dans cet ordre).
+- [x] Renommer "Conférence" en "Événement Tech" dans le menu / sous-menu Réseau.
+- [x] Dans le sous-menu Réseau, ajuster le libellé : "accompagnement des équipes organisatrices de
   conférence" → "accompagnement des équipes organisatrices d'événement tech / Meetup".
 
 ## Page Entreprises / Prestations
