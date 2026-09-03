@@ -10,7 +10,6 @@ export const PARTNERSHIP_EMAIL = "partenariat@yeeso.org";
 export const BOOK_URL = "https://amzn.eu/d/0aDTvGEN";
 export const BOOK_HELLOASSO_URL =
   "https://www.helloasso.com/associations/yeeso/boutiques/commandez-le-livre-pour-une-jeune-yeeso-se-charge-de-la-distribution-2";
-export const A_COMPETENCE_EGALE_URL = "https://acompetenceegale.com/";
 export const RONALPIA_URL = "https://www.ronalpia.fr/";
 export const FEMMES_NUMERIQUE_URL = "https://www.femmes-numerique.fr/";
 export const MEMBERSHIP_URL =
