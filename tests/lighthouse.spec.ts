@@ -51,6 +51,9 @@ const pages: {
   { name: "authors list page", slug: "authors", path: "/authors" },
   { name: "programs page", slug: "programmes", path: "/programmes" },
   { name: "network page", slug: "reseau", path: "/reseau" },
+  { name: "companies page", slug: "entreprises", path: "/entreprises" },
+  { name: "education page", slug: "education", path: "/education" },
+  { name: "conferences page", slug: "conferences", path: "/conferences" },
   { name: "contact page", slug: "contact", path: "/contact" },
   { name: "faq page", slug: "faq", path: "/faq" },
 ];
