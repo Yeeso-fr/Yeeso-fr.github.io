@@ -9,7 +9,7 @@ import "./AboutMissionSection.css";
 const VALUES = [
   {
     icon: faFlag,
-    title: "L'égalité comme boussole",
+    title: "L'équité comme boussole",
     description:
       "Nous croyons que la compétence n'a ni genre, ni classe sociale, ni couleur de peau. Tout notre travail découle de cette conviction.",
     modifier: "about-value-card--purple",
