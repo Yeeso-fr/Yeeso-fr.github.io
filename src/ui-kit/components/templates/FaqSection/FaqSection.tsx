@@ -7,7 +7,6 @@ import {
   INSTAGRAM_URL,
   LINKEDIN_URL,
   MEETUP_URL,
-  MEMBERSHIP_URL,
   PARTNERSHIP_EMAIL,
   TIKTOK_URL,
   YOUTUBE_URL,
@@ -46,7 +45,7 @@ export const FaqSection = () => {
                 réseau IT Women Network, sur nos différents canaux d'échange, de
                 networking et d'entraide, mixtes ou non mixtes.
               </p>
-              <StyledLink href={MEMBERSHIP_URL} filled="green">
+              <StyledLink href="/reseau#adhesion" filled="green">
                 Adhérer à Yeeso
               </StyledLink>
             </div>
@@ -158,7 +157,7 @@ export const FaqSection = () => {
                 bienvenu·e, quelle que soit votre envie d'aider.
               </p>
               <div className="faq-item__actions">
-                <StyledLink href={MEMBERSHIP_URL} filled="green">
+                <StyledLink href="/reseau#adhesion" filled="green">
                   Adhérer à Yeeso
                 </StyledLink>
                 <StyledLink href={HELLOASSO_URL} bordered>

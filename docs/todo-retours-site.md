@@ -105,11 +105,19 @@
 
 ## Adhésion / Call-to-action "Nous rejoindre"
 
-- [ ] Le CTA "Nous rejoindre"/adhésion ne doit plus renvoyer directement vers HelloAsso : créer
+- [x] Le CTA "Nous rejoindre"/adhésion ne doit plus renvoyer directement vers HelloAsso : créer
       (ou pointer vers) une nouvelle page interne qui explique d'abord les bénéfices de l'adhésion (accès au
       Slack, lunch talks, mentorat, cafés yeeso du vendredi, etc.), avec un CTA vers HelloAsso à l'intérieur de cette page.
-- [ ] Harmoniser le libellé des CTA "Nous rejoindre" vs "Soutenir" partout sur le site.
-- [ ] Mettre à jour la FAQ ("pourquoi adhérer ?") pour renvoyer vers cette nouvelle page
+      — la page explicative existait déjà (section "Pourquoi adhérer à Yeeso ?" sur /reseau,
+      `MembershipSection`), donc plutôt que dupliquer son contenu j'ai fait pointer tous les CTA
+      d'adhésion vers `/reseau#adhesion` : le bouton "Nous rejoindre" du menu, le bandeau
+      "Adhérer à Yeeso" (page d'accueil et À propos), et les 2 occurrences dans la FAQ. Seul le
+      bouton final À L'INTÉRIEUR de cette section continue de pointer directement vers HelloAsso.
+      Dites-moi si vous préférez une page dédiée séparée du Réseau plutôt que cette ancre.
+- [x] Harmoniser le libellé des CTA "Nous rejoindre" vs "Soutenir" partout sur le site. — pas de
+      conflit trouvé dans le code actuel : le menu utilise "Nous rejoindre" et les sections
+      d'adhésion "Adhérer à Yeeso" de façon cohérente, pas de bouton "Soutenir" concurrent.
+- [x] Mettre à jour la FAQ ("pourquoi adhérer ?") pour renvoyer vers cette nouvelle page
       explicative plutôt que directement vers HelloAsso.
 
 ## FAQ
