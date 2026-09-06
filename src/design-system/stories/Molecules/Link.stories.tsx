@@ -7,11 +7,17 @@ import {
   StyledLink,
   type StyledLinkProps,
 } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
+import {
+  BRAND_COLORS,
+  type BrandColorName,
+} from "@/ui-kit/styles/theme/brandColors";
 
 const allIcons = { ...Brands, ...Solid };
 const iconNames = Object.keys(allIcons).filter(
   (key) => key.startsWith("fa") && key !== "fas" && key !== "fab",
 ) as (keyof typeof allIcons)[];
+
+const brandColorNames = Object.keys(BRAND_COLORS) as BrandColorName[];
 
 type StyledLinkStoryArgs = StyledLinkProps & {
   faIcon?: (typeof iconNames)[number];
@@ -22,6 +28,12 @@ const meta = {
   component: StyledLink,
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component:
+          'Deux types : **filled** (fond plein) et **contoured** (`bordered` — bordure, fond transparent). Un lien filled accepte soit `brandColor` (une couleur de la charte Yeeso), soit `customColor` (n\'importe quelle couleur CSS) — `customColor` est prioritaire si les deux sont fournis. Ex. « Nous rejoindre » utilise `filled brandColor="mint"`.',
+      },
+    },
   },
   tags: ["autodocs"],
   argTypes: {
@@ -29,6 +41,17 @@ const meta = {
       options: iconNames,
       control: {
         type: "select",
+      },
+    },
+    brandColor: {
+      options: brandColorNames,
+      control: {
+        type: "select",
+      },
+    },
+    customColor: {
+      control: {
+        type: "color",
       },
     },
   },
@@ -57,10 +80,18 @@ export const Basic: Story = {
 };
 
 export const Bordered: Story = {
+  name: "Contoured",
   args: {
     href: "#",
     children: "CSS Tricks",
     bordered: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Type contoured (`bordered`) — bordure, fond transparent.",
+      },
+    },
   },
   render: (args) => (
     <>
@@ -74,6 +105,72 @@ export const Bordered: Story = {
       </div>
     </>
   ),
+};
+
+export const Filled: Story = {
+  args: {
+    href: "#",
+    children: "CSS Tricks",
+    filled: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: "Type filled — fond plein (couleur `primary` par défaut).",
+      },
+    },
+  },
+  render: (args) => (
+    <>
+      <StyledLink {...args} />
+      <br />
+      <p>Written in Markdown as:</p>
+      <div className="pre-wrapper">
+        <pre>
+          <code>[CSS Tricks](#?filled)</code>
+        </pre>
+      </div>
+    </>
+  ),
+};
+
+export const Colors: Story = {
+  name: "Filled — couleurs de la charte",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Le type filled décliné dans chaque couleur de la charte graphique, via la prop `brandColor` (voir Brand Guidelines et `brandColors.ts`).",
+      },
+    },
+  },
+  render: () => (
+    <div className="story-button-row">
+      {brandColorNames.map((name) => (
+        <StyledLink key={name} href="#" filled brandColor={name}>
+          {BRAND_COLORS[name].label}
+        </StyledLink>
+      ))}
+    </div>
+  ),
+};
+
+export const CustomColor: Story = {
+  name: "Filled — couleur personnalisée",
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Pour une couleur hors charte, la prop `customColor` accepte n'importe quelle couleur CSS (ignore `color` si les deux sont fournis).",
+      },
+    },
+  },
+  args: {
+    href: "#",
+    children: "CSS Tricks",
+    filled: true,
+    customColor: "#9333ea",
+  },
 };
 
 export const Icon: Story = {

@@ -67,7 +67,11 @@ export const ConferenceRequirementsSection = () => {
           >
             Télécharger la plaquette (PDF)
           </StyledLink>
-          <StyledLink href={`mailto:${PARTNERSHIP_EMAIL}`} filled="green">
+          <StyledLink
+            href={`mailto:${PARTNERSHIP_EMAIL}`}
+            filled
+            brandColor="mint"
+          >
             Discutons-en
           </StyledLink>
         </div>
