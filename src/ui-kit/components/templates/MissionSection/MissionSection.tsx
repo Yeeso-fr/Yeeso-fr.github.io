@@ -137,7 +137,8 @@ export const MissionSection = () => {
           </div>
           <StyledLink
             href="/faq"
-            filled="green"
+            filled
+            brandColor="mint"
             className="mission-section__labels-faq"
           >
             Voir la FAQ

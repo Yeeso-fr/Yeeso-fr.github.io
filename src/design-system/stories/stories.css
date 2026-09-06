@@ -110,6 +110,12 @@
   border: 1px solid #212f7a;
 }
 
+.story-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 .story-type-specimen {
   margin: 0.5rem 0 1.5rem;
 }

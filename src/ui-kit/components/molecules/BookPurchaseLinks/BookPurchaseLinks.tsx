@@ -9,7 +9,7 @@ export const BookPurchaseLinks = ({
   amazonClassName,
 }: BookPurchaseLinksProps) => (
   <>
-    <StyledLink href={BOOK_HELLOASSO_URL} filled="green">
+    <StyledLink href={BOOK_HELLOASSO_URL} filled brandColor="mint">
       Commander sur HelloAsso
     </StyledLink>
     <StyledLink href={BOOK_URL} bordered className={amazonClassName}>

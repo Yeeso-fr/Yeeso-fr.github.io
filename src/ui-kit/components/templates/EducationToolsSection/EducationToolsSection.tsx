@@ -121,7 +121,7 @@ export const EducationToolsSection = () => {
 
         <div className="education-tools-section__cta">
           <p>Vous êtes un établissement scolaire ?</p>
-          <StyledLink href={`mailto:${CONTACT_EMAIL}`} filled="green">
+          <StyledLink href={`mailto:${CONTACT_EMAIL}`} filled brandColor="mint">
             Inviter Yeeso dans votre établissement
           </StyledLink>
         </div>

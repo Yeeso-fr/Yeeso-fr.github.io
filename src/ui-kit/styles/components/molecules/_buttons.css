@@ -28,6 +28,33 @@ button {
   &:not(:disabled):hover {
     color: var(--color-primary-strong);
     border-color: var(--color-primary-strong);
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary-strong) 10%,
+      transparent
+    );
+  }
+}
+
+/* Filled — the default button above is contoured (bordered, transparent
+   fill); this is the filled alternative. --button-fill(-fg) can be set
+   inline from the Yeeso brand palette (see brandColors.ts) to pick a
+   color other than the default blue. */
+
+.button--filled {
+  background: var(--button-fill, var(--color-primary));
+  border-color: var(--button-fill, var(--color-primary));
+  color: var(--button-fill-fg, var(--color-light));
+  font-weight: 700;
+
+  &:not(:disabled):hover {
+    color: var(--button-fill-fg, var(--color-light));
+    border-color: var(--button-fill, var(--color-primary));
+    background: color-mix(
+      in srgb,
+      var(--button-fill, var(--color-primary)) 85%,
+      black
+    );
   }
 }
 
@@ -40,6 +67,7 @@ button {
   &:hover {
     color: var(--color-primary);
     border-color: var(--color-primary);
+    background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
   }
 }
 

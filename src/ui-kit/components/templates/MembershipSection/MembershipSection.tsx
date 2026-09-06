@@ -35,7 +35,7 @@ export const MembershipSection = () => {
           ne vous engage à rien de plus.
         </p>
 
-        <StyledLink href={MEMBERSHIP_URL} filled="green">
+        <StyledLink href={MEMBERSHIP_URL} filled brandColor="mint">
           Adhérer à Yeeso
         </StyledLink>
       </div>

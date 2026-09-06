@@ -57,6 +57,15 @@
 
     a {
       text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    /* focus-within (not just the link's own :focus-visible) so the same
+       hover feedback also appears for keyboard users tabbing onto the
+       link, matching the mouse-hover affordance. */
+    &:hover a,
+    &:focus-within a {
+      color: var(--color-primary);
     }
 
     a[aria-current="page"] {

@@ -49,15 +49,33 @@
   border-color: var(--border-color-reverse);
 }
 
+/* Contoured button hover: tinted fill (not just a border-color swap) so the
+   affordance reads clearly, matching the .font-toggle__button /
+   .animation-toggle hover treatment elsewhere in the UI. */
 .styled-link--bordered:hover {
+  color: var(--color-primary-strong);
   border-color: var(--color-primary-strong);
+  background-color: color-mix(
+    in srgb,
+    var(--color-primary-strong) 10%,
+    transparent
+  );
+}
+
+.styled-link--bordered.styled-link--reversed:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
 }
 
 /* ---------- Filled ---------- */
 
+/* --styled-link-fill(-fg) are set inline by the component from either the
+   `color` brand-chart enum or a `customColor`/`customTextColor` pair — the
+   fallback values are what renders when neither is passed. */
 .styled-link--filled {
-  background: var(--color-primary);
-  color: var(--color-light);
+  background: var(--styled-link-fill, var(--color-primary));
+  color: var(--styled-link-fill-fg, var(--color-light));
   border-radius: var(--br-rounded);
   padding: 0.65rem 1.5rem;
   font-weight: 700;
@@ -65,22 +83,19 @@
 }
 
 .styled-link--filled:visited {
-  color: var(--color-light);
+  color: var(--styled-link-fill-fg, var(--color-light));
 }
 
+/* Filled button hover: darken the fill rather than fading it with opacity
+   — opacity lets the page background show through and reads as "disabled"
+   more than "hovered". */
 .styled-link--filled:hover {
-  color: var(--color-light);
-  opacity: 0.85;
-}
-
-.styled-link--filled-green {
-  background: var(--color-lightgreen);
-  color: var(--color-dark);
-}
-
-.styled-link--filled-green:visited,
-.styled-link--filled-green:hover {
-  color: var(--color-dark);
+  color: var(--styled-link-fill-fg, var(--color-light));
+  background: color-mix(
+    in srgb,
+    var(--styled-link-fill, var(--color-primary)) 85%,
+    black
+  );
 }
 
 /* ------------ Icon ------------ */

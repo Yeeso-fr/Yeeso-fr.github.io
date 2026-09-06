@@ -45,7 +45,7 @@ export const FaqSection = () => {
                 réseau IT Women Network, sur nos différents canaux d'échange, de
                 networking et d'entraide, mixtes ou non mixtes.
               </p>
-              <StyledLink href="/reseau#adhesion" filled="green">
+              <StyledLink href="/reseau#adhesion" filled brandColor="mint">
                 Adhérer à Yeeso
               </StyledLink>
             </div>
@@ -72,7 +72,11 @@ export const FaqSection = () => {
                 <StyledLink href="/education" bordered>
                   Découvrir nos actions à l'école
                 </StyledLink>
-                <StyledLink href={`mailto:${CONTACT_EMAIL}`} filled="green">
+                <StyledLink
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  filled
+                  brandColor="mint"
+                >
                   Écrire à l'équipe Éducation
                 </StyledLink>
               </div>
@@ -99,7 +103,11 @@ export const FaqSection = () => {
                 <StyledLink href="/reseau" bordered>
                   Découvrir le réseau
                 </StyledLink>
-                <StyledLink href={`mailto:${CONTACT_EMAIL}`} filled="green">
+                <StyledLink
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  filled
+                  brandColor="mint"
+                >
                   Rejoindre le mentorat
                 </StyledLink>
               </div>
@@ -133,7 +141,7 @@ export const FaqSection = () => {
                 <StyledLink href={`mailto:${CONTACT_EMAIL}`} bordered>
                   Candidater comme speakeuse
                 </StyledLink>
-                <StyledLink href={MEETUP_URL} filled="green">
+                <StyledLink href={MEETUP_URL} filled brandColor="mint">
                   Voir nos événements sur Meetup
                 </StyledLink>
               </div>
@@ -157,7 +165,7 @@ export const FaqSection = () => {
                 bienvenu·e, quelle que soit votre envie d'aider.
               </p>
               <div className="faq-item__actions">
-                <StyledLink href="/reseau#adhesion" filled="green">
+                <StyledLink href="/reseau#adhesion" filled brandColor="mint">
                   Adhérer à Yeeso
                 </StyledLink>
                 <StyledLink href={HELLOASSO_URL} bordered>
@@ -198,7 +206,11 @@ export const FaqSection = () => {
                 <StyledLink href="/entreprises" bordered>
                   Découvrir notre offre entreprises
                 </StyledLink>
-                <StyledLink href={`mailto:${PARTNERSHIP_EMAIL}`} filled="green">
+                <StyledLink
+                  href={`mailto:${PARTNERSHIP_EMAIL}`}
+                  filled
+                  brandColor="mint"
+                >
                   Devenir partenaire
                 </StyledLink>
               </div>
@@ -220,7 +232,11 @@ export const FaqSection = () => {
                 financement ? Contactez-nous pour que nous vous présentions nos
                 offres de mécénat.
               </p>
-              <StyledLink href={`mailto:${PARTNERSHIP_EMAIL}`} filled="green">
+              <StyledLink
+                href={`mailto:${PARTNERSHIP_EMAIL}`}
+                filled
+                brandColor="mint"
+              >
                 Découvrir nos offres de mécénat
               </StyledLink>
             </div>
