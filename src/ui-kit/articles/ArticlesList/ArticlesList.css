@@ -2,7 +2,7 @@
   grid-template-columns: 1fr;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 768px) {
   .articles__list li:first-child .article-card {
     grid-area: 1 / 1 / 2 / 3;
   }
