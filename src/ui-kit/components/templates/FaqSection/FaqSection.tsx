@@ -45,7 +45,7 @@ export const FaqSection = () => {
                 réseau IT Women Network, sur nos différents canaux d'échange, de
                 networking et d'entraide, mixtes ou non mixtes.
               </p>
-              <StyledLink href="/reseau#adhesion" filled brandColor="mint">
+              <StyledLink href="/nous-rejoindre" filled brandColor="mint">
                 Adhérer à Yeeso
               </StyledLink>
             </div>
@@ -165,7 +165,7 @@ export const FaqSection = () => {
                 bienvenu·e, quelle que soit votre envie d'aider.
               </p>
               <div className="faq-item__actions">
-                <StyledLink href="/reseau#adhesion" filled brandColor="mint">
+                <StyledLink href="/nous-rejoindre" filled brandColor="mint">
                   Adhérer à Yeeso
                 </StyledLink>
                 <StyledLink href={HELLOASSO_URL} bordered>

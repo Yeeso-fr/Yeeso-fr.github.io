@@ -1,4 +1,3 @@
-import { MEMBERSHIP_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./MembershipSection.css";
 
@@ -35,7 +34,7 @@ export const MembershipSection = () => {
           ne vous engage à rien de plus.
         </p>
 
-        <StyledLink href={MEMBERSHIP_URL} filled brandColor="mint">
+        <StyledLink href="/nous-rejoindre" filled brandColor="mint">
           Adhérer à Yeeso
         </StyledLink>
       </div>
