@@ -1,0 +1,164 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2rem;
+  /* Background is fixed white regardless of theme, so the title/labels need
+     a fixed dark foreground — the inputs below set their own theme-reactive
+     colors and are unaffected. */
+  background: var(--background-primary);
+  color: var(--font-color);
+}
+
+.contact-form__title {
+  margin: 0;
+}
+
+.contact-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  legend {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.contact-form__required-note {
+  margin: 0;
+  color: var(--font-color-muted);
+  font-size: 0.9rem;
+}
+
+.contact-form__submit {
+  align-self: flex-start;
+  font: inherit;
+  font-weight: 700;
+  background: var(--color-primary);
+  color: var(--color-light);
+  border: none;
+  border-radius: var(--br-rounded);
+  padding: 0.75rem 1.75rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-strong);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.contact-form__status {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-radius: var(--br-normal);
+}
+
+.contact-form__status--success {
+  background: var(--color-lightgreen);
+}
+
+.contact-form__status--error {
+  background: var(--color-lightred);
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  label {
+    font-weight: 700;
+    margin-left: 0;
+  }
+
+  input,
+  select,
+  textarea {
+    font: inherit;
+    color: var(--font-color);
+    background: var(--background-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--br-normal);
+    padding: 0.65rem 0.9rem;
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary-strong);
+      outline-offset: 1px;
+    }
+
+    &::placeholder {
+      color: var(--font-color-muted);
+    }
+
+    /* Supplementary indicator only — the error text below the field is
+       what actually conveys the invalid state, not this border alone. */
+    &[aria-invalid="true"] {
+      border-color: var(--color-lightred);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  select {
+    /* Replace the native arrow (thin and flush with the edge in most
+       browsers) with a bigger, better-spaced one. Two color variants
+       below since it's baked into the SVG data URI rather than driven by
+       currentColor. */
+    appearance: none;
+    padding-right: 2.75rem;
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 0.9rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23081930' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");
+  }
+}
+
+[data-theme="dark"] .contact-form__field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E");
+}
+
+.contact-form__hint {
+  margin: 0;
+  color: var(--font-color-muted);
+  font-size: 0.85rem;
+}
+
+.contact-form__error {
+  margin: 0;
+  background: var(--color-lightred);
+  border-radius: var(--br-normal);
+  padding: 0.4rem 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* --color-lightred (#e77169) is a fixed coral, unaffected by theme. The
+   inherited light-theme text color (--color-dark) passes AA (~5.8:1) on it,
+   but the dark theme's inherited --font-color (--color-light) drops to
+   ~3:1 and fails. Force the light theme's dark foreground back on. */
+[data-theme="dark"] .contact-form__error,
+[data-theme="dark"] .contact-form__status--error,
+[data-theme="dark"] .contact-form__status--success {
+  color: var(--font-reverse);
+}

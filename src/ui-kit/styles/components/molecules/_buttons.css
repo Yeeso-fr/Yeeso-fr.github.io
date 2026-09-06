@@ -1,0 +1,95 @@
+/* ---------- Buttons ---------- */
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-primary), sans-serif;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--br-rounded);
+  color: var(--font-color);
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:not(:disabled):hover {
+    color: var(--color-primary-strong);
+    border-color: var(--color-primary-strong);
+    background-color: color-mix(
+      in srgb,
+      var(--color-primary-strong) 10%,
+      transparent
+    );
+  }
+}
+
+/* Filled — the default button above is contoured (bordered, transparent
+   fill); this is the filled alternative. --button-fill(-fg) can be set
+   inline from the Yeeso brand palette (see brandColors.ts) to pick a
+   color other than the default blue. */
+
+.button--filled {
+  background: var(--button-fill, var(--color-primary));
+  border-color: var(--button-fill, var(--color-primary));
+  color: var(--button-fill-fg, var(--color-light));
+  font-weight: 700;
+
+  &:not(:disabled):hover {
+    color: var(--button-fill-fg, var(--color-light));
+    border-color: var(--button-fill, var(--color-primary));
+    background: color-mix(
+      in srgb,
+      var(--button-fill, var(--color-primary)) 85%,
+      black
+    );
+  }
+}
+
+/* Reversed */
+
+.button--reversed {
+  color: var(--font-reverse);
+  border-color: var(--border-color-reverse);
+
+  &:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
+  }
+}
+
+/* Icon */
+
+.button--icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: var(--br-circle);
+  border: 1px solid var(--border-color);
+  color: var(--font-color);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  svg {
+    width: 1.2rem;
+  }
+
+  &:hover {
+    color: var(--color-primary-strong);
+    border-color: var(--color-primary-strong);
+  }
+}

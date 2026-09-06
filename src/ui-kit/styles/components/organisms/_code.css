@@ -1,0 +1,103 @@
+/* ---------- Code ---------- */
+
+code,
+pre,
+.shiki,
+.shiki span {
+  font-family: var(--font-mono), monospace;
+  border-radius: 4px;
+
+  * {
+    font-weight: normal;
+    font-size: 0.9rem;
+  }
+}
+
+code {
+  padding: 0.2em 0.4em;
+  margin: 0 0.2rem;
+}
+
+pre {
+  padding: 1rem;
+
+  code {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.pre-copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s,
+    background-color 0.2s;
+  z-index: 1;
+  background-color: transparent;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+
+  &:hover {
+    background-color: rgb(156 163 175 / 0.1);
+    /* biome-ignore lint/complexity/noImportantStyles: force visibility on hover */
+    opacity: 1 !important;
+  }
+}
+
+[data-theme="dark"] .pre-copy-button {
+  color: #fff;
+}
+
+[data-theme="light"] .pre-copy-button {
+  color: #24292e;
+}
+
+.pre-wrapper {
+  position: relative;
+
+  &:hover .pre-copy-button {
+    opacity: 0.75;
+    pointer-events: auto;
+  }
+
+  pre {
+    margin: 0;
+  }
+}
+
+code:not(.shiki *),
+pre:not(.shiki) {
+  background-color: var(--background-contrast);
+  color: var(--font-color-muted);
+}
+
+.shiki {
+  /* biome-ignore lint/complexity/noImportantStyles: override Shiki's inline background in light mode */
+  background-color: var(--shiki-light-bg) !important;
+
+  span {
+    color: var(--shiki-light);
+  }
+}
+
+[data-theme="dark"] .shiki,
+.dark .shiki {
+  /* biome-ignore lint/complexity/noImportantStyles: override Shiki's inline background in dark mode */
+  background-color: var(--shiki-dark-bg) !important;
+
+  span {
+    color: var(--shiki-dark);
+    /* biome-ignore lint/complexity/noImportantStyles: override Shiki's inline background in dark mode */
+    background-color: transparent !important;
+  }
+}

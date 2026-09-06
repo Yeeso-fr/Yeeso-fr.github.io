@@ -1,0 +1,134 @@
+.impact-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.impact-section__lead {
+  color: var(--font-color-muted);
+  max-width: 65ch;
+  margin: 0 0 2.5rem;
+}
+
+.impact-section__headline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 0 0 3rem;
+}
+
+.impact-stat-card {
+  border-radius: var(--br-normal);
+  padding: 1.75rem;
+  /* Fixed white, not the theme-reactive page background, so the card reads
+     as a distinct flat block in both themes without needing a border. */
+  background: var(--color-light);
+
+  .impact-stat-card__value {
+    display: block;
+    font-size: var(--fs-h2);
+    font-weight: 800;
+    color: var(--color-primary);
+    margin: 0 0 0.35rem;
+  }
+
+  .impact-stat-card__label {
+    margin: 0;
+    color: var(--color-dark-muted);
+    font-size: 0.9rem;
+  }
+}
+
+.impact-stat-card__note {
+  margin: 0.5rem 0 0;
+  color: var(--color-dark-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.impact-stat-card__icon-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.impact-stat-card--purple .impact-stat-card__icon-chip {
+  background: var(--color-lightpurple);
+  color: var(--color-dark);
+}
+
+.impact-stat-card--green .impact-stat-card__icon-chip {
+  background: var(--color-lightgreen);
+  color: var(--color-dark);
+}
+
+.impact-stat-card--coral .impact-stat-card__icon-chip {
+  background: var(--yeeso-coral-tint);
+  color: var(--color-dark);
+}
+
+.impact-headline-stat__link,
+.impact-headline-stat__link:visited,
+.impact-headline-stat__link:hover {
+  color: inherit;
+  text-decoration-color: var(--color-lightgreen);
+}
+
+.impact-section__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.impact-card {
+  border-radius: var(--br-normal);
+  padding: 1.75rem;
+  color: var(--color-dark);
+}
+
+.impact-card--green {
+  background: var(--color-lightgreen);
+}
+
+.impact-card--purple {
+  background: var(--color-lightpurple);
+}
+
+.impact-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.impact-card--coral {
+  /* --color-lightred (#e77169) is too saturated to carry AAA-compliant
+     text, so this card uses a pastel tint instead of the full accent. */
+  background: var(--yeeso-coral-tint);
+
+  .impact-card__icon {
+    color: var(--color-lightred);
+  }
+}
+
+.impact-card__title {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.5rem;
+}
+
+.impact-card__value {
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+}
+
+.impact-card__description {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}

@@ -1,0 +1,45 @@
+.anchor-tags {
+  /* Doubles as the "container" wrapper (max-width + centering + the page's
+     usual horizontal inset) — kept on .anchor-tags itself, and rendered as
+     a direct child of <main>, rather than nested in its own short <section>
+     or <div>. That's on purpose: position: sticky keeps an element pinned
+     only within its containing block's box, so a short dedicated wrapper
+     would make it stick then immediately unstick. <main> spans the whole
+     page, so this can stay stuck all the way down. */
+  /* .main is a flex column (align-items: center), so a direct child sizes
+     to its own content unless told to fill the available width first —
+     same reason the global `section { width: 100% }` rule exists, which
+     doesn't apply here since this is a <nav>, not a <section>. */
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto 2rem;
+  padding: 0.75rem 1.25rem;
+  position: sticky;
+  /* .navigation is itself sticky at top:0 and renders at a fixed 72px tall
+     across breakpoints — this sticks right below it. */
+  top: 72px;
+  z-index: 999;
+  background: var(--background-primary);
+}
+
+.anchor-tags__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .anchor-tags {
+    padding: 0.75rem 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .anchor-tags {
+    padding: 0.75rem 5rem;
+  }
+}

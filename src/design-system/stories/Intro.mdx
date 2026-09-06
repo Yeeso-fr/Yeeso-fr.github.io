@@ -1,0 +1,57 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Logo } from "../../ui-kit/components/atoms/Images/Logo";
+
+<Meta title="Introduction" />
+
+<div id="home">
+  <section className="main-content">
+      <div>
+        <h1 lang="en">Design System</h1>
+
+        Cette documentation sert de <span lang="en">styleguide</span> commun pour l’équipe Yeeso,
+        notamment lors de la création d’articles.
+
+        Elle permet de garantir une cohérence visuelle et fonctionnelle des contenus, en s’appuyant
+        sur notre design system et sur un rendu automatisé via <span lang="en">MarkdownX</span>.
+
+        Les posts et articles sont ainsi transformés et mis en forme à partir de contenus <span lang="en">Markdown</span>,
+        puis enrichis grâce aux composants du <span lang="en">design system</span>.
+      </div>
+
+      <div className="sb-section">
+        <div className="sb-section-item framed-four-corners">
+          <strong className="sb-section-item-heading">Rédaction d’articles</strong>
+          <p className="sb-section-item-paragraph">
+            Cette documentation décrit les règles de structure et les composants disponibles
+            pour mettre en forme les articles du blog.
+          </p>
+        </div>
+
+        <div className="sb-section-item framed-four-corners">
+          <strong className="sb-section-item-heading">Rendu via MarkdownX</strong>
+          <p className="sb-section-item-paragraph">
+            Les contenus sont écrits en <span lang="en">Markdown</span> puis interprétés par <span lang="en">MarkdownX</span> pour générer des pages
+            riches et structurées.
+          </p>
+        </div>
+
+        <div className="sb-section-item framed-four-corners">
+          <strong className="sb-section-item-heading">Validation Accessibilité</strong>
+          <p className="sb-section-item-paragraph">
+            Nous utilisons Playwright et Axe-core pour valider automatiquement l’accessibilité
+            des contenus et composants.
+          </p>
+        </div>
+
+        <div className="sb-section-item framed-four-corners">
+          <strong className="sb-section-item-heading">Score des tests</strong>
+          <p className="sb-section-item-paragraph">
+            Pas encore mesuré pour Yeeso — sera généré par le workflow <span lang="en">CI</span> « QA on demand » (voir `pnpm qa:scores`).
+          </p>
+        </div>
+      </div>
+  </section>
+  <footer className="footer">
+    <Logo />
+  </footer>
+</div>

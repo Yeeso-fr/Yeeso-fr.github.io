@@ -1,0 +1,25 @@
+/* ---------- Icon toggle button (shared by ToggleTheme, ToggleFont) ---------- */
+
+.icon-toggle-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  color: var(--font-color);
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--font-color) 8%, transparent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-strong);
+    outline-offset: 2px;
+  }
+}

@@ -1,0 +1,271 @@
+.home-hero-block {
+  display: flex;
+  flex-direction: column;
+  /* .main centers its flex children by default (align-items: center) —
+     without this, the block shrinks to its content width instead of
+     spanning the viewport like every other main child. */
+  width: 100%;
+}
+
+.home-hero {
+  position: relative;
+  display: flex;
+  /* Mobile stacks main+photo in normal flow (no forced full-height
+     stretch) — the 0 bottom padding is what keeps the photo flush
+     against the ticker here. See the >=992px override below for the
+     full-viewport layout, where the hero is stretched and needs an
+     explicit bottom anchor instead. */
+  align-items: center;
+  padding: 2rem 1rem 0;
+
+  .home-hero__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.5rem, 4vw, 2.5rem);
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+
+    .home-hero__main {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: clamp(1rem, 5vw, 2rem);
+      justify-content: center;
+      /* Grid items default to a content-based min-width (auto), which lets
+         this column's min-content (driven by the CTA buttons/title) blow
+         past its 1fr share and squeeze the photo column down to a sliver
+         on tablet widths. min-width: 0 lets it actually respect 1fr. */
+      min-width: 0;
+
+      &::selection {
+        background: transparent;
+        color: var(--color-primary);
+        text-shadow: none;
+      }
+
+      .home-hero__title {
+        /* Sized against the full-width mobile column. Once the 2-column
+           layout kicks in at 992px (below), the title only has ~half the
+           viewport to work with, so it switches to a gentler clamp there
+           — otherwise "avec les femmes" (kept on one line on purpose)
+           overflows behind the photo in the 992-1400px range. */
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        line-height: 1.1;
+        margin: 0;
+
+        .home-hero__title-highlight {
+          text-decoration: underline;
+          text-decoration-color: var(--yeeso-coral);
+          text-decoration-thickness: 0.08em;
+          text-underline-offset: 0.1em;
+        }
+      }
+
+      .home-hero__lead {
+        color: var(--font-color-muted);
+        font-size: 1.1rem;
+        max-width: 42ch;
+        margin: 0;
+      }
+
+      .home-hero__cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+
+    .home-hero__aside {
+      display: flex;
+      justify-content: center;
+      min-width: 0;
+      width: 100%;
+      /* Safety net, not the primary sizing mechanism: the side photos are
+         sized to never need it (see --side below), but this keeps an
+         unusually square/wide future photo from breaking page layout
+         (horizontal scroll) instead of just being visually snug. No
+         bottom padding — the photos need to sit flush against the
+         ticker below, not floating just above it. */
+      overflow: hidden;
+      padding-top: 0.5rem;
+
+      .home-hero__photo-group {
+        display: flex;
+        /* Stretch (not flex-end) so the side photos match the main
+           photo's rendered height instead of just sharing its bottom
+           edge — the main photo's own aspect-ratio drives the row's
+           height, and the side photos (no aspect-ratio of their own)
+           fill it. */
+        align-items: stretch;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .home-hero__photo {
+        position: relative;
+        margin: 0;
+        flex-shrink: 0;
+        overflow: hidden;
+        border-radius: var(--br-normal);
+      }
+
+      .home-hero__photo--main {
+        /* Mobile-appropriate size — the >=992px override below sizes it
+           up once the side-by-side grid layout gives it a whole column
+           to itself instead of competing with the stacked text above. */
+        width: clamp(130px, 40vw, 190px);
+        aspect-ratio: 3 / 4;
+        animation: slide-up 0.8s ease-out forwards;
+
+        @media (prefers-reduced-motion: reduce) {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+      }
+
+      .home-hero__photo--side {
+        /* Width follows the photo's own aspect ratio at the shared
+           (stretched) height instead of a fixed box, so nothing gets
+           cropped — capped well under the main photo's own width so an
+           unusually square source photo still reads as a supporting
+           accent rather than competing with it. */
+        width: fit-content;
+        max-width: clamp(100px, 30vw, 175px);
+        /* Mirrors .home-hero__photo--main's width clamp × its 4/3
+           aspect-ratio. Without this, a narrow/tall photo (e.g. a 2:3
+           portrait) can want to be taller than main at this max-width,
+           which — since the figure has no height of its own — inflates
+           the flex row's auto cross-size for every item, growing
+           .home-hero__aside and shifting the vertically-centered text
+           column next to it. max-height caps that before it happens. */
+        max-height: clamp(173px, 53.34vw, 254px);
+        animation: fade-in 0.6s ease-out;
+
+        @media (prefers-reduced-motion: reduce) {
+          animation: none;
+        }
+      }
+
+      .home-hero__photo--left {
+        /* Above the main photo, overlapping its left edge. */
+        margin-right: clamp(-2.25rem, -7vw, -1rem);
+      }
+
+      .home-hero__photo--right {
+        /* Behind the main photo, tucked under its right edge. */
+        margin-left: clamp(-2.25rem, -7vw, -1rem);
+      }
+
+      .home-hero__image {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--br-normal);
+      }
+
+      /* Left overlaps in front of main, right tucks in behind it. */
+      .home-hero__photo--main .home-hero__image {
+        z-index: 2;
+      }
+
+      .home-hero__photo--left .home-hero__image {
+        z-index: 3;
+      }
+
+      .home-hero__photo--right .home-hero__image {
+        z-index: 1;
+      }
+
+      .home-hero__photo--side .home-hero__image {
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        /* The width cap can leave the (aspect-ratio-preserved) image
+           shorter than the fully-stretched box — anchor it to the
+           bottom, flush with the main photo's own bottom edge, instead
+           of floating centered with empty space above and below. */
+        object-position: bottom;
+      }
+    }
+  }
+}
+
+.home-hero-block__spacer {
+  flex-shrink: 0;
+  height: clamp(3rem, 8vw, 6rem);
+}
+
+@media screen and (min-width: 992px) {
+  .home-hero-block {
+    /* Full viewport minus the sticky nav's own height, so the hero +
+       ticker + spacer together fill exactly one screen instead of
+       overflowing it by the nav's height. Only applied once the
+       side-by-side layout below makes a full-height hero read as
+       intentional — on mobile/tablet it would just strand the content
+       far from the ticker on tall, narrow screens. */
+    /* min() rather than separate min-height/max-height rules: per spec, a
+       conflicting min-height always wins over max-height, so on tall
+       desktop viewports a plain max-height cap would get silently
+       ignored and the hero would keep growing with 100dvh. */
+    min-height: min(calc(100dvh - 4.5rem), 820px);
+  }
+
+  .home-hero {
+    flex: 1;
+    /* Bottom-aligned (not centered) so the photo sits flush against the
+       ticker below, with no gap — the text column re-centers itself
+       within the row via the grid's align-items below. */
+    align-items: flex-end;
+    padding: 2rem 3rem 0;
+
+    .home-hero__wrapper {
+      display: grid;
+      /* Favors the photo column so the (now bigger) three-photo group
+         has room to breathe — the text column's own content (title/lead
+         max-width) doesn't need a full even half. */
+      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-rows: 1fr;
+      align-items: center;
+
+      .home-hero__main .home-hero__title {
+        /* Halved vw coefficient to roughly match this column's ~half
+           of the viewport, tuned so "avec les femmes" (nbsp-joined,
+           never wraps) stays within the column instead of overflowing
+           behind the photo — verified across 992-1400px. */
+        font-size: clamp(2.25rem, 4.5vw, 4.5rem);
+      }
+
+      .home-hero__aside {
+        /* The text column is sometimes taller than the photo, which
+           would leave the row taller than the photo and center it away
+           from the bottom edge. Anchoring this column to the row's end
+           keeps the photo flush against the ticker regardless. */
+        align-self: end;
+
+        .home-hero__photo--main {
+          width: clamp(210px, 26vw, 340px);
+        }
+
+        .home-hero__photo--side {
+          max-width: clamp(190px, 27vw, 340px);
+          /* Mirrors --main's width clamp × its 4/3 aspect-ratio — see the
+             base (mobile) rule for why this matters. */
+          max-height: clamp(280px, 34.67vw, 454px);
+        }
+
+        .home-hero__photo--left {
+          margin-right: clamp(-11rem, -13vw, -5rem);
+        }
+
+        .home-hero__photo--right {
+          margin-left: clamp(-11rem, -13vw, -5rem);
+        }
+      }
+    }
+  }
+}

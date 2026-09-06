@@ -1,0 +1,25 @@
+/* ---------- Callout Containers ---------- */
+
+.alert {
+  padding: 1rem;
+  border-left: 4px solid;
+  margin: 1rem 0;
+  background-color: var(--background-contrast);
+  border-color: var(--color-primary);
+}
+
+.alert-error {
+  border-color: var(--color-lightred);
+}
+
+.alert-warning {
+  border-color: var(--color-lightorange);
+}
+
+.alert-success {
+  border-color: var(--color-lightgreen);
+}
+
+.alert-info {
+  border-color: var(--color-lightblue);
+}

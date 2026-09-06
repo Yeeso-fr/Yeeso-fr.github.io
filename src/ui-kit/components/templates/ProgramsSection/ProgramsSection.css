@@ -1,0 +1,60 @@
+.programs-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.programs-section__lead {
+  color: var(--font-color-muted);
+  max-width: 70ch;
+  margin: 0 0 2.5rem;
+}
+
+.programs-section__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.program-card {
+  border-radius: var(--br-normal);
+  padding: 1.75rem;
+  /* Background is fixed white regardless of theme, so text colors here must
+     be fixed too — the theme-reactive --font-color/--font-color-muted would
+     turn white-on-white (or cream-on-white) in dark mode. */
+  background: var(--color-light);
+  color: var(--color-dark);
+}
+
+.program-card__icon {
+  font-size: 1.75rem;
+  /* Fixed navy, not the theme-reactive --color-primary-strong: the card
+     background is always white regardless of theme. */
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.program-card__title {
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem;
+}
+
+.program-card__description {
+  margin: 0;
+  color: var(--color-dark-muted);
+  line-height: 1.5;
+}
+
+.program-card .styled-link {
+  margin-top: 1rem;
+  /* Fixed border and text color, not the theme-reactive --border-color/
+     --font-color: the card background is always white regardless of
+     theme, and the global `a { color: var(--font-color) }` base rule
+     would otherwise turn the link white-on-white in dark mode. */
+  border-color: var(--color-dark);
+  color: var(--color-dark);
+}
+
+.program-card .styled-link:visited,
+.program-card .styled-link:hover {
+  color: var(--color-dark);
+}

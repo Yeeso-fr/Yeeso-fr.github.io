@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-09-03T10:32:53.293Z",
+  "lighthouse": {
+    "performance": 93,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 100
+  },
+  "axe": {
+    "score": 100,
+    "rulesPassed": 1088,
+    "rulesTotal": 1088
+  },
+  "storybook": {
+    "score": 100,
+    "testsPassed": 71,
+    "testsTotal": 71
+  },
+  "ecoindex": {
+    "score": 77,
+    "grade": "B",
+    "water": 2.19,
+    "ghg": 1.46
+  }
+}

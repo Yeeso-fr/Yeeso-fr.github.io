@@ -1,0 +1,39 @@
+:root {
+  /* Fixed pale-blue + navy pairing (not theme-reactive): flat design has no
+     border to lean on, so the badge needs a background of its own to read
+     as a chip rather than plain text — a fixed pairing sidesteps having to
+     compute a matching tint for every theme. Callers wanting a different
+     accent (e.g. the hero's green, via --filled) pass their own color. */
+  --badge-color: var(--color-primary);
+  --badge-bg: var(--color-lightblue);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--badge-bg);
+  color: var(--badge-color);
+  border-radius: var(--br-rounded);
+  padding: 0.35rem 1rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.badge a,
+.badge a:visited,
+.badge a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.badge--filled {
+  /* Statically filled with a vivid, fixed accent (e.g. the hero's green)
+     rather than the subtle default pairing — needs fixed dark text since
+     that accent isn't necessarily paired with one already. */
+  background: var(--badge-color);
+  color: var(--color-dark);
+}

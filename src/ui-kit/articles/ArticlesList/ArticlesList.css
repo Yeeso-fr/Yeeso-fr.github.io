@@ -1,0 +1,15 @@
+.articles__list:has(> li:only-child) {
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 768px) {
+  .articles__list li:first-child .article-card {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .articles__list li:first-child .article-card {
+    grid-area: 1 / 1 / 2 / 4;
+  }
+}

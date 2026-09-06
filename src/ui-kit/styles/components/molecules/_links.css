@@ -1,0 +1,20 @@
+/* ---------- Links ---------- */
+
+a {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  color: var(--font-color);
+}
+
+a:visited {
+  color: var(--font-color);
+}
+
+a:hover {
+  color: var(--color-primary-strong);
+}
