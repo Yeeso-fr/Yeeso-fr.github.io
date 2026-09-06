@@ -9,7 +9,7 @@ export const MembershipCallout = () => {
         deux minutes, ça ne vous engage à rien, et c'est un vrai coup de pouce
         pour la légitimité et le développement de Yeeso.
       </p>
-      <StyledLink href="/reseau#adhesion" filled="green">
+      <StyledLink href="/reseau#adhesion" filled brandColor="mint">
         Adhérer à Yeeso
       </StyledLink>
     </div>
