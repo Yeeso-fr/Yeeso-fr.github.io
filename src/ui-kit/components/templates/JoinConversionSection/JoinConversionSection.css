@@ -1,0 +1,66 @@
+.join-conversion-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 2rem;
+}
+
+.join-conversion-section__cards {
+  display: grid;
+  /* Mobile: single column, DOM order (adhésion first) is the visual order
+     — no `order:` needed. Desktop: side by side. */
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.join-conversion-card {
+  border-radius: var(--br-normal);
+  padding: 2rem;
+  background: var(--color-light);
+  border: 1px solid var(--border-color);
+  /* Fixed dark text: this card's own background is a fixed light color
+     regardless of site theme, so the inherited theme-relative
+     var(--font-color) (white in dark theme) would be invisible on it. */
+  color: var(--color-dark);
+
+  p {
+    margin: 0 0 1rem;
+    color: var(--color-dark-muted);
+    line-height: 1.6;
+  }
+
+  .join-conversion-card__note {
+    color: var(--color-dark);
+    font-weight: 700;
+  }
+}
+
+.join-conversion-card--primary {
+  /* Adhésion stays visually prioritary, per the brief. */
+  background: var(--color-lightgreen);
+}
+
+.join-conversion-card__title {
+  font-size: var(--fs-h3);
+  margin: 0 0 1rem;
+}
+
+/* Same fix as JoinHero: the global `a` text color and the bordered CTA's
+   default border-color are both theme-relative (white in dark theme), but
+   this card's own background is a fixed light color regardless of site
+   theme — invisible button in dark mode otherwise. */
+.join-conversion-card .styled-link--bordered {
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+
+  &:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .join-conversion-section__cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
