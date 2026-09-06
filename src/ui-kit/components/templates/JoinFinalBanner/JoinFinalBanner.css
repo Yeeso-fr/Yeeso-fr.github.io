@@ -1,0 +1,46 @@
+.join-final-banner {
+  /* Fixed (not theme-reactive) — a deliberate closing accent, same
+     reasoning as JoinConvictionSection. */
+  background: var(--color-primary);
+  color: var(--color-light);
+  text-align: center;
+  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 5vw, 5rem);
+}
+
+.join-final-banner__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 1rem;
+}
+
+.join-final-banner__tagline {
+  font-weight: 800;
+  color: var(--color-lightgreen);
+  margin: 0 0 1.5rem;
+}
+
+.join-final-banner__lead {
+  max-width: 50ch;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.join-final-banner__cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Same fix as JoinConvictionSection: the bordered CTA's default colors are
+   theme-relative and resolve to a dark color in dark theme, invisible on
+   this section's fixed navy background. */
+.join-final-banner__cta .styled-link--bordered {
+  color: var(--color-light);
+  border-color: var(--color-light);
+
+  &:hover {
+    color: var(--color-primary);
+    border-color: var(--color-light);
+    background-color: var(--color-light);
+  }
+}

@@ -1,0 +1,89 @@
+.join-hero {
+  background: var(--color-light-muted);
+  /* --color-light-muted is a fixed cream, not theme-reactive, so text here
+     must be fixed too (same reasoning as AboutHero). */
+  color: var(--color-dark);
+  padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 5vw, 5rem);
+}
+
+.join-hero__title {
+  font-size: var(--fs-h1);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  max-width: 24ch;
+}
+
+.join-hero__title-highlight {
+  text-decoration: underline;
+  text-decoration-color: var(--yeeso-coral);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.1em;
+}
+
+.join-hero__subtitle {
+  font-weight: 800;
+  font-size: 1.1rem;
+  max-width: 60ch;
+  margin: 0 0 0.75rem;
+}
+
+.join-hero__lead {
+  color: var(--color-dark-muted);
+  max-width: 65ch;
+  margin: 0 0 2rem;
+  line-height: 1.6;
+}
+
+.join-hero__reassurance {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin: 0 0 2rem;
+}
+
+.join-hero__reassurance-card {
+  background: var(--color-light);
+  border-radius: var(--br-normal);
+  padding: 1.25rem 1.5rem;
+
+  p {
+    margin: 0;
+    color: var(--color-dark-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+.join-hero__reassurance-title {
+  font-size: 1rem;
+  margin: 0 0 0.35rem;
+}
+
+.join-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* The global `a { color: var(--font-color) }` rule (src/ui-kit/styles/
+   components/molecules/_links.css) and the bordered CTA's default
+   border-color are both theme-relative — white in dark theme — but this
+   hero's background is a fixed light cream regardless of theme, so text
+   and border both become invisible in dark mode. Override with fixed
+   colors instead. */
+.join-hero__cta .styled-link--bordered {
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+
+  &:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .join-hero__reassurance {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

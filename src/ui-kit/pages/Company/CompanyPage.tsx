@@ -5,7 +5,6 @@ import { PageHeader } from "@/ui-kit/components/templates/PageHeader/PageHeader"
 import { PartnershipSection } from "@/ui-kit/components/templates/PartnershipSection/PartnershipSection";
 import { PartnersSection } from "@/ui-kit/components/templates/PartnersSection/PartnersSection";
 import { TrainingSection } from "@/ui-kit/components/templates/TrainingSection/TrainingSection";
-import "./CompanyPage.css";
 
 const CATEGORIES = [
   { id: "partenariat", label: "Partenariats" },
@@ -19,14 +18,10 @@ export const CompanyPage = () => {
     <>
       <PageHeader title="Nos prestations pour les entreprises" />
       <main id="maincontent" tabIndex={-1} className="main">
-        <section className="company-page__categories">
-          <div className="container">
-            <AnchorTags
-              items={CATEGORIES}
-              ariaLabel="Catégories de prestations entreprises"
-            />
-          </div>
-        </section>
+        <AnchorTags
+          items={CATEGORIES}
+          ariaLabel="Catégories de prestations entreprises"
+        />
         <PartnershipSection />
         <CompanyConferencesSection />
         <TrainingSection />

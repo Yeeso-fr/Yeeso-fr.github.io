@@ -1,0 +1,98 @@
+.join-conviction-section {
+  /* Fixed (not theme-reactive) dark background — "bloc de conviction" per
+     the brief, meant to stand out regardless of the page's own theme. */
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+
+.join-conviction-section .section-eyebrow {
+  color: var(--color-lightgreen);
+}
+
+.join-conviction-section__number {
+  display: block;
+  font-family: var(--font-secondary), sans-serif;
+  font-weight: 700;
+  color: var(--color-dark-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.join-conviction-section__title {
+  font-size: var(--fs-h2);
+  max-width: 30ch;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.join-conviction-section__list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  max-width: 70rem;
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-weight: 600;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: var(--color-lightgreen);
+  }
+}
+
+.join-conviction-section__highlight {
+  /* Fixed light background (not theme-reactive var(--background-contrast))
+     — this box needs to read as a light "pop" against the section's own
+     fixed dark background in both site themes. */
+  background: var(--color-light-muted);
+  color: var(--color-dark);
+  border-radius: var(--br-normal);
+  padding: 1.5rem 1.75rem;
+  max-width: 60rem;
+  margin: 0 0 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+
+  span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+}
+
+.join-conviction-section__tagline {
+  font-weight: 800;
+  color: var(--color-lightgreen);
+  margin: 0 0 1.5rem;
+}
+
+.join-conviction-section__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* The bordered CTA's default colors (--color-primary-strong etc.) are
+   theme-relative, assuming a normal theme-following background — but this
+   section's background is fixed dark in both themes, so in dark theme
+   those tokens resolve to a dark color too (invisible on this section).
+   Override with fixed light colors instead. */
+.join-conviction-section__cta .styled-link--bordered {
+  color: var(--color-light);
+  border-color: var(--color-light);
+
+  &:hover {
+    color: var(--color-dark);
+    border-color: var(--color-light);
+    background-color: var(--color-light);
+  }
+}

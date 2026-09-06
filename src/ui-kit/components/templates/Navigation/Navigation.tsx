@@ -167,7 +167,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
               </li>
               <li>
                 <StyledLink
-                  href="/reseau#adhesion"
+                  href="/nous-rejoindre"
                   filled
                   brandColor="mint"
                   onClick={() => setIsMenuOpen(false)}

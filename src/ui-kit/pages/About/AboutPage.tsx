@@ -6,7 +6,6 @@ import { AboutHistorySection } from "@/ui-kit/components/templates/AboutHistoryS
 import { AboutMissionSection } from "@/ui-kit/components/templates/AboutMissionSection/AboutMissionSection";
 import { AboutTeamSection } from "@/ui-kit/components/templates/AboutTeamSection/AboutTeamSection";
 import { MembershipCallout } from "@/ui-kit/components/templates/MembershipCallout/MembershipCallout";
-import "./AboutPage.css";
 
 const SECTIONS = [
   { id: "mission", label: "Notre mission" },
@@ -20,14 +19,7 @@ export const AboutPage = () => {
     <>
       <AboutHero />
       <main id="maincontent" tabIndex={-1} className="main">
-        <section className="about-page__categories">
-          <div className="container">
-            <AnchorTags
-              items={SECTIONS}
-              ariaLabel="Sections de la page À propos"
-            />
-          </div>
-        </section>
+        <AnchorTags items={SECTIONS} ariaLabel="Sections de la page À propos" />
         <AboutMissionSection />
         <AboutHistorySection />
         <AboutTeamSection />
