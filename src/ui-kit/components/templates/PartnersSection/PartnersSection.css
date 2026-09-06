@@ -3,24 +3,11 @@
   margin: 0 0 2rem;
 }
 
-.partners-section__groups {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2.5rem;
-}
-
-.partners-section__group-title {
-  font-size: 1.1rem;
-  margin: 0 0 1rem;
-}
-
-.partners-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.partners-section__ticker {
+  /* Width is intentionally left to auto: the negative margins below expand
+     it to the full viewport width by themselves — pinning width:100% here
+     would instead size it to the padded parent's (narrower) content box. */
+  margin-inline: calc(50% - 50vw);
 }
 
 .partners-list__item {
@@ -29,29 +16,22 @@
   justify-content: center;
   width: 6.5rem;
   height: 4rem;
-  /* .partners-list__item is itself a flex item of .partners-list, and flex
+  /* .partners-list__item sits inside .ticker__item, a flex row, and flex
      items default to min-width/min-height:auto — which for a box containing
      a replaced element (the logo <img>) can resolve from that element's
      intrinsic content size instead of respecting the fixed width/height
      above. Without this override, a very tall/wide source logo (e.g.
      Ronalpia's 3528×1668 asset) forces this item well past its 4rem height,
-     inflating the whole page. */
+     inflating the whole ticker band. */
   min-width: 0;
   min-height: 0;
   padding: 0.5rem;
   border: 1px solid var(--border-color);
   border-radius: var(--br-normal);
+  /* Fixed (not theme-reactive): most source logos are single-variant
+     artwork designed to sit on a light background, so the chip stays
+     white regardless of site theme to keep them legible either way. */
   background: var(--color-light);
-
-  a {
-    display: flex;
-    min-width: 0;
-    min-height: 0;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-  }
 
   img {
     min-width: 0;
