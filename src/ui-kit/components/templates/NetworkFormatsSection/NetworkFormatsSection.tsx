@@ -75,14 +75,14 @@ export const NetworkFormatsSection = () => {
 
         <div className="network-formats-section__cta">
           <p>Tu es étudiante en tech ?</p>
-          <StyledLink href={`mailto:${CONTACT_EMAIL}`} filled="green">
+          <StyledLink href={`mailto:${CONTACT_EMAIL}`} filled brandColor="mint">
             Rejoindre le mentorat
           </StyledLink>
         </div>
 
         <div className="network-formats-section__cta">
           <p>Retrouvez toutes nos prochaines rencontres sur Meetup.</p>
-          <StyledLink href={MEETUP_URL} filled="green">
+          <StyledLink href={MEETUP_URL} filled brandColor="mint">
             Voir nos événements
           </StyledLink>
         </div>
