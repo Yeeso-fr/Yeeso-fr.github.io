@@ -21,9 +21,11 @@ export const JoinNetworkSection = () => {
         <figure className="join-network-section__photo">
           <img
             src={`${basePath}/img/photos/yeeso-evenement-networking.webp`}
+            srcSet={`${basePath}/img/photos/yeeso-evenement-networking-sm.webp 744w, ${basePath}/img/photos/yeeso-evenement-networking.webp 1142w`}
+            sizes="(min-width: 768px) 50vw, 100vw"
             alt="Membres de la communauté Yeeso échangeant lors d'un événement de networking"
-            width={1400}
-            height={1050}
+            width={1142}
+            height={856}
           />
         </figure>
 

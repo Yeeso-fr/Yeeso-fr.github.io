@@ -30,8 +30,8 @@ export const HomePage = ({ articles, authors }: HomePageProps) => {
       <NetworkSection
         photoSrc="yeeso-evenement-networking.webp"
         photoAlt="Événement networking organisé par Yeeso avec des membres de l'IT Women Network"
-        photoWidth={1400}
-        photoHeight={1050}
+        photoWidth={1142}
+        photoHeight={856}
       />
       <section>
         <div className="container">

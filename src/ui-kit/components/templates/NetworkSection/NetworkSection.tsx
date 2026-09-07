@@ -49,6 +49,8 @@ export const NetworkSection = ({
         <figure className="network-section__photo">
           <img
             src={`${basePath}/img/photos/${photoSrc}`}
+            srcSet={`${basePath}/img/photos/${photoSrc.replace(".webp", "-sm.webp")} 744w, ${basePath}/img/photos/${photoSrc} ${photoWidth}w`}
+            sizes="(min-width: 768px) 50vw, 100vw"
             alt={photoAlt}
             width={photoWidth}
             height={photoHeight}

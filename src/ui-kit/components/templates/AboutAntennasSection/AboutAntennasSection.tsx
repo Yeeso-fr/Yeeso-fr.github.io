@@ -21,9 +21,11 @@ export const AboutAntennasSection = () => {
           <img
             className="about-antennas-section__map"
             src={`${basePath}/img/carte-antennes.webp`}
+            srcSet={`${basePath}/img/carte-antennes-sm.webp 744w, ${basePath}/img/carte-antennes.webp 840w`}
+            sizes="(min-width: 768px) 420px, 90vw"
             alt="Carte de France situant les 9 antennes de Yeeso : Lille, Strasbourg, Rennes, Paris, Nantes, Poitiers, Lyon, Toulouse et Biarritz."
-            width={1305}
-            height={1206}
+            width={840}
+            height={776}
           />
 
           <dl className="about-antennas-section__list">

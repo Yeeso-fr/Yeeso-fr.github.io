@@ -174,6 +174,8 @@ export const HomeHero = () => {
               >
                 <img
                   src={`${basePath}/img/photos/team/${left.photo}`}
+                  srcSet={`${basePath}/img/photos/team/${left.photo.replace(".webp", "-sm.webp")} 432w, ${basePath}/img/photos/team/${left.photo} 680w`}
+                  sizes="(min-width: 992px) 340px, 216px"
                   alt={`${left.name}, ${left.role}`}
                   width={left.width}
                   height={left.height}
@@ -197,6 +199,8 @@ export const HomeHero = () => {
               >
                 <img
                   src={`${basePath}/img/photos/team/${right.photo}`}
+                  srcSet={`${basePath}/img/photos/team/${right.photo.replace(".webp", "-sm.webp")} 432w, ${basePath}/img/photos/team/${right.photo} 680w`}
+                  sizes="(min-width: 992px) 340px, 216px"
                   alt={`${right.name}, ${right.role}`}
                   width={right.width}
                   height={right.height}
