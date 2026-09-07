@@ -26,6 +26,45 @@
   border-left: 3px solid transparent;
   padding: 0 1.5rem;
   transition: border-left-color 0.2s ease;
+
+  &:has(.faq-item__summary:hover),
+  &:has(.faq-item__summary:focus-visible) {
+    background-color: var(--color-primary-strong);
+    color: var(--font-reverse);
+
+    .faq-item__summary {
+      outline: none;
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
+      text-decoration-thickness: 0.15em;
+    }
+
+    .faq-item__answer {
+      border-top-color: var(--font-reverse);
+      color: var(--font-reverse);
+    }
+
+    svg {
+      color: var(--font-reverse);
+    }
+
+    .styled-link--filled,
+    .styled-link--bordered {
+      color: var(--font-reverse);
+      border-color: var(--font-reverse);
+
+      &:hover,
+      &:focus-visible {
+        background-color: var(--font-reverse);
+        color: var(--font-color);
+      }
+    }
+
+    .styled-link--filled {
+      color: var(--styled-link-fill-fg, var(--color-light));
+      border-color: var(--styled-link-fill-fg, var(--color-light));
+    }
+  }
 }
 
 .faq-item[open] {

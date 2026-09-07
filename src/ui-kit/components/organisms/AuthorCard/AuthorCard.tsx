@@ -47,10 +47,7 @@ export const AuthorCard = ({
 
   if (variant === "mini") {
     return (
-      <article
-        className="author-card author-card--mini"
-        aria-label={author.name}
-      >
+      <article className="author-card author-card--mini">
         <Link href={`/authors/${author.slug}`} className="author-card__link">
           <Avatar
             src={author.avatar}
