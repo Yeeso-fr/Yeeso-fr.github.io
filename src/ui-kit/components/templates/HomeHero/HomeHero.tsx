@@ -114,13 +114,13 @@ function pickTwoDistinctIndexes(
 }
 
 export const HomeHero = () => {
-  // Fixed on the server/first paint so hydration matches, then randomized
-  // client-side once mounted (see effect below) — avoids a hydration
-  // mismatch from Math.random() differing between server and client.
+  // Fixed on the server/first paint so hydration matches, and kept as-is
+  // through mount — randomizing immediately on mount used to swap the pair
+  // right on top of the entrance animation, reading as a flicker. The first
+  // rotation now only happens on the first interval tick.
   const [[leftIndex, rightIndex], setPair] = useState<[number, number]>([0, 1]);
 
   useEffect(() => {
-    setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current));
     const id = setInterval(() => {
       // Skip the rotation while the user has paused animations (SC 2.2.2) —
       // checked live on every tick so a mid-session toggle takes effect
