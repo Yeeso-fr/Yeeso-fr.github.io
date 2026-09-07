@@ -14,7 +14,7 @@ import "./ImpactSection.css";
 const HEADLINE_STATS = [
   {
     icon: faLocationDot,
-    value: "8",
+    value: "9",
     label: "antennes en France",
     modifier: "impact-stat-card--purple",
   },
