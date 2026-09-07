@@ -58,27 +58,29 @@
     a {
       text-decoration: none;
       transition: color 0.2s ease;
+      outline: none;
     }
 
-    /* focus-within (not just the link's own :focus-visible) so the same
-       hover feedback also appears for keyboard users tabbing onto the
-       link, matching the mouse-hover affordance. */
-    /* --color-primary-strong (not the fixed --color-primary): the nav sits
-       on the theme-reactive page background, and fixed navy text drops to
-       ~1.47:1 against dark theme's dark background. */
     &:hover a,
-    &:focus-within a {
-      color: var(--color-primary-strong);
+    &:focus-visible a {
       text-decoration: underline;
+      text-underline-offset: 0.25rem;
+      text-decoration-thickness: 0.1rem;
     }
 
     a[aria-current="page"] {
       color: var(--font-color);
       font-weight: 600;
       text-decoration: underline;
-      text-decoration-color: var(--color-primary);
-      text-underline-offset: 0.3rem;
-      text-decoration-thickness: 2px;
+      text-decoration-color: var(--font-color);
+      text-underline-offset: 0.25rem;
+      text-decoration-thickness: 0.1rem;
+
+      &:focus-visible,
+      &:hover {
+        color: var(--link-hover-accent);
+        text-decoration-color: var(--link-hover-accent);
+      }
     }
   }
 
@@ -109,8 +111,8 @@
        toggle has no border/text to invert, just the scaling lines below. */
     &:hover {
       transform: scale(1.1);
-      background-color: transparent;
-      border-color: transparent;
+      background-color: var(--color-primary-strong);
+      border-color: var(--color-primary-strong);
     }
 
     &:focus-visible {
@@ -124,7 +126,7 @@
   .burger-line {
     width: 25px;
     height: 3px;
-    background: var(--color-primary-strong);
+    background: var(--font-color);
     transition: all 0.3s ease;
     border-radius: 2px;
 
@@ -139,6 +141,10 @@
     &.open:nth-child(3) {
       transform: translateY(-10px) rotate(-45deg);
     }
+  }
+
+  .burger-button:hover .burger-line {
+    background-color: var(--font-reverse);
   }
 
   .nav {
@@ -240,8 +246,4 @@
       }
     }
   }
-}
-
-[data-theme="dark"] .navigation li a[aria-current="page"] {
-  text-decoration-color: var(--font-color);
 }

@@ -40,6 +40,11 @@
     margin: 0.2rem 0 0;
     font-weight: 700;
   }
+
+  .styled-link:hover {
+    text-underline-offset: 0.25rem;
+    text-decoration-thickness: 0.2rem;
+  }
 }
 
 @media screen and (min-width: 768px) {
