@@ -105,7 +105,10 @@
 
 .mission-audience-cta .styled-link,
 .mission-audience-cta .styled-link:visited,
-.mission-audience-cta .styled-link:hover {
+/* Bordered variant fills its own background on hover/focus-visible
+   (var(--color-primary-strong)) and swaps to var(--font-reverse) text —
+   inheriting the fixed dark text here would put dark-on-dark. */
+.mission-audience-cta .styled-link:not(.styled-link--bordered):hover {
   color: inherit;
 }
 
