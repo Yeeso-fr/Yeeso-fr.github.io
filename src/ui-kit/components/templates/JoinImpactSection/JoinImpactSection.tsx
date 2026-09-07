@@ -20,7 +20,7 @@ const STATS = [
     modifier: "join-impact-stat--coral",
   },
   {
-    value: "8",
+    value: "9",
     label: "Villes mobilisées",
     modifier: "join-impact-stat--purple",
   },
