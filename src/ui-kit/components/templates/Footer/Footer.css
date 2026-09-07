@@ -98,6 +98,17 @@
     gap: 1rem;
     align-items: center;
     justify-content: center;
+
+    .badge:has(a:hover),
+    .badge:has(a:focus-visible) {
+      background-color: var(--color-primary-strong);
+      color: var(--font-reverse);
+
+      a:focus-visible,
+      a:hover {
+        text-underline-offset: 0.25rem;
+      }
+    }
   }
 
   .footer__links--social {

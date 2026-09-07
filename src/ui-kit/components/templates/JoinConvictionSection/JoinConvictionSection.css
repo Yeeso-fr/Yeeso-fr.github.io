@@ -85,27 +85,22 @@
    normal theme-following background, but this section's background is
    already the theme's reverse — use the matching reverse text/border
    tokens instead so it stays readable in both themes. */
-    .join-conviction-section__cta .styled-link--bordered {
-        color: var(--font-reverse);
-        border-color: var(--font-reverse);
+.join-conviction-section__cta .styled-link--bordered {
+  color: var(--font-reverse);
+  border-color: var(--font-reverse);
 
-        &:focus-visible,
-        &:hover {
-            color: var(--background-reverse);
-            border-color: var(--font-reverse);
-            background-color: var(--font-reverse);
-        }
-        /* &:hover,
-  &:focus-visible {
-    color: var(--color-dark);
-    border-color: var(--color-light);
-    background-color: var(--color-light);
-  }*/
-        /* Fixed outline color too: the global `a:focus-visible` outline uses
+  &:focus-visible,
+  &:hover {
+    color: var(--background-reverse);
+    border-color: var(--font-reverse);
+    background-color: var(--font-reverse);
+  }
+
+  /* Fixed outline color too: the global `a:focus-visible` outline uses
      --color-primary-strong, which resolves to a dark color in dark theme —
      invisible against this section's fixed dark background. */
-        &:focus-visible {
-            outline: 2px solid var(--color-light);
-            outline-offset: 2px;
-        }
-    }
+  &:focus-visible {
+    outline: 2px solid var(--color-light);
+    outline-offset: 2px;
+  }
+}
