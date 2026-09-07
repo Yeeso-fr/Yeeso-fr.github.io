@@ -25,7 +25,7 @@ const PARTNERS: Partner[] = [
   },
   {
     name: "Éducation nationale",
-    logo: "ecoles/cmq-ied.webp",
+    logo: "ecoles/CMQ-IED.webp",
     width: 1360,
     height: 183,
     href: CMQ_IED_URL,
@@ -37,7 +37,7 @@ const PARTNERS: Partner[] = [
     width: 400,
     height: 400,
   },
-  { name: "Adod", logo: "entreprises/adod.svg", width: 132, height: 61 },
+  { name: "Adod", logo: "entreprises/Adod.svg", width: 132, height: 61 },
   {
     name: "Inoven",
     logo: "entreprises/inoven.webp",
@@ -108,7 +108,12 @@ const PartnerLogo = ({ partner }: { partner: Partner }) => {
   // aria-hidden on the ticker hides it from assistive tech but doesn't
   // by itself stop keyboard focus from landing on it.
   return partner.href ? (
-    <a href={partner.href} tabIndex={-1}>
+    <a
+      href={partner.href}
+      tabIndex={-1}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       {image}
     </a>
   ) : (
@@ -138,7 +143,9 @@ export const PartnersSection = () => {
         {PARTNERS.map((partner) => (
           <li key={partner.name}>
             {partner.href ? (
-              <a href={partner.href}>{partner.name}</a>
+              <a href={partner.href} target="_blank" rel="noopener noreferrer">
+                {partner.name}
+              </a>
             ) : (
               partner.name
             )}
