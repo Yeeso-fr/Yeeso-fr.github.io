@@ -142,7 +142,10 @@
            .home-hero__aside and shifting the vertically-centered text
            column next to it. max-height caps that before it happens. */
         max-height: clamp(173px, 53.34vw, 254px);
-        animation: fade-in 0.6s ease-out;
+        /* backwards fill so the delayed side (right) stays invisible
+           through its delay instead of flashing at full opacity before
+           its fade-in starts. */
+        animation: fade-in 0.6s ease-out backwards;
 
         @media (prefers-reduced-motion: reduce) {
           animation: none;
@@ -157,6 +160,9 @@
       .home-hero__photo--right {
         /* Behind the main photo, tucked under its right edge. */
         margin-left: clamp(-2.25rem, -7vw, -1rem);
+        /* Staggered after the left photo so the pair appears one after
+           the other instead of both popping in at once. */
+        animation-delay: 0.25s;
       }
 
       .home-hero__image {
