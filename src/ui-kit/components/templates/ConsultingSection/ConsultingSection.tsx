@@ -7,7 +7,7 @@ import "./ConsultingSection.css";
 
 export const ConsultingSection = () => {
   return (
-    <section className="consulting-section" id="conseil">
+    <section className="consulting-section" id="conseil" tabIndex={-1}>
       <div className="container">
         <span className="section-eyebrow">Conseil & accompagnement</span>
         <h2 className="consulting-section__title">Transformer les pratiques</h2>

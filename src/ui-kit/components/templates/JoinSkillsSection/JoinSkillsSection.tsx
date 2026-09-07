@@ -17,7 +17,7 @@ const POINTS = [
 
 export const JoinSkillsSection = () => {
   return (
-    <section className="join-skills-section" id="competences">
+    <section className="join-skills-section" id="competences" tabIndex={-1}>
       <div className="container join-skills-section__container">
         <div className="join-skills-section__content">
           <span className="join-skills-section__number" aria-hidden="true">

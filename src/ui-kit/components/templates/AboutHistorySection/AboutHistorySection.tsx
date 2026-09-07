@@ -39,7 +39,7 @@ const TIMELINE = [
 
 export const AboutHistorySection = () => {
   return (
-    <section className="about-history-section" id="histoire">
+    <section className="about-history-section" id="histoire" tabIndex={-1}>
       <div className="container">
         <span className="section-eyebrow">Notre histoire</span>
         <h2 className="about-history-section__title">
@@ -54,7 +54,9 @@ export const AboutHistorySection = () => {
                 className={`about-timeline-item about-timeline-item--${item.tone}`}
                 key={item.step}
               >
-                <span className="about-timeline-item__number">{index + 1}</span>
+                <span className="about-timeline-item__number">
+                  {index + 1}&nbsp;
+                </span>
                 <div className="about-timeline-item__content">
                   <span className="about-timeline-item__eyebrow">
                     {item.step}

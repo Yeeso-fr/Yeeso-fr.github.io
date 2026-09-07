@@ -76,7 +76,7 @@ const SQUAD_LEADERS = [
 
 export const AboutTeamSection = () => {
   return (
-    <section className="about-team-section" id="equipe">
+    <section className="about-team-section" id="equipe" tabIndex={-1}>
       <div className="container">
         <span className="section-eyebrow">Notre équipe</span>
         <h2 className="about-team-section__title">
@@ -92,9 +92,9 @@ export const AboutTeamSection = () => {
         <h3 className="about-team-section__subtitle">
           Le Bureau : paritaire, des profils complémentaires
         </h3>
-        <div className="about-team-section__bureau">
+        <ul className="about-team-section__bureau">
           {BUREAU.map((member) => (
-            <div className="about-team-card" key={member.name}>
+            <li className="about-team-card" key={member.name}>
               <span className="about-team-card__role">{member.role}</span>
               <p className="about-team-card__name">{member.name}</p>
               <p className="about-team-card__job">{member.job}</p>
@@ -106,9 +106,9 @@ export const AboutTeamSection = () => {
               >
                 <FontAwesomeIcon icon={faLinkedin} aria-hidden />
               </StyledLink>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <h3 className="about-team-section__subtitle">8 Leaders de Squads</h3>
         <dl className="about-team-list">
