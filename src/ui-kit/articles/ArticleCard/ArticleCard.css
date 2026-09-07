@@ -70,7 +70,8 @@
       text-decoration: none;
 
       &:hover {
-        color: var(--color-primary);
+        color: var(--color-primary-strong);
+        text-decoration: underline;
       }
     }
   }
@@ -85,7 +86,7 @@
     font-size: 0.7rem;
     font-weight: 600;
     padding: 0.15rem 0.4rem;
-    border: 1px solid var(--color-primary);
+    border: 1px solid var(--color-primary-strong);
     border-radius: var(--br-rounded);
     color: var(--font-color);
     text-transform: uppercase;

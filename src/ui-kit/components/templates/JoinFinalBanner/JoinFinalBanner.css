@@ -38,7 +38,8 @@
   color: var(--color-light);
   border-color: var(--color-light);
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     color: var(--color-primary);
     border-color: var(--color-light);
     background-color: var(--color-light);

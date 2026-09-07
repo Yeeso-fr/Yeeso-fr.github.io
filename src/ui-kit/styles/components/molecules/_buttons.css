@@ -25,14 +25,16 @@ button {
     cursor: pointer;
   }
 
-  &:not(:disabled):hover {
-    color: var(--color-primary-strong);
+  /* Hover/focus both get a full solid-fill inversion — not just a color/
+     border tweak or an outline ring — so the affordance reads clearly in
+     both themes: background: var(--font-reverse) contrasts reliably
+     against var(--color-primary-strong) in either theme (see
+     theme/_light.css and _dark.css). */
+  &:not(:disabled):hover,
+  &:focus-visible {
+    background-color: var(--color-primary-strong);
     border-color: var(--color-primary-strong);
-    background-color: color-mix(
-      in srgb,
-      var(--color-primary-strong) 10%,
-      transparent
-    );
+    color: var(--font-reverse);
   }
 
   &:focus-visible {
@@ -52,14 +54,14 @@ button {
   color: var(--button-fill-fg, var(--color-light));
   font-weight: 700;
 
-  &:not(:disabled):hover {
-    color: var(--button-fill-fg, var(--color-light));
+  /* Inversion, not a darken/tint: bg becomes the old text color, border/
+     text become the old background — e.g. bg=green/color=blue turns into
+     bg=blue/border=green/color=green on hover and focus-visible alike. */
+  &:not(:disabled):hover,
+  &:focus-visible {
+    background: var(--button-fill-fg, var(--color-light));
     border-color: var(--button-fill, var(--color-primary));
-    background: color-mix(
-      in srgb,
-      var(--button-fill, var(--color-primary)) 85%,
-      black
-    );
+    color: var(--button-fill, var(--color-primary));
   }
 }
 
@@ -69,10 +71,11 @@ button {
   color: var(--font-reverse);
   border-color: var(--border-color-reverse);
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
+    background-color: var(--font-reverse);
+    border-color: var(--font-reverse);
     color: var(--color-primary);
-    border-color: var(--color-primary);
-    background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
   }
 }
 
@@ -87,14 +90,17 @@ button {
   color: var(--font-color);
   transition:
     border-color 0.2s ease,
-    color 0.2s ease;
+    color 0.2s ease,
+    background-color 0.2s ease;
 
   svg {
     width: 1.2rem;
   }
 
-  &:hover {
-    color: var(--color-primary-strong);
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-primary-strong);
     border-color: var(--color-primary-strong);
+    color: var(--font-reverse);
   }
 }
