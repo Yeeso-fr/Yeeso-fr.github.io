@@ -56,6 +56,8 @@ export const JoinVoiceSection = () => {
         <figure className="join-voice-section__photo">
           <img
             src={`${basePath}/img/photos/yeeso-table-ronde.webp`}
+            srcSet={`${basePath}/img/photos/yeeso-table-ronde-sm.webp 744w, ${basePath}/img/photos/yeeso-table-ronde.webp 1181w`}
+            sizes="(min-width: 768px) 50vw, 100vw"
             alt="Table ronde animée par Yeeso avec des membres de l'IT Women Network"
             width={1181}
             height={787}
