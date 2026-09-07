@@ -63,6 +63,31 @@
   gap: 1rem;
 }
 
+/* The global `a { color: var(--font-color) }` rule (src/ui-kit/styles/
+   components/molecules/_links.css) and the bordered CTA's default
+   border-color are both theme-relative — white in dark theme — but this
+   hero's background is a fixed light cream regardless of theme, so text
+   and border both become invisible in dark mode. Override with fixed
+   colors instead. */
+.join-hero__cta .styled-link--bordered {
+  color: var(--color-dark);
+  border-color: var(--color-dark);
+
+  &:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  }
+
+  /* Fixed outline color too: the global `a:focus-visible` outline uses
+     --color-primary-strong, a light tint in dark theme — invisible against
+     this hero's fixed light cream background. */
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .join-hero__reassurance {
     grid-template-columns: repeat(2, 1fr);

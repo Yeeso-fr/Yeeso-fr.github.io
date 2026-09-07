@@ -58,3 +58,11 @@
 .program-card .styled-link:hover {
   color: var(--color-dark);
 }
+
+/* Fixed outline color: the global `a:focus-visible` outline uses
+   --color-primary-strong, a light tint in dark theme — invisible against
+   this card's fixed white background. */
+.program-card .styled-link:focus-visible {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 2px;
+}
