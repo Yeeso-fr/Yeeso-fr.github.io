@@ -122,9 +122,7 @@ export const HomeHero = () => {
   const [pair, setPair] = useState<[number, number] | null>(null);
 
   useLayoutEffect(() => {
-    setPair((current) =>
-      pickTwoDistinctIndexes(LEADERS.length, current ?? []),
-    );
+    setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current ?? []));
   }, []);
 
   useEffect(() => {
