@@ -33,7 +33,7 @@
 }
 
 .styled-link--reversed:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-strong-reverse);
 }
 
 /* ---------- Bordered ---------- */
@@ -63,9 +63,13 @@
 }
 
 .styled-link--bordered.styled-link--reversed:hover {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-  background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
+  color: var(--color-primary-strong-reverse);
+  border-color: var(--color-primary-strong-reverse);
+  background-color: color-mix(
+    in srgb,
+    var(--color-primary-strong-reverse) 15%,
+    transparent
+  );
 }
 
 /* ---------- Filled ---------- */

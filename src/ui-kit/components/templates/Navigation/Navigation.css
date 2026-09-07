@@ -65,7 +65,7 @@
        link, matching the mouse-hover affordance. */
     &:hover a,
     &:focus-within a {
-      color: var(--color-primary);
+      color: var(--color-primary-strong);
     }
 
     a[aria-current="page"] {
