@@ -30,11 +30,16 @@ button {
      both themes: background: var(--font-reverse) contrasts reliably
      against var(--color-primary-strong) in either theme (see
      theme/_light.css and _dark.css). */
+  &:not(:disabled):visited:hover,
   &:not(:disabled):hover,
   &:focus-visible {
     background-color: var(--color-primary-strong);
     border-color: var(--color-primary-strong);
     color: var(--font-reverse);
+
+    svg {
+      stroke: var(--font-reverse);
+    }
   }
 
   &:focus-visible {
