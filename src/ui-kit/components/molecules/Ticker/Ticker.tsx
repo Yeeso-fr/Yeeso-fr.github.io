@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useMemo, useRef } from "react";
 import "./Ticker.css";
 
 export type TickerProps = {
@@ -23,15 +23,18 @@ const REFERENCE_PX_PER_SECOND = 12315 / 2 / 125;
 
 export const Ticker = ({ items }: TickerProps) => {
   const trackRef = useRef<HTMLDivElement>(null);
-  const lap = Array.from({ length: LAP_REPEATS }, () => items).flat();
-  const loopedItems = [...lap, ...lap];
+  const loopedItems = useMemo(() => {
+    const lap = Array.from({ length: LAP_REPEATS }, () => items).flat();
+    return [...lap, ...lap];
+  }, [items]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: track.scrollWidth depends on the rendered loopedItems, even though the effect body never reads the variable itself.
   useLayoutEffect(() => {
     const track = trackRef.current;
     if (!track) return;
     const durationSeconds = track.scrollWidth / 2 / REFERENCE_PX_PER_SECOND;
     track.style.setProperty("--ticker-duration", `${durationSeconds}s`);
-  }, []);
+  }, [loopedItems]);
 
   return (
     <div className="ticker" aria-hidden="true">
