@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T09:26:06.084Z",
+  "generatedAt": "2026-09-07T09:52:13.647Z",
   "lighthouse": {
     "performance": 92,
     "accessibility": 100,
@@ -17,9 +17,9 @@
     "testsTotal": 77
   },
   "ecoindex": {
-    "score": 68,
+    "score": 69,
     "grade": "C",
-    "water": 2.45,
-    "ghg": 1.63
+    "water": 2.44,
+    "ghg": 1.62
   }
 }
