@@ -75,13 +75,12 @@ export const StyledLink = ({
             } as CSSProperties)
           : style
       }
-      aria-label={iconOnly ? undefined : ariaLabel}
       target={target}
       rel={rel}
       {...props}
     >
-      {iconOnly && ariaLabel && <span className="sr-only">{ariaLabel}</span>}
       {children}
+      {ariaLabel && <span className="sr-only">&nbsp;{ariaLabel}</span>}
       {target === "_blank" && (
         <span className="sr-only">&nbsp;(ouvre un nouvel onglet)</span>
       )}

@@ -231,3 +231,7 @@
     }
   }
 }
+
+[data-theme="dark"] .navigation li a[aria-current="page"] {
+  text-decoration-color: var(--font-color);
+}

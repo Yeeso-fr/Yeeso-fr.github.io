@@ -12,7 +12,7 @@ const SHOW_OFFER_DOWNLOAD = false;
 
 export const PartnershipSection = () => {
   return (
-    <section className="partnership-section" id="partenariat">
+    <section className="partnership-section" id="partenariat" tabIndex={-1}>
       <div className="container">
         <span className="section-eyebrow">Partenariats</span>
         <h2 className="partnership-section__title">S'engager avec Yeeso</h2>

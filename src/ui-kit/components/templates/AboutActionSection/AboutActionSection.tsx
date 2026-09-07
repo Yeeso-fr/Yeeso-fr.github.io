@@ -14,7 +14,11 @@ const ACTIONS = [
 
 export const AboutActionSection = () => {
   return (
-    <section className="about-action-section" id="comment-nous-agissons">
+    <section
+      className="about-action-section"
+      id="comment-nous-agissons"
+      tabIndex={-1}
+    >
       <div className="container about-action-section__container">
         <figure className="about-action-section__photo">
           <img

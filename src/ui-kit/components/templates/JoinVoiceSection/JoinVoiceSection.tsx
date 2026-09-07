@@ -17,7 +17,11 @@ const POINTS = [
 
 export const JoinVoiceSection = () => {
   return (
-    <section className="join-voice-section" id="faire-entendre-voix">
+    <section
+      className="join-voice-section"
+      id="faire-entendre-voix"
+      tabIndex={-1}
+    >
       <div className="container join-voice-section__container">
         <div className="join-voice-section__content">
           <span className="join-voice-section__number" aria-hidden="true">

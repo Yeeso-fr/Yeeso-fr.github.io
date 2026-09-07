@@ -6,7 +6,7 @@ const basePath = process.env.PAGES_BASE_PATH ?? "";
 
 export const AboutAntennasSection = () => {
   return (
-    <section className="about-antennas-section" id="antennes">
+    <section className="about-antennas-section" id="antennes" tabIndex={-1}>
       <div className="container">
         <span className="section-eyebrow">Nos antennes</span>
         <h2 className="about-antennas-section__title">

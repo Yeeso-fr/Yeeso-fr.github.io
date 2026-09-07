@@ -49,3 +49,8 @@
   outline: 2px solid var(--color-primary-strong);
   outline-offset: 2px;
 }
+
+[role="tabpanel"]:focus-visible {
+  outline-offset: 5px;
+  outline: 2px solid var(--font-color);
+}

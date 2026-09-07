@@ -41,3 +41,7 @@
     object-fit: contain;
   }
 }
+
+[data-theme="dark"] .partners-section__ticker .ticker {
+  background-color: var(--color-primary);
+}

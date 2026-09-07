@@ -16,7 +16,11 @@ const POINTS = [
 
 export const JoinTransmitSection = () => {
   return (
-    <section className="join-transmit-section" id="transmettre-inspirer">
+    <section
+      className="join-transmit-section"
+      id="transmettre-inspirer"
+      tabIndex={-1}
+    >
       <div className="container join-transmit-section__container">
         <figure className="join-transmit-section__photo">
           <img

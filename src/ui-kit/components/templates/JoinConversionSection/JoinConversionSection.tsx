@@ -4,7 +4,11 @@ import "./JoinConversionSection.css";
 
 export const JoinConversionSection = () => {
   return (
-    <section className="join-conversion-section" id="soutenir-yeeso">
+    <section
+      className="join-conversion-section"
+      id="soutenir-yeeso"
+      tabIndex={-1}
+    >
       <div className="container">
         <h2 className="join-conversion-section__title">
           Deux façons de soutenir Yeeso

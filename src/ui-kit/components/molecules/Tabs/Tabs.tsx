@@ -61,10 +61,10 @@ export const Tabs = ({ items, ariaLabel }: TabsProps) => {
             role="tab"
             aria-selected={item.id === activeId}
             aria-controls={`panel-${item.id}`}
-            tabIndex={item.id === activeId ? 0 : -1}
             className="tabs__tab"
             onClick={() => setActiveId(item.id)}
             onKeyDown={(event) => handleKeyDown(event, index)}
+            tabIndex={item.id === activeId ? undefined : -1}
           >
             {item.label}
           </button>
@@ -79,6 +79,7 @@ export const Tabs = ({ items, ariaLabel }: TabsProps) => {
           aria-labelledby={`tab-${item.id}`}
           hidden={item.id !== activeId}
           className="tabs__panel"
+          tabIndex={item.id === activeId ? 0 : -1}
         >
           {item.content}
         </div>

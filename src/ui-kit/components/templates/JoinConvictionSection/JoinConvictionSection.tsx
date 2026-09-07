@@ -16,7 +16,11 @@ const POINTS = [
 
 export const JoinConvictionSection = () => {
   return (
-    <section className="join-conviction-section" id="faire-avancer-mixite">
+    <section
+      className="join-conviction-section"
+      id="faire-avancer-mixite"
+      tabIndex={-1}
+    >
       <div className="container">
         <span className="join-conviction-section__number" aria-hidden="true">
           06

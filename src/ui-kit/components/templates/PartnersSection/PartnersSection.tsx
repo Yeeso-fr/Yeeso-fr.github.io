@@ -123,7 +123,7 @@ const PartnerLogo = ({ partner }: { partner: Partner }) => {
 
 export const PartnersSection = () => {
   return (
-    <section className="partners-section" id="partenaires">
+    <section className="partners-section" id="partenaires" tabIndex={-1}>
       <div className="container">
         <span className="section-eyebrow">Nos partenaires</span>
         <h2 className="partners-section__title">Ils soutiennent Yeeso</h2>
@@ -141,15 +141,7 @@ export const PartnersSection = () => {
 
       <ul className="sr-only">
         {PARTNERS.map((partner) => (
-          <li key={partner.name}>
-            {partner.href ? (
-              <a href={partner.href} target="_blank" rel="noopener noreferrer">
-                {partner.name}
-              </a>
-            ) : (
-              partner.name
-            )}
-          </li>
+          <li key={partner.name}>{partner.name}</li>
         ))}
       </ul>
     </section>

@@ -32,7 +32,7 @@ const VALUES = [
 
 export const AboutMissionSection = () => {
   return (
-    <section className="about-mission-section" id="mission">
+    <section className="about-mission-section" id="mission" tabIndex={-1}>
       <div className="container">
         <div className="about-mission-section__intro">
           <div>

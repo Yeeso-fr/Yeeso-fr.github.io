@@ -30,7 +30,7 @@ const STATS = [
 
 export const JoinImpactSection = () => {
   return (
-    <section className="join-impact-section" id="notre-impact">
+    <section className="join-impact-section" id="notre-impact" tabIndex={-1}>
       <div className="container">
         <span className="section-eyebrow">Notre impact</span>
         <h2 className="join-impact-section__title">

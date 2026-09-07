@@ -16,7 +16,11 @@ const POINTS = [
 
 export const JoinMentorshipSection = () => {
   return (
-    <section className="join-mentorship-section" id="progresser-partager">
+    <section
+      className="join-mentorship-section"
+      id="progresser-partager"
+      tabIndex={-1}
+    >
       <div className="container join-mentorship-section__container">
         <div className="join-mentorship-section__content">
           <span className="join-mentorship-section__number" aria-hidden="true">
