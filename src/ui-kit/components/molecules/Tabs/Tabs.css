@@ -50,6 +50,13 @@
   outline-offset: 2px;
 }
 
+/* The selected tab's background is fixed navy (--color-primary, not
+   theme-reactive) — in light theme --color-primary-strong resolves to the
+   same navy, making the outline invisible. */
+.tabs__tab[aria-selected="true"]:focus-visible {
+  outline-color: var(--color-light);
+}
+
 [role="tabpanel"]:focus-visible {
   outline-offset: 5px;
   outline: 2px solid var(--font-color);

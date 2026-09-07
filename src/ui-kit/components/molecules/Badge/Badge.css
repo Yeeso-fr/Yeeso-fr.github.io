@@ -30,6 +30,15 @@
   text-decoration: none;
 }
 
+/* Fixed outline color: the badge's background pairing is fixed (not
+   theme-reactive, see comment above), and the global `a:focus-visible`
+   outline uses --color-primary-strong — a light tint in dark theme,
+   too close to the badge's own fixed light-blue background. */
+.badge a:focus-visible {
+  outline: 2px solid var(--badge-color);
+  outline-offset: 2px;
+}
+
 .badge--filled {
   /* Statically filled with a vivid, fixed accent (e.g. the hero's green)
      rather than the subtle default pairing — needs fixed dark text since

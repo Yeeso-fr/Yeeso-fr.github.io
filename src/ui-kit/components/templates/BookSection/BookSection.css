@@ -48,13 +48,27 @@
 
 .book-section__amazon-link {
   /* Fixed white, not the theme-reactive --border-color/--font-color: this
-     card's background is always navy regardless of theme. */
+     card's background is always navy regardless of theme. The global
+     `.styled-link--bordered:hover`/`a:focus-visible` both use
+     --color-primary-strong, which resolves to plain navy in light theme —
+     invisible against this navy card — so hover/focus are fully
+     overridden below with fixed colors instead. */
   border-color: var(--color-light);
   color: var(--color-light);
 
-  &:visited,
-  &:hover {
+  &:visited {
     color: var(--color-light);
+  }
+
+  &:hover {
+    color: var(--color-primary);
+    border-color: var(--color-light);
+    background-color: var(--color-light);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-light);
+    outline-offset: 2px;
   }
 }
 
