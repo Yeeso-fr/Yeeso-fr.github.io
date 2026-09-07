@@ -4,21 +4,21 @@
   align-items: center;
 }
 
-.join-photo-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 4 / 3;
+.join-transmit-section__photo {
+  margin: 0;
   border-radius: var(--br-normal);
-  background: var(--color-lightblue);
-  color: var(--color-primary);
-  font-weight: 700;
-  text-align: center;
-  padding: 1rem;
+  overflow: hidden;
+  line-height: 0;
   /* This section is photo-first in the DOM (for the desktop photo-left/
      content-right layout), but content should read first on mobile —
      same reasoning as JoinNetworkSection. */
   order: 2;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .join-transmit-section__content {
@@ -89,7 +89,7 @@
     gap: 3rem;
   }
 
-  .join-photo-placeholder,
+  .join-transmit-section__photo,
   .join-transmit-section__content {
     order: 0;
   }
