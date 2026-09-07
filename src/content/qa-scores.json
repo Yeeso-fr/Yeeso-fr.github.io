@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-09-03T10:32:53.293Z",
+  "generatedAt": "2026-09-07T07:58:36.534Z",
   "lighthouse": {
-    "performance": 93,
+    "performance": 83,
     "accessibility": 100,
     "bestPractices": 100,
     "seo": 100
   },
   "axe": {
     "score": 100,
-    "rulesPassed": 1088,
-    "rulesTotal": 1088
+    "rulesPassed": 1090,
+    "rulesTotal": 1090
   },
   "storybook": {
     "score": 100,
-    "testsPassed": 71,
-    "testsTotal": 71
+    "testsPassed": 77,
+    "testsTotal": 77
   },
   "ecoindex": {
-    "score": 77,
+    "score": 71,
     "grade": "B",
-    "water": 2.19,
-    "ghg": 1.46
+    "water": 2.38,
+    "ghg": 1.59
   }
 }
