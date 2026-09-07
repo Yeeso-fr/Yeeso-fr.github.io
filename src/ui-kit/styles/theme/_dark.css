@@ -17,6 +17,10 @@
      lightened stand-in for those uses; backgrounds can keep --color-primary
      as-is (see _light.css for why the light theme doesn't need this). */
   --color-primary-strong: var(--yeeso-primary-tint);
+  /* Mirror of --color-primary-strong for elements deliberately placed on
+     --background-reverse (light here) — the plain primary navy passes
+     contrast fine against a light background. */
+  --color-primary-strong-reverse: var(--color-primary);
 
   /* BACKGROUND COLORS */
   --background-primary: var(--color-dark);
