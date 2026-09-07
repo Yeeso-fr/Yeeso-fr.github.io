@@ -7,7 +7,7 @@ import "./TrainingSection.css";
 
 export const TrainingSection = () => {
   return (
-    <section className="training-section" id="formation">
+    <section className="training-section" id="formation" tabIndex={-1}>
       <div className="container">
         <span className="section-eyebrow">Formations</span>
         <h2 className="training-section__title">Faire grandir les équipes</h2>

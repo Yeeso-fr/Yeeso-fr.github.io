@@ -83,7 +83,7 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
       <div className="container">
         <StyledLink
           href="/"
-          aria-label="Voir la page d'accueil"
+          ariaLabel="Accueil"
           className="navigation__logo-link"
           onClick={() => setIsMenuOpen(false)}
           prefetch={false}
@@ -146,7 +146,6 @@ export const Navigation = ({ hasArticles }: NavigationProps) => {
                 <li>
                   <StyledLink
                     href="/articles"
-                    aria-label="Voir le blog"
                     aria-current={currentPage("/articles")}
                     onClick={() => setIsMenuOpen(false)}
                     prefetch={false}
