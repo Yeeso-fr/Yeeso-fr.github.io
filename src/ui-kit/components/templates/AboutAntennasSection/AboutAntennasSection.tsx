@@ -44,6 +44,11 @@ const ANTENNA_LEADERS = [
     name: "Marion",
     linkedin: "https://www.linkedin.com/in/marionlabbe/",
   },
+  {
+    city: "Biarritz",
+    name: "Loudie",
+    linkedin: "https://www.linkedin.com/in/loudie-sylvain/",
+  },
 ] as const;
 
 export const AboutAntennasSection = () => {
@@ -52,7 +57,7 @@ export const AboutAntennasSection = () => {
       <div className="container">
         <span className="section-eyebrow">Nos antennes</span>
         <h2 className="about-antennas-section__title">
-          8 antennes, partout en France
+          9 antennes, partout en France
         </h2>
         <p className="about-antennas-section__lead">
           Chaque antenne est portée localement par une Leader, avec le soutien
@@ -63,9 +68,9 @@ export const AboutAntennasSection = () => {
           <img
             className="about-antennas-section__map"
             src={`${basePath}/img/carte-antennes.webp`}
-            alt="Carte de France situant les 8 antennes de Yeeso : Lille, Strasbourg, Rennes, Paris, Nantes, Poitiers, Lyon et Toulouse."
-            width={1236}
-            height={1272}
+            alt="Carte de France situant les 9 antennes de Yeeso : Lille, Strasbourg, Rennes, Paris, Nantes, Poitiers, Lyon, Toulouse et Biarritz."
+            width={1305}
+            height={1206}
           />
 
           <dl className="about-antennas-section__list">
