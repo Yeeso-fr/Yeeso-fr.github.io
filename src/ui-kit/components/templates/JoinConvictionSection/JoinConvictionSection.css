@@ -1,8 +1,9 @@
 .join-conviction-section {
-  /* Fixed (not theme-reactive) dark background — "bloc de conviction" per
-     the brief, meant to stand out regardless of the page's own theme. */
-  background: var(--color-dark);
-  color: var(--color-light);
+  /* "Bloc de conviction" — meant to stand out from the page's own
+     background, using the theme's inverted (reverse) colors so it still
+     flips correctly between light and dark theme. */
+  background: var(--background-reverse);
+  color: var(--font-reverse);
 }
 
 .join-conviction-section .section-eyebrow {
@@ -13,7 +14,7 @@
   display: block;
   font-family: var(--font-secondary), sans-serif;
   font-weight: 700;
-  color: var(--color-dark-muted);
+  color: var(--font-reverse-muted);
   font-size: 1.5rem;
   line-height: 1;
   margin-bottom: 0.5rem;
@@ -48,11 +49,10 @@
 }
 
 .join-conviction-section__highlight {
-  /* Fixed light background (not theme-reactive var(--background-contrast))
-     — this box needs to read as a light "pop" against the section's own
-     fixed dark background in both site themes. */
-  background: var(--color-light-muted);
-  color: var(--color-dark);
+  /* Pops against the section's reverse background using the page's own
+     normal (theme-following) background/text pairing. */
+  background: var(--background-primary);
+  color: var(--font-color);
   border-radius: var(--br-normal);
   padding: 1.5rem 1.75rem;
   max-width: 60rem;
@@ -81,18 +81,17 @@
   gap: 1rem;
 }
 
-/* The bordered CTA's default colors (--color-primary-strong etc.) are
-   theme-relative, assuming a normal theme-following background — but this
-   section's background is fixed dark in both themes, so in dark theme
-   those tokens resolve to a dark color too (invisible on this section).
-   Override with fixed light colors instead. */
+/* The bordered CTA's default colors (--color-primary-strong etc.) assume a
+   normal theme-following background, but this section's background is
+   already the theme's reverse — use the matching reverse text/border
+   tokens instead so it stays readable in both themes. */
 .join-conviction-section__cta .styled-link--bordered {
-  color: var(--color-light);
-  border-color: var(--color-light);
+  color: var(--font-reverse);
+  border-color: var(--font-reverse);
 
   &:hover {
-    color: var(--color-dark);
-    border-color: var(--color-light);
-    background-color: var(--color-light);
+    color: var(--background-reverse);
+    border-color: var(--font-reverse);
+    background-color: var(--font-reverse);
   }
 }
