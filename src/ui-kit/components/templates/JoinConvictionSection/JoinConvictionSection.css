@@ -94,4 +94,12 @@
     border-color: var(--font-reverse);
     background-color: var(--font-reverse);
   }
+
+  /* Fixed outline color too: the global `a:focus-visible` outline uses
+     --color-primary-strong, which resolves to a dark color in dark theme —
+     invisible against this section's fixed dark background. */
+  &:focus-visible {
+    outline: 2px solid var(--color-light);
+    outline-offset: 2px;
+  }
 }

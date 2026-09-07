@@ -89,3 +89,42 @@
 .offer-block__meta .styled-link:hover {
   color: var(--color-dark);
 }
+
+/* The color above doesn't change on :hover (it's already the fixed-safe
+   value), so hover needs its own non-color affordance. */
+.offer-block__description .styled-link:hover,
+.offer-block__bullets .styled-link:hover,
+.offer-block__meta .styled-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Fixed outline color too: the global `a:focus-visible` outline uses
+   --color-primary-strong, which is a light tint in dark theme — invisible
+   against these light accent-tint backgrounds. */
+.offer-block__description .styled-link:focus-visible,
+.offer-block__bullets .styled-link:focus-visible,
+.offer-block__meta .styled-link:focus-visible {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 2px;
+}
+
+/* --offer-block--noir is a fixed dark background (unlike the other
+   variants above), so its inline links need the inverse fixed color —
+   var(--color-dark) text/outline would be almost invisible here. */
+.offer-block--noir .offer-block__description .styled-link,
+.offer-block--noir .offer-block__bullets .styled-link,
+.offer-block--noir .offer-block__meta .styled-link,
+.offer-block--noir .offer-block__description .styled-link:visited,
+.offer-block--noir .offer-block__bullets .styled-link:visited,
+.offer-block--noir .offer-block__meta .styled-link:visited,
+.offer-block--noir .offer-block__description .styled-link:hover,
+.offer-block--noir .offer-block__bullets .styled-link:hover,
+.offer-block--noir .offer-block__meta .styled-link:hover {
+  color: var(--color-light);
+}
+
+.offer-block--noir .offer-block__description .styled-link:focus-visible,
+.offer-block--noir .offer-block__bullets .styled-link:focus-visible,
+.offer-block--noir .offer-block__meta .styled-link:focus-visible {
+  outline-color: var(--color-light);
+}

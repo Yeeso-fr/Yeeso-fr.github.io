@@ -109,6 +109,20 @@
   color: inherit;
 }
 
+/* Color doesn't change on hover (inherited fixed-safe value), so hover
+   needs its own non-color affordance. */
+.mission-audience-cta .styled-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* Fixed outline color: the global `a:focus-visible` outline uses
+   --color-primary-strong, a light tint in dark theme — invisible against
+   these light accent-tint card backgrounds. */
+.mission-audience-cta .styled-link:focus-visible {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 2px;
+}
+
 .mission-section__labels {
   display: flex;
   flex-wrap: wrap;

@@ -31,13 +31,18 @@
     border-color var(--transition-duration--general) ease;
 }
 
+/* --color-primary (navy) only reaches ~1.5:1 against this button's own
+   fixed --color-dark background — invisible on hover/focus in either site
+   theme. --yeeso-primary-tint (the dark theme's --color-primary-strong
+   stand-in) reaches ~7.9:1 there, so use it directly instead of a
+   theme-reactive token. */
 .gif-player__toggle:hover:not(:disabled),
 .gif-player__toggle:focus-visible {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  color: var(--yeeso-primary-tint);
+  border-color: var(--yeeso-primary-tint);
 }
 
 .gif-player__toggle:focus-visible {
-  outline: 2px solid var(--color-primary-strong);
+  outline: 2px solid var(--yeeso-primary-tint);
   outline-offset: 2px;
 }

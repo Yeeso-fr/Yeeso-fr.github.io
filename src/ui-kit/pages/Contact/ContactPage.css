@@ -40,6 +40,19 @@ a.contact-card:hover {
   color: var(--color-dark);
 }
 
+/* Color doesn't change on hover (fixed-safe value already), so hover/focus
+   need a non-color affordance. Fixed outline color too: the global
+   `a:focus-visible` outline uses --color-primary-strong, a light tint in
+   dark theme — invisible against these light accent-tint card backgrounds. */
+a.contact-card:hover {
+  text-decoration: underline;
+}
+
+a.contact-card:focus-visible {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 2px;
+}
+
 .contact-card--green {
   background: var(--color-lightgreen);
   color: var(--color-dark);
