@@ -21,9 +21,11 @@ export const JoinTransmitSection = () => {
         <figure className="join-transmit-section__photo">
           <img
             src={`${basePath}/img/photos/houleymatou-balde-conference.webp`}
+            srcSet={`${basePath}/img/photos/houleymatou-balde-conference-sm.webp 744w, ${basePath}/img/photos/houleymatou-balde-conference.webp 1142w`}
+            sizes="(min-width: 768px) 50vw, 100vw"
             alt="Houleymatou Balde lors d'une conférence"
-            width={1400}
-            height={1050}
+            width={1142}
+            height={856}
           />
         </figure>
 
