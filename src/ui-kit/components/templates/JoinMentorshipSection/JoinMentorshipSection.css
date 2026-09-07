@@ -59,20 +59,17 @@
   gap: 1rem;
 }
 
-/* A section without a real photo yet — a plain neutral box standing in for
-   it, so a single src swap (once the real photo is chosen) is all that's
-   needed later. */
-.join-photo-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 4 / 3;
+.join-mentorship-section__photo {
+  margin: 0;
   border-radius: var(--br-normal);
-  background: var(--color-lightblue);
-  color: var(--color-primary);
-  font-weight: 700;
-  text-align: center;
-  padding: 1rem;
+  overflow: hidden;
+  line-height: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {

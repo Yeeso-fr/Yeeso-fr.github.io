@@ -4,6 +4,8 @@ import { HELLOASSO_URL, MEMBERSHIP_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./JoinMentorshipSection.css";
 
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
 const POINTS = [
   "Bénéficier du mentorat Yeeso.",
   "Participer à des masterclass, conférences et temps de partage d'expertise.",
@@ -49,14 +51,14 @@ export const JoinMentorshipSection = () => {
           </div>
         </div>
 
-        {/* TODO: photo — vraie photo mentor / mentorée (voir brief). */}
-        <div
-          className="join-photo-placeholder"
-          role="img"
-          aria-label="Photo à venir : un binôme mentor et mentorée de Yeeso"
-        >
-          <span aria-hidden="true">Photo à venir</span>
-        </div>
+        <figure className="join-mentorship-section__photo">
+          <img
+            src={`${basePath}/img/photos/yeeso-masterclass.webp`}
+            alt="Masterclass organisée par Yeeso"
+            width={2048}
+            height={1365}
+          />
+        </figure>
       </div>
     </section>
   );

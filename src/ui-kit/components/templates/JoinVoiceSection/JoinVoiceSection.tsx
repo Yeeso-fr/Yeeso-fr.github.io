@@ -4,6 +4,8 @@ import { HELLOASSO_URL, MEMBERSHIP_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./JoinVoiceSection.css";
 
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
 const POINTS = [
   "Partager votre parcours, votre métier et votre expertise.",
   "Participer à nos campagnes de rôles modèles et portraits.",
@@ -51,16 +53,14 @@ export const JoinVoiceSection = () => {
           </div>
         </div>
 
-        {/* TODO: photo — une femme de la communauté Yeeso (autre que
-            Houleymatou) en situation de prise de parole ou de mise en
-            lumière (voir brief). */}
-        <div
-          className="join-photo-placeholder"
-          role="img"
-          aria-label="Photo à venir : une membre de la communauté Yeeso en situation de prise de parole"
-        >
-          <span aria-hidden="true">Photo à venir</span>
-        </div>
+        <figure className="join-voice-section__photo">
+          <img
+            src={`${basePath}/img/photos/yeeso-table-ronde.webp`}
+            alt="Table ronde animée par Yeeso avec des membres de l'IT Women Network"
+            width={1181}
+            height={787}
+          />
+        </figure>
       </div>
     </section>
   );
