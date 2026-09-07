@@ -90,6 +90,17 @@
     text-decoration: none;
     color: inherit;
     border-radius: var(--br-normal);
+    padding-bottom: 0.5em;
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--color-primary-strong);
+
+      .author-card__name {
+        color: var(--font-reverse);
+        text-decoration: underline;
+      }
+    }
   }
 
   .author-card__avatar {
