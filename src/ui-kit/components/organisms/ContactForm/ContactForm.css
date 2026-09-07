@@ -40,14 +40,24 @@
   font-weight: 700;
   background: var(--color-primary);
   color: var(--color-light);
-  border: none;
+  /* Same color as the background at rest (invisible) — reserves the
+     border's space up front so the hover/focus-visible inversion below
+     doesn't shift the layout by adding a border where none existed. */
+  border: 2px solid var(--color-primary);
   border-radius: var(--br-rounded);
   padding: 0.75rem 1.75rem;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 
-  &:hover {
-    opacity: 0.85;
+  /* Inversion, not opacity: background becomes the old text color, text
+     becomes the old background — a real color swap reads more clearly
+     than fading. */
+  &:hover:not(:disabled),
+  &:focus-visible {
+    background: var(--color-light);
+    color: var(--color-primary);
   }
 
   &:focus-visible {
