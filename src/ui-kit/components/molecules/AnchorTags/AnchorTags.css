@@ -61,7 +61,7 @@
   }
 
   /* Fade hint on the trailing edge so it reads as scrollable rather than
-     cut off. Fades from the leading edge too once scrolled past the start. */
+     cut off. */
   .anchor-tags::after {
     content: "";
     position: absolute;
