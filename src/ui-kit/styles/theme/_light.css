@@ -12,6 +12,10 @@
      as-is here (see _dark.css for why the dark theme needs a lightened
      stand-in instead). */
   --color-primary-strong: var(--color-primary);
+  /* Mirror of --color-primary-strong for elements deliberately placed on
+     --background-reverse (dark here) — same lightened stand-in the dark
+     theme uses for its own (light) backgrounds. */
+  --color-primary-strong-reverse: var(--yeeso-primary-tint);
 
   /* BORDER COLORS */
   --border-color: var(--color-dark);
