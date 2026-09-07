@@ -123,7 +123,8 @@
     transition: color 0.2s;
 
     &:hover {
-      color: var(--color-primary);
+      color: var(--color-primary-strong);
+      text-decoration: underline;
     }
   }
 

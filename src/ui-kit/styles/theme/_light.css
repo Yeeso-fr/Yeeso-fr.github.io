@@ -17,6 +17,12 @@
      theme uses for its own (light) backgrounds. */
   --color-primary-strong-reverse: var(--yeeso-primary-tint);
 
+  /* --yeeso-coral (#e77169) only reaches ~3:1 as text against this theme's
+     light backgrounds — below the 4.5:1 normal-text threshold. Darken it
+     for use as a hover text color; the dark theme's own bg is dark enough
+     that plain coral already passes there (see _dark.css). */
+  --link-hover-accent: color-mix(in srgb, var(--yeeso-coral) 55%, black);
+
   /* BORDER COLORS */
   --border-color: var(--color-dark);
   --border-color-reverse: var(--color-light);

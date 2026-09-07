@@ -22,6 +22,10 @@
      contrast fine against a light background. */
   --color-primary-strong-reverse: var(--color-primary);
 
+  /* Plain --yeeso-coral already reaches ~5.8:1 against this theme's dark
+     backgrounds, unlike in light theme (see _light.css). */
+  --link-hover-accent: var(--yeeso-coral);
+
   /* BACKGROUND COLORS */
   --background-primary: var(--color-dark);
   --background-secondary: var(--color-dark);

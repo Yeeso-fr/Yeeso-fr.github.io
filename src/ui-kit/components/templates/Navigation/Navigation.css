@@ -63,9 +63,13 @@
     /* focus-within (not just the link's own :focus-visible) so the same
        hover feedback also appears for keyboard users tabbing onto the
        link, matching the mouse-hover affordance. */
+    /* --color-primary-strong (not the fixed --color-primary): the nav sits
+       on the theme-reactive page background, and fixed navy text drops to
+       ~1.47:1 against dark theme's dark background. */
     &:hover a,
     &:focus-within a {
       color: var(--color-primary-strong);
+      text-decoration: underline;
     }
 
     a[aria-current="page"] {
@@ -101,13 +105,19 @@
     z-index: 1001;
     transition: transform 0.3s ease;
 
+    /* Overrides the global button hover fill (_buttons.css): this icon-only
+       toggle has no border/text to invert, just the scaling lines below. */
     &:hover {
       transform: scale(1.1);
+      background-color: transparent;
+      border-color: transparent;
     }
 
     &:focus-visible {
       outline: 2px solid var(--color-primary-strong);
       outline-offset: 2px;
+      background-color: transparent;
+      border-color: transparent;
     }
   }
 

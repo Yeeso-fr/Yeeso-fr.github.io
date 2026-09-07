@@ -35,8 +35,9 @@
     text-decoration: none;
 
     &:hover {
-      color: var(--color-primary);
-      border-color: var(--color-primary);
+      color: var(--color-primary-strong);
+      border-color: var(--color-primary-strong);
+      text-decoration: underline;
     }
   }
 

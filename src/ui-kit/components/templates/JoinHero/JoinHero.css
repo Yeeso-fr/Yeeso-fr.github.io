@@ -73,10 +73,12 @@
   color: var(--color-dark);
   border-color: var(--color-dark);
 
-  &:hover {
-    color: var(--color-primary);
+  /* Solid-fill inversion, not a tint, on hover and focus-visible alike. */
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-primary);
     border-color: var(--color-primary);
-    background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+    color: var(--color-light);
   }
 
   /* Fixed outline color too: the global `a:focus-visible` outline uses

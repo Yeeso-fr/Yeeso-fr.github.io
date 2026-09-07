@@ -15,8 +15,12 @@ a:visited {
   color: var(--font-color);
 }
 
+/* Underline alongside the color shift so hover doesn't rely on color
+   alone — a color-only change is easy to miss and fails for color-blind
+   users. */
 a:hover {
   color: var(--color-primary-strong);
+  text-decoration: underline;
 }
 
 a:focus-visible {

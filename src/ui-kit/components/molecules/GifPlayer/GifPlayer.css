@@ -36,10 +36,14 @@
    theme. --yeeso-primary-tint (the dark theme's --color-primary-strong
    stand-in) reaches ~7.9:1 there, so use it directly instead of a
    theme-reactive token. */
+/* background-color pinned explicitly: the global button hover/focus fill
+   (_buttons.css) would otherwise win the cascade on that property alone
+   and replace this fixed dark control surface. */
 .gif-player__toggle:hover:not(:disabled),
 .gif-player__toggle:focus-visible {
   color: var(--yeeso-primary-tint);
   border-color: var(--yeeso-primary-tint);
+  background-color: var(--color-dark);
 }
 
 .gif-player__toggle:focus-visible {
