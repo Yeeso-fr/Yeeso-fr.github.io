@@ -44,6 +44,17 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin: 0.25rem 0;
+
+  .styled-link--filled {
+    border: 1px solid transparent;
+    &:focus-visible,
+    &:hover {
+      color: var(--color-primary);
+      border-color: var(--color-light);
+      background-color: var(--color-light);
+      outline-color: var(--color-light);
+    }
+  }
 }
 
 .book-section__amazon-link {
@@ -72,6 +83,18 @@
     outline-offset: 2px;
   }
 }
+
+[data-theme="dark"] .book-section__amazon-link {
+  &:focus-visible,
+  &:hover {
+    background-color: var(--color-primary-strong);
+    border-color: var(--color-primary-strong);
+    color: var(--font-reverse);
+    outline-color: var(--color-primary-strong);
+  }
+}
+
+/* */
 
 .book-section__note {
   font-size: 0.85rem;
