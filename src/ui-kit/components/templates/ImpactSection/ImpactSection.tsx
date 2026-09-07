@@ -7,6 +7,7 @@ import {
   faPeopleGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ANTENNA_COUNT } from "@/config/antenna-leaders";
 import { BOOK_URL, LINKEDIN_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./ImpactSection.css";
@@ -14,7 +15,7 @@ import "./ImpactSection.css";
 const HEADLINE_STATS = [
   {
     icon: faLocationDot,
-    value: "9",
+    value: String(ANTENNA_COUNT),
     label: "antennes en France",
     modifier: "impact-stat-card--purple",
   },
