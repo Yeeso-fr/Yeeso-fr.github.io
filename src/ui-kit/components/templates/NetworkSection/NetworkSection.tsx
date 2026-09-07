@@ -12,7 +12,19 @@ const NETWORK_POINTS = [
   "Un canal non-mixte pour libérer la parole et performer ensemble",
 ];
 
-export const NetworkSection = () => {
+type NetworkSectionProps = {
+  photoSrc?: string;
+  photoAlt?: string;
+  photoWidth?: number;
+  photoHeight?: number;
+};
+
+export const NetworkSection = ({
+  photoSrc = "yeeso-table-ronde.webp",
+  photoAlt = "Table ronde animée par Yeeso avec des membres de l'IT Women Network",
+  photoWidth = 1181,
+  photoHeight = 787,
+}: NetworkSectionProps = {}) => {
   return (
     <section className="network-section" id="reseau">
       <div className="container network-section__container">
@@ -36,10 +48,10 @@ export const NetworkSection = () => {
 
         <figure className="network-section__photo">
           <img
-            src={`${basePath}/img/photos/yeeso-table-ronde.webp`}
-            alt="Table ronde animée par Yeeso avec des membres de l'IT Women Network"
-            width={1181}
-            height={787}
+            src={`${basePath}/img/photos/${photoSrc}`}
+            alt={photoAlt}
+            width={photoWidth}
+            height={photoHeight}
           />
         </figure>
       </div>

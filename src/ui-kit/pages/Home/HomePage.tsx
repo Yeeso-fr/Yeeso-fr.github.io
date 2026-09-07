@@ -27,7 +27,12 @@ export const HomePage = ({ articles, authors }: HomePageProps) => {
       <BookSection />
       <ImpactSection />
       <HistorySection />
-      <NetworkSection />
+      <NetworkSection
+        photoSrc="yeeso-evenement-networking.webp"
+        photoAlt="Événement networking organisé par Yeeso avec des membres de l'IT Women Network"
+        photoWidth={1400}
+        photoHeight={1050}
+      />
       <section>
         <div className="container">
           <MembershipCallout />
