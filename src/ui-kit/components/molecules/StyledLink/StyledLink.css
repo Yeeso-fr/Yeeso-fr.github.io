@@ -34,7 +34,6 @@
 }
 
 .styled-link--reversed:hover {
-  /*color: var(--color-primary);*/
   text-decoration: underline;
   color: var(--color-primary-strong-reverse);
 }
@@ -72,12 +71,6 @@
     transparent
   );
 }
-/*.styled-link--bordered.styled-link--reversed:hover,
-.styled-link--bordered.styled-link--reversed:focus-visible {
-  background-color: var(--font-reverse);
-  border-color: var(--font-reverse);
-  color: var(--color-primary);
-}*/
 
 /* ---------- Filled ---------- */
 
