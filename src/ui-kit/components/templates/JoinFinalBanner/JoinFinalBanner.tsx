@@ -4,7 +4,7 @@ import "./JoinFinalBanner.css";
 
 export const JoinFinalBanner = () => {
   return (
-    <section className="join-final-banner">
+    <section className="join-final-banner" tabIndex={-1}>
       <div className="container">
         <h2 className="join-final-banner__title">Rejoignez l'aventure Yeeso</h2>
         <p className="join-final-banner__tagline">

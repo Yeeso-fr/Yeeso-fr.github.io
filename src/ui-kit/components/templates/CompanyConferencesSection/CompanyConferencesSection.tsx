@@ -8,7 +8,11 @@ import "./CompanyConferencesSection.css";
 
 export const CompanyConferencesSection = () => {
   return (
-    <section className="company-conferences-section" id="conferences">
+    <section
+      className="company-conferences-section"
+      id="conferences"
+      tabIndex={-1}
+    >
       <div className="container">
         <span className="section-eyebrow">Conférences</span>
         <h2 className="company-conferences-section__title">Inspirer</h2>

@@ -16,7 +16,11 @@ const POINTS = [
 
 export const JoinNetworkSection = () => {
   return (
-    <section className="join-network-section" id="developper-reseau">
+    <section
+      className="join-network-section"
+      id="developper-reseau"
+      tabIndex={-1}
+    >
       <div className="container join-network-section__container">
         <figure className="join-network-section__photo">
           <img

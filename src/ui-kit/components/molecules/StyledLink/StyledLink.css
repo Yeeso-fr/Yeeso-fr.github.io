@@ -12,14 +12,21 @@
   color: var(--font-color);
 }
 
-[data-theme="dark"] .styled-link:visited {
-  text-decoration-color: var(--font-color);
+.styled-link:hover {
+  color: var(--yeeso-coral);
 }
 
 /*.styled-link:hover,*/
-[data-theme="dark"] .styled-link:visited:focus-visible,
-[data-theme="dark"] .styled-link:focus-visible {
-  outline-color: var(--color-secondary);
+[data-theme="dark"] {
+  .styled-link:visited:focus-visible,
+  .styled-link:focus-visible {
+    color: var(--font-color);
+    outline-color: var(--color-secondary);
+  }
+
+  .impact-headline-stat__link:focus-visible {
+    color: var(--color-primary);
+  }
 }
 
 /* ---------- Variant ---------- */
