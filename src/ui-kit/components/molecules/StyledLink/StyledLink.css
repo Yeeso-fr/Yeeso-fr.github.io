@@ -12,8 +12,12 @@
   color: var(--font-color);
 }
 
+/* --link-hover-accent (not the fixed --yeeso-coral): plain coral fails
+   4.5:1 as text against light theme's light backgrounds (see
+   theme/_light.css). Underline too, so hover isn't color-only. */
 .styled-link:hover {
-  color: var(--yeeso-coral);
+  color: var(--link-hover-accent);
+  text-decoration: underline;
 }
 
 /*.styled-link:hover,*/
@@ -40,6 +44,8 @@
 }
 
 .styled-link--reversed:hover {
+  /*color: var(--color-primary);*/
+  text-decoration: underline;
   color: var(--color-primary-strong-reverse);
 }
 
@@ -56,28 +62,28 @@
   border-color: var(--border-color-reverse);
 }
 
-/* Contoured button hover: tinted fill (not just a border-color swap) so the
-   affordance reads clearly, matching the .font-toggle__button /
-   .animation-toggle hover treatment elsewhere in the UI. */
-.styled-link--bordered:hover {
-  color: var(--color-primary-strong);
+/* Contoured button: solid-fill inversion on hover/focus-visible (not a
+   tint) so the affordance reads clearly in both themes — background:
+   var(--font-reverse) contrasts reliably against var(--color-primary-strong)
+   in either theme (see theme/_light.css and _dark.css). */
+.styled-link--bordered:hover,
+.styled-link--bordered:focus-visible {
+  background-color: var(--color-primary-strong);
   border-color: var(--color-primary-strong);
-  background-color: color-mix(
-    in srgb,
-    var(--color-primary-strong) 10%,
-    transparent
-  );
+  color: var(--font-reverse);
 }
 
-.styled-link--bordered.styled-link--reversed:hover {
-  color: var(--color-primary-strong-reverse);
-  border-color: var(--color-primary-strong-reverse);
-  background-color: color-mix(
-    in srgb,
-    var(--color-primary-strong-reverse) 15%,
-    transparent
-  );
-}
+    .styled-link--bordered.styled-link--reversed:hover {
+        color: var(--color-primary-strong-reverse);
+        border-color: var(--color-primary-strong-reverse);
+        background-color: color-mix( in srgb, var(--color-primary-strong-reverse) 15%, transparent );
+    }
+/*.styled-link--bordered.styled-link--reversed:hover,
+.styled-link--bordered.styled-link--reversed:focus-visible {
+  background-color: var(--font-reverse);
+  border-color: var(--font-reverse);
+  color: var(--color-primary);
+}*/
 
 /* ---------- Filled ---------- */
 
@@ -87,6 +93,10 @@
 .styled-link--filled {
   background: var(--styled-link-fill, var(--color-primary));
   color: var(--styled-link-fill-fg, var(--color-light));
+  /* Same color as the fill at rest (invisible) — reserves the border's
+     space up front so the hover/focus-visible inversion below doesn't
+     shift the layout by adding a border where none existed. */
+  border: 2px solid var(--styled-link-fill, var(--color-primary));
   border-radius: var(--br-rounded);
   padding: 0.65rem 1.5rem;
   font-weight: 700;
@@ -97,16 +107,14 @@
   color: var(--styled-link-fill-fg, var(--color-light));
 }
 
-/* Filled button hover: darken the fill rather than fading it with opacity
-   — opacity lets the page background show through and reads as "disabled"
-   more than "hovered". */
-.styled-link--filled:hover {
-  color: var(--styled-link-fill-fg, var(--color-light));
-  background: color-mix(
-    in srgb,
-    var(--styled-link-fill, var(--color-primary)) 85%,
-    black
-  );
+/* Inversion, not a darken/tint: background becomes the old text color,
+   border/text become the old background — on hover and focus-visible
+   alike. */
+.styled-link--filled:hover,
+.styled-link--filled:focus-visible {
+  background: var(--styled-link-fill-fg, var(--color-light));
+  border-color: var(--styled-link-fill, var(--color-primary));
+  color: var(--styled-link-fill, var(--color-primary));
 }
 
 /* ------------ Icon ------------ */
@@ -134,12 +142,20 @@
     color: var(--styled-link-icon-color, var(--font-color));
   }
 
-  &:hover {
-    color: var(--styled-link-icon-hover-color, var(--color-primary-strong));
+  /* Solid-fill inversion (not just a color/border swap) on hover and
+     focus-visible alike — var(--font-reverse) contrasts reliably against
+     the accent fill in either theme. */
+  &:hover,
+  &:focus-visible {
+    background-color: var(
+      --styled-link-icon-hover-color,
+      var(--color-primary-strong)
+    );
     border-color: var(
       --styled-link-icon-hover-color,
       var(--color-primary-strong)
     );
+    color: var(--font-reverse);
   }
 
   svg {
