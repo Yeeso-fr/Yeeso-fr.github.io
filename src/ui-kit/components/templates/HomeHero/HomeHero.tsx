@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { Badge } from "@/ui-kit/components/molecules/Badge/Badge";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import { Ticker } from "@/ui-kit/components/molecules/Ticker/Ticker";
@@ -114,11 +114,16 @@ function pickTwoDistinctIndexes(
 }
 
 export const HomeHero = () => {
-  // Fixed on the server/first paint so hydration matches, and kept as-is
-  // through mount — randomizing immediately on mount used to swap the pair
-  // right on top of the entrance animation, reading as a flicker. The first
-  // rotation now only happens on the first interval tick.
+  // Fixed on the server/first paint so hydration matches. Randomized
+  // client-side in a layout effect (not a plain effect) so it's applied
+  // before the browser paints — a plain effect fires after paint, so the
+  // fixed [0, 1] pair would flash on screen for a frame before swapping to
+  // the random one, reading as a flicker.
   const [[leftIndex, rightIndex], setPair] = useState<[number, number]>([0, 1]);
+
+  useLayoutEffect(() => {
+    setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current));
+  }, []);
 
   useEffect(() => {
     const id = setInterval(() => {
