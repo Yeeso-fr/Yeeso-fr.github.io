@@ -111,6 +111,13 @@ export const Footer = ({ qaScores }: FooterProps) => {
           >
             FAQ
           </StyledLink>
+          <StyledLink
+            href="/plan-du-site"
+            className="footer__legal-link"
+            prefetch={false}
+          >
+            Plan du site
+          </StyledLink>
         </div>
 
         {qaScores && (
