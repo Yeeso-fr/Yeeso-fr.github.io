@@ -114,15 +114,17 @@ function pickTwoDistinctIndexes(
 }
 
 export const HomeHero = () => {
-  // Fixed on the server/first paint so hydration matches. Randomized
-  // client-side in a layout effect (not a plain effect) so it's applied
-  // before the browser paints — a plain effect fires after paint, so the
-  // fixed [0, 1] pair would flash on screen for a frame before swapping to
-  // the random one, reading as a flicker.
-  const [[leftIndex, rightIndex], setPair] = useState<[number, number]>([0, 1]);
+  // null until the client picks a random pair. The static/server HTML has
+  // no random pair to render, so the side photos simply aren't rendered
+  // yet (only Houleymatou's static main photo is) — rather than rendering
+  // a fixed placeholder pair that would flash on screen before swapping to
+  // the random one once JS runs, which read as a flicker.
+  const [pair, setPair] = useState<[number, number] | null>(null);
 
   useLayoutEffect(() => {
-    setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current));
+    setPair((current) =>
+      pickTwoDistinctIndexes(LEADERS.length, current ?? []),
+    );
   }, []);
 
   useEffect(() => {
@@ -135,13 +137,15 @@ export const HomeHero = () => {
       ) {
         return;
       }
-      setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current));
+      setPair((current) =>
+        pickTwoDistinctIndexes(LEADERS.length, current ?? []),
+      );
     }, ROTATE_INTERVAL_MS);
     return () => clearInterval(id);
   }, []);
 
-  const left = LEADERS[leftIndex];
-  const right = LEADERS[rightIndex];
+  const left = pair ? LEADERS[pair[0]] : null;
+  const right = pair ? LEADERS[pair[1]] : null;
 
   return (
     <div className="home-hero-block">
@@ -173,20 +177,22 @@ export const HomeHero = () => {
           </div>
           <div className="home-hero__aside">
             <div className="home-hero__photo-group">
-              <figure
-                className="home-hero__photo home-hero__photo--side home-hero__photo--left"
-                key={`left-${left.photo}`}
-              >
-                <img
-                  src={`${basePath}/img/photos/team/${left.photo}`}
-                  srcSet={`${basePath}/img/photos/team/${left.photo.replace(".webp", "-sm.webp")} 432w, ${basePath}/img/photos/team/${left.photo} 680w`}
-                  sizes="(min-width: 992px) 340px, 216px"
-                  alt={`${left.name}, ${left.role}`}
-                  width={left.width}
-                  height={left.height}
-                  className="home-hero__image"
-                />
-              </figure>
+              {left && (
+                <figure
+                  className="home-hero__photo home-hero__photo--side home-hero__photo--left"
+                  key={`left-${left.photo}`}
+                >
+                  <img
+                    src={`${basePath}/img/photos/team/${left.photo}`}
+                    srcSet={`${basePath}/img/photos/team/${left.photo.replace(".webp", "-sm.webp")} 432w, ${basePath}/img/photos/team/${left.photo} 680w`}
+                    sizes="(min-width: 992px) 340px, 216px"
+                    alt={`${left.name}, ${left.role}`}
+                    width={left.width}
+                    height={left.height}
+                    className="home-hero__image"
+                  />
+                </figure>
+              )}
 
               <figure className="home-hero__photo home-hero__photo--main">
                 <img
@@ -198,20 +204,22 @@ export const HomeHero = () => {
                 />
               </figure>
 
-              <figure
-                className="home-hero__photo home-hero__photo--side home-hero__photo--right"
-                key={`right-${right.photo}`}
-              >
-                <img
-                  src={`${basePath}/img/photos/team/${right.photo}`}
-                  srcSet={`${basePath}/img/photos/team/${right.photo.replace(".webp", "-sm.webp")} 432w, ${basePath}/img/photos/team/${right.photo} 680w`}
-                  sizes="(min-width: 992px) 340px, 216px"
-                  alt={`${right.name}, ${right.role}`}
-                  width={right.width}
-                  height={right.height}
-                  className="home-hero__image"
-                />
-              </figure>
+              {right && (
+                <figure
+                  className="home-hero__photo home-hero__photo--side home-hero__photo--right"
+                  key={`right-${right.photo}`}
+                >
+                  <img
+                    src={`${basePath}/img/photos/team/${right.photo}`}
+                    srcSet={`${basePath}/img/photos/team/${right.photo.replace(".webp", "-sm.webp")} 432w, ${basePath}/img/photos/team/${right.photo} 680w`}
+                    sizes="(min-width: 992px) 340px, 216px"
+                    alt={`${right.name}, ${right.role}`}
+                    width={right.width}
+                    height={right.height}
+                    className="home-hero__image"
+                  />
+                </figure>
+              )}
             </div>
           </div>
         </div>
