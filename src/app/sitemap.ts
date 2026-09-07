@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "conferences",
     "contact",
     "faq",
+    "plan-du-site",
   ].map((path) => ({ url: `${siteUrl}${path}${path ? "/" : ""}` }));
 
   const articles: MetadataRoute.Sitemap = getAllArticles().map((article) => ({
