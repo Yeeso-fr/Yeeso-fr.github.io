@@ -32,6 +32,52 @@
   padding: 0;
 }
 
+/* Below 768px the badge labels wrap onto several lines, turning the sticky
+   bar into a tall band that stays pinned across the whole page. Scrolling
+   the list horizontally on one line instead keeps the sticky bar thin. */
+@media screen and (max-width: 767.98px) {
+  .anchor-tags {
+    /* Bleed to the viewport edges so the fade masks below sit flush and the
+       scrollable row isn't inset by the page's usual horizontal padding. */
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .anchor-tags__list {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 1.25rem;
+  }
+
+  .anchor-tags__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .anchor-tags__list li {
+    flex: 0 0 auto;
+  }
+
+  /* Fade hint on the trailing edge so it reads as scrollable rather than
+     cut off. Fades from the leading edge too once scrolled past the start. */
+  .anchor-tags::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1.5rem;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--background-primary)
+    );
+    pointer-events: none;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .anchor-tags {
     padding: 0.75rem 2rem;
