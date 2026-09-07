@@ -4,6 +4,8 @@ import { HELLOASSO_URL, MEMBERSHIP_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./JoinSkillsSection.css";
 
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
 const POINTS = [
   "Rejoindre une équipe ou une Squad Yeeso.",
   "Contribuer à des projets porteurs de sens.",
@@ -53,16 +55,14 @@ export const JoinSkillsSection = () => {
           </div>
         </div>
 
-        {/* TODO: photo — Jessica, Leadeuse de la Squad Tech'Sensibilisation,
-            avec Houleymatou sur scène lors de la remise du trophée obtenu
-            par sa Squad (voir brief). */}
-        <div
-          className="join-photo-placeholder"
-          role="img"
-          aria-label="Photo à venir : remise de trophée à la Squad Tech'Sensibilisation"
-        >
-          <span aria-hidden="true">Photo à venir</span>
-        </div>
+        <figure className="join-skills-section__photo">
+          <img
+            src={`${basePath}/img/photos/yeeso-unesco.webp`}
+            alt="Yeeso à l'UNESCO"
+            width={1366}
+            height={768}
+          />
+        </figure>
       </div>
     </section>
   );

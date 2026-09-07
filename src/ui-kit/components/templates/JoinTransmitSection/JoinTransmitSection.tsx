@@ -4,6 +4,8 @@ import { HELLOASSO_URL, MEMBERSHIP_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./JoinTransmitSection.css";
 
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
 const POINTS = [
   "Rencontrer les jeunes dans les écoles, collèges et lycées.",
   "Leur faire découvrir la diversité des métiers et parcours de la Tech.",
@@ -16,15 +18,14 @@ export const JoinTransmitSection = () => {
   return (
     <section className="join-transmit-section" id="transmettre-inspirer">
       <div className="container join-transmit-section__container">
-        {/* TODO: photo — vraie photo Yeeso dans un établissement scolaire :
-            intervention, échange ou atelier avec des jeunes (voir brief). */}
-        <div
-          className="join-photo-placeholder"
-          role="img"
-          aria-label="Photo à venir : une intervention Yeeso dans un établissement scolaire"
-        >
-          <span aria-hidden="true">Photo à venir</span>
-        </div>
+        <figure className="join-transmit-section__photo">
+          <img
+            src={`${basePath}/img/photos/houleymatou-balde-conference.webp`}
+            alt="Houleymatou Balde lors d'une conférence"
+            width={1400}
+            height={1050}
+          />
+        </figure>
 
         <div className="join-transmit-section__content">
           <span className="join-transmit-section__number" aria-hidden="true">
