@@ -15,22 +15,12 @@
 /* --link-hover-accent (not the fixed --yeeso-coral): plain coral fails
    4.5:1 as text against light theme's light backgrounds (see
    theme/_light.css). Underline too, so hover isn't color-only. */
-.styled-link:hover {
+.styled-link:hover,
+.styled-link:focus-visible {
   color: var(--link-hover-accent);
   text-decoration: underline;
-}
-
-/*.styled-link:hover,*/
-[data-theme="dark"] {
-  .styled-link:visited:focus-visible,
-  .styled-link:focus-visible {
-    color: var(--font-color);
-    outline-color: var(--color-secondary);
-  }
-
-  .impact-headline-stat__link:focus-visible {
-    color: var(--color-primary);
-  }
+  text-underline-offset: 0.35rem;
+  text-decoration-thickness: 0.15rem;
 }
 
 /* ---------- Variant ---------- */
@@ -110,6 +100,7 @@
 /* Inversion, not a darken/tint: background becomes the old text color,
    border/text become the old background — on hover and focus-visible
    alike. */
+.styled-link--filled:visited:hover,
 .styled-link--filled:hover,
 .styled-link--filled:focus-visible {
   background: var(--styled-link-fill-fg, var(--color-light));

@@ -25,27 +25,20 @@
     color 0.15s ease;
 }
 
-/* `:not(:disabled)` matches the global `button:not(:disabled):hover` rule's
-   specificity (see _buttons.css) so this color always wins instead of
-   silently losing to it — without it, the global rule's hover color can
-   land exactly on top of a same-colored background (e.g. the selected tab
-   below) and make the label disappear. */
-.tabs__tab:not(:disabled):hover {
-  background: var(--background-contrast);
-  color: var(--font-color);
-}
-
 .tabs__tab[aria-selected="true"] {
   background: var(--color-primary);
   color: var(--color-light);
 }
 
-/* Was identical to the base selected state (no visual change at all) —
-   darken to --color-primary-strong so the selected tab keeps a hover
-   affordance too. */
-.tabs__tab[aria-selected="true"]:not(:disabled):hover {
+.tabs__tab[aria-selected="true"]:hover {
   background: var(--color-primary-strong);
-  color: var(--color-light);
+  color: var(--font-reverse);
+}
+
+.tabs__tab:hover {
+  background: var(--color-secondary);
+  color: var(--font-color);
+  text-decoration: underline;
 }
 
 .tabs__tab:focus-visible {
@@ -53,14 +46,8 @@
   outline-offset: 2px;
 }
 
-/* The selected tab's background is fixed navy (--color-primary, not
-   theme-reactive) — in light theme --color-primary-strong resolves to the
-   same navy, making the outline invisible. */
-.tabs__tab[aria-selected="true"]:focus-visible {
-  outline-color: var(--color-light);
-}
-
+.tabs__tab[aria-selected="true"]:focus-visible,
 [role="tabpanel"]:focus-visible {
-  outline-offset: 5px;
-  outline: 2px solid var(--font-color);
+  outline: 0.15rem solid var(--color-primary-strong);
+  text-decoration: underline;
 }

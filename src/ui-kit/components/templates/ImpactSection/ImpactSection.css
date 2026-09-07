@@ -81,7 +81,7 @@
 /* Color doesn't change on hover (inherited fixed-safe value), so hover
    needs its own non-color affordance. */
 .impact-headline-stat__link:hover {
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 10px;
 }
 
 /* Fixed outline color: the global `a:focus-visible` outline uses

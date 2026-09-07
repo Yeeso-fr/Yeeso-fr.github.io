@@ -103,13 +103,13 @@
   background: var(--color-lightpurple);
 }
 
-.mission-audience-cta .styled-link,
-.mission-audience-cta .styled-link:visited,
-/* Bordered variant fills its own background on hover/focus-visible
-   (var(--color-primary-strong)) and swaps to var(--font-reverse) text —
-   inheriting the fixed dark text here would put dark-on-dark. */
-.mission-audience-cta .styled-link:not(.styled-link--bordered):hover {
-  color: inherit;
+.mission-audience-cta .styled-link {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.mission-audience-cta .styled-link:hover {
+  color: var(--font-reverse);
 }
 
 /* Color doesn't change on hover (inherited fixed-safe value), so hover
