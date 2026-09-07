@@ -1,3 +1,4 @@
+import { ANTENNA_COUNT } from "@/config/antenna-leaders";
 import "./JoinImpactSection.css";
 
 // Same figures as the homepage's ImpactSection (src/ui-kit/components/
@@ -20,7 +21,7 @@ const STATS = [
     modifier: "join-impact-stat--coral",
   },
   {
-    value: "9",
+    value: String(ANTENNA_COUNT),
     label: "Villes mobilisées",
     modifier: "join-impact-stat--purple",
   },
