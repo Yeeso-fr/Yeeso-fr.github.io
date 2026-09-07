@@ -82,11 +82,14 @@
 }
 
 .offer-block__description .styled-link:visited,
+.offer-block__description .styled-link:visited:hover,
 .offer-block__description .styled-link:hover,
 .offer-block__bullets .styled-link:visited,
 .offer-block__bullets .styled-link:hover,
+.offer-block__bullets .styled-link:visited:hover,
 .offer-block__meta .styled-link:visited,
-.offer-block__meta .styled-link:hover {
+.offer-block__meta .styled-link:hover,
+.offer-block__meta .styled-link:visited:hover {
   color: var(--color-dark);
 }
 
