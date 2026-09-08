@@ -55,6 +55,15 @@
         line-height: 1.1;
         margin: 0;
 
+        /* OpenDyslexic's glyphs are noticeably wider than the default
+           typeface at the same font-size, on top of the 85% global scale
+           already applied in _fonts.css — without this extra reduction,
+           "avec les femmes" (nbsp-joined, never wraps) grows wide enough
+           for its trailing "s" to slip behind the photo on the right. */
+        html[data-font="opendyslexic"] & {
+          font-size: clamp(2rem, 6.5vw, 3.75rem);
+        }
+
         .home-hero__title-highlight {
           text-decoration: underline;
           text-decoration-color: var(--yeeso-coral);
@@ -266,6 +275,10 @@
            never wraps) stays within the column instead of overflowing
            behind the photo — verified across 992-1400px. */
         font-size: clamp(2.25rem, 4.5vw, 4.5rem);
+
+        html[data-font="opendyslexic"] & {
+          font-size: clamp(1.85rem, 3.75vw, 3.75rem);
+        }
       }
 
       .home-hero__aside {
