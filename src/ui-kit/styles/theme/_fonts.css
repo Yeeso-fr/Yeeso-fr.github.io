@@ -103,12 +103,22 @@
   font-display: swap;
 }
 
-[data-font="opendyslexic"] {
+/* OpenDyslexic and Luciole both render noticeably larger than the
+   default typeface at the same font-size (bigger glyphs for Luciole,
+   and for OpenDyslexic also a much taller built-in line-height). The
+   `html[data-font=...]` form (rather than the bare attribute selector)
+   guarantees this wins over the `html, body, [data-theme]` font-size
+   rule in _layout.css regardless of import order or whether a
+   data-theme attribute is also present. */
+html[data-font="opendyslexic"] {
   --font-primary: "OpenDyslexic", sans-serif;
   --font-secondary: "OpenDyslexic", sans-serif;
+  font-size: 85%;
+  line-height: 1.5;
 }
 
-[data-font="luciole"] {
+html[data-font="luciole"] {
   --font-primary: "Luciole", sans-serif;
   --font-secondary: "Luciole", sans-serif;
+  font-size: 92%;
 }
