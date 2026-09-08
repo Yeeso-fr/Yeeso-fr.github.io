@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { Badge } from "@/ui-kit/components/molecules/Badge/Badge";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
@@ -25,6 +26,7 @@ const LEADERS = [
     photo: "albane.webp",
     width: 920,
     height: 900,
+    heightScale: 0.85,
   },
   {
     name: "Angélique",
@@ -32,6 +34,7 @@ const LEADERS = [
     photo: "angelique.webp",
     width: 1200,
     height: 1200,
+    heightScale: 0.85,
   },
   {
     name: "Angi",
@@ -39,6 +42,7 @@ const LEADERS = [
     photo: "angi.webp",
     width: 1200,
     height: 1200,
+    heightScale: 0.85,
   },
   {
     name: "Emmanuelle",
@@ -46,6 +50,7 @@ const LEADERS = [
     photo: "emmanuelle.webp",
     width: 1024,
     height: 1024,
+    heightScale: 1,
   },
   {
     name: "Jacqueline",
@@ -53,6 +58,7 @@ const LEADERS = [
     photo: "jacqueline.webp",
     width: 800,
     height: 800,
+    heightScale: 0.85,
   },
   {
     name: "Jeanne",
@@ -60,6 +66,7 @@ const LEADERS = [
     photo: "jeanne.webp",
     width: 974,
     height: 900,
+    heightScale: 0.72,
   },
   {
     name: "Manon",
@@ -67,6 +74,7 @@ const LEADERS = [
     photo: "manon.webp",
     width: 800,
     height: 1280,
+    heightScale: 1,
   },
   {
     name: "Marie-Laure",
@@ -74,6 +82,7 @@ const LEADERS = [
     photo: "marie-laure.webp",
     width: 800,
     height: 1200,
+    heightScale: 1,
   },
   {
     name: "Marie",
@@ -81,6 +90,7 @@ const LEADERS = [
     photo: "marie.webp",
     width: 1200,
     height: 1200,
+    heightScale: 0.72,
   },
 ] as const;
 
@@ -177,7 +187,8 @@ export const HomeHero = () => {
             <div className="home-hero__photo-group">
               {left && (
                 <figure
-                  className="home-hero__photo home-hero__photo--side home-hero__photo--left"
+                  className={`home-hero__photo home-hero__photo--side home-hero__photo--left${left.heightScale < 1 ? " home-hero__photo--compact" : ""}`}
+                  style={{ "--photo-scale": left.heightScale } as CSSProperties}
                   key={`left-${left.photo}`}
                 >
                   <img
@@ -204,7 +215,10 @@ export const HomeHero = () => {
 
               {right && (
                 <figure
-                  className="home-hero__photo home-hero__photo--side home-hero__photo--right"
+                  className={`home-hero__photo home-hero__photo--side home-hero__photo--right${right.heightScale < 1 ? " home-hero__photo--compact" : ""}`}
+                  style={
+                    { "--photo-scale": right.heightScale } as CSSProperties
+                  }
                   key={`right-${right.photo}`}
                 >
                   <img

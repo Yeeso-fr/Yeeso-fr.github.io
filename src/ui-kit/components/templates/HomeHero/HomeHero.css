@@ -82,6 +82,11 @@
       justify-content: center;
       min-width: 0;
       width: 100%;
+      /* Single source of truth for the side photos' full (uncompacted)
+         height — reused by both --side's max-height and --compact's
+         scaled-down height below, and overridden at the >=992px
+         breakpoint. */
+      --photo-row-height: clamp(173px, 53.34vw, 254px);
       /* Safety net, not the primary sizing mechanism: the side photos are
          sized to never need it (see --side below), but this keeps an
          unusually square/wide future photo from breaking page layout
@@ -141,7 +146,7 @@
            the flex row's auto cross-size for every item, growing
            .home-hero__aside and shifting the vertically-centered text
            column next to it. max-height caps that before it happens. */
-        max-height: clamp(173px, 53.34vw, 254px);
+        max-height: var(--photo-row-height);
         /* backwards fill so the delayed side (right) stays invisible
            through its delay instead of flashing at full opacity before
            its fade-in starts. */
@@ -150,6 +155,20 @@
         @media (prefers-reduced-motion: reduce) {
           animation: none;
         }
+      }
+
+      .home-hero__photo--compact {
+        /* Square-ish source photos (e.g. a 1:1 headshot) need more of
+           their width cropped away than a portrait photo to cover the
+           same full row height — the tighter crop reads as a much
+           bigger/closer face next to Houleymatou's portrait photo. Opt
+           these out of the default stretch-to-full-height and give them
+           a shorter height instead (scaled down from the full row
+           height by each photo's own --photo-scale, set inline per
+           leader) so they still align to the row's bottom edge without
+           being blown up to match it. */
+        align-self: flex-end;
+        height: calc(var(--photo-row-height) * var(--photo-scale, 0.85));
       }
 
       .home-hero__photo--left {
@@ -190,12 +209,15 @@
       .home-hero__photo--side .home-hero__image {
         width: auto;
         max-width: 100%;
-        object-fit: contain;
-        /* The width cap can leave the (aspect-ratio-preserved) image
-           shorter than the fully-stretched box — anchor it to the
-           bottom, flush with the main photo's own bottom edge, instead
-           of floating centered with empty space above and below. */
-        object-position: bottom;
+        /* cover (not contain): the box's width can get capped below what
+           the image's own aspect ratio would want at the shared
+           (stretched) height — contain would then shrink the image to
+           stay uncropped, making squarer photos (e.g. a 1:1 headshot)
+           render visibly shorter than a tall portrait photo at the same
+           box height. cover crops the excess width instead, so every
+           side photo fills the same height. */
+        object-fit: cover;
+        object-position: center;
       }
     }
   }
@@ -257,11 +279,12 @@
           width: clamp(210px, 26vw, 340px);
         }
 
+        /* Mirrors --main's width clamp × its 4/3 aspect-ratio — see the
+           base (mobile) rule for why this matters. */
+        --photo-row-height: clamp(280px, 34.67vw, 454px);
+
         .home-hero__photo--side {
           max-width: clamp(190px, 27vw, 340px);
-          /* Mirrors --main's width clamp × its 4/3 aspect-ratio — see the
-             base (mobile) rule for why this matters. */
-          max-height: clamp(280px, 34.67vw, 454px);
         }
 
         .home-hero__photo--left {
