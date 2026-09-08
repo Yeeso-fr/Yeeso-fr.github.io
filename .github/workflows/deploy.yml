@@ -1,10 +1,9 @@
-name: Deploy Yeeso to GitHub Pages
+name: Deploy Yeeso preprod to GitHub Pages
 
 on:
   push:
     branches:
       - site-refresh
-      - main
   workflow_dispatch:
 
 permissions:
@@ -13,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: true
 
 jobs:
@@ -68,9 +67,8 @@ jobs:
         env:
           NODE_ENV: production
           PAGES_BASE_PATH: ${{ steps.setup_pages.outputs.base_path }}
-          PUBLIC_SITE_URL: "https://yeeso-fr.github.io/"
-          # Only main is production; every other branch (site-refresh, etc.) is preprod and stays de-indexed.
-          DISALLOW_ROBOTS: ${{ github.ref_name != 'main' && 'true' || 'false' }}
+          PUBLIC_SITE_URL: 'https://yeeso-fr.github.io/'
+          DISALLOW_ROBOTS: 'false'
           NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
 
       - name: Build Storybook
@@ -91,6 +89,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy Yeeso to GitHub Pages
+      - name: Deploy Yeeso preprod to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
