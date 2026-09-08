@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "education",
     "conferences",
     "contact",
+    "nous-rejoindre",
     "faq",
     "plan-du-site",
   ].map((path) => ({ url: `${siteUrl}${path}${path ? "/" : ""}` }));
