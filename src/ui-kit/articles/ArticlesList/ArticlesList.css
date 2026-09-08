@@ -1,15 +1,19 @@
-.articles__list:has(> li:only-child) {
-  grid-template-columns: 1fr;
-}
-
 @media screen and (min-width: 768px) {
-  .articles__list li:first-child .article-card {
+  .articles__list:has(> li:only-child) {
+    grid-template-columns: minmax(0, 50%);
+  }
+
+  .articles__list li:first-child:not(:only-child) .article-card {
     grid-area: 1 / 1 / 2 / 3;
   }
 }
 
 @media screen and (min-width: 1400px) {
-  .articles__list li:first-child .article-card {
+  .articles__list:has(> li:only-child) {
+    grid-template-columns: minmax(0, 33.3333%);
+  }
+
+  .articles__list li:first-child:not(:only-child) .article-card {
     grid-area: 1 / 1 / 2 / 4;
   }
 }

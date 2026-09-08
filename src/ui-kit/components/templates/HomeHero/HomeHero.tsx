@@ -49,7 +49,7 @@ const LEADERS = [
     role: "Leader d'antenne, Paris",
     photo: "emmanuelle.webp",
     width: 1024,
-    height: 1024,
+    height: 950,
     heightScale: 1,
   },
   {
@@ -57,7 +57,7 @@ const LEADERS = [
     role: "Leader d'antenne, Lille",
     photo: "jacqueline.webp",
     width: 800,
-    height: 800,
+    height: 720,
     heightScale: 0.85,
   },
   {
