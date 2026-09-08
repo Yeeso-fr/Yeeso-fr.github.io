@@ -10,12 +10,12 @@
 
 QA scores ([detail](https://yeeso.fr/a-propos#qualite)), refreshed by the `QA on demand` workflow:
 
-[![Lighthouse Performance](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyeeso%2FTODO-repo-name%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=Lighthouse%20Perf&query=%24.lighthouse.performance&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
-[![Lighthouse Accessibility](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyeeso%2FTODO-repo-name%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=Lighthouse%20A11y&query=%24.lighthouse.accessibility&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
-[![Lighthouse Best Practices](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyeeso%2FTODO-repo-name%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=Best%20Practices&query=%24.lighthouse.bestPractices&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
-[![Lighthouse SEO](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyeeso%2FTODO-repo-name%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=SEO&query=%24.lighthouse.seo&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
-[![Axe accessibility](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyeeso%2FTODO-repo-name%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=Axe&query=%24.axe.score&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
-[![EcoIndex grade](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fyeeso%2FTODO-repo-name%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=EcoIndex&query=%24.ecoindex.grade&color=success)](https://yeeso.fr/a-propos#qualite)
+[![Lighthouse Performance](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FYeeso-fr%2FYeeso-fr.github.io%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=Lighthouse%20Perf&query=%24.lighthouse.performance&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
+[![Lighthouse Accessibility](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FYeeso-fr%2FYeeso-fr.github.io%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=Lighthouse%20A11y&query=%24.lighthouse.accessibility&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
+[![Lighthouse Best Practices](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FYeeso-fr%2FYeeso-fr.github.io%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=Best%20Practices&query=%24.lighthouse.bestPractices&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
+[![Lighthouse SEO](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FYeeso-fr%2FYeeso-fr.github.io%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=SEO&query=%24.lighthouse.seo&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
+[![Axe accessibility](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FYeeso-fr%2FYeeso-fr.github.io%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=Axe&query=%24.axe.score&suffix=%25&color=success)](https://yeeso.fr/a-propos#qualite)
+[![EcoIndex grade](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2FYeeso-fr%2FYeeso-fr.github.io%2Fmain%2Fsrc%2Fcontent%2Fqa-scores.json&label=EcoIndex&query=%24.ecoindex.grade&color=success)](https://yeeso.fr/a-propos#qualite)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -31,32 +31,32 @@ QA scores ([detail](https://yeeso.fr/a-propos#qualite)), refreshed by the `QA on
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-| Topic                      | Technology                         |
-|----------------------------|------------------------------------|
-| Main Framework             | 	Next.js (App Router)              |
-| Language                   | 	TypeScript                        |
-| Package manager            | 	pnpm                              |
-| Linter / formatter         | 	Biome                             |
-| Build                      | 	Turbopack                         |
-| Design System              | 	Storybook + Vite                  |
-| Style                      | 	Native CSS                        |
-| Content                    | 	MarkdownX with Zod & gray-matter  |
-| Pre-push                   | 	Lefthook                          |
-| Unit / component tests     | Vitest                             |
-| Accessibility tests        | Playwright + Axe-core              |
-| Performance tests          | 	Playwright + Lighthouse           |
-| Environmental impact tests | Playwright + Lighthouse + EcoIndex |
+| Topic                       | Technology                         |
+|-----------------------------|-------------------------------------|
+| Main Framework              | Next.js (App Router)               |
+| Language                    | TypeScript                         |
+| Package manager             | pnpm                                |
+| Linter / formatter          | Biome                               |
+| Build                       | Turbopack                           |
+| Design System               | Storybook + Vite                    |
+| Style                       | Native CSS                          |
+| Content                     | MDX with Zod & gray-matter          |
+| Pre-push                    | Lefthook                            |
+| Unit / component tests      | Vitest                              |
+| Accessibility tests         | Playwright + Axe-core               |
+| Performance tests           | Playwright + Lighthouse             |
+| Environmental impact tests  | Playwright + Lighthouse + EcoIndex  |
 
-![next badge](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs)
-![pnpm badge](https://img.shields.io/badge/Typescript-000000?style=flat&logo=typescript)
+![Next.js badge](https://img.shields.io/badge/Next.js-000000?style=flat&logo=nextdotjs)
+![TypeScript badge](https://img.shields.io/badge/Typescript-000000?style=flat&logo=typescript)
 ![pnpm badge](https://img.shields.io/badge/PNPM-000000?style=flat&logo=pnpm)
-![pnpm badge](https://img.shields.io/badge/Biome-000000?style=flat&logo=biome)
-![pnpm badge](https://img.shields.io/badge/Turbopack-000000?style=flat&logo=turbopack)
-![pnpm badge](https://img.shields.io/badge/Storybook-000000?style=flat&logo=storybook)
-![pnpm badge](https://img.shields.io/badge/Native%20CSS-000000?style=flat&logo=css)
-![pnpm badge](https://img.shields.io/badge/MarkdownX-000000?style=flat&logo=markdown)
-![pnpm badge](https://img.shields.io/badge/Zod-000000?style=flat&logo=zod)
-![pnpm badge](https://img.shields.io/badge/Lefthook-000000?style=flat&logo=lefthook)
+![Biome badge](https://img.shields.io/badge/Biome-000000?style=flat&logo=biome)
+![Turbopack badge](https://img.shields.io/badge/Turbopack-000000?style=flat&logo=turbopack)
+![Storybook badge](https://img.shields.io/badge/Storybook-000000?style=flat&logo=storybook)
+![Native CSS badge](https://img.shields.io/badge/Native%20CSS-000000?style=flat&logo=css)
+![MDX badge](https://img.shields.io/badge/MDX-000000?style=flat&logo=markdown)
+![Zod badge](https://img.shields.io/badge/Zod-000000?style=flat&logo=zod)
+![Lefthook badge](https://img.shields.io/badge/Lefthook-000000?style=flat&logo=lefthook)
 
 ## Getting Started
 
@@ -113,6 +113,12 @@ Storybook component tests (Vitest, browser mode) + accessibility tests (Playwrig
 pnpm test:ui
 ```
 
+Accessibility check scoped to the `.mdx` articles/authors you just wrote or edited (see [Content](#content)) — also requires `pnpm dev` to be running:
+
+```bash
+pnpm test:a11y:content
+```
+
 Lighthouse performance/accessibility/SEO audits, plus an EcoIndex (environmental impact) pass — requires a **production build**, scores measured against `pnpm dev` are misleadingly low:
 
 ```bash
@@ -128,6 +134,10 @@ npx playwright show-report
 ```
 
 `test:ui` and `test:lighthouse` also run on demand in CI via the `QA on demand` GitHub Actions workflow (`workflow_dispatch` — triggered manually from the Actions tab, not on every push). That workflow also regenerates `src/content/qa-scores.json` (via `pnpm qa:scores`), which feeds the Lighthouse/Axe/EcoIndex badges shown in the site's footer and on the [/a-propos](https://yeeso.fr/a-propos) page.
+
+## Content
+
+Blog articles and author profiles live in `src/content` as `.mdx` files. See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to add or edit one.
 
 ## Agent Skills
 
