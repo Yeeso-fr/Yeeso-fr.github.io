@@ -1,0 +1,81 @@
+.conference-requirements-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.conference-requirements-section__lead {
+  color: var(--font-color-muted);
+  font-weight: 800;
+  margin: 0 0 1.5rem;
+}
+
+.conference-requirements-section__list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  max-width: 55ch;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: var(--color-lightpurple);
+  }
+}
+
+.conference-requirements-section__quote {
+  margin: 0 0 2.5rem;
+  padding: 1.75rem 2rem;
+  border-radius: var(--br-normal);
+  background: var(--color-lightpurple);
+  color: var(--color-dark);
+
+  p {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+  }
+
+  footer {
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}
+
+.conference-requirements-section__values-title {
+  font-size: 1.1rem;
+  margin: 0 0 1rem;
+}
+
+.conference-requirements-section__values {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+
+  li {
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}
+
+.conference-requirements-section__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

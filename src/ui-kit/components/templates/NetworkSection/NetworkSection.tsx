@@ -1,0 +1,62 @@
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./NetworkSection.css";
+
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
+const NETWORK_POINTS = [
+  "Des mentors pour accompagner les femmes et minorités de genre dans l'IT",
+  "Des rôles modèles pour déconstruire les préjugés et inspirer",
+  "Des conférences et événements qui honorent l'expertise des femmes et minorités de genre",
+  "Un canal mixte pour œuvrer ensemble à la mixité des métiers",
+  "Un canal non-mixte pour libérer la parole et performer ensemble",
+];
+
+type NetworkSectionProps = {
+  photoSrc?: string;
+  photoAlt?: string;
+  photoWidth?: number;
+  photoHeight?: number;
+};
+
+export const NetworkSection = ({
+  photoSrc = "yeeso-table-ronde.webp",
+  photoAlt = "Table ronde animée par Yeeso avec des membres de l'IT Women Network",
+  photoWidth = 1181,
+  photoHeight = 787,
+}: NetworkSectionProps = {}) => {
+  return (
+    <section className="network-section" id="reseau">
+      <div className="container network-section__container">
+        <div className="network-section__content">
+          <span className="section-eyebrow">Un réseau de confiance</span>
+          <h2 className="network-section__title">IT Women Network</h2>
+          <p className="network-section__lead">
+            Réseau d'entraide et de confiance, pour progresser ensemble dans
+            l'IT.
+          </p>
+
+          <ul className="network-section__list">
+            {NETWORK_POINTS.map((point) => (
+              <li className="network-section__item" key={point}>
+                <FontAwesomeIcon icon={faCheck} aria-hidden />
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <figure className="network-section__photo">
+          <img
+            src={`${basePath}/img/photos/${photoSrc}`}
+            srcSet={`${basePath}/img/photos/${photoSrc.replace(".webp", "-sm.webp")} 744w, ${basePath}/img/photos/${photoSrc} ${photoWidth}w`}
+            sizes="(min-width: 768px) 50vw, 100vw"
+            alt={photoAlt}
+            width={photoWidth}
+            height={photoHeight}
+          />
+        </figure>
+      </div>
+    </section>
+  );
+};

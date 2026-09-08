@@ -1,0 +1,53 @@
+.tabs__list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.3rem;
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--br-rounded);
+  margin-bottom: 1.5rem;
+}
+
+.tabs__tab {
+  background: transparent;
+  color: var(--font-color);
+  border: none;
+  border-radius: var(--br-rounded);
+  padding: 0.5rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.tabs__tab[aria-selected="true"] {
+  background: var(--color-primary);
+  color: var(--color-light);
+}
+
+.tabs__tab[aria-selected="true"]:hover {
+  background: var(--color-primary-strong);
+  color: var(--font-reverse);
+}
+
+.tabs__tab:hover {
+  background: var(--color-secondary);
+  color: var(--font-color);
+  text-decoration: underline;
+}
+
+.tabs__tab:focus-visible {
+  outline: 2px solid var(--color-primary-strong);
+  outline-offset: 2px;
+}
+
+.tabs__tab[aria-selected="true"]:focus-visible,
+[role="tabpanel"]:focus-visible {
+  outline: 0.15rem solid var(--color-primary-strong);
+  text-decoration: underline;
+}

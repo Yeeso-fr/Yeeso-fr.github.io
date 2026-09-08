@@ -1,0 +1,95 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import { Logo } from "../../ui-kit/components/atoms/Images/Logo";
+import "./stories.css";
+
+<Meta title="Brand Guidelines" />
+
+# Guidelines de style — Yeeso
+
+Ce guide fixe les fondamentaux de marque (logo, couleurs, typographies, ton) à respecter dans le site et le design system. Il retranscrit la charte graphique officielle (`design/Charte.pdf`, agence Out Of Frame, novembre 2023) et complète l'[Introduction](/storybook/?path=/docs/introduction--docs) technique.
+
+## Logo
+
+<div className="story-logo-row">
+  <div className="story-logo-block framed-four-corners">
+    <Logo />
+  </div>
+  <div className="story-logo-block story-logo-block--dark framed-four-corners" data-theme="dark">
+    <Logo />
+  </div>
+</div>
+
+Un logo tout en rondeur, symbole de réassurance et de bienveillance. Le rond évoque l'unité et l'infini ; la circonférence d'un cercle évoque le mouvement et le changement. En soulignant le « o », la marque met l'accent sur l'action de faire évoluer les choses. La baseline (« L'avenir de l'IT avec les femmes ») illustre l'ambition et la promesse de l'association.
+
+Lorsque le nom est écrit dans le texte courant, **yeeso** s'écrit en minuscule et en gras.
+
+Le logo est un fichier raster (`public/img/logos/yeeso/`), fond transparent, recadré au plus près du wordmark (ratio ~3.44:1). Il s'affiche via le composant `Logo` (`src/ui-kit/components/atoms/Images/Logo.tsx`), jamais retouché ou recoloré à la volée. Une version SVG vectorielle n'est pas encore disponible — à demander si le logo doit être décliné en petite taille (favicon, avatar).
+
+Le composant `Logo` embarque deux variantes et bascule automatiquement selon `[data-theme]`, sans JS : `logo-principal-bleu.webp` (marine, thème clair) et `logo-principal-blanc.webp` (blanc, thème sombre — généré par recoloration du tracé, alpha préservé). C'est ce qui rend le logo de la navigation lisible en mode sombre.
+
+Quatre variantes secondaires monochromes sont disponibles dans `public/img/logos/yeeso/` pour un usage décoratif futur (filigrane sur fond coloré) : `logo-secondaire-noir.webp`, `logo-secondaire-orange.webp`, `logo-secondaire-rose.webp`, `logo-secondaire-vert.webp`. Elles ne sont plus utilisées par `PageHeader`, qui n'affiche plus de logo.
+
+**Taille minimale** : la largeur du logo ne doit pas être inférieure à 2/10 de la largeur du support (ex. 40 mm pour un A4). En dessous de 40 mm, la baseline devient illisible. Dans tous les cas, jamais en dessous de 20 mm en print, ni 150 px à l'écran.
+
+**Zone de protection** : conserver un espace vide autour du logo au moins égal au diamètre d'un des ronds du wordmark (le « o »), sur les quatre côtés — aucun autre élément ne doit empiéter dans cette zone.
+
+**Prononciation** : /yéːso/ — le "Yee" comme un "é" long et étiré, le "so" comme dans "soleil".
+
+## Slogan & mission
+
+> L'avenir de l'IT avec les femmes !
+
+Nous sommes convaincu·es que nous pouvons rendre le monde de l'IT plus juste et plus équitable entre les Femmes et les Hommes en apprenant à toutes et à tous à croire en soi et en les autres, dès la scolarisation et dans la vie des organisations.
+
+**Yeeso** signifie « avenir » en peul, langue des Peuls parlée dans une vingtaine de pays africains. Le nom porte l'histoire de sa fondatrice, Houleymatou Baldé (voir la page [À propos](/a-propos) pour le récit complet).
+
+## Couleurs
+
+Palette officielle de la charte graphique (agence Out Of Frame, novembre 2023).
+
+<div className="story-palette">
+  <div className="story-swatch story-swatch--coral">Aigre-doux #E77169</div>
+  <div className="story-swatch story-swatch--primary">Bleu #212F7A</div>
+  <div className="story-swatch story-swatch--primary-tint">
+    Bleu (mode sombre) #A6ACCD
+  </div>
+  <div className="story-swatch story-swatch--green">Mint #60D1A4</div>
+  <div className="story-swatch story-swatch--noir">Noir velour #2B2B2B</div>
+  <div className="story-swatch story-swatch--accent">Mauve #EFABFF</div>
+  <div className="story-swatch story-swatch--cream">Crème #F9F7EE</div>
+</div>
+
+Couleurs principales :
+
+- **Bleu `#212F7A`** — *Digital, Sagesse, Modernité*. Couleur de marque principale. Texte/icônes/bordures en mode clair, arrière-plans (boutons, badges, bandeaux) dans les deux thèmes.
+- **Bleu tint `#A6ACCD`** — variante éclaircie utilisée uniquement comme `--color-primary-strong` en mode sombre : `#212F7A` échoue le contraste AAA (7:1) sur `--blackPearl` (#081930), le fond du thème sombre (1,47:1) ; cette teinte passe 7,89:1. Ratio validé (formule WCAG, luminance relative).
+- **Aigre-doux `#E77169`** — *Force, Vitalité, Passion*. Mappée à la fois sur `--color-lightorange` (cartes, badges) et `--color-lightred` (état d'erreur des alertes). Trop soutenu pour porter du texte directement dessus et rester conforme AAA : les cartes qui l'utilisent ont une bordure/icône colorée sur fond blanc, ou un fond en teinte pastel (`--yeeso-coral-tint`, #F7CDCB) plutôt qu'un aplat.
+
+Couleurs complémentaires :
+
+- **Mint `#60D1A4`** — *Équilibre, Renaissance, Espoir*. Couleur pop de la palette élargie (cartes, badges), mappée sur `--color-lightgreen` (implémentée en `#5FD1A4`, écart d'arrondi négligeable avec la valeur charte).
+- **Mauve `#EFABFF`** — *Douceur, Féminité*. Utilisée comme `--color-secondary` (bandeaux pleine largeur, cartes, éléments décoratifs), mappée sur `--yeeso-accent` (implémentée en `#EEAAFF`, écart d'arrondi négligeable).
+- **Noir velour `#2B2B2B`** — *Sobriété, Modernité*. Disponible en tant que token brut `--yeeso-noir-velours`. Distincte de `--blackPearl` (#081930), qui reste la couleur de fond du thème sombre — choisie spécifiquement pour son contraste AAA avec le reste de la palette plutôt que pour la fidélité au nuancier de marque. `--yeeso-noir-velours` n'a pas encore d'usage fonctionnel dans les composants ; à mobiliser au besoin (ex. déclinaison de logo sur fond noir, comme dans la charte).
+- **Crème `#F9F7EE`** — fond principal du site (`--color-light-muted`).
+
+Tous les tokens vivent dans `src/ui-kit/styles/theme/_variables.css` (palette brute) et `_light.css`/`_dark.css` (résolution par thème). Ne jamais utiliser les codes hex directement dans les composants — toujours passer par les variables CSS (`var(--color-primary)`, etc.), voir [AGENTS.md](https://github.com/yeeso/TODO-repo-name/blob/main/AGENTS.md#frontend).
+
+## Typographies
+
+<p className="story-type-specimen story-type-specimen--primary">Arimo — Aa Bb Cc</p>
+<p className="story-type-specimen story-type-specimen--secondary">Kobbi 1.1 — Aa Bb Cc</p>
+<p className="story-type-specimen story-type-specimen--mono">Fira Code — Aa Bb Cc 123</p>
+
+La charte officielle ne définit que deux polices : **Kobbi 1.1**, à l'origine réservée au wordmark du logo, et **Helvetica**, pour tout le texte courant — la charte ne prévoit pas de police d'accroche/titre distincte, seulement des graisses (Bold, Régulier, Light) d'Helvetica. La licence Kobbi 1.1 a été obtenue (© Jérémy Schneider / VJ Type, via l'agence Out Of Frame) : Yeeso a choisi d'étendre son usage aux titres et éléments d'accent du site, au-delà du seul logo.
+
+- **Primaire — Arimo** (Google Fonts, licence Apache 2.0) : remplace Helvetica/Arial, dont elle est métrique-compatible — Helvetica n'est pas une police libre et n'est pas disponible en webfont. Correspond à l'usage « texte courant » de la charte. Sa licence n'a pas encore été fournie à ce jour ; Arimo reste le substitut en attendant.
+- **Secondaire — Kobe 1.1** (licence d'usage acquise) : police de titres et d'accent, auto-hébergée dans `src/ui-kit/styles/assets/fonts/kobe11/` (4 graisses : Regular, Bold, Black, Oblique — voir `_fonts.css`).
+- **Monospace — Fira Code** : utilisée pour le code (`CodeBlock`).
+- **Polices accessibles — Luciole et OpenDyslexic** : activables via le sélecteur de police (`ToggleFont`), auto-hébergées dans `src/ui-kit/styles/assets/fonts/`. Comic Sans / Comic Relief a été retiré des options.
+
+## Traitement des photos
+
+D'après la charte :
+
+- **Portraits (bénévoles, équipe)** : détourées, contour blanc, sur fond coloré de la palette de marque — c'est le traitement utilisé pour la photo de Houleymatou Baldé dans le hero de la page d'accueil.
+- **Photos en situation (événements)** : à privilégier en noir et blanc si la qualité de la photo source n'est pas très bonne ; en couleur sinon.

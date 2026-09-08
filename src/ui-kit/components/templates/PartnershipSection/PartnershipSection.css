@@ -1,0 +1,27 @@
+.partnership-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.partnership-section__lead {
+  color: var(--font-color-muted);
+  max-width: 65ch;
+  margin: 0 0 2rem;
+
+  svg {
+    color: var(--color-lightgreen);
+  }
+}
+
+.partnership-section__note {
+  color: var(--font-color-muted);
+  max-width: 70ch;
+  line-height: 1.6;
+  margin: 2rem 0 1.5rem;
+}
+
+.partnership-section__downloads {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

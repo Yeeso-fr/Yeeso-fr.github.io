@@ -1,0 +1,24 @@
+.last-articles {
+  .last-articles__list {
+    grid-gap: 3rem;
+    margin: 30px auto;
+
+    .article-card {
+      .article-card__first-paragraph {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .last-articles__list:not(:has(li:nth-child(2))) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .last-articles__list:not(:has(li:nth-child(2))) {
+    grid-template-columns: 1fr;
+  }
+}

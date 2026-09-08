@@ -1,0 +1,29 @@
+/* ---------- Links ---------- */
+
+a {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  color: var(--font-color);
+}
+
+a:visited {
+  color: var(--font-color);
+}
+
+/* Underline alongside the color shift so hover doesn't rely on color
+   alone — a color-only change is easy to miss and fails for color-blind
+   users. */
+a:hover {
+  color: var(--color-primary-strong);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary-strong);
+  outline-offset: 2px;
+}

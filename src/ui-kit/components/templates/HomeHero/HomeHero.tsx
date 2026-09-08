@@ -1,0 +1,243 @@
+"use client";
+
+import type { CSSProperties } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { Badge } from "@/ui-kit/components/molecules/Badge/Badge";
+import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
+import { Ticker } from "@/ui-kit/components/molecules/Ticker/Ticker";
+import "./HomeHero.css";
+
+const basePath = process.env.PAGES_BASE_PATH ?? "";
+
+const TICKER_ITEMS = [
+  "Rôles modèles",
+  "IT Women Network",
+  "Confiance",
+  "Éducation",
+  "Mixité",
+  "Mentorat",
+  "Élargir le champ des possibles",
+];
+
+const LEADERS = [
+  {
+    name: "Albane",
+    role: "Leader d'antenne, Lyon",
+    photo: "albane.webp",
+    width: 920,
+    height: 900,
+    heightScale: 0.85,
+  },
+  {
+    name: "Angélique",
+    role: "Leader de squad, Animation",
+    photo: "angelique.webp",
+    width: 1200,
+    height: 1200,
+    heightScale: 0.85,
+  },
+  {
+    name: "Angi",
+    role: "Leader d'antenne, Nantes",
+    photo: "angi.webp",
+    width: 1200,
+    height: 1200,
+    heightScale: 0.85,
+  },
+  {
+    name: "Emmanuelle",
+    role: "Leader d'antenne, Paris",
+    photo: "emmanuelle.webp",
+    width: 1024,
+    height: 950,
+    heightScale: 1,
+  },
+  {
+    name: "Jacqueline",
+    role: "Leader d'antenne, Lille",
+    photo: "jacqueline.webp",
+    width: 800,
+    height: 720,
+    heightScale: 0.85,
+  },
+  {
+    name: "Jeanne",
+    role: "Leader de squad, Stratégie",
+    photo: "jeanne.webp",
+    width: 974,
+    height: 900,
+    heightScale: 0.72,
+  },
+  {
+    name: "Manon",
+    role: "Leader d'antenne, Rennes",
+    photo: "manon.webp",
+    width: 800,
+    height: 1280,
+    heightScale: 1,
+  },
+  {
+    name: "Marie-Laure",
+    role: "Leader de squad, Mentorat",
+    photo: "marie-laure.webp",
+    width: 800,
+    height: 1200,
+    heightScale: 1,
+  },
+  {
+    name: "Marie",
+    role: "Leader d'antenne, Toulouse",
+    photo: "marie.webp",
+    width: 1200,
+    height: 1200,
+    heightScale: 0.72,
+  },
+] as const;
+
+const ROTATE_INTERVAL_MS = 10_000;
+
+/**
+ * Excludes the currently-shown pair so every rotation swaps both photos —
+ * otherwise a plain random draw can re-pick one of the current two by
+ * chance, making it look like only one side changed.
+ */
+function pickTwoDistinctIndexes(
+  length: number,
+  exclude: readonly number[] = [],
+): [number, number] {
+  if (length < 2) {
+    throw new Error("pickTwoDistinctIndexes requires at least 2 items");
+  }
+
+  const pool = Array.from({ length }, (_, i) => i).filter(
+    (i) => !exclude.includes(i),
+  );
+  // If excluding the current pair leaves fewer than 2 candidates, fall back
+  // to the full set so we can still pick two distinct indexes.
+  const candidates =
+    pool.length >= 2 ? pool : Array.from({ length }, (_, i) => i);
+
+  const firstPoolIndex = Math.floor(Math.random() * candidates.length);
+  const [first] = candidates.splice(firstPoolIndex, 1);
+  const second = candidates[Math.floor(Math.random() * candidates.length)];
+  return [first, second];
+}
+
+export const HomeHero = () => {
+  // null until the client picks a random pair. The static/server HTML has
+  // no random pair to render, so the side photos simply aren't rendered
+  // yet (only Houleymatou's static main photo is) — rather than rendering
+  // a fixed placeholder pair that would flash on screen before swapping to
+  // the random one once JS runs, which read as a flicker.
+  const [pair, setPair] = useState<[number, number] | null>(null);
+
+  useLayoutEffect(() => {
+    setPair((current) => pickTwoDistinctIndexes(LEADERS.length, current ?? []));
+  }, []);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      // Skip the rotation while the user has paused animations (SC 2.2.2) —
+      // checked live on every tick so a mid-session toggle takes effect
+      // immediately, without needing to restart the timer.
+      if (
+        document.documentElement.getAttribute("data-animations") === "paused"
+      ) {
+        return;
+      }
+      setPair((current) =>
+        pickTwoDistinctIndexes(LEADERS.length, current ?? []),
+      );
+    }, ROTATE_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, []);
+
+  const left = pair ? LEADERS[pair[0]] : null;
+  const right = pair ? LEADERS[pair[1]] : null;
+
+  return (
+    <div className="home-hero-block">
+      <section className="home-hero" aria-labelledby="yeeso-title">
+        <div className="home-hero__wrapper">
+          <div className="home-hero__main">
+            <Badge filled color="var(--color-lightgreen)">
+              Association loi 1901
+            </Badge>
+            <h1 id="yeeso-title" className="home-hero__title">
+              L'avenir&nbsp;de&nbsp;l'IT{" "}
+              <span className="home-hero__title-highlight">
+                avec&nbsp;les&nbsp;femmes
+              </span>
+            </h1>
+            <p className="home-hero__lead">
+              Rendre le monde de l'IT plus juste, quel que soit le genre, en
+              apprenant à toutes et à tous à croire en soi et en les autres, dès
+              la scolarisation et dans la vie des organisations.
+            </p>
+            <div className="home-hero__cta">
+              <StyledLink href="/programmes" filled={true}>
+                Découvrir nos programmes
+              </StyledLink>
+              <StyledLink href="/entreprises" bordered={true}>
+                Devenir partenaire
+              </StyledLink>
+            </div>
+          </div>
+          <div className="home-hero__aside">
+            <div className="home-hero__photo-group">
+              {left && (
+                <figure
+                  className={`home-hero__photo home-hero__photo--side home-hero__photo--left${left.heightScale < 1 ? " home-hero__photo--compact" : ""}`}
+                  style={{ "--photo-scale": left.heightScale } as CSSProperties}
+                  key={`left-${left.photo}`}
+                >
+                  <img
+                    src={`${basePath}/img/photos/team/${left.photo}`}
+                    srcSet={`${basePath}/img/photos/team/${left.photo.replace(".webp", "-sm.webp")} 432w, ${basePath}/img/photos/team/${left.photo} 680w`}
+                    sizes="(min-width: 992px) 340px, 216px"
+                    alt={`${left.name}, ${left.role}`}
+                    width={left.width}
+                    height={left.height}
+                    className="home-hero__image"
+                  />
+                </figure>
+              )}
+
+              <figure className="home-hero__photo home-hero__photo--main">
+                <img
+                  src={`${basePath}/img/photos/team/houleymatou-hero.webp`}
+                  alt="Houleymatou Baldé, fondatrice de Yeeso"
+                  width={840}
+                  height={1120}
+                  className="home-hero__image"
+                />
+              </figure>
+
+              {right && (
+                <figure
+                  className={`home-hero__photo home-hero__photo--side home-hero__photo--right${right.heightScale < 1 ? " home-hero__photo--compact" : ""}`}
+                  style={
+                    { "--photo-scale": right.heightScale } as CSSProperties
+                  }
+                  key={`right-${right.photo}`}
+                >
+                  <img
+                    src={`${basePath}/img/photos/team/${right.photo}`}
+                    srcSet={`${basePath}/img/photos/team/${right.photo.replace(".webp", "-sm.webp")} 432w, ${basePath}/img/photos/team/${right.photo} 680w`}
+                    sizes="(min-width: 992px) 340px, 216px"
+                    alt={`${right.name}, ${right.role}`}
+                    width={right.width}
+                    height={right.height}
+                    className="home-hero__image"
+                  />
+                </figure>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+      <Ticker items={TICKER_ITEMS} />
+      <div className="home-hero-block__spacer" aria-hidden="true" />
+    </div>
+  );
+};

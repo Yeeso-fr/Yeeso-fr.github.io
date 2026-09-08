@@ -1,0 +1,62 @@
+.conference-benefits-section__container {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.conference-benefits-section__photo {
+  margin: 0;
+  border-radius: var(--br-normal);
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.conference-benefits-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.conference-benefits-section__lead {
+  color: var(--font-color-muted);
+  font-weight: 800;
+  margin: 0 0 1.5rem;
+}
+
+.conference-benefits-section__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 0.75rem 1.5rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: var(--color-lightgreen);
+  }
+}
+
+.conference-benefits-section__note {
+  color: var(--font-color-muted);
+  line-height: 1.6;
+  margin: 1.5rem 0 0;
+}
+
+@media screen and (min-width: 768px) {
+  .conference-benefits-section__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+}

@@ -1,0 +1,6 @@
+/* ---------- Abbreviations ---------- */
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}

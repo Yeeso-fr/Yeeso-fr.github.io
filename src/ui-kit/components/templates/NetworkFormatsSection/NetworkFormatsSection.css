@@ -1,0 +1,77 @@
+.network-formats-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.network-formats-section__lead {
+  color: var(--font-color-muted);
+  max-width: 70ch;
+  margin: 0 0 2.5rem;
+}
+
+.network-formats-section__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.network-formats-section__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+
+  p {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  & + & {
+    padding-top: 1rem;
+    border-top: none;
+  }
+}
+
+.network-format-card {
+  border-radius: var(--br-normal);
+  padding: 1.75rem;
+  color: var(--color-dark);
+}
+
+.network-format-card--green {
+  background: var(--color-lightgreen);
+}
+
+.network-format-card--purple {
+  background: var(--color-lightpurple);
+}
+
+.network-format-card--coral {
+  /* --color-lightorange (#e77169) is too saturated to carry AAA-compliant
+     text, so this card uses a pastel tint instead of the full accent. */
+  background: var(--yeeso-coral-tint);
+}
+
+.network-format-card--noir {
+  background: var(--yeeso-noir-velours);
+  color: var(--color-light);
+}
+
+.network-format-card__icon {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.network-format-card__title {
+  font-size: 1.1rem;
+  margin: 0 0 0.6rem;
+}
+
+.network-format-card__description {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}

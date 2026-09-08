@@ -1,0 +1,152 @@
+.styled-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  text-underline-offset: 0.25rem;
+}
+
+.styled-link:visited {
+  color: var(--font-color);
+}
+
+/* --link-hover-accent (not the fixed --yeeso-coral): plain coral fails
+   4.5:1 as text against light theme's light backgrounds (see
+   theme/_light.css). Underline too, so hover isn't color-only. */
+.styled-link:hover,
+.styled-link:focus-visible {
+  color: var(--link-hover-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.35rem;
+  text-decoration-thickness: 0.15rem;
+}
+
+/* ---------- Variant ---------- */
+
+.styled-link--reversed {
+  color: var(--font-reverse);
+}
+
+.styled-link--reversed:visited {
+  color: var(--font-reverse);
+}
+
+.styled-link--reversed:hover {
+  text-decoration: underline;
+  color: var(--color-primary-strong-reverse);
+}
+
+/* ---------- Bordered ---------- */
+
+.styled-link--bordered {
+  border: 1px solid var(--border-color);
+  border-radius: var(--br-rounded);
+  padding: 0.4rem 0.75rem;
+  text-decoration: none;
+}
+
+.styled-link--bordered.styled-link--reversed {
+  border-color: var(--border-color-reverse);
+}
+
+/* Contoured button: solid-fill inversion on hover/focus-visible (not a
+   tint) so the affordance reads clearly in both themes — background:
+   var(--font-reverse) contrasts reliably against var(--color-primary-strong)
+   in either theme (see theme/_light.css and _dark.css). */
+.styled-link--bordered:hover,
+.styled-link--bordered:focus-visible {
+  background-color: var(--color-primary-strong);
+  border-color: var(--color-primary-strong);
+  color: var(--font-reverse);
+}
+
+.styled-link--bordered.styled-link--reversed:hover {
+  color: var(--color-primary-strong-reverse);
+  border-color: var(--color-primary-strong-reverse);
+  background-color: color-mix(
+    in srgb,
+    var(--color-primary-strong-reverse) 15%,
+    transparent
+  );
+}
+
+/* ---------- Filled ---------- */
+
+/* --styled-link-fill(-fg) are set inline by the component from either the
+   `color` brand-chart enum or a `customColor`/`customTextColor` pair — the
+   fallback values are what renders when neither is passed. */
+.styled-link--filled {
+  background: var(--styled-link-fill, var(--color-primary));
+  color: var(--styled-link-fill-fg, var(--color-light));
+  /* Same color as the fill at rest (invisible) — reserves the border's
+     space up front so the hover/focus-visible inversion below doesn't
+     shift the layout by adding a border where none existed. */
+  border: 2px solid var(--styled-link-fill, var(--color-primary));
+  border-radius: var(--br-rounded);
+  padding: 0.65rem 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.styled-link--filled:visited {
+  color: var(--styled-link-fill-fg, var(--color-light));
+}
+
+/* Inversion, not a darken/tint: background becomes the old text color,
+   border/text become the old background — on hover and focus-visible
+   alike. */
+.styled-link--filled:visited:hover,
+.styled-link--filled:hover,
+.styled-link--filled:focus-visible {
+  background-color: var(--color-primary-strong);
+  border-color: var(--color-primary-strong);
+  color: var(--font-reverse);
+}
+
+/* ------------ Icon ------------ */
+
+/* Consuming components override sizing/color for a specific context (e.g. a
+   dark card background) via the --styled-link-icon-* custom properties below,
+   rather than fighting this rule's specificity — custom property inheritance
+   applies regardless of the overriding selector's specificity. */
+.styled-link.styled-link--icon {
+  width: var(--styled-link-icon-size, 2.5rem);
+  height: var(--styled-link-icon-size, 2.5rem);
+  padding: 0;
+  border-radius: var(--br-circle);
+  border: 1px solid var(--styled-link-icon-border-color, var(--border-color));
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--styled-link-icon-color, var(--font-color));
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+  text-decoration: none;
+
+  &:visited {
+    color: var(--styled-link-icon-color, var(--font-color));
+  }
+
+  /* Solid-fill inversion (not just a color/border swap) on hover and
+     focus-visible alike — var(--font-reverse) contrasts reliably against
+     the accent fill in either theme. */
+  &:hover,
+  &:focus-visible {
+    background-color: var(
+      --styled-link-icon-hover-color,
+      var(--color-primary-strong)
+    );
+    border-color: var(
+      --styled-link-icon-hover-color,
+      var(--color-primary-strong)
+    );
+    color: var(--font-reverse);
+  }
+
+  svg {
+    width: var(--styled-link-icon-svg-size, 1.2rem);
+  }
+}
