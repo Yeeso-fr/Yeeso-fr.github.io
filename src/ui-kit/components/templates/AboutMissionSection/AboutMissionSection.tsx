@@ -71,12 +71,14 @@ export const AboutMissionSection = () => {
               key={value.title}
               className={`about-value-card ${value.modifier}`}
             >
-              <FontAwesomeIcon
-                icon={value.icon}
-                className="about-value-card__icon"
-                aria-hidden
-              />
-              <h3 className="about-value-card__title">{value.title}</h3>
+              <div className="about-value-card__header">
+                <FontAwesomeIcon
+                  icon={value.icon}
+                  className="about-value-card__icon"
+                  aria-hidden
+                />
+                <h3 className="about-value-card__title">{value.title}</h3>
+              </div>
               <p className="about-value-card__description">
                 {value.description}
               </p>
