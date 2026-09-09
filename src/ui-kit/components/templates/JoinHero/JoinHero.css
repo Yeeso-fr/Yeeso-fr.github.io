@@ -40,13 +40,13 @@
 }
 
 .join-hero__reassurance-card {
-  background: var(--background-contrast);
+  background: var(--yeeso-coral-tint);
   border-radius: var(--br-normal);
   padding: 1.25rem 1.5rem;
+  color: var(--color-dark);
 
   p {
     margin: 0;
-    color: var(--font-color-muted);
     font-size: 0.9rem;
     line-height: 1.5;
   }
