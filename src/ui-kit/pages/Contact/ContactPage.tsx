@@ -1,12 +1,15 @@
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ANTENNA_LEADERS } from "@/config/antenna-leaders";
 import { CONTACT_EMAIL, LINKEDIN_URL } from "@/config/social-links";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import { ContactForm } from "@/ui-kit/components/organisms/ContactForm/ContactForm";
 import { MembershipCallout } from "@/ui-kit/components/templates/MembershipCallout/MembershipCallout";
 import { PageHeader } from "@/ui-kit/components/templates/PageHeader/PageHeader";
 import "./ContactPage.css";
+
+const basePath = process.env.PAGES_BASE_PATH ?? "";
 
 export const ContactPage = () => {
   return (
@@ -24,32 +27,60 @@ export const ContactPage = () => {
             <div className="contact-page__grid">
               <ContactForm />
 
-              <div className="contact-page__info">
+              <div className="contact-info-card">
                 <StyledLink
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="contact-card contact-card--green"
+                  className="contact-info-card__row"
                 >
-                  <FontAwesomeIcon icon={faEnvelope} aria-hidden />
-                  <span className="contact-card__label">E-mail</span>
-                  <strong>{CONTACT_EMAIL}</strong>
+                  <span className="contact-info-card__icon contact-info-card__icon--green">
+                    <FontAwesomeIcon icon={faEnvelope} aria-hidden />
+                  </span>
+                  <span className="contact-info-card__row-text">
+                    <span className="contact-info-card__label">E-mail</span>
+                    <strong>{CONTACT_EMAIL}</strong>
+                  </span>
                 </StyledLink>
 
-                <div className="contact-card contact-card--purple">
-                  <FontAwesomeIcon icon={faLocationDot} aria-hidden />
-                  <span className="contact-card__label">Siège</span>
-                  <strong>Lyon, France</strong>
+                <div className="contact-info-card__row">
+                  <span className="contact-info-card__icon contact-info-card__icon--purple">
+                    <FontAwesomeIcon icon={faLocationDot} aria-hidden />
+                  </span>
+                  <span className="contact-info-card__row-text">
+                    <span className="contact-info-card__label">Siège</span>
+                    <strong>Lyon, France</strong>
+                  </span>
                 </div>
 
                 <StyledLink
                   href={LINKEDIN_URL}
-                  className="contact-card contact-card--orange"
+                  className="contact-info-card__row"
                 >
-                  <FontAwesomeIcon icon={faLinkedin} aria-hidden />
-                  <span className="contact-card__label">LinkedIn</span>
-                  <strong>Yeeso</strong>
+                  <span className="contact-info-card__icon contact-info-card__icon--orange">
+                    <FontAwesomeIcon icon={faLinkedin} aria-hidden />
+                  </span>
+                  <span className="contact-info-card__row-text">
+                    <span className="contact-info-card__label">LinkedIn</span>
+                    <strong>Yeeso</strong>
+                  </span>
                 </StyledLink>
 
-                <div className="contact-card">
+                <div className="contact-info-card__map">
+                  <img
+                    className="contact-info-card__map-img"
+                    src={`${basePath}/img/carte-antennes-sm.webp`}
+                    alt={`Carte de France situant les ${ANTENNA_LEADERS.length} antennes de Yeeso.`}
+                    width={744}
+                    height={687}
+                  />
+                  <p className="contact-info-card__map-caption">
+                    {ANTENNA_LEADERS.length} antennes partout en France
+                  </p>
+                  <StyledLink href="/a-propos#antennes">
+                    Voir toutes nos antennes
+                  </StyledLink>
+                </div>
+
+                <div className="contact-info-card__about">
                   <strong>Yeeso</strong>
                   <p>
                     Association loi 1901 à but non lucratif, dédiée à la
