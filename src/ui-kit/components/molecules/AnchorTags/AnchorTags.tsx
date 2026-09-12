@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Badge } from "@/ui-kit/components/molecules/Badge/Badge";
 import "./AnchorTags.css";
 
 type AnchorTagsProps = {
@@ -12,9 +11,9 @@ export const AnchorTags = ({ items, ariaLabel }: AnchorTagsProps) => (
     <ul className="anchor-tags__list">
       {items.map((item) => (
         <li key={item.id}>
-          <Badge>
-            <Link href={`#${item.id}`}>{item.label}</Link>
-          </Badge>
+          <Link href={`#${item.id}`} className="anchor-tags__card">
+            {item.label}
+          </Link>
         </li>
       ))}
     </ul>
