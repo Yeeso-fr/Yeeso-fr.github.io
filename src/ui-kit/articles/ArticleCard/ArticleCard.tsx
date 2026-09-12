@@ -1,7 +1,7 @@
 import { format, parseISO } from "date-fns";
 import { fr } from "date-fns/locale";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
-import { slugifyCategory } from "@/usecases/articles";
+import { slugifyCategory } from "@/usecases/slugifyCategory";
 import "./ArticleCard.css";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";

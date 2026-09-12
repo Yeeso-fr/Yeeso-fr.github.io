@@ -1,0 +1,49 @@
+.articles-search__field {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  max-width: 26rem;
+  margin: 0 0 2rem;
+  padding: 0.65rem 0.9rem;
+  color: var(--font-color-muted);
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--br-normal);
+
+  &:focus-within {
+    outline: 2px solid var(--color-primary-strong);
+    outline-offset: 1px;
+  }
+
+  input {
+    flex: 1;
+    font: inherit;
+    color: var(--font-color);
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: var(--font-color-muted);
+    }
+  }
+}
+
+.articles-search__empty {
+  color: var(--font-color-muted);
+}
+
+/* ArticlesList/ArticlesList.css has its own same-specificity
+   `.articles__list:has(> li:only-child) { grid-template-columns: 1fr }`,
+   meant for a single leftover card on the last page of pagination (kept
+   full-width there since it's already treated as the "featured" item via
+   the sibling first-child rule). A single search result isn't that —
+   scoping one extra class here outranks it back down to the normal
+   :only-child width instead of stretching edge to edge. */
+.articles-search .articles__list:has(> li:only-child) {
+  grid-template-columns: minmax(0, 50%);
+}

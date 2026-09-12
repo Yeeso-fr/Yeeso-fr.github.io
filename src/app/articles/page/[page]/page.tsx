@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { buildPageMetadata } from "@/config/seo";
 import { ArticlesListPage } from "@/ui-kit/pages/Articles/ArticlesListPage";
 import {
+  getAllArticles,
   getPaginatedArticles,
   getTotalArticlePages,
 } from "@/usecases/articles";
@@ -35,6 +36,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <ArticlesListPage
       articles={articles}
+      allArticles={getAllArticles()}
       authors={authors}
       currentPage={currentPage}
       totalPages={totalPages}

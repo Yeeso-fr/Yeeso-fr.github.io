@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { buildPageMetadata } from "@/config/seo";
 import { ArticlesListPage } from "@/ui-kit/pages/Articles/ArticlesListPage";
-import { getPaginatedArticles } from "@/usecases/articles";
+import { getAllArticles, getPaginatedArticles } from "@/usecases/articles";
 import { getAllAuthors } from "@/usecases/authors";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
@@ -13,6 +13,7 @@ export default function Page() {
   return (
     <ArticlesListPage
       articles={articles}
+      allArticles={getAllArticles()}
       authors={authors}
       currentPage={1}
       totalPages={totalPages}

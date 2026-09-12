@@ -1,21 +1,15 @@
 import { compareDesc } from "date-fns";
 import { readArticles } from "@/infrastructure/articles/articles.repository";
 
+// Re-exported for existing importers — see slugifyCategory.ts for why the
+// implementation itself lives in its own fs-free module.
+export { slugifyCategory } from "@/usecases/slugifyCategory";
+
 const ARTICLES_PER_PAGE = 6;
 const WORDS_PER_MINUTE = 200;
 
 export function getAllArticles() {
   return readArticles();
-}
-
-/** ASCII-safe URL slug for a category (e.g. "Nos rôles modèles" -> "nos-roles-modeles"). */
-export function slugifyCategory(category: string): string {
-  return category
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
 }
 
 export function getLastArticles(limit: number) {
