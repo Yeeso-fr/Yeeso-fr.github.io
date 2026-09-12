@@ -26,7 +26,7 @@ const LEADERS = [
     photo: "albane.webp",
     width: 920,
     height: 900,
-    heightScale: 0.85,
+    heightScale: 0.7,
   },
   {
     name: "Angélique",
@@ -34,7 +34,7 @@ const LEADERS = [
     photo: "angelique.webp",
     width: 1200,
     height: 1200,
-    heightScale: 0.85,
+    heightScale: 0.7,
   },
   {
     name: "Angi",
@@ -42,7 +42,7 @@ const LEADERS = [
     photo: "angi.webp",
     width: 1200,
     height: 1200,
-    heightScale: 0.85,
+    heightScale: 0.8,
   },
   {
     name: "Emmanuelle",
@@ -50,7 +50,7 @@ const LEADERS = [
     photo: "emmanuelle.webp",
     width: 1024,
     height: 950,
-    heightScale: 1,
+    heightScale: 0.85,
   },
   {
     name: "Jacqueline",
@@ -58,7 +58,7 @@ const LEADERS = [
     photo: "jacqueline.webp",
     width: 800,
     height: 720,
-    heightScale: 0.85,
+    heightScale: 0.7,
   },
   {
     name: "Jeanne",
@@ -66,7 +66,15 @@ const LEADERS = [
     photo: "jeanne.webp",
     width: 974,
     height: 900,
-    heightScale: 0.72,
+    heightScale: 0.6,
+  },
+  {
+    name: "Loudie",
+    role: "Leader d'antenne, Biarritz",
+    photo: "loudie.webp",
+    width: 1917,
+    height: 1821,
+    heightScale: 0.6,
   },
   {
     name: "Manon",
@@ -90,7 +98,7 @@ const LEADERS = [
     photo: "marie.webp",
     width: 1200,
     height: 1200,
-    heightScale: 0.72,
+    heightScale: 0.68,
   },
 ] as const;
 
