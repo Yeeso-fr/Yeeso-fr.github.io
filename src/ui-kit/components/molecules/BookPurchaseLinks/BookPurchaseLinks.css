@@ -1,0 +1,12 @@
+/* flex-basis: 100% forces this onto its own line within the parent's
+   flex-wrap row, under both CTA buttons — the containing sections all
+   already use display: flex; flex-wrap: wrap for their CTA row. Color is
+   left to inherit (not pinned) since callers render this on both fixed-navy
+   cards and theme-reactive ones; font-weight alone is what makes it read as
+   a callout rather than fine print. */
+.book-purchase-links__note {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+}

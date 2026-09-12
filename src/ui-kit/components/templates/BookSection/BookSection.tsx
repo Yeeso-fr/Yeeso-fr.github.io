@@ -31,10 +31,6 @@ export const BookSection = () => {
             <div className="book-section__cta">
               <BookPurchaseLinks amazonClassName="book-section__amazon-link" />
             </div>
-            <p className="book-section__note">
-              Une commande HelloAsso est un don à Yeeso : le livre se retire en
-              main propre lors d'un de nos événements.
-            </p>
           </div>
         </div>
       </div>
