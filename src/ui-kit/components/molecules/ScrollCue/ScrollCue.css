@@ -29,7 +29,11 @@
 .scroll-cue:hover {
   border-color: var(--color-primary-strong);
   color: var(--color-primary-strong);
-  background: color-mix(in srgb, var(--font-color) 8%, var(--background-primary));
+  background: color-mix(
+    in srgb,
+    var(--font-color) 8%,
+    var(--background-primary)
+  );
 }
 
 @keyframes scroll-cue-bounce {

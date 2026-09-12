@@ -60,7 +60,11 @@
 
 .anchor-tags__card:hover {
   border-color: var(--color-primary-strong);
-  background: color-mix(in srgb, var(--color-primary-strong) 10%, var(--color-light));
+  background: color-mix(
+    in srgb,
+    var(--color-primary-strong) 10%,
+    var(--color-light)
+  );
 }
 
 /* Below 768px the badge labels wrap onto several lines, turning the sticky

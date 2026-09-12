@@ -17,8 +17,8 @@ export const BookPurchaseLinks = ({
       Acheter sur Amazon
     </StyledLink>
     <p className="book-purchase-links__note">
-      * Une commande HelloAsso est un don à Yeeso : le livre se retire en
-      main propre lors d'un de nos événements.
+      * Une commande HelloAsso est un don à Yeeso : le livre se retire en main
+      propre lors d'un de nos événements.
     </p>
   </>
 );
