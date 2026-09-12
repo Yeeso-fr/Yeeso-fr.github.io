@@ -168,3 +168,14 @@
     width: auto;
   }
 }
+
+/* This logo's artwork is dark navy on a transparent background — legible on
+   the page's light theme but not on dark, unlike Ronalpia's, which bakes its
+   own light backdrop into the image. A fixed white chip behind it (same
+   fixed-white-regardless-of-theme approach as .partners-list__item) keeps it
+   readable in both themes instead. */
+.mission-section__labels-logo-chip {
+  background: var(--color-light);
+  border-radius: var(--br-normal);
+  padding: 0.4rem 0.6rem;
+}

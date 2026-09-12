@@ -126,7 +126,10 @@ export const MissionSection = () => {
                 height={1668}
               />
             </StyledLink>
-            <StyledLink href={FEMMES_NUMERIQUE_URL}>
+            <StyledLink
+              href={FEMMES_NUMERIQUE_URL}
+              className="mission-section__labels-logo-chip"
+            >
               <img
                 src={`${basePath}/img/logos/associations/femmes-at-numerique.webp`}
                 alt="Femmes@Numérique"
