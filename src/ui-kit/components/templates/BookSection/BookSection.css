@@ -94,17 +94,6 @@
   }
 }
 
-/* */
-
-.book-section__note {
-  font-size: 0.85rem;
-  /* --yeeso-primary-tint (used for muted text on dark theme backgrounds
-     elsewhere) only reaches ~5.2:1 against this card's specific navy —
-     under the AAA 7:1 threshold for small text — so this stays plain
-     white like the rest of the card's text instead of dimming. */
-  color: var(--color-light);
-}
-
 @media screen and (min-width: 640px) {
   .book-section__card {
     grid-template-columns: 220px 1fr;
