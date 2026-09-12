@@ -235,6 +235,19 @@
 .home-hero-block__spacer {
   flex-shrink: 0;
   height: clamp(3rem, 8vw, 6rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Absorbs whatever vertical slack is left in .home-hero-block's min-height
+   on tall viewports, so that slack lands here — between the ticker and the
+   ScrollCue — instead of above .home-hero's content (which is flush against
+   the ticker below it, not free to grow into extra space itself). Collapses
+   to 0 height on mobile/short viewports, where .home-hero-block has no
+   forced min-height and nothing needs absorbing. */
+.home-hero-block__fill {
+  flex: 1 1 auto;
 }
 
 @media screen and (min-width: 992px) {
@@ -244,16 +257,27 @@
        overflowing it by the nav's height. Only applied once the
        side-by-side layout below makes a full-height hero read as
        intentional — on mobile/tablet it would just strand the content
-       far from the ticker on tall, narrow screens. */
-    /* min() rather than separate min-height/max-height rules: per spec, a
-       conflicting min-height always wins over max-height, so on tall
-       desktop viewports a plain max-height cap would get silently
-       ignored and the hero would keep growing with 100dvh. */
-    min-height: min(calc(100dvh - 4.5rem), 820px);
+       far from the ticker on tall, narrow screens. Not capped: the
+       ScrollCue at the bottom of the spacer needs to land at the actual
+       viewport edge on load, to line up with the fixed font/animation
+       toggle buttons pinned there — a shorter capped block would leave a
+       gap between the two on tall viewports. Subtracts .main's own 1rem
+       top margin too (4.5rem nav + 1rem margin = 5.5rem), or this block
+       overflows the viewport by that same 1rem and the ScrollCue lands
+       too low. */
+    min-height: calc(100dvh - 5.5rem);
   }
 
   .home-hero {
-    flex: 1;
+    flex: 1 1 auto;
+    /* Caps how much of .home-hero-block's slack this actually claims —
+       restores the original ≤820px-tall look content used to have under
+       the old capped block height. Past that, flexbox freezes this at the
+       cap and hands the rest of the free space to .home-hero-block__fill
+       instead, so extra tall-viewport slack collects there (pushing the
+       ScrollCue down to the real viewport edge) rather than growing this
+       and leaving a big empty gap above the bottom-anchored content. */
+    max-height: 820px;
     /* Bottom-aligned (not centered) so the photo sits flush against the
        ticker below, with no gap — the text column re-centers itself
        within the row via the grid's align-items below. */

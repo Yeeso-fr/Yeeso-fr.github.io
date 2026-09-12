@@ -1,0 +1,49 @@
+/* Size/border/shadow match .icon-toggle-button + .animation-toggle (the
+   fixed font/animation-pause buttons) so this reads as part of the same
+   family of floating circular controls. */
+.scroll-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-inline: auto;
+  border-radius: var(--br-circle);
+  border: 1px solid color-mix(in srgb, var(--font-color) 20%, transparent);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  background: var(--background-primary);
+  color: var(--font-color-muted);
+  font-size: 1.1rem;
+  text-decoration: none;
+  animation: scroll-cue-bounce 1.8s ease-in-out infinite;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.scroll-cue:visited {
+  color: var(--font-color-muted);
+}
+
+.scroll-cue:hover {
+  border-color: var(--color-primary-strong);
+  color: var(--color-primary-strong);
+  background: color-mix(in srgb, var(--font-color) 8%, var(--background-primary));
+}
+
+@keyframes scroll-cue-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue {
+    animation: none;
+  }
+}

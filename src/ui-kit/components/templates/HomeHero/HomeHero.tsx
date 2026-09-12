@@ -3,6 +3,7 @@
 import type { CSSProperties } from "react";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { Badge } from "@/ui-kit/components/molecules/Badge/Badge";
+import { ScrollCue } from "@/ui-kit/components/molecules/ScrollCue/ScrollCue";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import { Ticker } from "@/ui-kit/components/molecules/Ticker/Ticker";
 import "./HomeHero.css";
@@ -245,7 +246,10 @@ export const HomeHero = () => {
         </div>
       </section>
       <Ticker items={TICKER_ITEMS} />
-      <div className="home-hero-block__spacer" aria-hidden="true" />
+      <div className="home-hero-block__fill" aria-hidden="true" />
+      <div className="home-hero-block__spacer">
+        <ScrollCue href="#constat" ariaLabel="Aller à la section suivante" />
+      </div>
     </div>
   );
 };

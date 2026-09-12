@@ -5,6 +5,7 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ScrollCue } from "@/ui-kit/components/molecules/ScrollCue/ScrollCue";
 import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./ProgramsSection.css";
 
@@ -70,6 +71,8 @@ export const ProgramsSection = () => {
             </div>
           ))}
         </div>
+
+        <ScrollCue href="#livre" ariaLabel="Aller à la section suivante" />
       </div>
     </section>
   );
