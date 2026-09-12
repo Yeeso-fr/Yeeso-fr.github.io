@@ -1,0 +1,13 @@
+.mentorat-page__intro {
+  padding-top: 2rem;
+
+  p {
+    max-width: 70ch;
+    color: var(--font-color-muted);
+    margin: 0;
+  }
+}
+
+.mentorat-page__widget {
+  padding: 2rem 0 4rem;
+}

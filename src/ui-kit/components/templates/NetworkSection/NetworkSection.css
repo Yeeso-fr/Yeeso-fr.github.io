@@ -38,6 +38,13 @@
   max-width: 55ch;
 }
 
+.network-section__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
 .network-section__item {
   display: flex;
   align-items: center;

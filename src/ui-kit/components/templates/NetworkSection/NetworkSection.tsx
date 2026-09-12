@@ -1,5 +1,7 @@
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { MEETUP_URL } from "@/config/social-links";
+import { StyledLink } from "@/ui-kit/components/molecules/StyledLink/StyledLink";
 import "./NetworkSection.css";
 
 const basePath = process.env.PAGES_BASE_PATH ?? "";
@@ -44,6 +46,20 @@ export const NetworkSection = ({
               </li>
             ))}
           </ul>
+
+          <div className="network-section__cta">
+            <StyledLink href={MEETUP_URL} bordered>
+              Voir nos meetups
+            </StyledLink>
+            <StyledLink
+              href="/mentorat"
+              filled
+              brandColor="mint"
+              prefetch={false}
+            >
+              Prendre un rendez-vous de mentorat
+            </StyledLink>
+          </div>
         </div>
 
         <figure className="network-section__photo">
