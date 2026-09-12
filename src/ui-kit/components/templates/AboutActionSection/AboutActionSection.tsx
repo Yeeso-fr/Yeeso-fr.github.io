@@ -49,6 +49,9 @@ export const AboutActionSection = () => {
             <StyledLink href="/articles" bordered={true}>
               Lire le blog
             </StyledLink>
+            <StyledLink href="/mentorat" bordered={true} prefetch={false}>
+              Prendre un rendez-vous de mentorat
+            </StyledLink>
           </div>
         </div>
       </div>

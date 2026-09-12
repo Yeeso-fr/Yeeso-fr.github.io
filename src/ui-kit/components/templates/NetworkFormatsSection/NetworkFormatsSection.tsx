@@ -81,6 +81,18 @@ export const NetworkFormatsSection = () => {
         </div>
 
         <div className="network-formats-section__cta">
+          <p>Tu es déjà accompagnée par un·e mentor·e ?</p>
+          <StyledLink
+            href="/mentorat"
+            filled
+            brandColor="mint"
+            prefetch={false}
+          >
+            Prendre un rendez-vous de mentorat
+          </StyledLink>
+        </div>
+
+        <div className="network-formats-section__cta">
           <p>Retrouvez toutes nos prochaines rencontres sur Meetup.</p>
           <StyledLink href={MEETUP_URL} filled brandColor="mint">
             Voir nos événements

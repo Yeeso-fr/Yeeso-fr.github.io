@@ -12,6 +12,7 @@ const SITEMAP_LINKS: SitemapLink[] = [
   { href: "/a-propos", label: "À propos" },
   { href: "/programmes", label: "Programmes" },
   { href: "/reseau", label: "Réseau" },
+  { href: "/mentorat", label: "Mentorat" },
   { href: "/entreprises", label: "Entreprises" },
   { href: "/education", label: "Éducation" },
   { href: "/conferences", label: "Conférences" },
