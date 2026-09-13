@@ -8,6 +8,7 @@ import { DEFAULT_OG_IMAGE_PATH, SITE_DESCRIPTION } from "@/config/seo";
 import { Footer } from "@/ui-kit/components/templates/Footer/Footer";
 import { Navigation } from "@/ui-kit/components/templates/Navigation/Navigation";
 import { RouteAnnouncer } from "@/ui-kit/components/templates/RouteAnnouncer/RouteAnnouncer";
+import { ScrollToTop } from "@/ui-kit/components/templates/ScrollToTop/ScrollToTop";
 import { getAllArticles } from "@/usecases/articles";
 import { getQaScores } from "@/usecases/qa-scores";
 
@@ -138,6 +139,7 @@ export default function RootLayout({
         <link rel="stylesheet" href={`${basePath}/print.css`} media="print" />
       </head>
       <body>
+        <ScrollToTop />
         <RouteAnnouncer />
         <Navigation hasArticles={hasArticles} />
         {children}
