@@ -1,0 +1,67 @@
+:root {
+  /* Fixed pale-blue + navy pairing (not theme-reactive): flat design has no
+     border to lean on, so the badge needs a background of its own to read
+     as a chip rather than plain text — a fixed pairing sidesteps having to
+     compute a matching tint for every theme. Callers wanting a different
+     accent (e.g. the hero's green, via --filled) pass their own color. */
+  --badge-color: var(--color-primary);
+  --badge-bg: var(--color-lightblue);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--badge-bg);
+  color: var(--badge-color);
+  border-radius: var(--br-rounded);
+  padding: 0.35rem 1rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.badge a,
+.badge a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Hover had no affordance at all (color: inherit, no decoration) — add an
+   underline so a hovered badge-link is distinguishable from a static one. */
+.badge a:hover,
+.badge a:focus-visible {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.badge:has(a:hover),
+.badge:has(a:focus-visible) {
+  background-color: var(--color-primary-strong);
+  color: var(--font-reverse);
+
+  a:focus-visible,
+  a:hover {
+    text-underline-offset: 0.25rem;
+  }
+}
+
+/* Fixed outline color: the badge's background pairing is fixed (not
+   theme-reactive, see comment above), and the global `a:focus-visible`
+   outline uses --color-primary-strong — a light tint in dark theme,
+   too close to the badge's own fixed light-blue background. */
+.badge a:focus-visible {
+  outline: 2px solid var(--badge-color);
+  outline-offset: 2px;
+}
+
+.badge--filled {
+  /* Statically filled with a vivid, fixed accent (e.g. the hero's green)
+     rather than the subtle default pairing — needs fixed dark text since
+     that accent isn't necessarily paired with one already. */
+  background: var(--badge-color);
+  color: var(--color-dark);
+}

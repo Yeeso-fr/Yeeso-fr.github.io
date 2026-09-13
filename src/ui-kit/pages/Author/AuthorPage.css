@@ -1,0 +1,69 @@
+.author-page__header {
+  background-color: var(--background-primary);
+  padding: clamp(2rem, 5vw, 4rem) 0;
+
+  .author-page__header-wrapper {
+    max-width: calc(var(--article-max-width) + 6rem);
+    padding-inline: 1rem;
+    margin: auto;
+    opacity: 0;
+    animation: slide-up 0.8s ease-out forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+      opacity: 1;
+    }
+
+    .author-card {
+      max-width: calc(var(--article-max-width) + 6rem);
+      padding: clamp(1.5rem, 5vw, 3rem) clamp(1rem, 5vw, 5rem);
+      background-color: var(--background-primary);
+      border: none;
+      margin: auto;
+
+      .author-card__name {
+        font-size: var(--fs-h1);
+        line-height: 1.2;
+      }
+
+      .author-card__footer {
+        display: none;
+      }
+    }
+  }
+}
+
+.author-page__section-container {
+  width: min(100% - 2rem, calc(var(--article-max-width) + 6rem));
+  margin-inline: auto;
+  padding-block: 3rem;
+}
+
+.author-page__articles {
+  background-color: var(--background-primary);
+}
+
+.author-page__title {
+  font-size: var(--fs-h2);
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.author-page__articles-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.author-page__articles-list .article-card__title {
+  opacity: 0;
+  animation: slide-up 0.6s ease-out calc(0.1s + var(--card-index, 0) * 60ms)
+    forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .author-page__articles-list .article-card__title {
+    animation: none;
+    opacity: 1;
+  }
+}

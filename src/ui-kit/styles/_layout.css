@@ -1,0 +1,122 @@
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+  font-weight: 400;
+}
+
+html,
+body,
+[data-theme] {
+  background: var(--background-primary);
+  box-sizing: border-box;
+  font-family: var(--font-primary), sans-serif;
+  font-size: 16px;
+  color: var(--font-color);
+}
+
+body {
+  margin: 0;
+}
+
+[data-animations="paused"] *,
+[data-animations="paused"] *::before,
+[data-animations="paused"] *::after {
+  /* biome-ignore lint/complexity/noImportantStyles: must beat per-component animation/transition rules regardless of their specificity */
+  animation-duration: 0.01ms !important;
+  /* biome-ignore lint/complexity/noImportantStyles: must beat per-component animation/transition rules regardless of their specificity */
+  animation-delay: 0s !important;
+  /* biome-ignore lint/complexity/noImportantStyles: must beat per-component animation/transition rules regardless of their specificity */
+  animation-iteration-count: 1 !important;
+  /* biome-ignore lint/complexity/noImportantStyles: forces the element to its end keyframe instead of freezing mid-animation */
+  animation-fill-mode: forwards !important;
+  /* biome-ignore lint/complexity/noImportantStyles: scroll/view-timeline-driven animations ignore duration — "none" would detach the animation and freeze it invisible, so use the normal document timeline instead */
+  animation-timeline: auto !important;
+  /* biome-ignore lint/complexity/noImportantStyles: must beat per-component animation/transition rules regardless of their specificity */
+  transition: none !important;
+}
+
+/* ---------- Containers ---------- */
+
+.main {
+  background: var(--background-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(350px);
+  margin: 1rem auto 0;
+}
+
+section {
+  width: 100%;
+
+  .section_title {
+    margin-bottom: 20px;
+    font-family: var(--font-secondary), sans-serif;
+    font-size: 2rem;
+    line-height: 40px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+
+    &:has(> :only-child) {
+      justify-content: flex-end;
+    }
+  }
+}
+
+main > section {
+  padding: 3.75rem 1.25rem;
+  scroll-margin-top: 5.5rem;
+
+  > section {
+    max-width: var(--container-max-width);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  main > section {
+    padding: 4rem 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  main > section {
+    padding: 4.5rem 5rem;
+  }
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.framed-four-corners {
+  border: 2px solid var(--color-primary-strong);
+  border-radius: var(--br-normal);
+}
+
+.section-eyebrow {
+  display: block;
+  color: var(--color-primary-strong);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}

@@ -1,0 +1,10 @@
+.education-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.education-section__lead {
+  color: var(--font-color-muted);
+  max-width: 70ch;
+  margin: 0 0 2.5rem;
+}

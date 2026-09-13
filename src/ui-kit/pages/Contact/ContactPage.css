@@ -1,0 +1,146 @@
+.contact-page__lead {
+  max-width: 55ch;
+  color: var(--font-color-muted);
+  font-size: 1.1rem;
+  margin: 0 0 2.5rem;
+}
+
+.contact-page__grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-page__info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Background is fixed white regardless of theme (like .program-card), so
+   text/link colors here are pinned too rather than using the theme-reactive
+   --font-color, which would turn illegible on a permanently white card. */
+.contact-info-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--br-normal);
+  background: var(--color-light);
+  color: var(--color-dark);
+  overflow: hidden;
+
+  a,
+  a:visited,
+  a:hover {
+    color: var(--color-dark);
+  }
+}
+
+.contact-info-card > * {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.contact-info-card > *:last-child {
+  border-bottom: none;
+}
+
+.contact-info-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+}
+
+/* Color doesn't change on hover (fixed-safe value already), so hover/focus
+   need a non-color affordance. Fixed outline color too: the global
+   `a:focus-visible` outline uses --color-primary-strong, a light tint in
+   dark theme — invisible against this permanently white card. */
+a.contact-info-card__row:hover {
+  background: rgba(0, 0, 0, 0.03);
+  text-decoration: underline;
+}
+
+a.contact-info-card__row:focus-visible {
+  outline: 2px solid var(--color-dark);
+  outline-offset: 2px;
+}
+
+.contact-info-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--br-circle);
+  font-size: 1.05rem;
+}
+
+.contact-info-card__icon--green {
+  background: var(--color-lightgreen);
+}
+
+.contact-info-card__icon--purple {
+  background: var(--color-lightpurple);
+}
+
+.contact-info-card__icon--orange {
+  /* --color-lightorange (#e77169) is too saturated to carry AAA-compliant
+     text, so this chip uses a pastel tint instead of the full accent. */
+  background: var(--yeeso-coral-tint);
+  color: var(--color-lightorange);
+}
+
+.contact-info-card__row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: left;
+}
+
+.contact-info-card__label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-info-card__map {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+
+.contact-info-card__map-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+}
+
+.contact-info-card__map-caption {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.contact-info-card__about {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.5rem;
+
+  p {
+    margin: 0 0 0.4rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .contact-page__grid {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}

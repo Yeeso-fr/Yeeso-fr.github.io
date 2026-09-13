@@ -1,0 +1,21 @@
+.training-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 0.75rem;
+}
+
+.training-section__lead {
+  color: var(--font-color-muted);
+  max-width: 65ch;
+  margin: 0 0 2rem;
+
+  svg {
+    color: var(--color-lightgreen);
+  }
+}
+
+.training-section__note {
+  color: var(--font-color-muted);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin: 1.5rem 0 0;
+}

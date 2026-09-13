@@ -1,0 +1,21 @@
+.membership-callout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  /* Theme-aware "contrast" surface (white on light, shark-gray on dark) —
+     paired with --font-color-muted below, which is calibrated against this
+     variable in both themes. A hardcoded --color-light background here
+     would stay white in dark mode too, but --font-color-muted flips to a
+     near-white tone with it, crushing contrast to ~1:1 (caught by axe). */
+  background: var(--background-contrast);
+  border-radius: var(--br-normal);
+  padding: 1.75rem 2rem;
+}
+
+.membership-callout__text {
+  margin: 0;
+  color: var(--font-color-muted);
+  max-width: 60ch;
+}

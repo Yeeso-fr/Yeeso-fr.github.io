@@ -1,0 +1,126 @@
+.anchor-tags {
+  /* Rendered as a direct child of <main>, rather than nested in its own
+     short <section> or <div>. That's on purpose: position: sticky keeps an
+     element pinned only within its containing block's box, so a short
+     dedicated wrapper would make it stick then immediately unstick. <main>
+     spans the whole page, so this can stay stuck all the way down. */
+  /* .main is a flex column (align-items: center), so a direct child sizes
+     to its own content unless told to fill the available width first —
+     same reason the global `section { width: 100% }` rule exists, which
+     doesn't apply here since this is a <nav>, not a <section>. Kept at the
+     full <main> width (no max-width here) so the sticky background stays
+     opaque edge-to-edge over whatever full-bleed section scrolls under it —
+     the container max-width + centering lives on .anchor-tags__list
+     instead. */
+  width: 100%;
+  margin: 0 0 2rem;
+  padding: 0.75rem 1.25rem;
+  position: sticky;
+  /* .navigation is itself sticky at top:0 and renders at a fixed 72px tall
+     across breakpoints — this sticks right below it. */
+  top: 72px;
+  z-index: 999;
+  background: var(--background-primary);
+}
+
+.anchor-tags__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  list-style: none;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Small card rather than a pill/chip: a fixed white surface with its own
+   border reads as a distinct tappable tile, and holds up against both the
+   light and dark page background this bar sticks over. */
+.anchor-tags__card {
+  display: inline-flex;
+  align-items: center;
+  background: var(--color-light);
+  color: var(--color-dark);
+  border: 1px solid var(--border-color);
+  border-radius: var(--br-normal);
+  padding: 0.5rem 1rem;
+  font-weight: 800;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.anchor-tags__card:visited {
+  color: var(--color-dark);
+}
+
+.anchor-tags__card:hover {
+  border-color: var(--color-primary-strong);
+  background: color-mix(
+    in srgb,
+    var(--color-primary-strong) 10%,
+    var(--color-light)
+  );
+}
+
+/* Below 768px the badge labels wrap onto several lines, turning the sticky
+   bar into a tall band that stays pinned across the whole page. Scrolling
+   the list horizontally on one line instead keeps the sticky bar thin. */
+@media screen and (max-width: 767.98px) {
+  .anchor-tags {
+    /* Bleed to the viewport edges so the fade masks below sit flush and the
+       scrollable row isn't inset by the page's usual horizontal padding. */
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .anchor-tags__list {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 1.25rem;
+  }
+
+  .anchor-tags__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .anchor-tags__list li {
+    flex: 0 0 auto;
+  }
+
+  /* Fade hint on the trailing edge so it reads as scrollable rather than
+     cut off. */
+  .anchor-tags::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1.5rem;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--background-primary)
+    );
+    pointer-events: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .anchor-tags {
+    padding: 0.75rem 2rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .anchor-tags {
+    padding: 0.75rem 5rem;
+  }
+}

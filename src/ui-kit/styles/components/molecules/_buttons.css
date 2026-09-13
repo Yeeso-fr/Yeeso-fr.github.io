@@ -1,0 +1,111 @@
+/* ---------- Buttons ---------- */
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-primary), sans-serif;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--br-rounded);
+  color: var(--font-color);
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  /* Hover/focus both get a full solid-fill inversion — not just a color/
+     border tweak or an outline ring — so the affordance reads clearly in
+     both themes: background: var(--font-reverse) contrasts reliably
+     against var(--color-primary-strong) in either theme (see
+     theme/_light.css and _dark.css). */
+  &:not(:disabled):visited:hover,
+  &:not(:disabled):hover,
+  &:focus-visible {
+    background-color: var(--color-primary-strong);
+    border-color: var(--color-primary-strong);
+    color: var(--font-reverse);
+
+    svg {
+      stroke: var(--font-reverse);
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary-strong);
+    outline-offset: 2px;
+  }
+}
+
+/* Filled — the default button above is contoured (bordered, transparent
+   fill); this is the filled alternative. --button-fill(-fg) can be set
+   inline from the Yeeso brand palette (see brandColors.ts) to pick a
+   color other than the default blue. */
+
+.button--filled {
+  background: var(--button-fill, var(--color-primary));
+  border-color: var(--button-fill, var(--color-primary));
+  color: var(--button-fill-fg, var(--color-light));
+  font-weight: 700;
+
+  /* Inversion, not a darken/tint: bg becomes the old text color, border/
+     text become the old background — e.g. bg=green/color=blue turns into
+     bg=blue/border=green/color=green on hover and focus-visible alike. */
+  &:not(:disabled):hover,
+  &:focus-visible {
+    background: var(--button-fill-fg, var(--color-light));
+    border-color: var(--button-fill, var(--color-primary));
+    color: var(--button-fill, var(--color-primary));
+  }
+}
+
+/* Reversed */
+
+.button--reversed {
+  color: var(--font-reverse);
+  border-color: var(--border-color-reverse);
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--font-reverse);
+    border-color: var(--font-reverse);
+    color: var(--color-primary);
+  }
+}
+
+/* Icon */
+
+.button--icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: var(--br-circle);
+  border: 1px solid var(--border-color);
+  color: var(--font-color);
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+
+  svg {
+    width: 1.2rem;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-primary-strong);
+    border-color: var(--color-primary-strong);
+    color: var(--font-reverse);
+  }
+}

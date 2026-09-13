@@ -1,0 +1,81 @@
+.context-section__title {
+  font-size: var(--fs-h2);
+  margin: 0 0 1rem;
+}
+
+.context-section__lead {
+  color: var(--font-color-muted);
+  max-width: 70ch;
+  margin: 0 0 2.5rem;
+}
+
+.context-section__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.context-stat-card {
+  border-radius: var(--br-normal);
+  padding: 1.75rem;
+  color: var(--color-dark);
+}
+
+.context-stat-card--purple {
+  background: var(--color-lightpurple);
+}
+
+.context-stat-card--green {
+  background: var(--color-lightgreen);
+}
+
+.context-stat-card--coral {
+  /* --color-lightorange (#e77169) is too saturated to carry AAA-compliant
+     text, so this card uses a pastel tint instead of the full accent. */
+  background: var(--yeeso-coral-tint);
+}
+
+.context-stat-card--noir {
+  background: var(--yeeso-noir-velours);
+  color: var(--color-light);
+}
+
+.context-stat-card__value {
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+}
+
+.context-stat-card__label {
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.context-stat-card__source {
+  margin: 0;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.context-section__quote {
+  margin: 0;
+  padding: 1.75rem 2rem;
+  border-radius: var(--br-normal);
+  background: var(--color-lightpurple);
+  color: var(--color-dark);
+
+  p {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0 0 0.75rem;
+  }
+
+  footer {
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+}

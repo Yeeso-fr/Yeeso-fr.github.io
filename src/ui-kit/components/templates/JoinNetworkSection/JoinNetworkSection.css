@@ -1,0 +1,87 @@
+.join-network-section__container {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.join-network-section__photo {
+  margin: 0;
+  border-radius: var(--br-normal);
+  overflow: hidden;
+  line-height: 0;
+  /* This section is photo-first in the DOM (for the desktop photo-left/
+     content-right layout), but content should read first on mobile — see
+     the brief's explicit "Mobile : contenu puis photo" note. */
+  order: 2;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.join-network-section__content {
+  order: 1;
+}
+
+.join-network-section__number {
+  display: block;
+  font-family: var(--font-secondary), sans-serif;
+  font-weight: 700;
+  color: var(--color-lightblue);
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.join-network-section__title {
+  font-size: var(--fs-h2);
+  margin: 0.5rem 0 1.25rem;
+}
+
+.join-network-section__list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 55ch;
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-weight: 600;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: var(--color-primary-strong);
+  }
+}
+
+.join-network-section__tagline {
+  font-weight: 800;
+  color: var(--color-primary-strong);
+  margin: 0 0 1.5rem;
+}
+
+.join-network-section__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .join-network-section__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .join-network-section__photo,
+  .join-network-section__content {
+    order: 0;
+  }
+}

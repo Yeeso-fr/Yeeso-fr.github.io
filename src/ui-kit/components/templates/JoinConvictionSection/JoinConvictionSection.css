@@ -1,0 +1,106 @@
+.join-conviction-section {
+  /* "Bloc de conviction" — meant to stand out from the page's own
+     background, using the theme's inverted (reverse) colors so it still
+     flips correctly between light and dark theme. */
+  background: var(--background-reverse);
+  color: var(--font-reverse);
+}
+
+.join-conviction-section .section-eyebrow {
+  color: var(--color-lightgreen);
+}
+
+.join-conviction-section__number {
+  display: block;
+  font-family: var(--font-secondary), sans-serif;
+  font-weight: 700;
+  color: var(--font-reverse-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.join-conviction-section__title {
+  font-size: var(--fs-h2);
+  max-width: 30ch;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.join-conviction-section__list {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+  max-width: 70rem;
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-weight: 600;
+  }
+
+  svg {
+    flex-shrink: 0;
+    color: var(--color-lightgreen);
+  }
+}
+
+.join-conviction-section__highlight {
+  /* Pops against the section's reverse background using the page's own
+     normal (theme-following) background/text pairing. */
+  background: var(--background-primary);
+  color: var(--font-color);
+  border-radius: var(--br-normal);
+  padding: 1.5rem 1.75rem;
+  max-width: 60rem;
+  margin: 0 0 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 800;
+
+  span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+}
+
+.join-conviction-section__tagline {
+  font-weight: 800;
+  color: var(--color-lightgreen);
+  margin: 0 0 1.5rem;
+}
+
+.join-conviction-section__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* The bordered CTA's default colors (--color-primary-strong etc.) assume a
+   normal theme-following background, but this section's background is
+   already the theme's reverse — use the matching reverse text/border
+   tokens instead so it stays readable in both themes. */
+.join-conviction-section__cta .styled-link--bordered {
+  color: var(--font-reverse);
+  border-color: var(--font-reverse);
+
+  &:focus-visible,
+  &:hover {
+    color: var(--background-reverse);
+    border-color: var(--font-reverse);
+    background-color: var(--font-reverse);
+  }
+
+  /* Fixed outline color too: the global `a:focus-visible` outline uses
+     --color-primary-strong, which resolves to a dark color in dark theme —
+     invisible against this section's fixed dark background. */
+  &:focus-visible {
+    outline: 2px solid var(--color-light);
+    outline-offset: 2px;
+  }
+}
