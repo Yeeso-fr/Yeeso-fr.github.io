@@ -1,9 +1,9 @@
-name: Deploy Yeeso preprod to GitHub Pages
+name: Deploy Yeeso to GitHub Pages
 
 on:
   push:
     branches:
-      - site-refresh
+      - main
   workflow_dispatch:
 
 permissions:
@@ -89,6 +89,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
-      - name: Deploy Yeeso preprod to GitHub Pages
+      - name: Deploy Yeeso to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
