@@ -1,7 +1,18 @@
 import {
+  ADOD_URL,
+  BECOMTECH_URL,
+  CEGID_URL,
   CMQ_IED_URL,
+  EPSI_URL,
   FEMMES_NUMERIQUE_URL,
+  FONDATION_DE_FRANCE_URL,
+  FONDATION_EMERGENCE_URL,
+  INOVEN_URL,
+  NOVODEV_URL,
+  REVELLES_URL,
   RONALPIA_URL,
+  SHODO_URL,
+  TECH_SHOW_PARIS_URL,
 } from "@/config/social-links";
 import { Ticker } from "@/ui-kit/components/molecules/Ticker/Ticker";
 import "./PartnersSection.css";
@@ -22,6 +33,7 @@ const PARTNERS: Partner[] = [
     logo: "associations/fondation-de-france.webp",
     width: 1280,
     height: 1280,
+    href: FONDATION_DE_FRANCE_URL,
   },
   {
     name: "Éducation nationale",
@@ -30,27 +42,48 @@ const PARTNERS: Partner[] = [
     height: 183,
     href: CMQ_IED_URL,
   },
-  { name: "Cegid", logo: "entreprises/cegid.webp", width: 609, height: 249 },
+  {
+    name: "Cegid",
+    logo: "entreprises/cegid.webp",
+    width: 609,
+    height: 249,
+    href: CEGID_URL,
+  },
   {
     name: "Shodo Lyon",
     logo: "entreprises/shodo-lyon.webp",
     width: 400,
     height: 400,
+    href: SHODO_URL,
   },
-  { name: "Adod", logo: "entreprises/Adod.svg", width: 132, height: 61 },
+  {
+    name: "Adod",
+    logo: "entreprises/Adod.svg",
+    width: 132,
+    height: 61,
+    href: ADOD_URL,
+  },
   {
     name: "Inoven",
     logo: "entreprises/inoven.webp",
     width: 600,
     height: 600,
+    href: INOVEN_URL,
   },
   {
     name: "Novodev",
     logo: "entreprises/novodev.webp",
     width: 983,
     height: 226,
+    href: NOVODEV_URL,
   },
-  { name: "Epsi", logo: "ecoles/epsi.webp", width: 411, height: 216 },
+  {
+    name: "Epsi",
+    logo: "ecoles/epsi.webp",
+    width: 411,
+    height: 216,
+    href: EPSI_URL,
+  },
   {
     name: "Femmes@Numérique",
     logo: "associations/femmes-at-numerique.webp",
@@ -63,12 +96,14 @@ const PARTNERS: Partner[] = [
     logo: "associations/becometech.webp",
     width: 400,
     height: 87,
+    href: BECOMTECH_URL,
   },
   {
     name: "Rev'elles",
     logo: "associations/rev-elles.webp",
     width: 750,
     height: 562,
+    href: REVELLES_URL,
   },
   {
     name: "Ronalpia",
@@ -82,12 +117,14 @@ const PARTNERS: Partner[] = [
     logo: "associations/fondation-emergences.webp",
     width: 1501,
     height: 410,
+    href: FONDATION_EMERGENCE_URL,
   },
   {
     name: "Tech Show Paris",
     logo: "associations/tech-show-paris-black.webp",
     width: 1600,
     height: 456,
+    href: TECH_SHOW_PARIS_URL,
   },
 ];
 
@@ -126,7 +163,7 @@ export const PartnersSection = () => {
     <section className="partners-section" id="partenaires" tabIndex={-1}>
       <div className="container">
         <span className="section-eyebrow">Nos partenaires</span>
-        <h2 className="partners-section__title">Ils soutiennent Yeeso</h2>
+        <h2 className="partners-section__title">Ils collaborent avec Yeeso</h2>
       </div>
 
       {/* main > section has its own horizontal padding, so break out of it

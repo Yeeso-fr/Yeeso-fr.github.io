@@ -15,5 +15,16 @@ export const FEMMES_NUMERIQUE_URL = "https://www.femmes-numerique.fr/";
 export const MEMBERSHIP_URL =
   "https://www.helloasso.com/associations/yeeso/adhesions/particulier-engagee";
 export const CMQ_IED_URL = "https://www.linkedin.com/company/cmq-ied/";
+export const ADOD_URL = "https://adod.fr/";
+export const BECOMTECH_URL = "https://becomtech.fr/";
+export const CEGID_URL = "https://www.cegid.com/fr/";
+export const EPSI_URL = "https://www.epsi.fr/";
+export const FONDATION_DE_FRANCE_URL = "https://www.fondationdefrance.org/fr/";
+export const FONDATION_EMERGENCE_URL = "https://www.fondation-emergences.fr/";
+export const INOVEN_URL = "https://inoven.fr/";
+export const NOVODEV_URL = "https://www.novodev.fr/";
+export const REVELLES_URL = "https://revelles.org/";
+export const SHODO_URL = "https://shodo.io/";
+export const TECH_SHOW_PARIS_URL = "https://www.techshowparis.fr/";
 export const DIVERSITES_ET_ENTREPRISES_URL =
   "https://www.diversitesetentreprises.fr/";
