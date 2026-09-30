@@ -52,6 +52,33 @@
     z-index: 1001;
   }
 
+  .burger-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    transition: transform 0.3s ease;
+
+    /* Overrides the global button hover fill (_buttons.css): this icon-only
+       toggle has no border/text to invert, just the scaling lines below. */
+    &:hover {
+      transform: scale(1.1);
+      background-color: var(--color-primary-strong);
+      border-color: var(--color-primary-strong);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-primary-strong);
+      outline-offset: 2px;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
   li {
     margin-bottom: 0;
 
@@ -94,33 +121,6 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-  }
-
-  .burger-button {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    z-index: 1001;
-    transition: transform 0.3s ease;
-
-    /* Overrides the global button hover fill (_buttons.css): this icon-only
-       toggle has no border/text to invert, just the scaling lines below. */
-    &:hover {
-      transform: scale(1.1);
-      background-color: var(--color-primary-strong);
-      border-color: var(--color-primary-strong);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--color-primary-strong);
-      outline-offset: 2px;
-      background-color: transparent;
-      border-color: transparent;
-    }
   }
 
   .burger-line {

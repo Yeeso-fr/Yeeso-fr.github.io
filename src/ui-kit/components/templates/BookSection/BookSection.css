@@ -39,24 +39,6 @@
   color: var(--color-lightgreen);
 }
 
-.book-section__cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin: 0.25rem 0;
-
-  .styled-link--filled {
-    border: 1px solid transparent;
-    &:focus-visible,
-    &:hover {
-      color: var(--color-primary);
-      border-color: var(--color-light);
-      background-color: var(--color-light);
-      outline-color: var(--color-light);
-    }
-  }
-}
-
 .book-section__amazon-link {
   /* Fixed white, not the theme-reactive --border-color/--font-color: this
      card's background is always navy regardless of theme. The global
@@ -91,6 +73,24 @@
     border-color: var(--color-primary-strong);
     color: var(--font-reverse);
     outline-color: var(--color-primary-strong);
+  }
+}
+
+.book-section__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.25rem 0;
+
+  .styled-link--filled {
+    border: 1px solid transparent;
+    &:focus-visible,
+    &:hover {
+      color: var(--color-primary);
+      border-color: var(--color-light);
+      background-color: var(--color-light);
+      outline-color: var(--color-light);
+    }
   }
 }
 
